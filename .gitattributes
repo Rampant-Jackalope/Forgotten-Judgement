@@ -1,0 +1,15 @@
+# Godot
+.godot/
+.import/
+
+# Binary assets
+*.png             binary
+*.jpg             binary
+*.jpeg            binary
+*.webp            binary
+*.gif             binary
+*.wav             binary
+*.mp3             binary
+*.ogg             binary
+*.ttf             binary
+*.otf             binary
