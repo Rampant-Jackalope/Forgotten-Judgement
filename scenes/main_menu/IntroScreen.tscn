@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dwkhiyoqe0c33"]
+
+[ext_resource type="Script" uid="uid://bqy6wnm3mpy0f" path="res://scenes/main_menu/IntroScreen.gd" id="1_6y35g"]
+[ext_resource type="VideoStream" uid="uid://ckrfa7whfxqcc" path="res://scenes/main_menu/introscreen/Intro_test1.ogv" id="2_v4uce"]
+
+[node name="IntroScreen" type="Node2D" unique_id=1322769584]
+script = ExtResource("1_6y35g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=324016715]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=904592956]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=102941738]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_v4uce")
+expand = true

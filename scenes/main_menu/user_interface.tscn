@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dxfwnogo10lw7"]
+
+[ext_resource type="Script" uid="uid://c51o75vmfghe4" path="res://scenes/main_menu/user_interface.gd" id="1_i7dvk"]
+[ext_resource type="Texture2D" uid="uid://cp80epf356p30" path="res://scenes/main_menu/menuscreen_features/pexels-gera-cejas-3616330-27954459.jpg" id="1_kxhmu"]
+[ext_resource type="AudioStream" uid="uid://bll4hl68sy287" path="res://scenes/main_menu/menuscreen_features/MenuScroll.mp3" id="3_r3lf1"]
+[ext_resource type="AudioStream" uid="uid://dyw3aicylxcct" path="res://scenes/main_menu/menuscreen_features/MenuCancel.mp3" id="4_hsgek"]
+[ext_resource type="AudioStream" uid="uid://cx7lyg7ta5ecd" path="res://scenes/main_menu/menuscreen_features/QuitGame.mp3" id="5_f4522"]
+[ext_resource type="AudioStream" uid="uid://h5cyxtd1vb6h" path="res://scenes/main_menu/menuscreen_features/SelectConfirm.mp3" id="6_q287o"]
+[ext_resource type="AudioStream" uid="uid://csto3fwcc32ag" path="res://scenes/main_menu/menuscreen_features/MainMenuMusic.mp3" id="7_hsgek"]
+
+[sub_resource type="FontFile" id="FontFile_gi4ia"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_246eg"]
+default_font = SubResource("FontFile_gi4ia")
+
+[sub_resource type="Theme" id="Theme_fnnle"]
+
+[node name="UserInterface" type="Control" unique_id=1212917609]
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_246eg")
+script = ExtResource("1_i7dvk")
+
+[node name="MainMenu" type="Node2D" parent="." unique_id=2123677635]
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu" unique_id=1380709037]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -62.0
+offset_right = 1928.0
+offset_bottom = 1218.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kxhmu")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu" unique_id=420027249]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 598.0
+offset_top = 242.0
+offset_right = 1323.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainButtons" type="VBoxContainer" parent="MainMenu/MarginContainer" unique_id=1590206207]
+custom_minimum_size = Vector2(600, 0)
+custom_maximum_size = Vector2(1600, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleLabel" type="Label" parent="MainMenu/MarginContainer/MainButtons" unique_id=1580243814]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "Forgotten Judgement"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="MainMenu/MarginContainer/MainButtons" unique_id=1066981562]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Start Game"
+
+[node name="LoadButton" type="Button" parent="MainMenu/MarginContainer/MainButtons" unique_id=494367331]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Load Game"
+
+[node name="OptionsButton" type="Button" parent="MainMenu/MarginContainer/MainButtons" unique_id=770804574]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MainMenu/MarginContainer/MainButtons" unique_id=1381577824]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme = SubResource("Theme_fnnle")
+theme_override_font_sizes/font_size = 46
+text = "Quit"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="MainMenu/MarginContainer" unique_id=756848892]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/MarginContainer/OptionsMenu" unique_id=599468346]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/OptionsMenu/HBoxContainer" unique_id=105066363]
+layout_mode = 2
+text = "Taal / language"
+
+[node name="LanguageSelect" type="OptionButton" parent="MainMenu/MarginContainer/OptionsMenu/HBoxContainer" unique_id=949705584]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MainMenu/MarginContainer/OptionsMenu" unique_id=1855574531]
+layout_mode = 2
+text = "Terug"
+
+[node name="SoundScroll" type="AudioStreamPlayer" parent="." unique_id=716745732]
+stream = ExtResource("3_r3lf1")
+volume_db = -10.0
+
+[node name="SoundCancel" type="AudioStreamPlayer" parent="." unique_id=2003399638]
+stream = ExtResource("4_hsgek")
+volume_db = -10.0
+
+[node name="SoundQuit" type="AudioStreamPlayer" parent="." unique_id=390417705]
+stream = ExtResource("5_f4522")
+volume_db = -10.0
+
+[node name="SoundConfirm" type="AudioStreamPlayer" parent="." unique_id=1546643080]
+stream = ExtResource("6_q287o")
+volume_db = -10.0
+
+[node name="SoundMainMenu" type="AudioStreamPlayer" parent="." unique_id=959948631]
+stream = ExtResource("7_hsgek")
+volume_db = -10.0
