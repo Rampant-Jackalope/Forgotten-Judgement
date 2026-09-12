@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://duoqelq7djm7p" path="res://scenes/rooms/room_1.tscn" id="1_twpsu"]
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/player.tscn" id="2_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://nhe1x4bk4vkf" path="res://scenes/rooms/room_2.tscn" id="3_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://bi2tm781necjc" path="res://scenes/rooms/room_3.tscn" id="4_sqa0i"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -28,3 +29,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="room-2" parent="." unique_id=575601817 instance=ExtResource("3_lrqlo")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -9)
+
+[node name="room3" parent="." unique_id=361365491 instance=ExtResource("4_sqa0i")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 3, 0)
