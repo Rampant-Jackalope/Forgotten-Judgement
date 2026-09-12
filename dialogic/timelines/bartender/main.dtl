@@ -5,3 +5,7 @@ bartender: Hi, what can I do for you today?
 	bartender: No idea you tell me
 - Who are you
 	bartender: I'm a bartender
+- Where can I get the stage key | [if {michael.REDIRECT_TO_BARTENDER} == true && {michael.HAS_STAGE_KEY} == false]
+	bartender: Here ya go I don't sing anyway
+	[rainbow]You have obtained the backstage key!
+	set {michael.HAS_STAGE_KEY} = true

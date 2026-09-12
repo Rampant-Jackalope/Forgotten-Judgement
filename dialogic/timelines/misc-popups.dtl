@@ -1,0 +1,13 @@
+label obtain_drip_jacket
+[rainbow] You have obtained a drip jacket
++3 Cool points
+set {michael.RESPECT} += 3.0
+[end_timeline]
+label obtain_drip_chain
+[rainbow] You have obtained a drip necklace
++2 Cool points
+set {michael.RESPECT} += 2.0
+[end_timeline]
+label exit_door_locked
+[color=red]The door is locked
+[end_timeline]

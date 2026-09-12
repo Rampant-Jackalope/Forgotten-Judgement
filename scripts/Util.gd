@@ -32,9 +32,12 @@ static func show_temp_richlabel(
 
 	return label
 
-static func run_locked_dialogue(timeline: String) -> void:
+static func run_locked_dialogue(timeline: String, label: String = "") -> void:
 	var player: Player = Engine.get_main_loop().root.get_node("World/Player")
 	player.dialogue_lock()
-	Dialogic.start(timeline)
+	if label != "":
+		Dialogic.start(timeline, label)
+	else:
+		Dialogic.start(timeline)
 	await Dialogic.timeline_ended
 	player.dialogue_free()

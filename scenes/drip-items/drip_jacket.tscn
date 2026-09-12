@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bxtqv1ta73u1i"]
+
+[ext_resource type="Script" uid="uid://baca2hku6ekto" path="res://scenes/drip-items/drip_jacket.gd" id="1_36wxg"]
+[ext_resource type="Script" uid="uid://cxvgh6t2gxhl0" path="res://scripts/Interactable3D.gd" id="1_p1bw7"]
+[ext_resource type="Texture2D" uid="uid://i0bvad6bmwnw" path="res://assets/npc-billboards/drip-jacket.png" id="2_36wxg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kpxu"]
+size = Vector3(1, 0.20727539, 1)
+
+[node name="DripJacket" type="Node3D" unique_id=232150285]
+script = ExtResource("1_36wxg")
+
+[node name="Interactable3D" type="Area3D" parent="." unique_id=1033094834]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_p1bw7")
+metadata/_custom_type_script = "uid://cxvgh6t2gxhl0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D" unique_id=666212492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008178711, 0)
+shape = SubResource("BoxShape3D_1kpxu")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1323703775]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+texture_filter = 2
+texture = ExtResource("2_36wxg")
+
+[connection signal="left_clicked" from="Interactable3D" to="." method="_on_interactable_3d_left_clicked"]

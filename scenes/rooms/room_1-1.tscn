@@ -3,6 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dexqwoe5lddn5" path="res://mesh_libs/prototype-kit-collisioned.res" id="1_0tsjr"]
 [ext_resource type="PackedScene" uid="uid://b1fgsmoiwv4nl" path="res://assets/prototype-kit/Models/wall-window-cutout-large.glb" id="2_fbq1s"]
 [ext_resource type="PackedScene" uid="uid://cpnfjr5desd8u" path="res://assets/prototype-kit/Models/column.glb" id="3_wodat"]
+[ext_resource type="PackedScene" uid="uid://bxtqv1ta73u1i" path="res://scenes/drip-items/drip_jacket.tscn" id="4_kdwdx"]
 [ext_resource type="PackedScene" uid="uid://ci4ri57f6dx83" path="res://scenes/rooms/interactable_objects/door.tscn" id="4_p8nu4"]
 [ext_resource type="Script" uid="uid://dglihgbswidqg" path="res://scenes/rooms/door_r.gd" id="4_v1x83"]
 [ext_resource type="Script" uid="uid://blnj0pl8adlnt" path="res://scenes/rooms/door_l.gd" id="6_aq8op"]
@@ -130,6 +131,9 @@ transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-
 
 [node name="column" parent="walls/Shelves_back/shelf1/column4" index="0" unique_id=1826397086]
 surface_material_override/0 = SubResource("StandardMaterial3D_wk2u4")
+
+[node name="DripJacket" parent="walls" unique_id=232150285 instance=ExtResource("4_kdwdx")]
+transform = Transform3D(0.89102346, 0, -0.45395732, 0, 1, 0, 0.45395732, 0, 0.89102346, 4.4685345, 0.0055654943, 0)
 
 [node name="interactables" type="Node3D" parent="." unique_id=1814622473]
 
