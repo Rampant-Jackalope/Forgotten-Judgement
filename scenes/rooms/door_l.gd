@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func _on_interactable_door_left_clicked(hit_position: Vector3, normal: Vector3) -> void:
 	child.toggle()
-	Util.run_locked_dialogue("bartender_warning")
+	Util.run_locked_dialogue("bartender/warning")
