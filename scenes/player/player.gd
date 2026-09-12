@@ -23,12 +23,17 @@ extends CharacterBody3D
 
 var jump_speed: float
 
+
+@onready var crosshair: Panel = $crosshair
+
 var _current_interactable: Interactable3D = null
 var _current_hit_position: Vector3 = Vector3.ZERO
 var _current_hit_normal: Vector3 = Vector3.UP
 
 enum CameraMode { FIRST_PERSON, THIRD_PERSON }
 var camera_mode: int = CameraMode.FIRST_PERSON
+
+var dialogue_locked: bool = false
 
 func _ready() -> void:
 	set_cam_perspective(camera_mode)
@@ -37,6 +42,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
+	if dialogue_locked:
+		return
 	# Mouse look: yaw rotates the whole body, pitch only rotates the camera
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -58,6 +65,11 @@ func _input(event: InputEvent) -> void:
 		_handle_interact_input(event as InputEventMouseButton)
 
 func get_input() -> void:
+	if dialogue_locked:
+		velocity.x = 0.0
+		velocity.z = 0.0
+		return
+
 	if Input.is_action_just_pressed("toggle_camera_perspective"):
 		toggle_cam_perspective()
 	var input_dir := Vector3.ZERO
@@ -159,3 +171,11 @@ func set_max_pitch_deg(value: float) -> void:
 
 func set_interact_range(value: float) -> void:
 	interact_range = value
+
+func dialogue_lock() -> void:
+	dialogue_locked = true
+	crosshair.hide()
+
+func dialogue_free() -> void:
+	dialogue_locked = false
+	crosshair.show()

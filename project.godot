@@ -21,10 +21,17 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"bartender": "res://dialogic/characters/bartender.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"bartender": "res://dialogic/timelines/bartender.dtl"
+}
 layout/style_directory={}
+variables={
+"TRIED_TO_EXIT": false
+}
+glossary/default_case_sensitive=true
 
 [display]
 

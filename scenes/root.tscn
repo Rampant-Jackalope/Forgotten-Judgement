@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/player.tscn" id="2_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://nhe1x4bk4vkf" path="res://scenes/rooms/room_1-2.tscn" id="3_lrqlo"]
 [ext_resource type="PackedScene" uid="uid://bi2tm781necjc" path="res://scenes/rooms/room_2-1.tscn" id="4_sqa0i"]
+[ext_resource type="PackedScene" uid="uid://bmejpadjnl6dt" path="res://scenes/npcs/bartender.tscn" id="5_jh1ax"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" unique_id=869964523]
+[node name="World" type="WorldEnvironment" unique_id=869964523]
 environment = SubResource("Environment_1kpxu")
 
 [node name="Player" parent="." unique_id=230271742 instance=ExtResource("2_lrqlo")]
@@ -32,3 +33,8 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -9)
 
 [node name="room3" parent="." unique_id=361365491 instance=ExtResource("4_sqa0i")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 3, 0)
+
+[node name="NPCs" type="Node3D" parent="." unique_id=1218542087]
+
+[node name="bartender" parent="NPCs" unique_id=2041825012 instance=ExtResource("5_jh1ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3494983, 0, 0)

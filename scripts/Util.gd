@@ -31,3 +31,10 @@ static func show_temp_richlabel(
 	tween.tween_callback(label.queue_free)
 
 	return label
+
+static func run_locked_dialogue(timeline: String) -> void:
+	var player: Player = Engine.get_main_loop().root.get_node("World/Player")
+	player.dialogue_lock()
+	Dialogic.start(timeline)
+	await Dialogic.timeline_ended
+	player.dialogue_free()
