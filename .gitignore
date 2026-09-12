@@ -1,3 +1,5 @@
 .godot/
 addons/*
 Tests/*
+assets/.building-kit/
+assets/retro-fantasy-kit/
