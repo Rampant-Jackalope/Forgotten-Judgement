@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://duoqelq7djm7p"]
+
+[ext_resource type="MeshLibrary" uid="uid://dexqwoe5lddn5" path="res://mesh_libs/prototype-kit-collisioned.res" id="1_0tsjr"]
+[ext_resource type="PackedScene" uid="uid://b1fgsmoiwv4nl" path="res://assets/prototype-kit/Models/wall-window-cutout-large.glb" id="2_fbq1s"]
+[ext_resource type="PackedScene" uid="uid://cpnfjr5desd8u" path="res://assets/prototype-kit/Models/column.glb" id="3_wodat"]
+[ext_resource type="PackedScene" uid="uid://ci4ri57f6dx83" path="res://scenes/rooms/interactable_objects/door.tscn" id="4_p8nu4"]
+[ext_resource type="Script" uid="uid://dglihgbswidqg" path="res://scenes/rooms/door_r.gd" id="4_v1x83"]
+[ext_resource type="Script" uid="uid://blnj0pl8adlnt" path="res://scenes/rooms/door_l.gd" id="6_aq8op"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
+map_width = 10
+map_depth = 8
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kpxu"]
+albedo_color = Color(0.4862745, 0.3372549, 0.21960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbxjm"]
+albedo_color = Color(0.4862745, 0.3372549, 0.21960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vivyq"]
+albedo_color = Color(0.4862745, 0.3372549, 0.21960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk2u4"]
+albedo_color = Color(0.4862745, 0.3372549, 0.21960784, 1)
+
+[node name="room-1" type="Node3D" unique_id=1815709629]
+
+[node name="floor" type="GridMap" parent="." unique_id=839488390]
+mesh_library = ExtResource("1_0tsjr")
+cell_size = Vector3(1, 0.2, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(-65536, 0, 27, -3, 3, 655385, -3, 65533, 1048601, -65533, 3, 1441817, -65533, 65533, 25, -65531, 2, 1441817, -65531, 65534, 25, -65531, 1, 27, -65531, 0, 27, -65531, 65535, 27, -65532, 65534, 27, -65532, 2, 27, -65532, 1, 27, -65532, 0, 27, -65532, 65535, 27, -65533, 2, 27, -65533, 1, 27, -65533, 0, 27, -65533, 65535, 27, -65533, 65534, 27, -65534, 65533, 27, -65535, 65533, 27, -65536, 65533, 27, -1, 65533, 27, -1, 65534, 27, -2, 65534, 27, -2, 65533, 27, -3, 2, 27, -3, 1, 27, -3, 0, 27, -3, 65535, 27, -3, 65534, 27, -2, 3, 27, -1, 3, 27, -1, 2, 27, -65536, 2, 27, -65536, 3, 27, -65535, 3, 27, -65535, 2, 27, -65534, 2, 27, -65534, 3, 27, -65534, 0, 27, -65534, 1, 27, -65534, 65535, 27, -65535, 65534, 27, -65535, 65535, 27, -65536, 65534, 27, -65534, 65534, 27, -65535, 0, 27, -65536, 1, 27, -65535, 1, 27, -1, 1, 27, -2, 1, 27, -2, 2, 27, -2, 0, 27, -2, 65535, 27, -1, 65535, 27, -1, 0, 27, -65536, 65535, 27)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=976911591]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=1298478076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("HeightMapShape3D_mbxjm")
+
+[node name="walls" type="GridMap" parent="." unique_id=2031546985]
+mesh_library = ExtResource("1_0tsjr")
+cell_size = Vector3(0.2, 1, 0.2)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(15, 65521, 122, 65521, 65521, 1048698, 15, 15, 1441914, 65521, 15, 655482, 25, 65526, 122, 25, 10, 1441914, 0, 65519, 1441909, 0, 17, 1441911, 10, 65519, 1441924, 65526, 65519, 1441924, 65519, 65526, 655492, 65519, 65531, 655492, 65519, 0, 655492, 65519, 10, 655492, 65519, 5, 655492, 65526, 17, 1048708, 65531, 17, 1048708, 5, 17, 1048708, 10, 17, 1048708, 27, 5, 132, 27, 0, 132, 27, 65531, 132, 20, 65524, 1441924, 20, 12, 1441924, 15, 10, 655481, 13, 65531, 655480, 13, 0, 655480, 13, 5, 655480, 17, 65531, 655492, 17, 0, 655492, 17, 5, 655492, 17, 12, 1441800, 17, 10, 119, 15, 65526, 1048697, 17, 65526, 119)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Shelves_front" type="Node3D" parent="walls" unique_id=2127066157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 0, 0)
+
+[node name="shelf-1" parent="walls/Shelves_front" unique_id=1371606272 instance=ExtResource("2_fbq1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_front/shelf-1" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column2" parent="walls/Shelves_front/shelf-1" unique_id=845553159 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_front/shelf-1/column2" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_mbxjm")
+
+[node name="shelf0" parent="walls/Shelves_front" unique_id=1926058352 instance=ExtResource("2_fbq1s")]
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_front/shelf0" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column3" parent="walls/Shelves_front/shelf0" unique_id=1082212479 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_front/shelf0/column3" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_vivyq")
+
+[node name="shelf1" parent="walls/Shelves_front" unique_id=805868865 instance=ExtResource("2_fbq1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_front/shelf1" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column4" parent="walls/Shelves_front/shelf1" unique_id=969858225 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_front/shelf1/column4" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_wk2u4")
+
+[node name="Shelves_back" type="Node3D" parent="walls" unique_id=212794135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 0)
+
+[node name="shelf-1" parent="walls/Shelves_back" unique_id=511100614 instance=ExtResource("2_fbq1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_back/shelf-1" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column2" parent="walls/Shelves_back/shelf-1" unique_id=1762551484 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_back/shelf-1/column2" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_mbxjm")
+
+[node name="shelf0" parent="walls/Shelves_back" unique_id=11416668 instance=ExtResource("2_fbq1s")]
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_back/shelf0" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column3" parent="walls/Shelves_back/shelf0" unique_id=667347070 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_back/shelf0/column3" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_vivyq")
+
+[node name="shelf1" parent="walls/Shelves_back" unique_id=5675293 instance=ExtResource("2_fbq1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="wall-window-cutout-large" parent="walls/Shelves_back/shelf1" index="0" unique_id=1906321197]
+surface_material_override/0 = SubResource("StandardMaterial3D_1kpxu")
+
+[node name="column4" parent="walls/Shelves_back/shelf1" unique_id=417012405 instance=ExtResource("3_wodat")]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.8, 0, 0.8, -3.4969112e-08, 0, 0.5, -0.5)
+
+[node name="column" parent="walls/Shelves_back/shelf1/column4" index="0" unique_id=1826397086]
+surface_material_override/0 = SubResource("StandardMaterial3D_wk2u4")
+
+[node name="interactables" type="Node3D" parent="." unique_id=1814622473]
+
+[node name="door_r" type="Node3D" parent="interactables" unique_id=1230790789]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 3.4, 0, -1.7)
+script = ExtResource("4_v1x83")
+
+[node name="InteractableDoor" parent="interactables/door_r" unique_id=1316344835 instance=ExtResource("4_p8nu4")]
+
+[node name="door_l" type="Node3D" parent="interactables" unique_id=1421984330]
+transform = Transform3D(-4.371139e-08, -1.7484555e-07, 1, 0, 1, 1.7484555e-07, -1, 7.642742e-15, -4.371139e-08, 3.4, 0, 1.7)
+rotation_order = 0
+script = ExtResource("6_aq8op")
+
+[node name="InteractableDoor" parent="interactables/door_l" unique_id=929126291 instance=ExtResource("4_p8nu4")]
+
+[connection signal="left_clicked" from="interactables/door_r/InteractableDoor" to="interactables/door_r" method="_on_interactable_door_left_clicked"]
+[connection signal="left_clicked" from="interactables/door_l/InteractableDoor" to="interactables/door_l" method="_on_interactable_door_left_clicked"]
+
+[editable path="walls/Shelves_front/shelf-1"]
+[editable path="walls/Shelves_front/shelf-1/column2"]
+[editable path="walls/Shelves_front/shelf0"]
+[editable path="walls/Shelves_front/shelf0/column3"]
+[editable path="walls/Shelves_front/shelf1"]
+[editable path="walls/Shelves_front/shelf1/column4"]
+[editable path="walls/Shelves_back/shelf-1"]
+[editable path="walls/Shelves_back/shelf-1/column2"]
+[editable path="walls/Shelves_back/shelf0"]
+[editable path="walls/Shelves_back/shelf0/column3"]
+[editable path="walls/Shelves_back/shelf1"]
+[editable path="walls/Shelves_back/shelf1/column4"]
