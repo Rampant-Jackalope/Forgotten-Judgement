@@ -8,4 +8,4 @@ func _ready() -> void:
 func _on_interactable_door_left_clicked(hit_position: Vector3, normal: Vector3) -> void:
 	var text: String = "[color=red]The door is locked[/color]"
 	Util.show_temp_richlabel(self, text)
-	Dialogic.VAR.set("TRIED_TO_EXIT", true)
+	Dialogic.VAR.bartender.TRIED_TO_EXIT = true

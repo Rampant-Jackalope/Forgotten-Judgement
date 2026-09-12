@@ -25,11 +25,15 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"bartender": "res://dialogic/timelines/bartender.dtl"
+"bartender": "res://dialogic/timelines/bartender.dtl",
+"bartender_warning": "res://dialogic/timelines/bartender_warning.dtl"
 }
 layout/style_directory={}
 variables={
+"bartender": {
+"HAS_WARNING_RUN": false,
 "TRIED_TO_EXIT": false
+}
 }
 glossary/default_case_sensitive=true
 

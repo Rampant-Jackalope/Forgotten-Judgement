@@ -1,5 +1,5 @@
 bartender: Hi, what can I do for you today?
-- How do I get out of here | [if {TRIED_TO_EXIT} == true]
+- How do I get out of here | [if {bartender.TRIED_TO_EXIT} == true]
 	bartender: You can't
 - Where am I
 	bartender: No idea you tell me
