@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://boyko0mj15w8q"]
+
+[ext_resource type="PackedScene" uid="uid://duoqelq7djm7p" path="res://scenes/rooms/room_1.tscn" id="1_twpsu"]
+[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/player.tscn" id="2_lrqlo"]
+
+[sub_resource type="Environment" id="Environment_1kpxu"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=869964523]
+environment = SubResource("Environment_1kpxu")
+
+[node name="Player" parent="." unique_id=230271742 instance=ExtResource("2_lrqlo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+run_speed = 10.0
+jump_height = 0.75
+min_pitch_deg = -90.0
+max_pitch_deg = 90.0
+interact_range = 10.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1526552321]
+transform = Transform3D(1, 0, 0, 0, -0.29679358, 0.9549417, 0, -0.9549417, -0.29679358, 0, 6.8904552, 0)
+
+[node name="room-1" parent="." unique_id=1815709629 instance=ExtResource("1_twpsu")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
