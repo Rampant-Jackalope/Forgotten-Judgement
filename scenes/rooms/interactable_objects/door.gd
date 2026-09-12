@@ -20,9 +20,11 @@ func _ready() -> void:
 
 func open() -> void:
 	animation_player.play("open")
+	state = DOOR_STATE.OPEN
 
 func close() -> void:
 	animation_player.play("close")
+	state = DOOR_STATE.CLOSED
 
 func open_and_close() -> void:
 	animation_player.play("open-and-close")
