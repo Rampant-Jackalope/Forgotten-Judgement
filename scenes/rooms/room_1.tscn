@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4ri57f6dx83" path="res://scenes/rooms/interactable_objects/door.tscn" id="4_p8nu4"]
 [ext_resource type="Script" uid="uid://dglihgbswidqg" path="res://scenes/rooms/door_r.gd" id="4_v1x83"]
 [ext_resource type="Script" uid="uid://blnj0pl8adlnt" path="res://scenes/rooms/door_l.gd" id="6_aq8op"]
+[ext_resource type="Script" uid="uid://cvhltv02v4jay" path="res://scenes/rooms/interactable_objects/exit_door.gd" id="7_aq8op"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 10
@@ -143,7 +144,13 @@ transform = Transform3D(-4.371139e-08, -1.7484555e-07, 1, 0, 1, 1.7484555e-07, -
 rotation_order = 0
 script = ExtResource("6_aq8op")
 
-[node name="InteractableDoor" parent="interactables/door_l" unique_id=929126291 instance=ExtResource("4_p8nu4")]
+[node name="InteractableDoor" parent="interactables/door_l" unique_id=1315096338 instance=ExtResource("4_p8nu4")]
+
+[node name="exit_door" type="Node3D" parent="interactables" unique_id=411350237]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28558627, 0, 3.3215814)
+script = ExtResource("7_aq8op")
+
+[node name="InteractableDoor" parent="interactables/exit_door" unique_id=1705716478 instance=ExtResource("4_p8nu4")]
 
 [connection signal="left_clicked" from="interactables/door_r/InteractableDoor" to="interactables/door_r" method="_on_interactable_door_left_clicked"]
 [connection signal="left_clicked" from="interactables/door_l/InteractableDoor" to="interactables/door_l" method="_on_interactable_door_left_clicked"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://duoqelq7djm7p" path="res://scenes/rooms/room_1.tscn" id="1_twpsu"]
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/player.tscn" id="2_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://nhe1x4bk4vkf" path="res://scenes/rooms/room_2.tscn" id="3_lrqlo"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -19,5 +20,11 @@ interact_range = 10.0
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1526552321]
 transform = Transform3D(1, 0, 0, 0, -0.29679358, 0.9549417, 0, -0.9549417, -0.29679358, 0, 6.8904552, 0)
 
+[node name="Sun2" type="DirectionalLight3D" parent="." unique_id=1295970863]
+transform = Transform3D(1, 0, 0, 0, 0.22044006, 0.97540057, 0, -0.97540057, 0.22044006, 0, 6.8904552, -9)
+
 [node name="room-1" parent="." unique_id=1815709629 instance=ExtResource("1_twpsu")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="room-2" parent="." unique_id=575601817 instance=ExtResource("3_lrqlo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -9)

@@ -16,6 +16,7 @@ var state: int = DOOR_STATE.CLOSED
 func _ready() -> void:
 	interactable.left_clicked.connect(left_clicked.emit)
 	interactable.right_clicked.connect(right_clicked.emit)
+	self.close()
 
 func open() -> void:
 	animation_player.play("open")

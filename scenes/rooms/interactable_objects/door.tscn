@@ -147,11 +147,10 @@ script = ExtResource("3_1rsym")
 [node name="door-rotate" type="Node3D" parent="." unique_id=791964407]
 
 [node name="door" type="MeshInstance3D" parent="door-rotate" unique_id=853148866]
-transform = Transform3D(-0.17364807, 0, -0.9848078, 0, 1, 0, 0.9848078, 0, -0.17364807, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bqvlb")
 
 [node name="handle" type="MeshInstance3D" parent="door-rotate/door" unique_id=21465192]
-transform = Transform3D(1, 0, 0, 0, 1, 1.1626229e-16, 0, -1.1626229e-16, 1, 0, 0.35, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0.5)
 mesh = SubResource("ArrayMesh_528qn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door-rotate/door" unique_id=371401490]
