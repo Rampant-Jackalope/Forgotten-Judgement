@@ -1,0 +1,5 @@
+if {bartender.HAS_WARNING_RUN} == true:
+	[end_timeline]
+else:
+	bartender: You won't find anything interesting in there
+	set {bartender.HAS_WARNING_RUN} = true
