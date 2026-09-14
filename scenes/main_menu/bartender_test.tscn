@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfknavoytue40"]
+
+[ext_resource type="Script" uid="uid://n2j4eiquuc6" path="res://scenes/main_menu/bartender_test.gd" id="1_fo573"]
+
+[node name="TextText" type="Node" unique_id=91786224]
+script = ExtResource("1_fo573")
