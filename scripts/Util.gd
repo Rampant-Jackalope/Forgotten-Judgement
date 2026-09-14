@@ -41,3 +41,7 @@ static func run_locked_dialogue(timeline: String, label: String = "") -> void:
 		Dialogic.start(timeline)
 	await Dialogic.timeline_ended
 	player.dialogue_free()
+
+# TODO: implement, dunno yet how we will organize nodes so getting player rn is not possible
+static func get_player() -> Player:
+	return null
