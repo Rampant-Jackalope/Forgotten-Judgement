@@ -10,15 +10,7 @@ config_version=5
 
 [application]
 
-<<<<<<< HEAD
-config/name="Forbidden Judgements"
-run/main_scene="uid://dwkhiyoqe0c33"
-||||||| 5a1bf4b
-config/name="Forbidden Judgements"
-=======
 config/name="Forgotten Judgements"
-run/main_scene="uid://boyko0mj15w8q"
->>>>>>> poc-demo
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
