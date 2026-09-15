@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bib1j4off5lvk"]
+
+[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/player.tscn" id="1_w6mho"]
+[ext_resource type="PackedScene" uid="uid://ctu0nrqkjhwar" path="res://scenes/rooms/main.tscn" id="2_3u6ww"]
+[ext_resource type="PackedScene" uid="uid://bgnyjuftupq7d" path="res://scenes/day_night/day_night_cycle.tscn" id="3_3u6ww"]
+
+[sub_resource type="Environment" id="Environment_1kpxu"]
+
+[node name="World" type="WorldEnvironment" unique_id=1521744203]
+environment = SubResource("Environment_1kpxu")
+
+[node name="Player" parent="." unique_id=230271742 instance=ExtResource("1_w6mho")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="DayNightCycle" parent="." unique_id=1668602397 instance=ExtResource("3_3u6ww")]
+transform = Transform3D(0.8660254, 0, 0.5, -0.3063824, 0.7902654, 0.5306698, -0.3951327, -0.6127648, 0.68438995, 0, 0, 0)
+radius = 30.0
+
+[node name="Main" parent="." unique_id=1704310852 instance=ExtResource("2_3u6ww")]
