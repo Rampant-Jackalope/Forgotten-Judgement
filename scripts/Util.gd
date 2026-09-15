@@ -33,11 +33,11 @@ static func show_temp_richlabel(
 	return label
 
 static func run_locked_dialogue(timeline: String, label: String = "") -> void:
-	var controller: PlayerController= get_player().controller
-	controller.dialogue_lock()
+	var player: Player = get_player()
+	player.dialogue_lock()
 	Dialogic.start(timeline, label)
 	await Dialogic.timeline_ended
-	controller.dialogue_free()
+	player.dialogue_free()
 
 static func get_player() -> Player:
 	return Engine.get_main_loop().root.get_node("World/Player")

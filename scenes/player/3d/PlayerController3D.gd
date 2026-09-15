@@ -1,4 +1,4 @@
-class_name PlayerController
+class_name PlayerController3D
 extends Node
 
 @export var cam_pivot: Node3D
@@ -14,8 +14,6 @@ extends Node
 @export_range(0, -90) var min_pitch_deg := -90.0 # how far down you can look
 @export_range(0, 90) var max_pitch_deg := 90.0 # how far up you can look
 
-var dialogue_locked: bool = false
-
 var jump_speed: float
 
 func _ready() -> void:
@@ -24,7 +22,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	if dialogue_locked:
+	if Util.get_player().is_dialogue_locked():
 		return
 	# Mouse look: yaw rotates the whole body, pitch only rotates the camera
 	if event is InputEventMouseMotion:
@@ -44,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 func get_input() -> void:
-	if dialogue_locked:
+	if Util.get_player().is_dialogue_locked():
 		body.velocity.x = 0.0
 		body.velocity.z = 0.0
 		return
@@ -73,9 +71,3 @@ func _physics_process(delta: float) -> void:
 		body.velocity.y -= gravity * delta
 	get_input()
 	body.move_and_slide()
-
-func dialogue_lock() -> void:
-	dialogue_locked = true
-
-func dialogue_free() -> void:
-	dialogue_locked = false
