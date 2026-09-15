@@ -12,3 +12,12 @@ func _ready() -> void:
 
 	add_child(controller)
 	add_child(interactor)
+
+func activate() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	process_mode = Node.PROCESS_MODE_INHERIT
+	show()
+
+func deactivate() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	hide()

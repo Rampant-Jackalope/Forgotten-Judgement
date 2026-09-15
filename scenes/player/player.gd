@@ -1,8 +1,8 @@
 class_name Player
 extends Node
 
-@onready var player_2d := $Player2D
-@onready var player_3d := $Player3D
+@onready var player_2d: Player2D = $Player2D
+@onready var player_3d: Player3D = $Player3D
 
 @onready var inventory: ItemInventory = ItemInventory.new()
 
@@ -13,6 +13,15 @@ enum ActivePlayerType {
 
 var active_player_type: int = ActivePlayerType.PLAYER_3D
 var dialogue_locked: bool = false
+
+func set_active_player_type(player_type: ActivePlayerType) -> void:
+	active_player_type = player_type
+	if player_type == ActivePlayerType.PLAYER_2D:
+		player_3d.deactivate()
+		player_2d.activate()
+	else:
+		player_2d.deactivate()
+		player_3d.activate()
 
 func _ready() -> void:
 	player_2d.set_process(false)
