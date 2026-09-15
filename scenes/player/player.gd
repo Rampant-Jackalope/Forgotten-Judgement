@@ -91,7 +91,7 @@ func get_input() -> void:
 	if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
 		velocity.y = jump_speed
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	get_input()
