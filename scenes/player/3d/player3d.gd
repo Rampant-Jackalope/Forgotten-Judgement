@@ -16,8 +16,10 @@ func _ready() -> void:
 func activate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	process_mode = Node.PROCESS_MODE_INHERIT
+	$crosshair.show() # for some reason it does not inherit the parent's visibility
 	show()
 
 func deactivate() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
+	$crosshair.hide() # for some reason it does not inherit the parent's visibility
 	hide()
