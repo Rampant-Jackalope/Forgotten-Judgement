@@ -26,12 +26,8 @@ shape = SubResource("CapsuleShape3D_1kpxu")
 [node name="CamPivot" type="Node3D" parent="." unique_id=487757868]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.75, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CamPivot" unique_id=115329947]
-transform = Transform3D(1, 0, 0, 0, 0.97935694, 0.2021382, 0, -0.2021382, 0.97935694, 0, 0, 0)
-spring_length = 5.0
-
-[node name="Camera3D" type="Camera3D" parent="CamPivot/SpringArm3D" unique_id=1249185946]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+[node name="Camera3D" type="Camera3D" parent="CamPivot" unique_id=1249185946]
+transform = Transform3D(1, 0, 0, 0, 0.979357, 0.20213822, 0, -0.20213822, 0.979357, 0, 0, 0)
 current = true
 
 [node name="crosshair" type="Panel" parent="." unique_id=279089937]
