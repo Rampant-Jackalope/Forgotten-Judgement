@@ -1,15 +1,4 @@
 michael_jackson: hee hee~
-if {michael.NEARBY} != true:
-	- May I get on stage with you
-		if {michael.RESPECT} >= 5.0:
-			if {michael.HAS_STAGE_KEY} == true:
-				michael_jackson: Sure~ open the door on the side of the stage
-			else:
-				michael_jackson: Sure~ if you can get the key to backstage
-		else:
-			michael_jackson: No, you are not cool enough
-	- How do I gain coolness
-		michael_jackson: find drip
-	- Where can I get the backstage key | [if {michael.HAS_STAGE_KEY} == false]
-		michael_jackson: Ask the bartender
-		set {michael.REDIRECT_TO_BARTENDER} = true
+- fight me
+	[color=red]Unimplemented
+- exit
