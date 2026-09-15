@@ -73,3 +73,9 @@ func _physics_process(delta: float) -> void:
 		body.velocity.y -= gravity * delta
 	get_input()
 	body.move_and_slide()
+
+func dialogue_lock() -> void:
+	dialogue_locked = true
+
+func dialogue_free() -> void:
+	dialogue_locked = false
