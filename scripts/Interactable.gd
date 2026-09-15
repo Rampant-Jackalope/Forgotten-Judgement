@@ -20,7 +20,10 @@ class InteractQueue:
 		return arr.pop_back()
 
 	func peek() -> Interactable:
-		return arr[0]
+		if arr.size() > 0:
+			return arr[0]
+		else:
+			return null
 
 	func peek_back() -> Interactable:
 		return arr[arr.size() - 1]
@@ -46,8 +49,8 @@ func _enter_tree() -> void:
 		func(_area: Area3D) -> void:
 			Interactable.interaction_queue.erase(self),
 	)
-	self.collision_mask = 1<<2
-	self.collision_layer = 1<<2
+	self.collision_mask = 1 << 2
+	self.collision_layer = 1 << 2
 
 func _process(_delta: float) -> void:
 	process_interaction()
@@ -56,12 +59,12 @@ func _process(_delta: float) -> void:
 # ------------------
 # boilerplate functions to throw into _process() or wherever, when an item needs custom _process() behavior
 
-
-# TODO: potentially fix after get_player() stub is fixed
 func process_interaction() -> void:
 	if Input.is_action_just_pressed("interact"):
-		if Util.get_player().get_interaction_range().overlaps_area(self):
-			Interactable.interaction_queue.pop().interacted.emit()
+		if Interactable.interaction_queue.size() > 0:
+			var val := Interactable.interaction_queue.peek()
+			if val != null:
+				val.interacted.emit(Interactable.interaction_queue.pop)
 
 func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
@@ -79,7 +82,7 @@ func process_highlight() -> void:
 func get_item_icon() -> Texture2D:
 	return self.item_icon
 
-signal interacted()
+signal interacted(pop: Callable)
 
 # Abstract cuzz I ain't doing highlighting rn
 signal highlight_off()

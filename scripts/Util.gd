@@ -39,6 +39,5 @@ static func run_locked_dialogue(timeline: String, label: String = "") -> void:
 	await Dialogic.timeline_ended
 	interactor.dialogue_free()
 
-# TODO: implement, dunno yet how we will organize nodes so getting player rn is not possible
 static func get_player() -> Player:
-	return null
+	return Engine.get_main_loop().root.get_node("World/Player")
