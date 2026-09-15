@@ -33,14 +33,11 @@ static func show_temp_richlabel(
 	return label
 
 static func run_locked_dialogue(timeline: String, label: String = "") -> void:
-	var player: Player = Engine.get_main_loop().root.get_node("World/Player")
-	player.dialogue_lock()
-	if label != "":
-		Dialogic.start(timeline, label)
-	else:
-		Dialogic.start(timeline)
+	var interactor: Interactor = Engine.get_main_loop().root.get_node("World/Player/Interactor")
+	interactor.dialogue_lock()
+	Dialogic.start(timeline, label)
 	await Dialogic.timeline_ended
-	player.dialogue_free()
+	interactor.dialogue_free()
 
 # TODO: implement, dunno yet how we will organize nodes so getting player rn is not possible
 static func get_player() -> Player:
