@@ -2,10 +2,7 @@ class_name Player3D
 extends CharacterBody3D
 
 @onready var controller: PlayerController3D = $PlayerController3D
-@onready var interactor: Interactor = Interactor.new()
-
-func _ready() -> void:
-	add_child(interactor)
+@onready var interactor: Interactor = $Interactor
 
 func activate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

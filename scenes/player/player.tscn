@@ -5,9 +5,13 @@
 [ext_resource type="Script" uid="uid://dl23d60xci8gj" path="res://scenes/player/2d/player2d.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://beiwcpw3cydd5" path="res://scenes/player/3d/PlayerController3D.gd" id="3_qek5x"]
 [ext_resource type="Script" uid="uid://cwcs3ksl166ko" path="res://scenes/player/2d/PlayerController2D.gd" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://2nm2kivasbv" path="res://scenes/player/Interactor.gd" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://dmv6j87ydbdj3" path="res://assets/combat/attack icon.png" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://bx62v6wbcnqm4" path="res://assets/combat/block icon.png" id="5_0owmy"]
 [ext_resource type="Texture2D" uid="uid://b84cfxgq0pvrv" path="res://assets/combat/health icon.png" id="6_qek5x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+radius = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1kpxu"]
 radius = 0.3
@@ -65,6 +69,20 @@ script = ExtResource("2_gmlin")
 script = ExtResource("3_qek5x")
 metadata/_custom_type_script = "uid://beiwcpw3cydd5"
 
+[node name="Interactor" type="Area3D" parent="Player3D" unique_id=82966384]
+script = ExtResource("4_5gtgg")
+metadata/_custom_type_script = "uid://2nm2kivasbv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player3D/Interactor" unique_id=2109319638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9670925, 0)
+shape = SubResource("SphereShape3D_1kpxu")
+
+[node name="CamPivot" type="Node3D" parent="Player3D" unique_id=487757868]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.7500001, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player3D/CamPivot" unique_id=1249185946]
+current = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player3D" unique_id=2013850323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
 layers = 2
@@ -73,12 +91,6 @@ mesh = SubResource("CapsuleMesh_1kpxu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player3D" unique_id=1178372153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
 shape = SubResource("CapsuleShape3D_1kpxu")
-
-[node name="CamPivot" type="Node3D" parent="Player3D" unique_id=487757868]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.75, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player3D/CamPivot" unique_id=1249185946]
-current = true
 
 [node name="crosshair" type="Panel" parent="Player3D" unique_id=279089937]
 custom_minimum_size = Vector2(5, 5)
