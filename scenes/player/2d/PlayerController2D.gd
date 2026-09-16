@@ -1,12 +1,12 @@
 class_name PlayerController2D
 extends Node2D
 
-var body: CharacterBody2D
-var sprite: AnimatedSprite2D
-var collision_shape: CollisionShape2D
+@onready var body := $'..'
+@onready var sprite := $'../AnimatedSprite2D'
+@onready var collision_shape := $'../CollisionShape2D'
 
-var move_speed := 2500.0
-var float_height_percentage: float = 0.1
+@export var move_speed := 2500.0
+@export var float_height_percentage: float = 0.1
 
 enum Mode {
 	MOVING,
@@ -15,6 +15,10 @@ enum Mode {
 }
 
 var state: Mode = Mode.MOVING
+
+func _ready() -> void:
+	sprite.animation_finished.connect(_on_animation_finished)
+	handle_movement(0)
 
 # For now the placeholder actions are
 # Attack (L-Click), forces attack animation preventing block
@@ -34,13 +38,13 @@ func handle_movement(delta: float) -> void:
 	var float_height := viewport_size.y * (1.0 - float_height_percentage)
 	if body.position.y != float_height:
 		body.position.y = float_height
-	
+
 	var speed_multiplier := 0.7 if state == Mode.DEFEND else 1.0
 
 	var x_move_dir = Input.get_axis("ui_left", "ui_right")
 	body.position.x += x_move_dir * move_speed * speed_multiplier * delta
 
-	var half_extents := (collision_shape.shape.get_rect().size / 2.0) * collision_shape.global_scale
+	var half_extents: Vector2 = (collision_shape.shape.get_rect().size / 2.0) * collision_shape.global_scale
 	body.position.x = clamp(body.position.x, half_extents.x, viewport_size.x - half_extents.x)
 
 func handle_action_input() -> void:
@@ -55,14 +59,3 @@ func handle_action_input() -> void:
 		if sprite.animation != "attack":
 			sprite.play("move")
 			state = Mode.MOVING
-
-# ---------
-# setters cuzz sprite and body are set after _ready() has run
-
-func assign_sprite(real_sprite: AnimatedSprite2D) -> void:
-	self.sprite = real_sprite
-	sprite.animation_finished.connect(_on_animation_finished)
-
-func assign_body(real_body: CharacterBody2D) -> void:
-	self.body = real_body
-	body.position = get_global_mouse_position()

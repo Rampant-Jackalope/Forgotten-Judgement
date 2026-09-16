@@ -1,10 +1,10 @@
 class_name PlayerController3D
-extends Node
+extends Node3D
 
-@export var cam_pivot: Node3D
-@export var camera: Camera3D
-@export var collider: CollisionShape3D
-@export var body: CharacterBody3D
+@onready var cam_pivot: Node3D = $'../CamPivot'
+@onready var camera: Camera3D = $'../CamPivot/Camera3D'
+@onready var collider: CollisionShape3D = $'../CollisionShape3D'
+@onready var body = $'..'
 
 @export var run_speed := 5.0
 @export var jump_height := 0.5 # meters, average casual human jump
@@ -59,7 +59,7 @@ func get_input() -> void:
 	input_dir = input_dir.normalized()
 
 	# Transform local input into world space using the body's yaw only
-	var direction := (body.transform.basis * input_dir)
+	var direction: Vector3 = (body.transform.basis * input_dir)
 	body.velocity.x = direction.x * run_speed
 	body.velocity.z = direction.z * run_speed
 

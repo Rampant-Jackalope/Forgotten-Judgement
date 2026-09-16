@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bbgywww5sm6hh" path="res://scenes/player/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c5p34fjig2ysr" path="res://scenes/player/3d/player3d.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://dl23d60xci8gj" path="res://scenes/player/2d/player2d.gd" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://beiwcpw3cydd5" path="res://scenes/player/3d/PlayerController3D.gd" id="3_qek5x"]
+[ext_resource type="Script" uid="uid://cwcs3ksl166ko" path="res://scenes/player/2d/PlayerController2D.gd" id="4_0owmy"]
 [ext_resource type="Texture2D" uid="uid://dmv6j87ydbdj3" path="res://assets/combat/attack icon.png" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://bx62v6wbcnqm4" path="res://assets/combat/block icon.png" id="5_0owmy"]
 [ext_resource type="Texture2D" uid="uid://b84cfxgq0pvrv" path="res://assets/combat/health icon.png" id="6_qek5x"]
@@ -59,6 +61,10 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("2_gmlin")
 
+[node name="PlayerController3D" type="Node3D" parent="Player3D" unique_id=908460514]
+script = ExtResource("3_qek5x")
+metadata/_custom_type_script = "uid://beiwcpw3cydd5"
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player3D" unique_id=2013850323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
 layers = 2
@@ -88,19 +94,13 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Area3D" type="Area3D" parent="Player3D" unique_id=944169008]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player3D/Area3D" unique_id=1782671016]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
-shape = SubResource("CapsuleShape3D_1kpxu")
-
-[node name="Controller3D" type="Node3D" parent="Player3D" unique_id=406776316]
-
 [node name="Player2D" type="CharacterBody2D" parent="." unique_id=2049125978]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("3_lvxji")
+
+[node name="PlayerController2D" type="Node2D" parent="Player2D" unique_id=491906662]
+script = ExtResource("4_0owmy")
+metadata/_custom_type_script = "uid://cwcs3ksl166ko"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2D" unique_id=1970396824]
 texture_filter = 1
