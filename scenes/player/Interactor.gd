@@ -9,10 +9,13 @@ extends Node3D
 
 func _ready() -> void:
 	var area = Area3D.new()
-	area.collision_mask = 1<<interaction_layer
+	area.collision_mask = 1 << interaction_layer
 
-	var shape = SphereShape3D.new()
-	shape.radius = interact_range
+	var collision_shape = CollisionShape3D.new()
 
-	area.add_child(shape)
+	var sphere = SphereShape3D.new()
+	sphere.radius = interact_range
+
 	area_parent.add_child(area)
+	area.add_child(collision_shape)
+	collision_shape.shape = sphere
