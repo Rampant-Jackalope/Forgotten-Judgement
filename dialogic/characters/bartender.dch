@@ -10,12 +10,22 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "",
+&"default_portrait": "Bartender concept",
 &"description": "",
 &"display_name": "Bartender",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"Bartender concept": {
+"export_overrides": {
+"image": "\"res://assets/pictures/Bartender.png\""
+},
+"mirror": true,
+"offset": Vector2(0, 0),
+"scale": 0.3,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

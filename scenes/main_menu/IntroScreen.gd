@@ -1,7 +1,7 @@
 extends Node2D
 
 @export_file("*.tscn") var main_menu_scene: String = "res://scenes/main_menu/user_interface.tscn"
-@export_dir var frame_folder := "res://scenes/main_menu/introscreen/introscreen-frames/"
+@export_dir var frame_folder := "res://assets/introscreen/introscreen-frames/"
 @export var fps := 30.0
 
 @onready var texture_player: TextureRect = %TextureRect
