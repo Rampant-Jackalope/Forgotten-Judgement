@@ -8,6 +8,7 @@ func _ready() -> void:
 	add_child(controller)
 	controller.assign_body(self)
 	controller.assign_sprite(sprite)
+	controller.collision_shape = $CollisionShape2D
 
 func activate() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN

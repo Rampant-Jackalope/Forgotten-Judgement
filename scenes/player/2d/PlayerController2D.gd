@@ -3,8 +3,10 @@ extends Node2D
 
 var body: CharacterBody2D
 var sprite: AnimatedSprite2D
+var collision_shape: CollisionShape2D
 
-@export var mouse_speed := 5000.0
+var move_speed := 2500.0
+var float_height_percentage: float = 0.1
 
 enum Mode {
 	MOVING,
@@ -19,10 +21,29 @@ var state: Mode = Mode.MOVING
 # Block (R-Click), block as long as the block button is pressed and slow down movement to 70%
 # Move, default state
 func _process(delta: float) -> void:
-	var target = get_global_mouse_position()
-	var multiplier: float = 0.7 if state == Mode.DEFEND else 1.0
-	body.position = body.position.move_toward(target, (multiplier * mouse_speed) * delta)
+	handle_movement(delta)
+	handle_action_input()
 
+func _on_animation_finished() -> void:
+	if state == Mode.ATTACK:
+		state = Mode.MOVING
+		sprite.play("move")
+
+func handle_movement(delta: float) -> void:
+	var viewport_size := get_viewport().get_visible_rect().size
+	var float_height := viewport_size.y * (1.0 - float_height_percentage)
+	if body.position.y != float_height:
+		body.position.y = float_height
+	
+	var speed_multiplier := 0.7 if state == Mode.DEFEND else 1.0
+
+	var x_move_dir = Input.get_axis("ui_left", "ui_right")
+	body.position.x += x_move_dir * move_speed * speed_multiplier * delta
+
+	var half_extents := (collision_shape.shape.get_rect().size / 2.0) * collision_shape.global_scale
+	body.position.x = clamp(body.position.x, half_extents.x, viewport_size.x - half_extents.x)
+
+func handle_action_input() -> void:
 	if Input.is_action_pressed("block"):
 		if sprite.animation != "attack":
 			sprite.play("block")
@@ -34,11 +55,6 @@ func _process(delta: float) -> void:
 		if sprite.animation != "attack":
 			sprite.play("move")
 			state = Mode.MOVING
-
-func _on_animation_finished() -> void:
-	if state == Mode.ATTACK:
-		state = Mode.MOVING
-		sprite.play("move")
 
 # ---------
 # setters cuzz sprite and body are set after _ready() has run

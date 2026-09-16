@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0owmy"]
-size = Vector2(50, 50)
+size = Vector2(700, 700)
 
 [node name="Player" type="Node" unique_id=781445384]
 script = ExtResource("1_3vyb7")
@@ -99,17 +99,16 @@ shape = SubResource("CapsuleShape3D_1kpxu")
 [node name="Controller3D" type="Node3D" parent="Player3D" unique_id=406776316]
 
 [node name="Player2D" type="CharacterBody2D" parent="." unique_id=2049125978]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("3_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2D" unique_id=1970396824]
 texture_filter = 1
-scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0owmy")
-animation = &"attack"
+animation = &"block"
 autoplay = "move"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2D" unique_id=599182235]
-scale = Vector2(0.9999996, 0.9999996)
+scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_0owmy")
