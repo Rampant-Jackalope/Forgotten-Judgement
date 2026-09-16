@@ -11,7 +11,6 @@
 environment = SubResource("Environment_1kpxu")
 
 [node name="Player" parent="." unique_id=230271742 instance=ExtResource("1_w6mho")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="DayNightCycle" parent="." unique_id=1668602397 instance=ExtResource("3_3u6ww")]
 transform = Transform3D(0.69834757, -0.68438995, -0.20957357, 0.5968088, 0.39513263, 0.69834757, -0.39513272, -0.6127648, 0.68438995, 0, 0, 0)

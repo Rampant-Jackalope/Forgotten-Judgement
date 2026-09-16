@@ -21,8 +21,8 @@ func _ready() -> void:
 	handle_movement(0)
 
 # For now the placeholder actions are
-# Attack (L-Click), forces attack animation preventing block
-# Block (R-Click), block as long as the block button is pressed and slow down movement to 70%
+# Attack (L-Click/Spacebar), forces attack animation preventing block
+# Block (R-Click, D), block as long as the block button is pressed and slow down movement to 70%
 # Move, default state
 func _process(delta: float) -> void:
 	handle_movement(delta)
