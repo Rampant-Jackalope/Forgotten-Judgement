@@ -11,6 +11,12 @@ static var interaction_queue: InteractQueue = InteractQueue.new()
 
 var is_highlighted: bool = false
 
+signal interacted(interactor: Interactor, pop: Callable)
+
+signal highlight_off()
+
+signal highlight_on()
+
 # shitty wrapper to enforce push for Queue-like behavior
 class InteractQueue:
 	var arr: Array[Interactable] = []
@@ -55,10 +61,11 @@ func _enter_tree() -> void:
 	self.collision_layer = 1 << 2
 
 	if look_target != null:
-		self.interacted.connect(func(interactor: Interactor, _pop):
-			var controller: PlayerController3D = interactor.get_node("../PlayerController3D")
-			if controller != null:
-				controller.smooth_look_at(look_target.global_position)
+		self.interacted.connect(
+			func(interactor: Interactor, _pop):
+				var controller: PlayerController3D = interactor.get_node("../PlayerController3D")
+				if controller != null:
+					controller.smooth_look_at(look_target.global_position),
 		)
 
 func _process(_delta: float) -> void:
@@ -73,7 +80,10 @@ func process_interaction() -> void:
 		if Interactable.interaction_queue.size() > 0:
 			var val := Interactable.interaction_queue.peek()
 			if val != null:
-				val.interacted.emit(Util.get_player().get_node("Player3D").interactor, Interactable.interaction_queue.pop)
+				val.interacted.emit(
+					Util.get_player().get_node("Player3D").interactor,
+					Interactable.interaction_queue.pop,
+				)
 
 func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
@@ -83,18 +93,3 @@ func process_highlight() -> void:
 			highlight_on.emit()
 		else:
 			highlight_off.emit()
-
-# ------------------
-# Public && Abstract functions
-# aka just throw shit in here that other APIs need such as QOL `Obtained Items` interface
-
-func get_item_icon() -> Texture2D:
-	return self.item_icon
-
-signal interacted(interactor: Interactor, pop: Callable)
-
-# Abstract cuzz I ain't doing highlighting rn
-signal highlight_off()
-
-# Abstract cuzz I ain't doing highlighting rn
-signal highlight_on()
