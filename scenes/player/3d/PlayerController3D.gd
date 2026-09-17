@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 	# Mouse look: yaw rotates the whole body, pitch only rotates the camera
 	if event is InputEventMouseMotion:
 		body.rotate_y(-event.relative.x * mouse_sensitivity)
-		cam_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		cam_pivot.rotate_x(wrapf(-event.relative.y * mouse_sensitivity, -PI, PI))
 		cam_pivot.rotation.x = clamp(
 			cam_pivot.rotation.x,
 			deg_to_rad(min_pitch_deg),
