@@ -1,10 +1,10 @@
 class_name PlayerController3D
 extends Node3D
 
-@onready var cam_pivot: Node3D = $'../CamPivot'
-@onready var camera: Camera3D = $'../CamPivot/Camera3D'
-@onready var collider: CollisionShape3D = $'../CollisionShape3D'
-@onready var body = $'..'
+@export var cam_pivot: Node3D
+@export var camera: Camera3D
+@export var collider: CollisionShape3D
+@export var body: CharacterBody3D
 
 @export var run_speed := 5.0
 @export var jump_height := 0.5 # meters, average casual human jump

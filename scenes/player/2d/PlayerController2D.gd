@@ -1,9 +1,9 @@
 class_name PlayerController2D
 extends Node2D
 
-@onready var body := $'..'
-@onready var sprite := $'../AnimatedSprite2D'
-@onready var collision_shape := $'../CollisionShape2D'
+@export var body: CharacterBody2D
+@export var sprite: AnimatedSprite2D
+@export var collision_shape: CollisionShape2D
 
 @export var move_speed := 2500.0
 @export var float_height_percentage: float = 0.1
