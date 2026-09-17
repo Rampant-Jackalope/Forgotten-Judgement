@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bq2dvrnlu2j0m"]
+
+[ext_resource type="Script" uid="uid://cd16wrtxfuu46" path="res://scenes/item-interaction/hotbar.gd" id="1_i7onf"]
+[ext_resource type="Script" uid="uid://7d0gcu3xrmj5" path="res://scenes/item-interaction/menu-buttons.gd" id="2_aadmc"]
+[ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="3_w4pep"]
+
+[sub_resource type="Theme" id="Theme_dc681"]
+default_font = ExtResource("3_w4pep")
+
+[sub_resource type="Theme" id="Theme_un0ck"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1099807587]
+
+[node name="Hotbar" type="HBoxContainer" parent="." unique_id=238236539]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -120.0
+offset_right = 100.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("1_i7onf")
+
+[node name="Slot 1" type="PanelContainer" parent="Hotbar" unique_id=1860967713]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 1" unique_id=328664778]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Slot 2" type="PanelContainer" parent="Hotbar" unique_id=2123845363]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 2" unique_id=8795754]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Slot 3" type="PanelContainer" parent="Hotbar" unique_id=830845277]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 3" unique_id=1518347946]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1316270509]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.0
+offset_top = -259.0
+offset_right = 395.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+script = ExtResource("2_aadmc")
+
+[node name="MainButtons" type="VBoxContainer" parent="MarginContainer" unique_id=371286754]
+custom_minimum_size = Vector2(600, 0)
+custom_maximum_size = Vector2(1600, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_dc681")
+
+[node name="BackToMenuButton" type="Button" parent="MarginContainer/MainButtons" unique_id=851854572]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Back to main menu"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/MainButtons" unique_id=57070628]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/MainButtons" unique_id=1007389935]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme = SubResource("Theme_un0ck")
+theme_override_font_sizes/font_size = 46
+text = "Quit"
+
+[node name="OptionsMenu" type="VBoxContainer" parent="MarginContainer" unique_id=1748308218]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/OptionsMenu" unique_id=934758968]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/OptionsMenu/HBoxContainer" unique_id=1371547128]
+layout_mode = 2
+text = "Taal / language"
+
+[node name="LanguageSelect" type="OptionButton" parent="MarginContainer/OptionsMenu/HBoxContainer" unique_id=270067298]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/OptionsMenu" unique_id=66270076]
+layout_mode = 2
+text = "Terug"
