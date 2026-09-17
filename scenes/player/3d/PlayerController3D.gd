@@ -71,3 +71,30 @@ func _process(delta: float) -> void:
 		body.velocity.y -= gravity * delta
 	get_input()
 	body.move_and_slide()
+
+@export_group("Look At")
+@export_range(0, 100) var minimum_pitch_distance = 0.2 ## The minimum distance to the target before pitch is also included
+
+var is_looking_at: bool = false
+
+func smooth_look_at(target_position: Vector3, duration: float = 0.35) -> void:
+	var look_vector = target_position - camera.global_position
+	var distance = look_vector.length()
+	var horizontal_distance = Vector2(look_vector.x, look_vector.z).length()
+	if distance < 0.05:
+		return # target is basically on top of us; nothing to turn
+
+	var goal_yaw = atan2(-look_vector.x, -look_vector.z)
+	var yaw = body.rotation.y + wrapf(goal_yaw - body.rotation.y, -PI, PI)
+
+	var goal_pitch = 0.0
+	if distance > minimum_pitch_distance:
+		goal_pitch = atan2(look_vector.y, horizontal_distance)
+		goal_pitch = clampf(goal_pitch, deg_to_rad(min_pitch_deg), deg_to_rad(max_pitch_deg))
+
+	is_looking_at = true
+	var t = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	t.tween_property(body, "rotation:y", yaw, duration)
+	t.parallel().tween_property(cam_pivot, "rotation:x", goal_pitch, duration)
+	await t.finished
+	is_looking_at = false

@@ -91,12 +91,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.34882084)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 0, 4.4)
 script = ExtResource("8_kdwso")
 
-[node name="Interactable" type="Area3D" parent="Interactables/exit_door" unique_id=1522761886]
+[node name="Interactable" type="Area3D" parent="Interactables/exit_door" unique_id=1522761886 node_paths=PackedStringArray("look_target")]
 script = ExtResource("9_kdwso")
+look_target = NodePath("../LookTarget")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="InteractionShape" type="CollisionShape3D" parent="Interactables/exit_door/Interactable" unique_id=2078315572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5003601, 0.29927504)
 shape = SubResource("SphereShape3D_mbxjm")
+
+[node name="LookTarget" type="Node3D" parent="Interactables/exit_door" unique_id=678589824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1184268, 0.3517124, 0.44814354)
 
 [connection signal="interacted" from="Interactables/exit_door/Interactable" to="Interactables/exit_door" method="_on_interactable_interacted"]

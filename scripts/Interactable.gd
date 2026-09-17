@@ -1,6 +1,8 @@
 class_name Interactable
 extends Area3D
 
+@export var look_target: Node3D ## Node3D that the player looks at when interacting
+
 # When a player actually interacts with an item it should grab the first item in the queue.
 # Instead of running its own intended behavior, this is to avoid two items being active at the same time.
 # NOTE: fucking doubt any items will be placed near each other to where this will be needed
@@ -52,6 +54,13 @@ func _enter_tree() -> void:
 	self.collision_mask = 1 << 2
 	self.collision_layer = 1 << 2
 
+	if look_target != null:
+		self.interacted.connect(func(interactor: Interactor, _pop):
+			var controller: PlayerController3D = interactor.get_node("../PlayerController3D")
+			if controller != null:
+				controller.smooth_look_at(look_target.global_position)
+		)
+
 func _process(_delta: float) -> void:
 	process_interaction()
 	process_highlight()
@@ -64,7 +73,7 @@ func process_interaction() -> void:
 		if Interactable.interaction_queue.size() > 0:
 			var val := Interactable.interaction_queue.peek()
 			if val != null:
-				val.interacted.emit(Interactable.interaction_queue.pop)
+				val.interacted.emit(Util.get_player().get_node("Player3D").interactor, Interactable.interaction_queue.pop)
 
 func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
@@ -82,7 +91,7 @@ func process_highlight() -> void:
 func get_item_icon() -> Texture2D:
 	return self.item_icon
 
-signal interacted(pop: Callable)
+signal interacted(interactor: Interactor, pop: Callable)
 
 # Abstract cuzz I ain't doing highlighting rn
 signal highlight_off()
