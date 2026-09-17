@@ -37,9 +37,11 @@ func _ready() -> void:
 	add_child(inventory)
 
 func dialogue_lock() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	dialogue_locked = true
 
 func dialogue_free() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	dialogue_locked = false
 
 func is_dialogue_locked() -> bool:
