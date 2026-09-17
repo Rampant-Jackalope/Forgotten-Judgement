@@ -48,14 +48,14 @@ func get_input() -> void:
 		return
 
 	var input_dir := Vector3.ZERO
-	if Input.is_key_pressed(KEY_W):
+	if Input.is_action_pressed("walk_forward"):
 		input_dir.z -= 1.0
-	if Input.is_key_pressed(KEY_S):
+	if Input.is_action_pressed("walk_backward"):
 		input_dir.z += 1.0
-	if Input.is_key_pressed(KEY_D):
-		input_dir.x += 1.0
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_action_pressed("walk_left"):
 		input_dir.x -= 1.0
+	if Input.is_action_pressed("walk_right"):
+		input_dir.x += 1.0
 	input_dir = input_dir.normalized()
 
 	# Transform local input into world space using the body's yaw only
@@ -63,7 +63,7 @@ func get_input() -> void:
 	body.velocity.x = direction.x * run_speed
 	body.velocity.z = direction.z * run_speed
 
-	if body.is_on_floor() and Input.is_action_just_pressed("ui_accept"):
+	if body.is_on_floor() and Input.is_action_just_pressed("jump"):
 		body.velocity.y = jump_speed
 
 func _physics_process(delta: float) -> void:
