@@ -48,13 +48,13 @@ func get_input() -> void:
 		return
 
 	var input_dir := Vector3.ZERO
-	if Input.is_action_pressed("walk_forward"):
+	if Input.is_action_pressed("move_forward"):
 		input_dir.z -= 1.0
-	if Input.is_action_pressed("walk_backward"):
+	if Input.is_action_pressed("move_backward"):
 		input_dir.z += 1.0
-	if Input.is_action_pressed("walk_left"):
+	if Input.is_action_pressed("move_left"):
 		input_dir.x -= 1.0
-	if Input.is_action_pressed("walk_right"):
+	if Input.is_action_pressed("move_right"):
 		input_dir.x += 1.0
 	input_dir = input_dir.normalized()
 

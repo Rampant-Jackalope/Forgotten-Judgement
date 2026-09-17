@@ -41,7 +41,7 @@ func handle_movement(delta: float) -> void:
 
 	var speed_multiplier := 0.7 if state == Mode.DEFEND else 1.0
 
-	var x_move_dir = Input.get_axis("walk_left", "walk_right")
+	var x_move_dir = Input.get_axis("move_left", "walk_right")
 	body.position.x += x_move_dir * move_speed * speed_multiplier * delta
 
 	var half_extents: Vector2 = (collision_shape.shape.get_rect().size / 2.0) * collision_shape.global_scale
