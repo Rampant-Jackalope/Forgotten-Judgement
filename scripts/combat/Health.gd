@@ -8,6 +8,7 @@ func _ready() -> void:
 	assert(max_health)
 
 func set_health(health: int):
+	if health == _health: return
 	var old = _health
 	_health = clamp(health, 0, max_health)
 	changed.emit(old, _health)
