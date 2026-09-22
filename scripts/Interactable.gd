@@ -80,10 +80,7 @@ func process_interaction() -> void:
 		if Interactable.interaction_queue.size() > 0:
 			var val := Interactable.interaction_queue.peek()
 			if val != null:
-				val.interacted.emit(
-					Util.get_player().get_node("Player3D").interactor,
-					Interactable.interaction_queue.pop,
-				)
+				val.interacted.emit(Util.get_player().interactor, Interactable.interaction_queue.pop)
 
 func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)

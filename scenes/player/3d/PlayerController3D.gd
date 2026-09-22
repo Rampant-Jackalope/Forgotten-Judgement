@@ -5,6 +5,7 @@ extends Node3D
 @export var camera: Camera3D
 @export var collider: CollisionShape3D
 @export var body: CharacterBody3D
+@export var player_root: Player3D
 
 @export var run_speed := 5.0
 @export var jump_height := 0.5 # meters, average casual human jump
@@ -22,7 +23,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	if Util.get_player().is_dialogue_locked():
+	if player_root.dialogue_locked:
 		return
 	# Mouse look: yaw rotates the whole body, pitch only rotates the camera
 	if event is InputEventMouseMotion:
@@ -42,7 +43,7 @@ func _input(event: InputEvent) -> void:
 		return
 
 func get_input() -> void:
-	if Util.get_player().is_dialogue_locked():
+	if player_root.dialogue_locked:
 		body.velocity.x = 0.0
 		body.velocity.z = 0.0
 		return

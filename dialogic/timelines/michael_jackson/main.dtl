@@ -1,4 +1,5 @@
 michael_jackson: hee hee~
 - fight me
-	[color=red]Unimplemented
+	eyyy let's go bro
+	[signal arg_type="dict" arg="{"action":"fight","subject":"michael"}"]
 - exit
