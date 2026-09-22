@@ -29,7 +29,6 @@ directories/dtl_directory={
 "bartender/main": "res://dialogic/timelines/bartender/main.dtl",
 "bartender/warning": "res://dialogic/timelines/bartender/warning.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
-"michael_jackson/warning": "res://dialogic/timelines/michael_jackson/warning.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl"
 }
 layout/style_directory={}
