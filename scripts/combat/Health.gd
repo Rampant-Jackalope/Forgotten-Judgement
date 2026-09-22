@@ -13,6 +13,8 @@ func set_health(health: int):
 	changed.emit(old, _health)
 	if _health <= 0:
 		became_empty.emit()
+func get_health() -> int:
+	return _health
 
 func change_health(amount: int):
 	set_health(_health + amount)
