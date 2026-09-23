@@ -7,7 +7,7 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "New_File",
 "suffix": ""
 },
 &"default_portrait": "Bartender concept",
@@ -19,11 +19,11 @@
 &"portraits": {
 "Bartender concept": {
 "export_overrides": {
-"image": "\"res://assets/pictures/Bartender.png\""
+"image": "\"res://assets/npc-billboards/bartender_pouring_stance.png\""
 },
 "mirror": true,
-"offset": Vector2(0, 0),
-"scale": 0.3,
+"offset": Vector2(80, 200),
+"scale": 0.5,
 "scene": ""
 }
 },

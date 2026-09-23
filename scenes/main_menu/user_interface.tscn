@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dxfwnogo10lw7"]
 
 [ext_resource type="Script" uid="uid://c51o75vmfghe4" path="res://scenes/main_menu/user_interface.gd" id="1_i7dvk"]
-[ext_resource type="VideoStream" uid="uid://bk4swagfai82g" path="res://scenes/main_menu/introscreen/mainmenu-screen-concept1.ogv" id="2_s3fax"]
-[ext_resource type="AudioStream" uid="uid://bll4hl68sy287" path="res://scenes/main_menu/menuscreen_features/MenuScroll.mp3" id="3_r3lf1"]
-[ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://fonts/Ananias.otf" id="3_s3fax"]
-[ext_resource type="AudioStream" uid="uid://dyw3aicylxcct" path="res://scenes/main_menu/menuscreen_features/MenuCancel.mp3" id="4_hsgek"]
-[ext_resource type="AudioStream" uid="uid://cx7lyg7ta5ecd" path="res://scenes/main_menu/menuscreen_features/QuitGame.mp3" id="5_f4522"]
-[ext_resource type="AudioStream" uid="uid://h5cyxtd1vb6h" path="res://scenes/main_menu/menuscreen_features/SelectConfirm.mp3" id="6_q287o"]
-[ext_resource type="AudioStream" uid="uid://csto3fwcc32ag" path="res://scenes/main_menu/menuscreen_features/MainMenuMusic.mp3" id="7_hsgek"]
+[ext_resource type="VideoStream" uid="uid://bk4swagfai82g" path="res://assets/introscreen/mainmenu-screen-concept1.ogv" id="2_s3fax"]
+[ext_resource type="AudioStream" uid="uid://bll4hl68sy287" path="res://assets/menuscreen_features/MenuScroll.mp3" id="3_r3lf1"]
+[ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="3_s3fax"]
+[ext_resource type="AudioStream" uid="uid://dyw3aicylxcct" path="res://assets/menuscreen_features/MenuCancel.mp3" id="4_hsgek"]
+[ext_resource type="AudioStream" uid="uid://cx7lyg7ta5ecd" path="res://assets/menuscreen_features/QuitGame.mp3" id="5_f4522"]
+[ext_resource type="AudioStream" uid="uid://h5cyxtd1vb6h" path="res://assets/menuscreen_features/SelectConfirm.mp3" id="6_q287o"]
+[ext_resource type="AudioStream" uid="uid://csto3fwcc32ag" path="res://assets/menuscreen_features/MainMenuMusic.mp3" id="7_hsgek"]
 
 [sub_resource type="FontFile" id="FontFile_gi4ia"]
 cache/0/variation_coordinates = {}

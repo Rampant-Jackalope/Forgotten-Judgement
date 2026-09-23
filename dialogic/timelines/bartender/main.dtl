@@ -1,3 +1,4 @@
+join bartender left [animation="Fade In"]
 bartender: Hi, what can I do for you today?
 - How do I get out of here | [if {bartender.TRIED_TO_EXIT} == true]
 	bartender: You can't
