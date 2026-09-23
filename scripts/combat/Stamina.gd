@@ -9,9 +9,9 @@ var _should_regen: bool = true
 var _cooldown_timer: Timer = Timer.new()
 
 func _init() -> void:
-	_cooldown_timer.wait_time = regen_cooldown
+	if regen_cooldown > 0:
+		_cooldown_timer.wait_time = regen_cooldown
 	_cooldown_timer.one_shot = true
-
 	add_child(_cooldown_timer)
 
 func _ready() -> void:
@@ -27,14 +27,11 @@ func _process(delta: float) -> void:
 			became_full.emit()
 
 func try_consume(amount: int) -> bool:
-	if amount > _stamina:
-		consume_failed.emit(amount)
-		return false
-	_stamina -= amount
-	if regen_cooldown > 0:
-		_should_regen = false
-		_cooldown_timer.start(regen_cooldown)
-	return true
+	if _stamina >= amount:
+		_stamina -= amount
+		_cooldown_timer.start() # Resets cooldown timer on consumption
+		return true
+	return false
 
 signal consume_failed(amount: int)
 signal became_full()

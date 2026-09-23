@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://caucfym3vffpc"]
+
+[ext_resource type="Script" uid="uid://dxg5onxxakava" path="res://scenes/ui_additions/healthbar.gd" id="1_dalnd"]
+
+[node name="Healthbar" type="Control" unique_id=1386320540]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 9.0
+mouse_filter = 2
+script = ExtResource("1_dalnd")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=804831894]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 23.0
+offset_right = 426.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 26
