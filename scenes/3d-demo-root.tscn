@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ctu0nrqkjhwar" path="res://scenes/rooms/main.tscn" id="2_3u6ww"]
 [ext_resource type="PackedScene" uid="uid://bgnyjuftupq7d" path="res://scenes/day_night/day_night_cycle.tscn" id="3_3u6ww"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
+[ext_resource type="PackedScene" uid="uid://sniku816nism" path="res://scenes/npcs/npc_position_markers.tscn" id="5_5s4hk"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -22,3 +23,10 @@ radius = 30.0
 
 [node name="Michael" parent="NPCs" unique_id=861609196 instance=ExtResource("4_0l7dq")]
 transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 6, 1, 0)
+
+[node name="NpcPositionMarkers" parent="." unique_id=26280188 instance=ExtResource("5_5s4hk")]
+
+[node name="MichaelBarMarker" parent="NpcPositionMarkers" index="0" unique_id=718149510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[editable path="NpcPositionMarkers"]

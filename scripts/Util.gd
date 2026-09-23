@@ -1,6 +1,8 @@
 class_name Util
 extends Node
 
+static var is_transitioning = false
+
 static func show_temp_richlabel(
 		parent: Node,
 		text: String,
@@ -34,3 +36,30 @@ static func show_temp_richlabel(
 
 static func get_player() -> Player3D:
 	return Engine.get_main_loop().root.get_node("World/Player3D")
+
+##For moving npcs around with a marker as destination, alongside a screen transition.
+static func transition_npc(npc: Node3D, destination: Vector3) -> void:
+	#A guard to prevent multiple transitions at once, which would probably cause issues...
+	#note: this does not guard against a second dialogue timeline being started.
+	if is_transitioning:
+		return
+
+	#The actual process	
+	is_transitioning = true
+	#lock
+	get_player().dialogue_lock()
+	#fade out
+	await EffectScreen.fade_out(0.4)
+	#move
+	npc.global_position = destination
+	#fade in
+	await EffectScreen.fade_in(0.5)
+	#unlock
+	get_player().dialogue_unlock()
+	is_transitioning = false
+
+
+##For getting a marker node for an npc to move to, given the marker's id.
+static func get_npc_marker(id: String) -> Node3D:
+	var markers = Engine.get_main_loop().root.get_node_or_null("World/NpcPositionMarkers")
+	return markers.get_marker(id) if markers else null
