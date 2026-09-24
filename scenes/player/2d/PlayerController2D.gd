@@ -21,10 +21,11 @@ signal attacked(screen_position: Vector2)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
-	handle_movement(0)
+	handle_movement()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
-func _process(delta: float) -> void:
-	handle_movement(delta)
+func _process(_delta: float) -> void:
+	handle_movement()
 	handle_action_input()
 
 func _on_animation_finished() -> void:
@@ -35,7 +36,7 @@ func _on_animation_finished() -> void:
 		state = State.MOVING
 		sprite.play("idle")
 
-func handle_movement(delta: float) -> void:
+func handle_movement() -> void:
 	cursor.position = get_global_mouse_position()
 
 	var viewport_size := get_viewport().get_visible_rect().size
@@ -43,13 +44,8 @@ func handle_movement(delta: float) -> void:
 	if body.position.y != float_height:
 		body.position.y = float_height
 
-	var speed_multiplier := 0.7 if state == State.BLOCKING else 1.0
-
-	var x_move_dir = Input.get_axis("move_left", "move_right")
-	body.position.x += x_move_dir * move_speed * speed_multiplier * delta
-
 	var half_extents: Vector2 = (collision_shape.shape.get_rect().size / 2.0) * collision_shape.global_scale
-	body.position.x = clamp(body.position.x, half_extents.x, viewport_size.x - half_extents.x)
+	body.position.x = clamp(cursor.position.x, half_extents.x, viewport_size.x - half_extents.x)
 
 func is_blocking() -> bool:
 	return state == State.BLOCKING
