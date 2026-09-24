@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://da4u2e4n0akmu" path="res://scenes/fights/michael/michael_fight.gd" id="1_6y3e3"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
+[ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_glove.tscn" id="2_s2w16"]
+[ext_resource type="AudioStream" uid="uid://cpfoxhryn6q1f" path="res://assets/combat/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
-projectile = ExtResource("2_s2w16")
+projectile_spawn_interval = 1.0
+projectile_types = Array[PackedScene]([ExtResource("2_lkias"), ExtResource("2_s2w16")])
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=928181974]
+stream = ExtResource("5_f1qsm")

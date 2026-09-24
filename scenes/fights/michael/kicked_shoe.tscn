@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://j4y8ftfndul1"]
+
+[ext_resource type="Texture2D" uid="uid://dbk6haj71bnc" path="res://assets/combat/MJ-shoes.png" id="1_7xfjq"]
+[ext_resource type="Script" uid="uid://dhtts2yjk8fal" path="res://scenes/fights/projectiles/types/linear_projectile.gd" id="2_mprrd"]
+[ext_resource type="Script" uid="uid://442kj5on2xc2" path="res://scenes/fights/projectiles/modifiers/punch_modifier.gd" id="3_mprrd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7xfjq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kpxu"]
+radius = 79.48233
+height = 526.14996
+
+[node name="LinearProjectile" type="AnimatedSprite2D" unique_id=1291350163 node_paths=PackedStringArray("modifiers")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_1kpxu")
+autoplay = "default"
+frame_progress = 0.41394928
+script = ExtResource("2_mprrd")
+direction = Vector2(0, 0)
+modifiers = [NodePath("PunchModifier")]
+time_out = 0.3
+enable_timeout = true
+visibility_rect = Rect2(-205, -262, 410, 418)
+metadata/_custom_type_script = "uid://dhtts2yjk8fal"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1011188696]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1382708429]
+position = Vector2(2, -56)
+rotation = 0.7832541
+shape = SubResource("CapsuleShape2D_1kpxu")
+
+[node name="PunchModifier" type="Node" parent="." unique_id=1782377362]
+script = ExtResource("3_mprrd")
+peak_scale = 15.0
+scale_up_time = 0.3
+metadata/_custom_type_script = "uid://442kj5on2xc2"
