@@ -65,8 +65,10 @@ func _on_body_entered(body: Node) -> void:
 	entity_hit.emit(body, default_damage)
 
 func _on_timer_timeout() -> void:
-	Util.disable_node(self)
+	self.monitoring = false
+	self.monitorable = false
 
 func activate() -> void:
 	timer.start()
-	Util.enable_node(self)
+	self.monitoring = true
+	self.monitorable = true
