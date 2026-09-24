@@ -68,9 +68,11 @@ animation = &"block"
 autoplay = "idle"
 flip_h = true
 
-[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267]
+[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health", "stamina")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_m651b")
+health = NodePath("../Health")
+stamina = NodePath("../Stamina")
 
 [node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape")]
 script = ExtResource("5_p4ibx")
@@ -91,13 +93,14 @@ position = Vector2(0, -720.4731)
 scale = Vector2(129.65523, 71.76125)
 shape = SubResource("RectangleShape2D_seols")
 
+[node name="Stamina" type="Node" parent="." unique_id=2091035800]
+script = ExtResource("8_feiep")
+max_stamina = 5
+regen_rate = 5.0
+regen_cooldown = 5.0
+metadata/_custom_type_script = "uid://b5mvfuc3psd86"
+
 [node name="Health" type="Node" parent="." unique_id=1567942799]
 script = ExtResource("6_uomm1")
 max_health = 10
 metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
-
-[node name="Stamina" type="Node" parent="." unique_id=1909390544]
-script = ExtResource("8_feiep")
-max_stamina = 5
-regen_rate = 0.5
-metadata/_custom_type_script = "uid://b5mvfuc3psd86"
