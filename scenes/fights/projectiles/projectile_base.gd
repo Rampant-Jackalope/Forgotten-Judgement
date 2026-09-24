@@ -73,12 +73,6 @@ func _enter_tree() -> void:
 	on_screen_detector.screen_exited.connect(func(): queue_free())
 	add_child(on_screen_detector)	
 
-	# Pick up any child Nodes that implement the modifier interface too
-	# (the "one-off script, no Resource needed" path).
-	for child in get_children():
-		if child.has_method("process_modifier") and child not in modifiers:
-			modifiers.append(child)
-
 	for m in modifiers:
 		m.start(self)
 
