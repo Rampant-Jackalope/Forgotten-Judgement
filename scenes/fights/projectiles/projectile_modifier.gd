@@ -1,6 +1,6 @@
 @tool
 class_name ProjectileModifier
-extends Resource
+extends Node
 
 ## Reusable "juice" component. Drop instances of subclasses into a
 ## ProjectileBase's `modifiers` array in the inspector.

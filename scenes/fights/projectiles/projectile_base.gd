@@ -8,7 +8,7 @@ extends AnimatedSprite2D
 
 ## Reusable, inspector-assignable modifiers (punch, spin, flash, etc).
 ## Order matters if modifiers touch the same property.
-@export var modifiers: Array = []
+@export var modifiers: Array[ProjectileModifier] = []
 
 @export_group("Cleanup")
 @export var time_out := 0.5
