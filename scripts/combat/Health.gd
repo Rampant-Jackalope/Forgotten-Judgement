@@ -2,7 +2,7 @@ class_name Health
 extends Node
 
 @export var max_health: int
-var _health: int = max_health
+@onready var _health: int = max_health
 
 func _ready() -> void:
 	assert(max_health)
