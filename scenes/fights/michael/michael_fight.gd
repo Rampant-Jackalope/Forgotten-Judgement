@@ -7,6 +7,7 @@ extends Node2D
 var rng := RandomNumberGenerator.new()
 
 @onready var player: Node2D = $Player2D
+var player_controller: PlayerController2D 
 var player_health: Health
 
 func _ready() -> void:
@@ -25,6 +26,10 @@ func _ready() -> void:
 	if not player_body:
 		push_error("Could not find player body component")
 	player_body.died.connect(_on_player_death)
+	
+	player_controller = player_body.get_node("PlayerController2D")
+	if not player_controller:
+		push_error("Could not find player controller component")
 
 	timer.start()
 
@@ -41,6 +46,8 @@ func _spawn_projectile() -> void:
 	add_child(instance)
 
 func _on_projectile_hit(damage: int) -> void:
+	if player_controller.state == PlayerController2D.State.BLOCKING:
+		return
 	player_health.damage(damage)
 
 func _on_player_death() -> void:
