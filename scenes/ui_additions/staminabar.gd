@@ -8,7 +8,7 @@ extends Control
 
 # Color definitions (Main color red, warning color blue)
 @export var normal_color: Color = Color.GREEN
-@export var warning_color: Color = Color.BLUE
+@export var warning_color: Color = Color.SEA_GREEN
 
 # --- Choose 1 of the 2 options below ---
 # OPTION 1: If the root node itself is the ProgressBar:
