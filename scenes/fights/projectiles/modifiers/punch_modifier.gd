@@ -14,6 +14,7 @@ extends ProjectileModifier
 func start(projectile: ProjectileBase) -> void:
 	var base_scale := projectile.scale
 	var tween := projectile.get_tree().create_tween()
+	tween.bind_node(projectile)
 	tween.tween_property(projectile, "scale", base_scale * peak_scale, scale_up_time)
 	tween.tween_callback(func() -> void:
 		projectile.activate_hitbox()

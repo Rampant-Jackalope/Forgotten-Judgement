@@ -7,6 +7,7 @@ extends ProjectileModifier
 
 func start(projectile: ProjectileBase) -> void:
 	var tween := projectile.get_tree().create_tween()
+	tween.bind_node(projectile)
 	tween.tween_interval(delay)
 	tween.tween_callback(func() -> void:
 		projectile.activate_hitbox()
