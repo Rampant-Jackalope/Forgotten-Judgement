@@ -32,6 +32,7 @@ func try_consume(amount: int) -> bool:
 		_cooldown_timer.start() # Resets cooldown timer on consumption
 		return true
 	return false
+	
 
 signal consume_failed(amount: int)
 signal became_full()
