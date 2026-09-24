@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ssoj8xu5iorp"]
 
 [ext_resource type="Texture2D" uid="uid://ekfrn7so7o8o" path="res://assets/combat/mj_glove.png" id="1_i2qlw"]
-[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scenes/fights/projectiles/types/falling_projectile.gd" id="2_rdtg0"]
+[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/falling_projectile.gd" id="2_rdtg0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
 animations = [{
