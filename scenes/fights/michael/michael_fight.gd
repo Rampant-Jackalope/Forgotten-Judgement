@@ -7,8 +7,8 @@ extends Node2D
 var rng := RandomNumberGenerator.new()
 
 @onready var player: Node2D = $Player2D
-var player_controller: PlayerController2D
-var player_health: Health
+@onready var player_controller: PlayerController2D = $Player2D/Body/PlayerController2D
+@onready var player_health: Health = $Player2D/Health
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -18,17 +18,14 @@ func _ready() -> void:
 	timer.timeout.connect(_spawn_projectile)
 	add_child(timer)
 
-	player_health = player.get_node("Health")
-	if not player_health:
-		push_error("Could not find player health component")
+	assert(player_health != null)
+
 	var player_body := player.get_node("Body")
 	if not player_body:
-		push_error("Could not find player body component")
+		push_error("Could not find player body component, cannot connect to death signal")
 	player_body.died.connect(_on_player_death)
 
-	player_controller = player_body.get_node("PlayerController2D")
-	if not player_controller:
-		push_error("Could not find player controller component")
+	assert(player_controller != null)
 
 	timer.start()
 
