@@ -1,4 +1,5 @@
 @tool
+class_name DeathBox2D
 extends Area2D
 
 @export var default_damage: int = 1
@@ -15,26 +16,51 @@ extends Area2D
 		scale_refresh()
 
 @export var default_active_time: float = 1
-@onready var timer: Timer = Timer.new()
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+var timer: Timer
+var collision_shape: CollisionShape2D
 
 signal entity_hit(entity: Node, damage: int)
 
 func _enter_tree():
+	_ensure_collision_shape()
 	if Engine.is_editor_hint():
-		self.collision_shape = get_node_or_null("CollisionShape2D")
 		scale_refresh()
 
+func _ensure_collision_shape() -> void:
+	collision_shape = get_node_or_null("CollisionShape2D")
+	if collision_shape:
+		return
+
+	collision_shape = CollisionShape2D.new()
+	collision_shape.name = "CollisionShape2D"
+	collision_shape.shape = RectangleShape2D.new()
+	add_child(collision_shape)
+	if Engine.is_editor_hint():
+		# without this, the shape works fine visually but Godot won't
+		# persist it into the .tscn and it won't show in the Scene dock
+		collision_shape.owner = get_tree().edited_scene_root
+
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
+	timer = Timer.new()
 	timer.wait_time = default_active_time
 	timer.autostart = false
 	timer.one_shot = true
-
 	add_child(timer)
+	timer.timeout.connect(_on_timer_timeout)
+
+	body_entered.connect(_on_body_entered)
 	get_viewport().size_changed.connect(scale_refresh)
 
+	scale_refresh()
+
 func scale_refresh() -> void:
+	if not collision_shape or not collision_shape.shape:
+		return
+
 	if self.global_position != Vector2.ZERO:
 		self.global_position = Vector2.ZERO
 
