@@ -2,7 +2,7 @@
 class_name FallingProjectile
 extends ProjectileBase
 
-@export var gravity: float = 980.0
+@export var gravity: Vector2 = Vector2(980.0, .0)
 @export var initial_velocity: Vector2 = Vector2.ZERO
 
 var velocity: Vector2
@@ -13,7 +13,7 @@ func _enter_tree() -> void:
 	activate_hitbox()
 
 func apply_motion(delta: float) -> void:
-	velocity.y += gravity * delta
+	velocity += gravity * delta
 	position += velocity * delta
 
 func _on_timer_timeout() -> void:
