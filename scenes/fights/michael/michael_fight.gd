@@ -13,9 +13,6 @@ var player_health: Health
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
-
 	timer.one_shot = false
 	timer.wait_time = projectile_spawn_interval
 	timer.timeout.connect(_spawn_projectile)
