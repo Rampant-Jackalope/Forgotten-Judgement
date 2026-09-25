@@ -22,7 +22,7 @@ signal attacked(screen_position: Vector2)
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
 	handle_movement()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 
 func _process(_delta: float) -> void:
 	handle_movement()
