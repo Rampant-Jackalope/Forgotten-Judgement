@@ -55,12 +55,10 @@ func _enter_tree() -> void:
 		body = self
 
 	hitbox = _find_hitbox()
-	if hitbox == null:
-		push_error("%s has no Area2D child every projectile needs a hitbox." % name)
-	else:
-		hitbox.monitoring = false
-		hitbox.monitorable = false
-		hitbox.body_entered.connect(func(_body: Node2D): self.hit.emit(damage))
+	assert(hitbox != null)
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+	hitbox.body_entered.connect(func(_body: Node2D): self.hit.emit(damage))
 
 	timer = Timer.new()
 	timer.one_shot = true
