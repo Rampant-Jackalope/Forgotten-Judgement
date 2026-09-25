@@ -12,6 +12,8 @@ var rng := RandomNumberGenerator.new()
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+@export var kick_sound_delay: float = 0.5
+
 func _ready() -> void:
 	timer.one_shot = false
 	timer.wait_time = projectile_spawn_interval
@@ -60,6 +62,7 @@ func kick_shoe(instance: Node) -> void:
 	instance.position.x = rng.randf_range(min_x, max_x)
 	
 	add_child(instance)
+	await get_tree().create_timer(kick_sound_delay).timeout
 	audio_player.play()
 
 func drop_gloves(instance: Node) -> void:
@@ -73,4 +76,5 @@ func _on_projectile_hit(damage: int) -> void:
 	player_health.damage(damage)
 
 func _on_player_death() -> void:
+	# TODO: properly handle this shit doesn't matter too much this is a debugging fight anyway
 	get_tree().quit()
