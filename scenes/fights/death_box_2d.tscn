@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dynu7r3k5j13i"]
 
-[ext_resource type="Script" uid="uid://5n8paptka3ch" path="res://scenes/fights/death_box_2d.gd" id="1_wgiv1"]
+[ext_resource type="Script" uid="uid://5n8paptka3ch" path="res://scenes/fights/DeathBox2D.gd" id="1_wgiv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kpxu"]
 size = Vector2(0, 0)
