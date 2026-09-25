@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://brfqtx6s8jpyi"]
-
-[ext_resource type="Script" uid="uid://cvq5l02e684ip" path="res://scenes/ui/effect_screen.gd" id="1_xk2kg"]
-
-[node name="EffectScreen" type="CanvasLayer" unique_id=553587412]
-script = ExtResource("1_xk2kg")
