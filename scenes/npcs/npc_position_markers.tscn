@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://sniku816nism"]
-
-[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scenes/npcs/npc_position_markers.gd" id="1_haiew"]
-
-[node name="NpcPositionMarkers" type="Node" unique_id=26280188]
-script = ExtResource("1_haiew")
-
-[node name="MichaelBarMarker" type="Marker3D" parent="." unique_id=718149510]
