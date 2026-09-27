@@ -9,8 +9,7 @@ func start(projectile: ProjectileBase) -> void:
 	await _delayed_activate(projectile)
 
 func _delayed_activate(projectile: ProjectileBase) -> void:
-	var delay_timer := projectile.get_tree().create_timer(delay)
-	await delay_timer.timeout
+	await projectile.get_tree().create_timer(delay).timeout
 
 	if not is_instance_valid(projectile):
 		return
