@@ -9,7 +9,7 @@
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
 projectile_spawn_interval = 1.0
-projectile_types = Array[PackedScene]([ExtResource("2_s2w16"), ExtResource("2_lkias")])
+projectile_types = Array[PackedScene]([ExtResource("2_lkias"), ExtResource("2_s2w16")])
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 

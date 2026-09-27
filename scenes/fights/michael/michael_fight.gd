@@ -74,11 +74,9 @@ func kick_shoe(instance: Node) -> void:
 	audio_player.play()
 
 func drop_gloves(instance: Node) -> void:
-	print_debug("dropping gloves")
 	instance.position.y = -300
 	instance.position.x = rng.randf_range(0, get_viewport_rect().size.x)
 	add_child(instance)
-	print_debug("dropped gloves")
 
 func _on_projectile_hit(damage: int) -> void:
 	if player_controller.state == PlayerController2D.State.BLOCKING:

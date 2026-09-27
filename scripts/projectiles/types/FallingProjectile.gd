@@ -2,7 +2,7 @@
 class_name FallingProjectile
 extends ProjectileBase
 
-@export var gravity: Vector2 = Vector2(980.0, .0)
+@export var gravity: Vector2 = Vector2(.0, 980.0)
 @export var initial_velocity: Vector2 = Vector2.ZERO
 
 var velocity: Vector2
