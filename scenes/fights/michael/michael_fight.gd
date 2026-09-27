@@ -6,9 +6,9 @@ extends Node2D
 @onready var timer: Timer = Timer.new()
 var rng := RandomNumberGenerator.new()
 
-@onready var player: Node2D = $Player2D
-@onready var player_controller: PlayerController2D = $Player2D/Body/PlayerController2D
-@onready var player_health: Health = $Player2D/Health
+var player: Node2D
+var player_controller: PlayerController2D
+var player_health: Health
 
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -20,14 +20,21 @@ func _ready() -> void:
 	timer.timeout.connect(_spawn_projectile)
 	add_child(timer)
 
-	assert(player_health != null)
+	player = get_node("Player2D")
+	assert(player != null, "Could not find player node")
 
-	var player_body := player.get_node("Body")
-	if not player_body:
-		push_error("Could not find player body component, cannot connect to death signal")
+	var player_body = player.get_node("Body")
+	assert(
+		player_body != null,
+		"Could not find player body component, cannot connect to death signal",
+	)
 	player_body.died.connect(_on_player_death)
 
+	player_controller = player_body.get_node("PlayerController2D")
 	assert(player_controller != null)
+
+	player_health = player.get_node("Health")
+	assert(player_health != null, "Could not find player health component")
 
 	timer.start()
 
@@ -45,6 +52,7 @@ func _spawn_projectile() -> void:
 	instance.hit.connect(_on_projectile_hit)
 
 	if is_instance_of(instance, LinearProjectile):
+		print_debug("glove")
 		kick_shoe(instance)
 	elif is_instance_of(instance, FallingProjectile):
 		drop_gloves(instance)
@@ -53,22 +61,24 @@ func _spawn_projectile() -> void:
 
 func kick_shoe(instance: Node) -> void:
 	var viewport_size := get_viewport_rect().size
-	var min_x  = viewport_size.x * 0.2
+	var min_x = viewport_size.x * 0.2
 	var min_y = viewport_size.y * 0.2
 	var max_x = viewport_size.x * 0.8
 	var max_y = viewport_size.y * 0.8
 
 	instance.position.y = rng.randf_range(min_y, max_y)
 	instance.position.x = rng.randf_range(min_x, max_x)
-	
+
 	add_child(instance)
 	await get_tree().create_timer(kick_sound_delay).timeout
 	audio_player.play()
 
 func drop_gloves(instance: Node) -> void:
+	print_debug("dropping gloves")
 	instance.position.y = -300
 	instance.position.x = rng.randf_range(0, get_viewport_rect().size.x)
 	add_child(instance)
+	print_debug("dropped gloves")
 
 func _on_projectile_hit(damage: int) -> void:
 	if player_controller.state == PlayerController2D.State.BLOCKING:
