@@ -34,3 +34,9 @@ static func show_temp_richlabel(
 
 static func get_player() -> Player3D:
 	return Engine.get_main_loop().root.get_node("World/Player3D")
+
+
+##For getting a marker node for an npc to move to, given the marker's id.
+static func get_npc_marker(id: String) -> Node3D:
+	var markers = Engine.get_main_loop().root.get_node_or_null("World/Main/BarPlaceholder/NpcPositionMarkers")
+	return markers.get_marker(id) if markers else null

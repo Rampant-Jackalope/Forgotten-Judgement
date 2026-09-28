@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bcikh72m2hwcd" path="res://assets/prototype-kit/Models/door-rotate.glb" id="7_l2hhy"]
 [ext_resource type="Script" uid="uid://y76xr7n4vrft" path="res://scenes/rooms/exit_door.gd" id="8_kdwso"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="9_kdwso"]
+[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scenes/npcs/npc_position_markers.gd" id="10_2fptk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mbxjm"]
 radius = 0.6
@@ -102,5 +103,14 @@ shape = SubResource("SphereShape3D_mbxjm")
 
 [node name="LookTarget" type="Node3D" parent="Interactables/exit_door" unique_id=678589824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1184268, 0.3517124, 0.44814354)
+
+[node name="BarPlaceholder" type="Node3D" parent="." unique_id=2077580771]
+
+[node name="NpcPositionMarkers" type="Node" parent="BarPlaceholder" unique_id=1158886082]
+script = ExtResource("10_2fptk")
+metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
+
+[node name="MichaelBarMarker" type="Marker3D" parent="BarPlaceholder/NpcPositionMarkers" unique_id=1359691949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 
 [connection signal="interacted" from="Interactables/exit_door/Interactable" to="Interactables/exit_door" method="_on_interactable_interacted"]

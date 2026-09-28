@@ -1,5 +1,11 @@
 michael_jackson: hee hee~
-- fight me
+- fight me | [if {michael.AT_BAR} == false]
 	eyyy let's go bro
 	[signal arg_type="dict" arg="{"action":"fight","subject":"michael"}"]
+- go to bar | [if {michael.AT_BAR} == false]
+	[signal arg_type="dict" arg="{"action":"bar","subject":"michael"}"]
+	set {michael.AT_BAR} = true
+- go back on stage | [if {michael.AT_BAR} == true]
+	[signal arg_type="dict" arg="{"action":"stage","subject":"michael"}"]
+	set {michael.AT_BAR} = false
 - exit

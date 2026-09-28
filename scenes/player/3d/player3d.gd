@@ -14,6 +14,12 @@ func dialogue_unlock() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	dialogue_locked = false
 
+func run_locked(callback: Callable) -> void:
+	dialogue_lock()
+	if callback.is_valid():
+		await callback.call()
+	if self: dialogue_unlock()
+
 func run_locked_dialogue(timeline: String, label: String = "") -> void:
 	dialogue_lock()
 	Dialogic.start(timeline, label)
