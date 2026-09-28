@@ -22,29 +22,29 @@ func _ready() -> void:
 	
 
 ## Fade to black. Awaitable.
-func fade_in(duration: float = 0.4) -> void:
+func fade_to(duration: float = 0.4) -> void:
 	_fadingRect.visible = true
 	_fade_timer.set_wait_time(duration)
 	await _fadingTo(1.0, _fade_timer.wait_time)
 
 ## Fade back in. Awaitable.
-func fade_to(duration: float = 0.5) -> void:
+func fade_out(duration: float = 0.5) -> void:
 	_fadingRect.visible = true
 	_fade_timer.set_wait_time(duration)
 	await _fadingTo(0.0, _fade_timer.wait_time)
 
 ## Fade out, run 'midpoint' while black, then fade in. Awaitable.
-func screenFadeTransition(midpoint: Callable, out_time: float = 0.4,
-		hold: float = 0.1, in_time: float = 0.5) -> void:
-	await fade_in(out_time)
+func screenFadeTransition(midpoint: Callable, in_time: float = 0.4,
+		hold: float = 0.1, out_time: float = 0.5) -> void:
+	await fade_to(in_time)
 	if hold > 0.0:
 		#note: original code used await get_tree().create_timer(hold).timeout, which is a SceneTreeTimer node and not a Timer node.
+		if midpoint.is_valid():
+		midpoint.call()
 		_fade_timer.set_wait_time(hold)
 		_fade_timer.start()
-		await _fade_timer.timeout
-	if midpoint.is_valid():
-		midpoint.call()
-	await fade_to(in_time)
+
+	await fade_out(out_time)
 
 func _fadingTo(alpha: float, duration: float) -> void:
 	var t := create_tween()

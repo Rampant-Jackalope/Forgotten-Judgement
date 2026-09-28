@@ -15,8 +15,8 @@ static func transition_npc(npc: Node3D, destination: Vector3) -> void:
 	#The actual process	
 	_is_transitioning = true
 	player.dialogue_lock()
-	await EffectScreen.fade_in(0.4)
+	await EffectScreen.fade_to(0.4)
 	npc.global_position = destination
-	await EffectScreen.fade_to(0.5)
+	await EffectScreen.fade_out(0.5)
 	player.dialogue_unlock()
 	_is_transitioning = false
