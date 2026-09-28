@@ -40,7 +40,7 @@ func screenFadeTransition(midpoint: Callable, in_time: float = 0.4,
 	if hold > 0.0:
 		#note: original code used await get_tree().create_timer(hold).timeout, which is a SceneTreeTimer node and not a Timer node.
 		if midpoint.is_valid():
-		midpoint.call()
+			midpoint.call()
 		_fade_timer.set_wait_time(hold)
 		_fade_timer.start()
 
