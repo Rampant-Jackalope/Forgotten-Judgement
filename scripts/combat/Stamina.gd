@@ -9,8 +9,7 @@ var _should_regen: bool = true
 var _cooldown_timer: Timer = Timer.new()
 
 func _init() -> void:
-	if regen_cooldown > 0:
-		_cooldown_timer.wait_time = regen_cooldown
+	_cooldown_timer.wait_time = regen_cooldown
 	_cooldown_timer.one_shot = true
 	add_child(_cooldown_timer)
 
