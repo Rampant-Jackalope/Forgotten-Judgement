@@ -20,14 +20,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	# Left Click / Attack Action -> Consumes 20% stamina
-	if event.is_action_pressed("attack") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
+	if event.is_action_pressed("attack"):
 		var amount: int = ceil(stamina.max_stamina * 0.2)
 		if not stamina.try_consume(amount):
 			print("Not enough stamina to attack!")
 		get_viewport().set_input_as_handled()
 
 	# Right Click / Block Action -> Consumes 10% stamina
-	elif event.is_action_pressed("block") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT):
+	elif event.is_action_pressed("block"):
 		var amount: int = ceil(stamina.max_stamina * 0.1)
 		if not stamina.try_consume(amount):
 			print("Not enough stamina to block!")
