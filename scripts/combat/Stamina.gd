@@ -28,10 +28,10 @@ func _process(delta: float) -> void:
 func try_consume(amount: int) -> bool:
 	if _stamina >= amount:
 		_stamina -= amount
+		_should_regen = false
 		_cooldown_timer.start() # Resets cooldown timer on consumption
 		return true
 	return false
-	
 
 signal consume_failed(amount: int)
 signal became_full()
