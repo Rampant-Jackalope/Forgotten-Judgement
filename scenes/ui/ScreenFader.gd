@@ -1,5 +1,5 @@
 extends Node
-class_name PlayerUtil
+class_name ScreenFader
 
 static var _is_transitioning = false
 
