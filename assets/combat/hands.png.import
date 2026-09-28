@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:assets/combat/hands.png.import
 uid="uid://bdw0pmkhvbfp6"
 path="res://.godot/imported/hands.png-98e8adff704229af6b791ff29e135b7b.ctex"
-========
-uid="uid://tc058aj02ifj"
-path="res://.godot/imported/Bartender.png-5a906357e4ca97de7d301fd9c3614b9f.ctex"
->>>>>>>> ab3e081 (refactor(assets): move images, fonts, and videos to new folder structure):assets/pictures/Bartender.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:assets/combat/hands.png.import
 source_file="res://assets/combat/hands.png"
 dest_files=["res://.godot/imported/hands.png-98e8adff704229af6b791ff29e135b7b.ctex"]
-========
-source_file="res://assets/pictures/Bartender.png"
-dest_files=["res://.godot/imported/Bartender.png-5a906357e4ca97de7d301fd9c3614b9f.ctex"]
->>>>>>>> ab3e081 (refactor(assets): move images, fonts, and videos to new folder structure):assets/pictures/Bartender.png.import
 
 [params]
 
