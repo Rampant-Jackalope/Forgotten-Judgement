@@ -23,6 +23,7 @@ EffectScreen="*uid://cvq5l02e684ip"
 
 directories/dch_directory={
 "bartender": "res://dialogic/characters/bartender.dch",
+"bb": "res://dialogic/characters/bb.dch",
 "michael_jackson": "res://dialogic/characters/michael_jackson.dch"
 }
 directories/dtl_directory={
