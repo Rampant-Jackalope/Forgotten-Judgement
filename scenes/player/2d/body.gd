@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 @export var health: Health
 @export var stamina: Stamina
-@export var attack_consume_percentage: float
-@export var block_consume_percentage: float
+@export var attack_consume_percentage: float = 0.2
+@export var block_consume_percentage: float = 0.1
 
 var attack_consume_value: int
 var block_consume_value: int
+
 func _ready() -> void:
 	assert(health)
 	assert(stamina)
