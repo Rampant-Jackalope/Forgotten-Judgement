@@ -28,7 +28,7 @@ func fade_in(duration: float = 0.4) -> void:
 	await _fadingTo(1.0, _fade_timer.wait_time)
 
 ## Fade back in. Awaitable.
-func fade_out(duration: float = 0.5) -> void:
+func fade_to(duration: float = 0.5) -> void:
 	_fadingRect.visible = true
 	_fade_timer.set_wait_time(duration)
 	await _fadingTo(0.0, _fade_timer.wait_time)
@@ -44,7 +44,7 @@ func screenFadeTransition(midpoint: Callable, out_time: float = 0.4,
 		await _fade_timer.timeout
 	if midpoint.is_valid():
 		midpoint.call()
-	await fade_out(in_time)
+	await fade_to(in_time)
 
 func _fadingTo(alpha: float, duration: float) -> void:
 	var t := create_tween()

@@ -1,6 +1,6 @@
 extends Node3D
 
-var _origin: Transform3D # this is the original position of the NPC, used for resetting it back to its original position if needed.
+var _origin: Transform3D ## this is the original position of the NPC, used for resetting it back to its original position if needed.
 
 func _ready() -> void:
 	_origin = global_transform
