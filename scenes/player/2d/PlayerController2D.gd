@@ -9,6 +9,13 @@ extends Node2D
 @export var move_speed := 2500.0
 @export var float_height_percentage: float = 0.0
 
+@export var stamina: Stamina
+@export var attack_consume_percentage: float = 0.2
+@export var block_consume_percentage: float = 0.1
+
+var attack_consume_value: int
+var block_consume_value: int
+
 enum State {
 	MOVING,
 	ATTACKING,
@@ -21,8 +28,14 @@ signal attacked(screen_position: Vector2)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
-	handle_movement(0)
 
+	assert(stamina)
+	
+	attack_consume_value = ceil(stamina.max_stamina * attack_consume_percentage)
+	block_consume_value = ceil(stamina.max_stamina * block_consume_percentage)
+
+	handle_movement(0)
+	
 func _process(delta: float) -> void:
 	handle_movement(delta)
 	handle_action_input()
@@ -59,7 +72,13 @@ func handle_action_input() -> void:
 		if state == State.MOVING:
 			sprite.play("block")
 			state = State.BLOCKING
+			if not stamina.try_consume(block_consume_value):
+				print("Not enough stamina to block!")
+		get_viewport().set_input_as_handled()
 	elif Input.is_action_just_pressed("attack"):
 		state = State.ATTACKING
 		sprite.play("attack")
+		if not stamina.try_consume(attack_consume_value):
+			print("Not enough stamina to attack!")
+		get_viewport().set_input_as_handled()
 		attacked.emit(get_global_mouse_position())

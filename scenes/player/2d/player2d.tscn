@@ -70,18 +70,18 @@ animation = &"block"
 autoplay = "idle"
 flip_h = true
 
-[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health", "stamina")]
+[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_m651b")
 health = NodePath("../Health")
-stamina = NodePath("../Stamina")
 
-[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape")]
+[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape", "stamina")]
 script = ExtResource("5_p4ibx")
 body = NodePath("..")
 cursor = NodePath("../../Cursor")
 sprite = NodePath("../../Cursor/AnimatedSprite2D")
 collision_shape = NodePath("../CollisionShape2D")
+stamina = NodePath("../../Stamina")
 metadata/_custom_type_script = "uid://cwcs3ksl166ko"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body" unique_id=447231792]
