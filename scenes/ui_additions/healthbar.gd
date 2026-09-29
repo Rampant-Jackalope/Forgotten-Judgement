@@ -13,14 +13,12 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
-	if health:
-		_setup_health()
+	assert(health, "No health component assigned")
+	_setup_health()
 
 func _setup_health() -> void:	
 	# Explicitly set the starting value to max_health (or current health if set)
 	var current_hp: int = health.get_health()
-	if current_hp <= 0 and max_hp > 0:
-		current_hp = max_hp
 		
 	progress_bar.value = current_hp
 	
