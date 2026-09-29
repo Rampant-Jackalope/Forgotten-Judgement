@@ -4,22 +4,23 @@ extends Node
 @export var max_stamina: int
 @export var regen_rate: float ## Stamina/second that is passively regenerated
 @export var regen_cooldown: float = 0.0 ## Cooldown in seconds after consuming until regen kicks in
-var _stamina: float = max_stamina
+var _stamina: float
 var _should_regen: bool = true
 var _cooldown_timer: Timer = Timer.new()
 
 signal consume_failed(amount: int)
 signal became_full()
 
-func _init() -> void:
-	_cooldown_timer.wait_time = regen_cooldown
-	_cooldown_timer.one_shot = true
-	add_child(_cooldown_timer)
-
 func _ready() -> void:
 	assert(max_stamina && max_stamina >= 0)
 	assert(regen_rate && regen_rate >= 0)
 
+	_cooldown_timer.wait_time = regen_cooldown
+	_cooldown_timer.one_shot = true
+
+	add_child(_cooldown_timer)
+
+	_stamina = max_stamina
 	_cooldown_timer.timeout.connect(func(): _should_regen = true)
 
 func _process(delta: float) -> void:
