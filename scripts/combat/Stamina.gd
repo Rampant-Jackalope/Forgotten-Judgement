@@ -48,5 +48,5 @@ func _set_stamina(value: float) -> void:
 	_stamina = value
 	changed.emit(old_stamina, _stamina)
 
-	if _stamina == float(max_stamina) and old_stamina < float(max_stamina):
+	if _stamina == float(max_stamina):
 		became_full.emit()
