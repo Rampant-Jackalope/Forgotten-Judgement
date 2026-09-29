@@ -16,11 +16,7 @@ func _ready() -> void:
 	if health:
 		_setup_health()
 
-func _setup_health() -> void:
-	# Ensure max_value is properly set (defaulting to 100 if max_health is not set yet)
-	var max_hp: int = health.max_health if health.max_health > 0 else 100
-	progress_bar.max_value = max_hp
-	
+func _setup_health() -> void:	
 	# Explicitly set the starting value to max_health (or current health if set)
 	var current_hp: int = health.get_health()
 	if current_hp <= 0 and max_hp > 0:

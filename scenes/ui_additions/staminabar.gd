@@ -10,22 +10,13 @@ extends Control
 @export var normal_color: Color = Color.GREEN
 @export var warning_color: Color = Color.SEA_GREEN
 
-# --- Choose 1 of the 2 options below ---
-# OPTION 1: If the root node itself is the ProgressBar:
-# @onready var progress_bar: ProgressBar = self
-
-# OPTION 2: If ProgressBar is a child node (adjust "ProgressBar" to match your Scene Tree):
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
-	if stamina:
-		_setup_stamina()
+	assert(stamina, "No stamina assigned")
+	_setup_stamina()
 
-func _setup_stamina() -> void:
-	# Fallback to 100 if max_stamina is not set in the Inspector
-	var max_sp: int = stamina.max_stamina if stamina.max_stamina > 0 else 100
-	progress_bar.max_value = max_sp
-	
+func _setup_stamina() -> void:	
 	# Start full by default (100 or max_stamina)
 	progress_bar.value = max_sp
 	_update_bar_color(max_sp)
