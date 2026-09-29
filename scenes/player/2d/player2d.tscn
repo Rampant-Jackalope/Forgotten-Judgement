@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_uomm1"]
 [ext_resource type="Texture2D" uid="uid://bdw0pmkhvbfp6" path="res://assets/combat/hands.png" id="6_ycis5"]
 [ext_resource type="Script" uid="uid://b5mvfuc3psd86" path="res://scripts/combat/Stamina.gd" id="8_feiep"]
+[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="9_feiep"]
+[ext_resource type="PackedScene" uid="uid://bx4g1ae71clpj" path="res://scenes/ui_additions/staminabar.tscn" id="10_finy2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{
@@ -68,18 +70,18 @@ animation = &"block"
 autoplay = "idle"
 flip_h = true
 
-[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health", "stamina")]
+[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_m651b")
 health = NodePath("../Health")
-stamina = NodePath("../Stamina")
 
-[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape")]
+[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape", "stamina")]
 script = ExtResource("5_p4ibx")
 body = NodePath("..")
 cursor = NodePath("../../Cursor")
 sprite = NodePath("../../Cursor/AnimatedSprite2D")
 collision_shape = NodePath("../CollisionShape2D")
+stamina = NodePath("../../Stamina")
 metadata/_custom_type_script = "uid://cwcs3ksl166ko"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body" unique_id=447231792]
@@ -104,3 +106,24 @@ metadata/_custom_type_script = "uid://b5mvfuc3psd86"
 script = ExtResource("6_uomm1")
 max_health = 10
 metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
+
+[node name="Stamina" type="Node" parent="." unique_id=1909390544]
+script = ExtResource("8_feiep")
+max_stamina = 5
+regen_rate = 0.5
+regen_cooldown = 0.5
+metadata/_custom_type_script = "uid://b5mvfuc3psd86"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1773186473]
+
+[node name="Healthbar" parent="CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("9_feiep")]
+health = NodePath("../../Health")
+
+[node name="Staminabar" parent="CanvasLayer" unique_id=852893516 node_paths=PackedStringArray("stamina") instance=ExtResource("10_finy2")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_right = 0.0
+grow_horizontal = 0
+stamina = NodePath("../../Stamina")

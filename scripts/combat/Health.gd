@@ -2,10 +2,14 @@ class_name Health
 extends Node
 
 @export var max_health: int
-@onready var _health: int = max_health
+var _health: int
+
+signal changed(old: int, new: int)
+signal became_empty()
 
 func _ready() -> void:
-	assert(max_health)
+	assert(self.max_health > 0)
+	_health = max_health
 
 func set_health(health: int):
 	if health == _health: return
@@ -28,6 +32,3 @@ func damage(amount: int):
 	if amount < 0:
 		push_error("Attempt to damage a negative amount")
 	change_health(-amount)
-
-signal changed(old: int, new: int)
-signal became_empty()

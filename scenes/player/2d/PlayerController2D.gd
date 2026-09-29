@@ -9,6 +9,10 @@ extends Node2D
 @export var move_speed := 2500.0
 @export var float_height_percentage: float = 0.0
 
+@export var stamina: Stamina
+@export var attack_stamina_cost: int = 2
+@export var block_stamina_cost: int = 1
+
 enum State {
 	MOVING,
 	ATTACKING,
@@ -23,16 +27,14 @@ func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
 	handle_movement()
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	assert(stamina != null, "Stamina component is not assigned in PlayerController2D!")
 
 func _process(_delta: float) -> void:
 	handle_movement()
 	handle_action_input()
 
 func _on_animation_finished() -> void:
-	if state == State.ATTACKING:
-		state = State.MOVING
-		sprite.play("idle")
-	if state == State.BLOCKING:
+	if state == State.ATTACKING or state == State.BLOCKING:
 		state = State.MOVING
 		sprite.play("idle")
 
@@ -53,9 +55,19 @@ func is_blocking() -> bool:
 func handle_action_input() -> void:
 	if Input.is_action_just_pressed("block"):
 		if state == State.MOVING:
-			sprite.play("block")
-			state = State.BLOCKING
+			if stamina.try_consume(block_stamina_cost):
+				sprite.play("block")
+				state = State.BLOCKING
+			else:
+				print("Not enough stamina to block!")
+		get_viewport().set_input_as_handled()
+
 	elif Input.is_action_just_pressed("attack"):
-		state = State.ATTACKING
-		sprite.play("attack")
-		attacked.emit(get_global_mouse_position())
+		if state == State.MOVING:
+			if stamina.try_consume(attack_stamina_cost):
+				state = State.ATTACKING
+				sprite.play("attack")
+				attacked.emit(get_global_mouse_position())
+			else:
+				print("Not enough stamina to attack!")
+		get_viewport().set_input_as_handled()
