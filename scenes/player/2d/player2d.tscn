@@ -104,6 +104,7 @@ metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
 script = ExtResource("8_feiep")
 max_stamina = 5
 regen_rate = 0.5
+regen_cooldown = 0.5
 metadata/_custom_type_script = "uid://b5mvfuc3psd86"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1773186473]
