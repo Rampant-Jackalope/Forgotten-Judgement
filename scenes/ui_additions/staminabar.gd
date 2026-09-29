@@ -18,8 +18,8 @@ func _ready() -> void:
 
 func _setup_stamina() -> void:	
 	# Start full by default (100 or max_stamina)
-	progress_bar.value = max_sp
-	_update_bar_color(max_sp)
+	progress_bar.value = stamina.get_stamina()
+	_update_bar_color(stamina.get_stamina())
 
 func _process(_delta: float) -> void:
 	if stamina and progress_bar:

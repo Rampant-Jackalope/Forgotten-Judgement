@@ -36,3 +36,6 @@ func try_consume(amount: int) -> bool:
 		return true
 	consume_failed.emit(amount)
 	return false
+	
+func get_stamina() -> float:
+	return _stamina 
