@@ -10,11 +10,8 @@ extends Node2D
 @export var float_height_percentage: float = 0.0
 
 @export var stamina: Stamina
-@export var attack_consume_percentage: float = 0.2
-@export var block_consume_percentage: float = 0.1
-
-var attack_consume_value: int
-var block_consume_value: int
+@export var attack_stamina_cost: int = 2
+@export var block_stamina_cost: int = 1
 
 enum State {
 	MOVING,
@@ -28,23 +25,15 @@ signal attacked(screen_position: Vector2)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
-
-	assert(stamina)
-	
-	attack_consume_value = ceil(stamina.max_stamina * attack_consume_percentage)
-	block_consume_value = ceil(stamina.max_stamina * block_consume_percentage)
-
+	assert(stamina != null, "Stamina component is not assigned in PlayerController2D!")
 	handle_movement(0)
-	
+
 func _process(delta: float) -> void:
 	handle_movement(delta)
 	handle_action_input()
 
 func _on_animation_finished() -> void:
-	if state == State.ATTACKING:
-		state = State.MOVING
-		sprite.play("idle")
-	if state == State.BLOCKING:
+	if state == State.ATTACKING or state == State.BLOCKING:
 		state = State.MOVING
 		sprite.play("idle")
 
@@ -70,15 +59,19 @@ func is_blocking() -> bool:
 func handle_action_input() -> void:
 	if Input.is_action_just_pressed("block"):
 		if state == State.MOVING:
-			sprite.play("block")
-			state = State.BLOCKING
-			if not stamina.try_consume(block_consume_value):
+			if stamina.try_consume(block_stamina_cost):
+				sprite.play("block")
+				state = State.BLOCKING
+			else:
 				print("Not enough stamina to block!")
 		get_viewport().set_input_as_handled()
+
 	elif Input.is_action_just_pressed("attack"):
-		state = State.ATTACKING
-		sprite.play("attack")
-		if not stamina.try_consume(attack_consume_value):
-			print("Not enough stamina to attack!")
+		if state == State.MOVING:
+			if stamina.try_consume(attack_stamina_cost):
+				state = State.ATTACKING
+				sprite.play("attack")
+				attacked.emit(get_global_mouse_position())
+			else:
+				print("Not enough stamina to attack!")
 		get_viewport().set_input_as_handled()
-		attacked.emit(get_global_mouse_position())
