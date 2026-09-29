@@ -27,8 +27,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if regen_rate > 0 and _should_regen and _stamina < max_stamina:
 		_set_stamina(_stamina + regen_rate * delta)
-		if _stamina == max_stamina:
-			became_full.emit()
 
 func try_consume(amount: int) -> bool:
 	if _stamina >= amount:
@@ -43,9 +41,12 @@ func get_stamina() -> float:
 	return _stamina
 
 func _set_stamina(value: float) -> void:
-	var new_value: float = clamp(value, 0.0, float(max_stamina))
-	if is_equal_approx(_stamina, new_value):
-		return
+	value = clampf(value, 0.0, float(max_stamina))
+	if _stamina == value: return
+
 	var old_stamina: float = _stamina
-	_stamina = new_value
+	_stamina = value
 	changed.emit(old_stamina, _stamina)
+
+	if _stamina == float(max_stamina) and old_stamina < float(max_stamina):
+		became_full.emit()
