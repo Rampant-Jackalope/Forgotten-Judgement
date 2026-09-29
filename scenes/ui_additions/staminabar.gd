@@ -6,7 +6,7 @@ extends Control
 # Threshold ratio for low stamina status (0.20 = 20%)
 @export var low_stamina_threshold: float = 0.2
 
-# Color definitions (Main color red, warning color blue)
+# Color definitions
 @export var normal_color: Color = Color.GREEN
 @export var warning_color: Color = Color.SEA_GREEN
 
@@ -14,18 +14,20 @@ extends Control
 
 func _ready() -> void:
 	assert(stamina, "No stamina assigned")
-	_update_bar_color(stamina.get_stamina())
+	_update_stamina_ui()
 
 func _process(_delta: float) -> void:
-	# Update progress bar continuously as stamina regenerates
-	progress_bar.value = (stamina.get_stamina() / stamina.max_stamina) * 100
-	_update_bar_color(stamina.get_stamina())
+	_update_stamina_ui()
 
-func _update_bar_color(current_stamina: float) -> void:
-	@warning_ignore("integer_division")
-	var stamina_ratio: float = current_stamina / stamina.max_stamina
-	
-	# Change color to warning color (blue) if stamina is low
+func _update_stamina_ui() -> void:
+	var max_sp: float = float(stamina.max_stamina) if stamina.max_stamina > 0 else 100.0
+	var stamina_ratio: float = stamina.get_stamina() / max_sp
+
+	progress_bar.value = stamina_ratio * 100.0
+	_update_bar_color(stamina_ratio)
+
+func _update_bar_color(stamina_ratio: float) -> void:
+	# Change color to warning color if stamina is low
 	if stamina_ratio <= low_stamina_threshold:
 		progress_bar.modulate = warning_color
 	else:
