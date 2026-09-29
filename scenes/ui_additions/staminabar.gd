@@ -22,10 +22,9 @@ func _setup_stamina() -> void:
 	_update_bar_color(stamina.get_stamina())
 
 func _process(_delta: float) -> void:
-	if stamina and progress_bar:
-		# Update progress bar continuously as stamina regenerates
-		progress_bar.value = stamina._stamina
-		_update_bar_color(stamina._stamina)
+	# Update progress bar continuously as stamina regenerates
+	progress_bar.value = stamina.get_stamina()
+	_update_bar_color(stamina.get_stamina())
 
 func _update_bar_color(current_stamina: float) -> void:
 	var max_sp: float = float(stamina.max_stamina if stamina.max_stamina > 0 else 100)
