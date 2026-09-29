@@ -12,13 +12,14 @@ extends Control
 
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+@export var _max_sp: float = 100:
+	set(value):
+		_max_sp = value
+		if progress_bar:
+			progress_bar.value = value
+
 func _ready() -> void:
 	assert(stamina, "No stamina assigned")
-	_setup_stamina()
-
-func _setup_stamina() -> void:	
-	# Start full by default (100 or max_stamina)
-	progress_bar.value = stamina.get_stamina()
 	_update_bar_color(stamina.get_stamina())
 
 func _process(_delta: float) -> void:
@@ -27,8 +28,7 @@ func _process(_delta: float) -> void:
 	_update_bar_color(stamina.get_stamina())
 
 func _update_bar_color(current_stamina: float) -> void:
-	var max_sp: float = float(stamina.max_stamina if stamina.max_stamina > 0 else 100)
-	var stamina_ratio: float = current_stamina / max_sp
+	var stamina_ratio: float = current_stamina / _max_sp
 	
 	# Change color to warning color (blue) if stamina is low
 	if stamina_ratio <= low_stamina_threshold:
