@@ -8,6 +8,9 @@ var _stamina: float = max_stamina
 var _should_regen: bool = true
 var _cooldown_timer: Timer = Timer.new()
 
+signal consume_failed(amount: int)
+signal became_full()
+
 func _init() -> void:
 	_cooldown_timer.wait_time = regen_cooldown
 	_cooldown_timer.one_shot = true
@@ -31,7 +34,5 @@ func try_consume(amount: int) -> bool:
 		_should_regen = false
 		_cooldown_timer.start() # Resets cooldown timer on consumption
 		return true
+	consume_failed.emit(amount)
 	return false
-
-signal consume_failed(amount: int)
-signal became_full()
