@@ -64,6 +64,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.keycode == KEY_1: select_slot(0)
 		elif event.keycode == KEY_2: select_slot(1)
 		elif event.keycode == KEY_3: select_slot(2)
+		elif event.keycode == KEY_TAB: toggle_expand()
 
 func remove_item(item_name_to_remove: String) -> bool:
 	for i in range(items.size()):
@@ -206,3 +207,59 @@ func add_item_to_first_empty_slot(item_data: ItemData) -> bool:
 			return true
 			
 	return false
+
+#should logic be seperated like this? ---
+
+#another note: you can test this logic by running the HUD scene and pressing TAB.
+
+#Hboxcontainer/hotbar expansion logic
+
+@export var expanded_scale: float = 2.0
+@export var expand_time: float = 0.35
+@export var max_blur: float = 3.5
+
+@onready var blur_rect: ColorRect = get_node_or_null("../BlurRect")
+
+#Tween logic works because hotbar's parent is a CanvasLayer and not a container, which would snap it back
+
+var is_expanded := false
+var _home_pos: Vector2
+var _expand_tween: Tween
+
+func toggle_expand() -> void:
+	set_expanded(not is_expanded)
+
+func set_expanded(value: bool) -> void:
+	if value == is_expanded:
+		return
+	is_expanded = value
+
+	if _expand_tween and _expand_tween.is_running():
+		_expand_tween.kill()
+
+	pivot_offset = size / 2.0   # scale from the centre, without this it would scale from the top-left
+
+	if is_expanded:
+		#_home_pos is saved each time the hotbar is expanded, so it can return to its original position where the anchor puts it
+		_home_pos = position
+		blur_rect.show()
+
+	var screen_center := get_viewport_rect().size / 2.0
+	var target_pos := (screen_center - size / 2.0) if is_expanded else _home_pos
+	var target_scale := Vector2.ONE * (expanded_scale if is_expanded else 1.0)
+	var target_blur := max_blur if is_expanded else 0.0
+	var target_dim := 0.35 if is_expanded else 0.0
+
+	#tween happens even if scene tree is paused
+	_expand_tween = create_tween().set_parallel(true)
+	_expand_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	_expand_tween.set_trans(Tween.TRANS_CUBIC)
+	_expand_tween.set_ease(Tween.EASE_OUT if is_expanded else Tween.EASE_IN_OUT)
+
+	_expand_tween.tween_property(self, "position", target_pos, expand_time)
+	_expand_tween.tween_property(self, "scale", target_scale, expand_time)
+	_expand_tween.tween_property(blur_rect, "material:shader_parameter/blur_amount", target_blur, expand_time)
+	_expand_tween.tween_property(blur_rect, "material:shader_parameter/dim", target_dim, expand_time)
+
+	if not is_expanded:
+		_expand_tween.chain().tween_callback(blur_rect.hide)
