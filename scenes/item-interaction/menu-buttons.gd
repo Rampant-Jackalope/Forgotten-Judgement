@@ -35,6 +35,9 @@ func _ready() -> void:
 			hotbar.slot_unhovered.connect(_on_slot_unhovered)
 		if hotbar.has_signal("slot_changed"):
 			hotbar.slot_changed.connect(_on_slot_changed)
+	
+	# Ensure the pause menu is above other UI elements
+	move_to_front.call_deferred() 
 
 func _setup_items_label() -> void:
 	items_display_label = main_buttons.get_node_or_null("ItemsDisplayLabel") as Label

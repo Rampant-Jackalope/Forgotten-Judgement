@@ -24,6 +24,9 @@ func _ready() -> void:
 	_make_selected_slot_circular()
 	_update_selected_display()
 
+	#_home_offset is saved each time the hotbar is expanded, so it can return to its original position where the anchor puts it
+	_home_offset = Vector2(offset_left, offset_top)  # from the scene, before any tween
+
 func _find_main_slot_nodes() -> void:
 	var parent_hud = get_parent()
 	if parent_hud:
@@ -64,7 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.keycode == KEY_1: select_slot(0)
 		elif event.keycode == KEY_2: select_slot(1)
 		elif event.keycode == KEY_3: select_slot(2)
-		elif event.keycode == KEY_TAB: toggle_expand()
+		elif event.keycode == KEY_TAB and not get_tree().paused: toggle_expand()
 
 func remove_item(item_name_to_remove: String) -> bool:
 	for i in range(items.size()):
@@ -218,12 +221,13 @@ func add_item_to_first_empty_slot(item_data: ItemData) -> bool:
 @export var expand_time: float = 0.35
 @export var max_blur: float = 3.5
 
+#The blur_rect affect every node above it in the order of the scene tree.
 @onready var blur_rect: ColorRect = get_node_or_null("../BlurRect")
 
 #Tween logic works because hotbar's parent is a CanvasLayer and not a container, which would snap it back
 
 var is_expanded := false
-var _home_pos: Vector2
+var _home_offset: Vector2
 var _expand_tween: Tween
 
 func toggle_expand() -> void:
@@ -240,12 +244,10 @@ func set_expanded(value: bool) -> void:
 	pivot_offset = size / 2.0   # scale from the centre, without this it would scale from the top-left
 
 	if is_expanded:
-		#_home_pos is saved each time the hotbar is expanded, so it can return to its original position where the anchor puts it
-		_home_pos = position
 		blur_rect.show()
 
 	var screen_center := get_viewport_rect().size / 2.0
-	var target_pos := (screen_center - size / 2.0) if is_expanded else _home_pos
+	var target_pos := (screen_center - size / 2.0) if is_expanded else _get_home_pos()
 	var target_scale := Vector2.ONE * (expanded_scale if is_expanded else 1.0)
 	var target_blur := max_blur if is_expanded else 0.0
 	var target_dim := 0.35 if is_expanded else 0.0
@@ -263,3 +265,7 @@ func set_expanded(value: bool) -> void:
 
 	if not is_expanded:
 		_expand_tween.chain().tween_callback(blur_rect.hide)
+
+func _get_home_pos() -> Vector2:
+	var vp := get_viewport_rect().size
+	return Vector2(vp.x * anchor_left, vp.y * anchor_top) + _home_offset
