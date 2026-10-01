@@ -7,10 +7,10 @@ signal slot_hovered(item: ItemData)
 signal slot_unhovered()
 signal slot_changed(index: int, item: ItemData)
 
-# Verwijzing naar het label in het midden van de HUD
+# Reference to the label in the middle of the HUD
 @onready var item_popup_label: Label = get_node_or_null("../ItemPopupLabel")
 
-# Nodes opzoeken via de parent HUD (omdat MainSlot nu losstaat)
+# Search for nodes via the parent HUD (since MainSlot is now seperate)
 var selected_slot: Control
 var selected_slot_icon: TextureRect
 
@@ -30,11 +30,11 @@ func _ready() -> void:
 func _find_main_slot_nodes() -> void:
 	var parent_hud = get_parent()
 	if parent_hud:
-		# Zoek MainSlot -> SelectedSlot -> SelectedSlotIcon vanaf de parent
+		# Search MainSlot -> SelectedSlot -> SelectedSlotIcon from the parent
 		selected_slot = parent_hud.get_node_or_null("MainSlot/SelectedSlot") as Control
 		selected_slot_icon = parent_hud.get_node_or_null("MainSlot/SelectedSlot/SelectedSlotIcon") as TextureRect
 		
-		# Fallback voor het geval MainSlot direct in TextureRect of elders geplaatst is
+		# Fallback for the case where MainSlot is directly placed in TextureRect or elsewhere
 		if selected_slot == null:
 			selected_slot = parent_hud.find_child("SelectedSlot", true, false) as Control
 		if selected_slot_icon == null:
@@ -46,10 +46,10 @@ func _make_selected_slot_circular() -> void:
 
 	if selected_slot:
 		var style_box = StyleBoxFlat.new()
-		style_box.bg_color = Color(0.1, 0.1, 0.1, 0.6) # Donkergrijze transparante achtergrond
-		style_box.border_color = Color(0.9, 0.7, 0.2, 1.0) # Gouden rand
+		style_box.bg_color = Color(0.1, 0.1, 0.1, 0.6) # Dark gray transparent background
+		style_box.border_color = Color(0.9, 0.7, 0.2, 1.0) # Golden border
 		style_box.set_border_width_all(3)
-		style_box.set_corner_radius_all(100) # Maakt het een cirkel
+		style_box.set_corner_radius_all(100) # Creates a circle effect
 		
 		selected_slot.add_theme_stylebox_override("panel", style_box)
 
@@ -96,10 +96,10 @@ func remove_item(item_name_to_remove: String) -> bool:
 					slot_changed.emit(selected_slot_index, null)
 					_update_selected_display()
 					
-				print("Item '", item_name_to_remove, "' succesvol verwijderd uit slot ", i + 1)
+				print("Item '", item_name_to_remove, "' successfully removed from slot ", i + 1)
 				return true
 
-	print("Item '", item_name_to_remove, "' niet gevonden in hotbar!")
+	print("Item '", item_name_to_remove, "' not found in hotbar!")
 	return false
 	
 func select_slot(index: int) -> void:
