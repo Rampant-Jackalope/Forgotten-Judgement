@@ -2,6 +2,7 @@ extends HBoxContainer
 
 var items: Array[ItemData] = [null, null, null]
 var selected_slot_index: int = 0
+var slots
 
 signal slot_hovered(item: ItemData)
 signal slot_unhovered()
@@ -54,7 +55,7 @@ func _make_selected_slot_circular() -> void:
 		selected_slot.add_theme_stylebox_override("panel", style_box)
 
 func _setup_hover_signals() -> void:
-	var slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
+	slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
 	for i in range(slots.size()):
 		var slot = slots[i]
 		if slot is Control:
@@ -78,7 +79,7 @@ func remove_item(item_name_to_remove: String) -> bool:
 			if current_name.to_lower() == item_name_to_remove.to_lower() or item.resource_path.get_file().get_basename() == item_name_to_remove:
 				items[i] = null
 				
-				var slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
+				slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
 				if i < slots.size() and slots[i] != null:
 					var slot_panel = slots[i]
 					var texture_rect = slot_panel.get_node_or_null("TextureRect") as TextureRect
@@ -103,7 +104,7 @@ func remove_item(item_name_to_remove: String) -> bool:
 	return false
 	
 func select_slot(index: int) -> void:
-	var slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
+	slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
 	if index >= 0 and index < slots.size():
 		selected_slot_index = index
 		update_slot_highlights()
@@ -170,7 +171,7 @@ func _show_popup_text(item: ItemData) -> void:
 	popup_tween.tween_callback(item_popup_label.hide)
 
 func update_slot_highlights() -> void:
-	var slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
+	slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
 	for i in range(slots.size()):
 		if slots[i] != null:
 			if i == selected_slot_index:
@@ -182,7 +183,7 @@ func add_item_to_first_empty_slot(item_data: ItemData) -> bool:
 	if item_data == null or not item_data is ItemData:
 		return false
 		
-	var slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
+	slots = [get_node_or_null("Slot 1"), get_node_or_null("Slot 2"), get_node_or_null("Slot 3")]
 	
 	for i in range(slots.size()):
 		if items[i] == null:
