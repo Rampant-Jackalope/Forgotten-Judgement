@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="3_w4pep"]
 [ext_resource type="Shader" uid="uid://cu3l15l5ijrfn" path="res://shaders/blur.gdshader" id="4_dc681"]
 [ext_resource type="Texture2D" uid="uid://bx8uryfcjrbu5" path="res://assets/pictures/menuitem_beam.png" id="4_w4pep"]
+[ext_resource type="PackedScene" uid="uid://dxfwnogo10lw7" path="res://scenes/main_menu/user_interface.tscn" id="5_un0ck"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0, 0, 0, 0.43137255)
@@ -119,7 +120,7 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1316270509]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1316270509 node_paths=PackedStringArray("main_buttons", "back_to_menu_button", "quit_button", "hotbar")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -136,6 +137,11 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 script = ExtResource("2_aadmc")
+main_menu_scene = ExtResource("5_un0ck")
+main_buttons = NodePath("MainButtons")
+back_to_menu_button = NodePath("MainButtons/BackToMenuButton")
+quit_button = NodePath("MainButtons/QuitButton")
+hotbar = NodePath("../Hotbar")
 
 [node name="MainButtons" type="VBoxContainer" parent="MarginContainer" unique_id=371286754]
 custom_minimum_size = Vector2(600, 0)

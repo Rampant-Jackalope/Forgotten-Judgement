@@ -1,12 +1,13 @@
 extends MarginContainer
+#res://scenes/main_menu/user_interface.tscn
+@export var main_menu_scene: PackedScene
 
-const MAIN_MENU_SCENE_PATH = "res://scenes/main_menu/user_interface.tscn"
 
-@onready var main_buttons: VBoxContainer = $MainButtons
-@onready var back_to_menu_button: Button = $MainButtons/BackToMenuButton
-@onready var quit_button: Button = $MainButtons/QuitButton
+@export var main_buttons: VBoxContainer# = $MainButtons
+@export var back_to_menu_button: Button# = $MainButtons/BackToMenuButton
+@export var quit_button: Button# = $MainButtons/QuitButton
 
-@onready var hotbar = get_node_or_null("../Hotbar")
+@export var hotbar = get_node_or_null("../Hotbar")
 
 var items_display_label: Label
 var hud_popup_label: Label
@@ -22,19 +23,23 @@ func _ready() -> void:
 	# Dynamically create the HUD popup label for active slot switching
 	_setup_hud_popup_label()
 
-	if back_to_menu_button:
-		back_to_menu_button.pressed.connect(_on_back_to_menu_pressed)
-	if quit_button:
-		quit_button.pressed.connect(_on_quit_pressed)
+
+	assert(main_buttons != null, "MainButtons node not found in PauseMenu.")
+	assert(back_to_menu_button != null, "BackToMenuButton node not found in PauseMenu.")
+	assert(quit_button != null, "QuitButton node not found in PauseMenu.")
+	assert(hotbar != null, "Hotbar node not found in PauseMenu parent.")
+
+
+	back_to_menu_button.pressed.connect(_on_back_to_menu_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
 
 	# Connect Hotbar signals
-	if hotbar:
-		if hotbar.has_signal("slot_hovered"):
-			hotbar.slot_hovered.connect(_on_slot_hovered)
-		if hotbar.has_signal("slot_unhovered"):
-			hotbar.slot_unhovered.connect(_on_slot_unhovered)
-		if hotbar.has_signal("slot_changed"):
-			hotbar.slot_changed.connect(_on_slot_changed)
+	if hotbar.has_signal("slot_hovered"):
+		hotbar.slot_hovered.connect(_on_slot_hovered)
+	if hotbar.has_signal("slot_unhovered"):
+		hotbar.slot_unhovered.connect(_on_slot_unhovered)
+	if hotbar.has_signal("slot_changed"):
+		hotbar.slot_changed.connect(_on_slot_changed)
 	
 	# Ensure the pause menu is above other UI elements
 	move_to_front.call_deferred() 
@@ -148,7 +153,7 @@ func _clear_pause_display_text() -> void:
 
 func _on_back_to_menu_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH)
+	get_tree().change_scene_to_file(main_menu_scene.get_path())
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
