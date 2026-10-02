@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpgsvc3l11gqe"]
 
 [ext_resource type="MeshLibrary" uid="uid://chh62dssag3me" path="res://mesh_libs/lobby-kit-collisioned.res" id="1_hjmix"]
+[ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="2_3s264"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 13
@@ -13,17 +14,6 @@ map_depth = 11
 map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Main3D" type="Node3D" unique_id=473079635]
-
-[node name="Lift" type="GridMap" parent="." unique_id=968937034]
-mesh_library = ExtResource("1_hjmix")
-cell_size = Vector3(1, 1, 1)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65524, 65535, 3, 65524, 1, 3, 65524, 65534, 851973, 65524, 2, 851973, 65522, 0, 589829, 458741, 0, 1310720, 458739, 0, 1310720)
-}
-metadata/_editor_floor_ = Vector3(0, 6, 0)
 
 [node name="Stairs" type="GridMap" parent="." unique_id=1956256156]
 mesh_library = ExtResource("1_hjmix")
@@ -110,6 +100,17 @@ data = {
 "cells": PackedInt32Array(4, 9, 655360, 8, 9, 655360, 0, 9, 655360, 65532, 9, 655360, 65528, 9, 655360, 65528, 7, 655360, 65532, 7, 655360, 0, 7, 655360, 4, 7, 655360, 8, 7, 655360, 65528, 5, 655360, 65528, 3, 655360, 65528, 1, 0, 65528, 65535, 0, 65528, 65533, 0, 65528, 65531, 0, 65528, 65529, 0, 65528, 65527, 0, 8, 5, 0, 8, 3, 0, 8, 1, 0, 8, 65535, 0, 8, 65533, 0, 8, 65531, 0, 8, 65529, 0, 8, 65527, 0, 4, 65527, 0, 4, 65529, 0, 4, 65531, 0, 4, 65533, 0, 4, 65535, 0, 4, 1, 0, 4, 3, 0, 4, 5, 0, 0, 65527, 0, 0, 65529, 0, 0, 65531, 0, 0, 65533, 0, 0, 65535, 0, 0, 1, 0, 0, 3, 0, 0, 5, 0, 65532, 5, 0, 65532, 3, 0, 65532, 1, 0, 65532, 65535, 0, 65532, 65533, 0, 65532, 65531, 0, 65532, 65529, 0, 65532, 65527, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Lift" type="GridMap" parent="FirstFloor" unique_id=968937034]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65524, 65535, 3, 65524, 1, 3, 65524, 65534, 851973, 65524, 2, 851973, 65522, 0, 589829, 458741, 0, 1310720, 458739, 0, 1310720)
+}
+metadata/_editor_floor_ = Vector3(0, 6, 0)
 
 [node name="Auditorium" type="Node3D" parent="." unique_id=1949155069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -204,3 +205,92 @@ cell_center_z = false
 data = {
 "cells": PackedInt32Array(65528, 65535, 17, 8, 65535, 655377)
 }
+
+[node name="SecondFloor" type="Node3D" parent="." unique_id=2010731308]
+
+[node name="Walls" type="GridMap" parent="SecondFloor" unique_id=966312844]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.1, 3.6, 0.1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(130972, 64, 65540, 130972, 34, 1441816, 130972, 65472, 589828, 130972, 65502, 1441816, 130971, 65514, 17, 130972, 65514, 17, 130972, 22, 17, 130982, 65432, 24, 130982, 104, 24, 131012, 65432, 327684, 131037, 40, 65540, 131037, 65496, 65540, 131037, 65456, 65540, 131037, 65416, 65540, 131052, 65432, 327684, 131037, 80, 65540, 131057, 65516, 1441819, 65561, 65516, 1441819, 65601, 65516, 1441819, 65640, 65516, 1441819, 65680, 65516, 1441819, 65700, 0, 655387, 65700, 40, 65540, 65700, 120, 65540, 131011, 104, 327684, 131051, 104, 327684, 65555, 104, 327684, 65594, 104, 327684, 65634, 104, 327684, 65674, 104, 327684, 65700, 80, 65540, 65714, 104, 327684, 131037, 120, 589828)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Floor" type="GridMap" parent="SecondFloor" unique_id=2064844299]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 3.6, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(131063, 10, 2, 131063, 8, 2, 131063, 6, 2, 131063, 4, 2, 131063, 2, 2, 131063, 65534, 2, 131063, 65532, 2, 131063, 65530, 2, 131063, 65528, 2, 131063, 65526, 2, 131067, 10, 2, 131071, 10, 2, 65539, 10, 2, 65543, 10, 2, 131067, 8, 2, 131067, 6, 2, 131067, 4, 2, 131067, 2, 2, 131067, 65534, 2, 131067, 65532, 2, 131067, 65530, 2, 131067, 65528, 2, 131067, 65526, 2, 131071, 65526, 2, 131071, 65528, 2, 131071, 65530, 2, 131071, 65532, 2, 131071, 65534, 2, 131071, 2, 2, 131071, 4, 2, 131071, 6, 2, 131071, 8, 2, 65539, 8, 2, 65539, 6, 2, 65539, 4, 2, 65539, 2, 2, 65539, 65534, 2, 65539, 65532, 2, 65539, 65530, 2, 65539, 65528, 2, 65539, 65526, 2, 65543, 8, 2, 65543, 6, 2, 65543, 4, 2, 65543, 2, 2, 65543, 65534, 2, 65543, 65532, 2, 65543, 65530, 2, 65543, 65528, 2, 65543, 65526, 2, 131068, 0, 3, 65536, 0, 3, 131064, 0, 3, 65540, 0, 3, 65544, 0, 3, 131062, 0, 27, 65548, 0, 3, 65552, 0, 3, 65547, 65534, 2, 65551, 65534, 2, 65547, 2, 2, 65547, 4, 2, 65547, 6, 2, 65547, 8, 2, 65547, 10, 2, 65551, 10, 2, 65551, 8, 2, 65551, 6, 2, 65551, 4, 2, 65551, 2, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Ceiling" type="GridMap" parent="SecondFloor" unique_id=1666546493]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(4, 3.6, 2)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(131070, 4, 0, 131070, 3, 0, 131070, 5, 0, 131070, 65534, 0, 131070, 65535, 0, 131070, 0, 0, 131070, 1, 0, 131070, 2, 0, 131071, 65535, 0, 131071, 0, 0, 131071, 1, 0, 131071, 2, 0, 131071, 3, 0, 131071, 4, 0, 65536, 65535, 0, 65536, 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 3, 0, 65536, 4, 0, 65537, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65538, 65535, 0, 65538, 0, 0, 65538, 1, 0, 65538, 2, 0, 65538, 3, 0, 65538, 4, 0, 65539, 65535, 0, 65539, 0, 0, 65539, 1, 0, 65539, 2, 0, 65539, 3, 0, 65539, 4, 0, 65540, 65535, 0, 65540, 0, 0, 65540, 1, 0, 65540, 2, 0, 65540, 3, 0, 65540, 4, 0, 131071, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 131070, 65531, 0, 131070, 65532, 0, 131071, 65531, 0, 131071, 65532, 0, 131070, 65533, 0, 131071, 65533, 0, 131071, 65534, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Lift" type="GridMap" parent="SecondFloor" unique_id=1996110175]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 3.6, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(131060, 1, 3, 131060, 65535, 3, 131060, 65534, 327685, 131060, 2, 327685, 131058, 0, 65541)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Ceiling" type="GridMap" parent="SecondFloor/Lift" unique_id=498034220]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 3.6, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(131060, 65535, 0, 131060, 1, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="InteractableDoors" type="Node3D" parent="." unique_id=774888070]
+
+[node name="Exit" parent="InteractableDoors" unique_id=1742132657 instance=ExtResource("2_3s264")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="LiftFirsFloor" parent="InteractableDoors" unique_id=645492769 instance=ExtResource("2_3s264")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -10, 0, 0)
+
+[node name="Auditorium" parent="InteractableDoors" unique_id=2077561083 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 10)
+
+[node name="LiftSecondFloor" parent="InteractableDoors" unique_id=341949203 instance=ExtResource("2_3s264")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -10, 3.6, 0)
+
+[node name="Guest1" parent="InteractableDoors" unique_id=586216481 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 3.6, -2)
+
+[node name="Guest2" parent="InteractableDoors" unique_id=1140815264 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 3.6, -2)
+
+[node name="Gues3" parent="InteractableDoors" unique_id=1385160025 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 3.6, -2)
+
+[node name="Gues4" parent="InteractableDoors" unique_id=1898489685 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.4, 3.6, -2)
+
+[node name="Gues5" parent="InteractableDoors" unique_id=1062498630 instance=ExtResource("2_3s264")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.4, 3.6, -2)
+
+[node name="Guest6" parent="InteractableDoors" unique_id=662836054 instance=ExtResource("2_3s264")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 3.6, 0)
