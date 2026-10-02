@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_glove.tscn" id="2_s2w16"]
-[ext_resource type="AudioStream" uid="uid://cpfoxhryn6q1f" path="res://assets/combat/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
+[ext_resource type="AudioStream" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
