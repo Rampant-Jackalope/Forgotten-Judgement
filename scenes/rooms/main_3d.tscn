@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://cpgsvc3l11gqe"]
+
+[ext_resource type="MeshLibrary" uid="uid://chh62dssag3me" path="res://mesh_libs/lobby-kit-collisioned.res" id="1_hjmix"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
+map_width = 13
+map_depth = 14
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_vivyq"]
+map_width = 11
+map_depth = 11
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Main3D" type="Node3D" unique_id=473079635]
+
+[node name="Lift" type="GridMap" parent="." unique_id=968937034]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65524, 65535, 3, 65524, 1, 3, 65524, 65534, 851973, 65524, 2, 851973, 65522, 0, 589829, 458741, 0, 1310720, 458739, 0, 1310720)
+}
+metadata/_editor_floor_ = Vector3(0, 6, 0)
+
+[node name="Stairs" type="GridMap" parent="." unique_id=1956256156]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.1, 1.2, 0.1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65436, 50, 19, 65436, 65486, 19, 130948, 65486, 20, 130948, 50, 20, 130938, 60, 1048595, 196464, 94, 655380, 196484, 94, 655379, 130938, 65476, 1441811, 196474, 65452, 1441812, 130938, 65496, 655384, 130928, 65486, 1048600, 130948, 65476, 1441815, 130928, 65476, 1441815, 196464, 65442, 1441816, 196474, 65432, 655384, 196484, 65442, 655379, 196484, 65432, 655383, 196484, 65452, 655383)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="Walls" type="GridMap" parent="Stairs" unique_id=650115742]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.1, 1.2, 0.1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(130948, 60, 1048599, 130938, 40, 24, 130928, 50, 1048600, 130928, 60, 1048599, 196464, 94, 1048600, 196474, 104, 24, 196484, 84, 655383, 196484, 104, 655383)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="Ceiling" type="GridMap" parent="Stairs" unique_id=127004230]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.1, 0.1, 0.1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(2031516, 50, 21, 2817924, 50, 22, 2817914, 60, 1048597, 3604346, 84, 1048598, 3604356, 94, 655381, 2031516, 65486, 21, 2817924, 65486, 22, 2817914, 65476, 1441813, 3604346, 65452, 1441814, 3604356, 65442, 655381)
+}
+metadata/_editor_floor_ = Vector3(0, 54, 0)
+
+[node name="FirstFloor" type="Node3D" parent="." unique_id=1724034952]
+
+[node name="Decorations" type="GridMap" parent="FirstFloor" unique_id=997637652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.1, 1, 0.1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(50, 30, 1048588, 50, 109, 655372)
+}
+
+[node name="Floors" type="GridMap" parent="FirstFloor" unique_id=1216338318]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(2, 1, 2)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65532, 65531, 655362, 65532, 65532, 655362, 65532, 65533, 655362, 65532, 65534, 655362, 65532, 65535, 655362, 65532, 0, 655362, 65532, 1, 655362, 65532, 2, 655362, 65532, 3, 655362, 65532, 4, 655362, 65534, 65531, 655362, 65534, 65532, 655362, 65534, 65533, 655362, 65534, 65534, 655362, 65534, 1, 655362, 65534, 2, 655362, 65534, 3, 655362, 65534, 4, 655362, 0, 65531, 655362, 0, 65532, 655362, 0, 3, 655362, 0, 4, 655362, 2, 65531, 655362, 2, 65532, 655362, 2, 65533, 655362, 2, 65534, 655362, 2, 65535, 655362, 2, 0, 655362, 2, 1, 655362, 2, 2, 655362, 2, 3, 655362, 2, 4, 655362, 4, 65531, 655362, 4, 65532, 655362, 4, 65533, 655362, 4, 65534, 655362, 4, 65535, 655362, 4, 0, 655362, 4, 1, 655362, 4, 2, 655362, 4, 3, 655362, 4, 4, 655362)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Walls" type="GridMap" parent="FirstFloor" unique_id=1415629913]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.5, 1, 0.5)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65528, 65516, 327684, 8, 65516, 327684, 16, 65516, 327684, 65520, 65516, 327684, 65516, 65520, 65540, 65516, 65524, 23, 65516, 65528, 23, 65516, 8, 23, 65516, 6, 1441816, 65516, 65530, 1441816, 65516, 16, 589828, 65516, 12, 23, 65516, 0, 27, 0, 20, 1048603, 65528, 20, 851972, 65520, 20, 851972, 8, 20, 851972, 16, 20, 851972, 20, 16, 589828, 20, 8, 589828, 20, 65520, 589828, 20, 65528, 589828, 20, 0, 655387)
+}
+
+[node name="Carpets" type="GridMap" parent="FirstFloor" unique_id=2058398405]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 2, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65532, 0, 1441807, 0, 65532, 1048590, 0, 0, 16, 0, 4, 1048589)
+}
+
+[node name="Ceiling" type="GridMap" parent="FirstFloor" unique_id=615322989]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 9, 655360, 8, 9, 655360, 0, 9, 655360, 65532, 9, 655360, 65528, 9, 655360, 65528, 7, 655360, 65532, 7, 655360, 0, 7, 655360, 4, 7, 655360, 8, 7, 655360, 65528, 5, 655360, 65528, 3, 655360, 65528, 1, 0, 65528, 65535, 0, 65528, 65533, 0, 65528, 65531, 0, 65528, 65529, 0, 65528, 65527, 0, 8, 5, 0, 8, 3, 0, 8, 1, 0, 8, 65535, 0, 8, 65533, 0, 8, 65531, 0, 8, 65529, 0, 8, 65527, 0, 4, 65527, 0, 4, 65529, 0, 4, 65531, 0, 4, 65533, 0, 4, 65535, 0, 4, 1, 0, 4, 3, 0, 4, 5, 0, 0, 65527, 0, 0, 65529, 0, 0, 65531, 0, 0, 65533, 0, 0, 65535, 0, 0, 1, 0, 0, 3, 0, 0, 5, 0, 65532, 5, 0, 65532, 3, 0, 65532, 1, 0, 65532, 65535, 0, 65532, 65533, 0, 65532, 65531, 0, 65532, 65529, 0, 65532, 65527, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Auditorium" type="Node3D" parent="." unique_id=1949155069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Floor" type="GridMap" parent="Auditorium" unique_id=729222138]
+mesh_library = ExtResource("1_hjmix")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 7, 0, 5, 18)
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Auditorium/Floor" unique_id=939336377]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Auditorium/Floor/StaticBody3D" unique_id=2022034077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+shape = SubResource("HeightMapShape3D_mbxjm")
+
+[node name="Walls" type="GridMap" parent="Auditorium" unique_id=1707373466]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(2, 0.1, 2)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 8)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Roof" type="GridMap" parent="Auditorium" unique_id=116107299]
+mesh_library = ExtResource("1_hjmix")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 6)
+}
+
+[node name="Partitions" type="GridMap" parent="Auditorium" unique_id=820525414]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.25, 2, 0.25)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 1, 655377, 65532, 1, 17)
+}
+
+[node name="Bar" type="Node3D" parent="." unique_id=727125757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Floor" type="GridMap" parent="Bar" unique_id=1373610324]
+mesh_library = ExtResource("1_hjmix")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 10)
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bar/Floor" unique_id=1370396022]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bar/Floor/StaticBody3D" unique_id=1649449798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+shape = SubResource("HeightMapShape3D_vivyq")
+
+[node name="Walls" type="GridMap" parent="Bar" unique_id=889209617]
+mesh_library = ExtResource("1_hjmix")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 11)
+}
+
+[node name="Ceiling" type="GridMap" parent="Bar" unique_id=1250934109]
+mesh_library = ExtResource("1_hjmix")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(0, 0, 9)
+}
+
+[node name="Partition" type="GridMap" parent="Bar" unique_id=831742574]
+mesh_library = ExtResource("1_hjmix")
+cell_size = Vector3(0.25, 2, 0.25)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65528, 65535, 17, 8, 65535, 655377)
+}
