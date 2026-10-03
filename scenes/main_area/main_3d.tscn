@@ -293,7 +293,7 @@ script = ExtResource("5_tl811")
 [node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Guest1" unique_id=1154131896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
 script = ExtResource("5_0tfcu")
-identifier = "Guest1_Outside"
+identifier = "Overworker_Outside"
 look_direction = Vector3(0, 0, 1)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
