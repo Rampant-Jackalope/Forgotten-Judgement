@@ -3,9 +3,25 @@
 [ext_resource type="Script" uid="uid://77ml3ksdg06a" path="res://scenes/interactables/callback_door.gd" id="1_6xrkf"]
 [ext_resource type="PackedScene" uid="uid://dfjanrysg88sf" path="res://assets/Playtest_stuff/Hallway_objects/Lone_Door_Animated.gltf" id="2_iy3uq"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="3_pb15j"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="4_6xrkf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
 radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xrkf"]
+render_priority = 0
+shader = ExtResource("4_6xrkf")
+shader_parameter/visible_fill = 0.00999999977648
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0000000149012
+shader_parameter/sweep_strength = 0.0499999988824
+shader_parameter/pulse_amount = 0.499999988824
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
 
 [node name="callback_door" type="Node3D" unique_id=1742132657]
 script = ExtResource("1_6xrkf")
@@ -25,6 +41,11 @@ shape = SubResource("SphereShape3D_1kpxu")
 [node name="LookTarget" type="Node3D" parent="Lone_Door_Animated/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1252440332, 1419786199) index="1" unique_id=1967718121]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1.0579178, -0.19245398)
 
+[node name="Door" parent="Lone_Door_Animated/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1252440332, 1530373462) index="1" unique_id=296664632]
+material_overlay = SubResource("ShaderMaterial_6xrkf")
+
+[connection signal="highlight_off" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_highlight_on"]
 [connection signal="interacted" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_interacted"]
 
 [editable path="Lone_Door_Animated"]
