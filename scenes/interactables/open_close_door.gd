@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var highlight_thickness = 2.0
+
 @onready var animation_player = get_node("Lone_Door_Animated/AnimationPlayer")
 
 # NOTE:
@@ -13,11 +15,11 @@ enum State {
 
 var state = State.CLOSED
 
-	# INFO: asset has wrong animation names.
-	# Renaming through code causes errors that I do not know how to resolve.
-	# These are the correct name -> actions
-	# Open -> Closed State
-	# ArmatureAction -> Open Animation
+# INFO: asset has wrong animation names.
+# Renaming through code causes errors that I do not know how to resolve.
+# These are the correct name -> actions
+# Open -> Closed State
+# ArmatureAction -> Open Animation
 @onready var _closed_state := "Open"
 @onready var _open_animation := "ArmatureAction"
 
