@@ -2,10 +2,9 @@ extends Node3D
 
 var _positions: Dictionary[String, PlayerMarker] = {}
 
-func add(marker: PlayerMarker) -> bool:
-	if _positions.has(marker.identifier): return false
+func add(marker: PlayerMarker) -> void:
+	assert(!_positions.has(marker.identifier), "Cannot add PlayerMarker with id: %s as it is already taken" % marker.identifier)
 	_positions[marker.identifier] = marker
-	return true
 
 func remove(identifier: String) -> bool:
 	return _positions.erase(identifier)
