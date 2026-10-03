@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="2_3s264"]
 [ext_resource type="Script" uid="uid://ckipuna70xgic" path="res://scenes/main_area/exit_door.gd" id="2_h4fdb"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_0tfcu"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="5_0tfcu"]
+[ext_resource type="Script" uid="uid://ctqnspc3wwvw6" path="res://scenes/main_area/guest_door.gd" id="5_tl811"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 13
@@ -282,22 +284,88 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 [node name="LiftSecondFloor" parent="InteractableDoors" unique_id=341949203 instance=ExtResource("2_3s264")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -10, 3.6, 0)
 
-[node name="Guest1" parent="InteractableDoors" unique_id=586216481 instance=ExtResource("2_3s264")]
+[node name="Guest1" type="Node3D" parent="InteractableDoors" unique_id=586216481]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 3.6, -2)
+script = ExtResource("5_tl811")
 
-[node name="Guest2" parent="InteractableDoors" unique_id=1140815264 instance=ExtResource("2_3s264")]
+[node name="CallbackDoor" parent="InteractableDoors/Guest1" unique_id=1203948571 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Guest1" unique_id=1154131896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest1_Outside"
+look_direction = Vector3(0, 0, 1)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Guest2" type="Node3D" parent="InteractableDoors" unique_id=1140815264]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 3.6, -2)
+script = ExtResource("5_tl811")
 
-[node name="Gues3" parent="InteractableDoors" unique_id=1385160025 instance=ExtResource("2_3s264")]
+[node name="CallbackDoor" parent="InteractableDoors/Guest2" unique_id=1893740215 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Guest2" unique_id=1730582941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest2_Outside"
+look_direction = Vector3(0, 0, 1)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Gues3" type="Node3D" parent="InteractableDoors" unique_id=1385160025]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 3.6, -2)
+script = ExtResource("5_tl811")
 
-[node name="Gues4" parent="InteractableDoors" unique_id=1898489685 instance=ExtResource("2_3s264")]
+[node name="CallbackDoor" parent="InteractableDoors/Gues3" unique_id=456128903 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Gues3" unique_id=582017364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest3_Outside"
+look_direction = Vector3(0, 0, 1)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Gues4" type="Node3D" parent="InteractableDoors" unique_id=1898489685]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.4, 3.6, -2)
+script = ExtResource("5_tl811")
 
-[node name="Gues5" parent="InteractableDoors" unique_id=1062498630 instance=ExtResource("2_3s264")]
+[node name="CallbackDoor" parent="InteractableDoors/Gues4" unique_id=1672309844 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Gues4" unique_id=1394650281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest4_Outside"
+look_direction = Vector3(0, 0, 1)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Gues5" type="Node3D" parent="InteractableDoors" unique_id=1062498630]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.4, 3.6, -2)
+script = ExtResource("5_tl811")
 
-[node name="Guest6" parent="InteractableDoors" unique_id=662836054 instance=ExtResource("2_3s264")]
+[node name="CallbackDoor" parent="InteractableDoors/Gues5" unique_id=918274650 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Gues5" unique_id=1846203957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest5_Outside"
+look_direction = Vector3(0, 0, 1)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Guest6" type="Node3D" parent="InteractableDoors" unique_id=662836054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 3.6, 0)
+script = ExtResource("5_tl811")
+
+[node name="CallbackDoor" parent="InteractableDoors/Guest6" unique_id=1345098276 instance=ExtResource("3_0tfcu")]
+
+[node name="PlayerMarker" type="Marker3D" parent="InteractableDoors/Guest6" unique_id=1269534078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999999, 0, -1.1920929e-07)
+script = ExtResource("5_0tfcu")
+identifier = "Guest6_Outside"
+look_direction = Vector3(-1, 0, 0)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [connection signal="interacted" from="InteractableDoors/Exit/CallbackDoor" to="InteractableDoors/Exit" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Guest1/CallbackDoor" to="InteractableDoors/Guest1" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Guest2/CallbackDoor" to="InteractableDoors/Guest2" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Gues3/CallbackDoor" to="InteractableDoors/Gues3" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Gues4/CallbackDoor" to="InteractableDoors/Gues4" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Gues5/CallbackDoor" to="InteractableDoors/Gues5" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="InteractableDoors/Guest6/CallbackDoor" to="InteractableDoors/Guest6" method="_on_callback_door_interacted"]

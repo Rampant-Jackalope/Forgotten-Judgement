@@ -11,3 +11,6 @@ set {michael.RESPECT} += 2.0
 label exit_door_locked
 [color=red]The door seems to be locked
 [end_timeline]
+label guest_door_interaction_placeholder
+{misc.GuestName} seems to have locked their door
+[end_timeline]
