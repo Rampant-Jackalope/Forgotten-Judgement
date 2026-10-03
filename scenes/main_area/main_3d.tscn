@@ -2,10 +2,13 @@
 
 [ext_resource type="MeshLibrary" uid="uid://chh62dssag3me" path="res://mesh_libs/lobby-kit-collisioned.res" id="1_hjmix"]
 [ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="2_3s264"]
+[ext_resource type="Script" uid="uid://w5p3uligaxb0" path="res://scenes/main_area/lift_bottom.gd" id="2_f4nx4"]
 [ext_resource type="Script" uid="uid://ckipuna70xgic" path="res://scenes/main_area/exit_door.gd" id="2_h4fdb"]
+[ext_resource type="PackedScene" uid="uid://5swq431tn4aw" path="res://scenes/interactables/mounted_button.tscn" id="2_p1xov"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_0tfcu"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="5_0tfcu"]
 [ext_resource type="Script" uid="uid://bw6ukrt4g1kgo" path="res://scenes/main_area/overworker_entrance_door.gd" id="5_1aiv8"]
+[ext_resource type="Script" uid="uid://ddolifd64khrn" path="res://scenes/main_area/lift_top.gd" id="5_1crpi"]
 [ext_resource type="Script" uid="uid://ctqnspc3wwvw6" path="res://scenes/main_area/guest_door.gd" id="5_tl811"]
 [ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/room.tscn" id="7_n1y1w"]
 
@@ -116,7 +119,18 @@ cell_center_z = false
 data = {
 "cells": PackedInt32Array(65524, 65535, 3, 65524, 1, 3, 65524, 65534, 851973, 65524, 2, 851973, 65522, 0, 589829, 458741, 0, 1310720, 458739, 0, 1310720)
 }
+script = ExtResource("2_f4nx4")
 metadata/_editor_floor_ = Vector3(0, 6, 0)
+
+[node name="MountedButton" parent="FirstFloor/Lift" unique_id=1335172545 instance=ExtResource("2_p1xov")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12, 1, 2)
+
+[node name="PlayerMarker" type="Marker3D" parent="FirstFloor/Lift" unique_id=926855099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3.6, 0)
+script = ExtResource("5_0tfcu")
+identifier = "Lift_Top"
+look_direction = Vector3(1, 0, 0)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [node name="Auditorium" type="Node3D" parent="." unique_id=1949155069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -256,6 +270,7 @@ cell_center_z = false
 data = {
 "cells": PackedInt32Array(131060, 1, 3, 131060, 65535, 3, 131060, 65534, 327685, 131060, 2, 327685, 131058, 0, 65541)
 }
+script = ExtResource("5_1crpi")
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Ceiling" type="GridMap" parent="SecondFloor/Lift" unique_id=498034220]
@@ -268,6 +283,16 @@ data = {
 "cells": PackedInt32Array(131060, 65535, 0, 131060, 1, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="MountedButton" parent="SecondFloor/Lift" unique_id=1667380859 instance=ExtResource("2_p1xov")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12, 4.6, 2)
+
+[node name="PlayerMarker" type="Marker3D" parent="SecondFloor/Lift" unique_id=410824436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+script = ExtResource("5_0tfcu")
+identifier = "Lift_Bottom"
+look_direction = Vector3(1, 0, 0)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [node name="InteractableDoors" type="Node3D" parent="." unique_id=774888070]
 
@@ -367,6 +392,8 @@ metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("7_n1y1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 14)
 
+[connection signal="button_pressed" from="FirstFloor/Lift/MountedButton" to="FirstFloor/Lift" method="_on_mounted_button_button_pressed"]
+[connection signal="button_pressed" from="SecondFloor/Lift/MountedButton" to="SecondFloor/Lift" method="_on_mounted_button_button_pressed"]
 [connection signal="interacted" from="InteractableDoors/Exit/CallbackDoor" to="InteractableDoors/Exit" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="InteractableDoors/Overworker/CallbackDoor" to="InteractableDoors/Overworker" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="InteractableDoors/Guest2/CallbackDoor" to="InteractableDoors/Guest2" method="_on_callback_door_interacted"]
