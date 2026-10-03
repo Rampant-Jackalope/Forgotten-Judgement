@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnfin2xw1srep" path="res://scenes/interactables/mounted_button.gd" id="1_ugt2p"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_sxmlu"]
-[ext_resource type="PackedScene" uid="uid://cr37m8c40ojji" path="res://assets/PreStylizedButton/PreStylizedButton.gltf" id="3_xa6sq"]
+[ext_resource type="PackedScene" uid="uid://dyja57mroprw8" path="res://assets/PreStylizedButton/PreStylizedButton.gltf" id="3_xa6sq"]
 [ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="4_3xsyk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
@@ -35,13 +35,13 @@ shape = SubResource("SphereShape3D_1kpxu")
 [node name="LookTarget" type="Node3D" parent="." unique_id=1595083073]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0890706, 0)
 
-[node name="PreSylizedButton" parent="." unique_id=898329878 instance=ExtResource("3_xa6sq")]
+[node name="PreStylizedButton" parent="." unique_id=898329878 instance=ExtResource("3_xa6sq")]
 
-[node name="Button" parent="PreSylizedButton" index="0" unique_id=596889326]
+[node name="Button" parent="PreStylizedButton" index="0" unique_id=2020749996]
 material_overlay = SubResource("ShaderMaterial_kemyr")
 
 [connection signal="highlight_off" from="Interactable" to="." method="_on_interactable_highlight_off"]
 [connection signal="highlight_on" from="Interactable" to="." method="_on_interactable_highlight_on"]
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 
-[editable path="PreSylizedButton"]
+[editable path="PreStylizedButton"]

@@ -4,8 +4,8 @@ extends Node3D
 # EDITABLE CHILDREN IS ON FOR THE PreSylizedButton
 # THIS IS BECAUSE THE HIGHLIGHT SHADER NEEDS TO BE CONNECTED TO THE 'Button' MESH
 
-@onready var animation_player: AnimationPlayer = get_node("PreSylizedButton/AnimationPlayer")
-@onready var button_mesh = get_node("PreSylizedButton/Button")
+@onready var animation_player: AnimationPlayer = get_node("PreStylizedButton/AnimationPlayer")
+@onready var button_mesh = get_node("PreStylizedButton/Button")
 
 func _ready() -> void:
 	assert(animation_player, "Could not locate AnimationPlayer on mounted button")
