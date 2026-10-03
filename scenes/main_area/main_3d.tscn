@@ -2,6 +2,8 @@
 
 [ext_resource type="MeshLibrary" uid="uid://chh62dssag3me" path="res://mesh_libs/lobby-kit-collisioned.res" id="1_hjmix"]
 [ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="2_3s264"]
+[ext_resource type="Script" uid="uid://ckipuna70xgic" path="res://scenes/main_area/exit_door.gd" id="2_h4fdb"]
+[ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_0tfcu"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 13
@@ -265,8 +267,11 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="InteractableDoors" type="Node3D" parent="." unique_id=774888070]
 
-[node name="Exit" parent="InteractableDoors" unique_id=1742132657 instance=ExtResource("2_3s264")]
+[node name="Exit" type="Node3D" parent="InteractableDoors" unique_id=385403130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+script = ExtResource("2_h4fdb")
+
+[node name="CallbackDoor" parent="InteractableDoors/Exit" unique_id=1742132657 instance=ExtResource("3_0tfcu")]
 
 [node name="LiftFirsFloor" parent="InteractableDoors" unique_id=645492769 instance=ExtResource("2_3s264")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -10, 0, 0)
@@ -294,3 +299,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.4
 
 [node name="Guest6" parent="InteractableDoors" unique_id=662836054 instance=ExtResource("2_3s264")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 3.6, 0)
+
+[connection signal="interacted" from="InteractableDoors/Exit/CallbackDoor" to="InteractableDoors/Exit" method="_on_callback_door_interacted"]

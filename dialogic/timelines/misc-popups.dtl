@@ -9,5 +9,5 @@ label obtain_drip_chain
 set {michael.RESPECT} += 2.0
 [end_timeline]
 label exit_door_locked
-[color=red]The door is locked
+[color=red]The door seems to be locked
 [end_timeline]

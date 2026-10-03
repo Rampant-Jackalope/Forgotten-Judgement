@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bib1j4off5lvk"]
 
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_0l7dq"]
-[ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_3d.tscn" id="1_htues"]
+[ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_area/main_3d.tscn" id="1_htues"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scenes/npcs/npc_position_markers.gd" id="5_htues"]
 
