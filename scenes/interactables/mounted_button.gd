@@ -6,18 +6,22 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = get_node("PreStylizedButton/AnimationPlayer")
 @onready var button_mesh = get_node("PreStylizedButton/Button")
+@onready var button_mount_mesh = get_node("PreStylizedButton/ButtonMount")
 
 func _ready() -> void:
 	assert(animation_player, "Could not locate AnimationPlayer on mounted button")
 	assert(button_mesh, "Could not locate Button Mesh on mounted button")
+	assert(button_mount_mesh, "Could not locate Button Mount Mesh on mounted button")
 
 signal button_pressed(button: Node3D, interactor: Interactor, pop: Callable)
 
 func _on_interactable_highlight_on() -> void:
 	button_mesh.set_instance_shader_parameter("enabled", true)
+	button_mount_mesh.set_instance_shader_parameter("enabled", true)
 
 func _on_interactable_highlight_off() -> void:
 	button_mesh.set_instance_shader_parameter("enabled", false)
+	button_mount_mesh.set_instance_shader_parameter("enabled", false)
 
 func _on_interactable_interacted(interactor: Interactor, pop: Callable) -> void:
 	if !animation_player.is_playing():
