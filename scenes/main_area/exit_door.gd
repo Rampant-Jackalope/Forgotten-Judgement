@@ -1,5 +1,4 @@
 extends Node3D
 
-
-func _on_callback_door_interacted(door: Node3D, interactor: Interactor, pop: Callable) -> void:
+func _on_callback_door_interacted(_door: Node3D, _interactor: Interactor, _pop: Callable) -> void:
 	Util.get_player().run_locked_dialogue("misc-popups", "exit_door_locked")
