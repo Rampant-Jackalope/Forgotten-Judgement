@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bwna8f5x58t1x"]
+
+[ext_resource type="PackedScene" uid="uid://cytnkiuflh8gs" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_floor.gltf" id="1_cq8q7"]
+[ext_resource type="PackedScene" uid="uid://dywc13eglt4bi" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_ceiling.gltf" id="2_3e52c"]
+[ext_resource type="PackedScene" uid="uid://dmjtghgygsbd2" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_1.gltf" id="3_5yt4t"]
+[ext_resource type="PackedScene" uid="uid://blxra0w8xmwxo" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_2.gltf" id="4_i6awq"]
+[ext_resource type="PackedScene" uid="uid://b3d777bnk32cs" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Doorframe.gltf" id="5_rgrod"]
+[ext_resource type="PackedScene" uid="uid://bknkx5jhietff" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_desk.gltf" id="6_1ol7r"]
+[ext_resource type="PackedScene" uid="uid://bty5vvrjkyptx" path="res://assets/Playtest_stuff/Overworker_objects/Watercooler.gltf" id="7_jks30"]
+[ext_resource type="PackedScene" uid="uid://d6h2ycdq8cua" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Coffee_machine.gltf" id="8_5uowb"]
+[ext_resource type="Script" uid="uid://c3o0hfw8nosfb" path="res://scenes/rooms/overworker/exit_door.gd" id="9_xwbor"]
+[ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="10_iclxq"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="11_1e0sh"]
+
+[node name="OverworkerRoom" type="Node3D" unique_id=211864694]
+
+[node name="Bounds" type="Node3D" parent="." unique_id=694484944]
+
+[node name="Overworker_floor" parent="Bounds" unique_id=268085334 instance=ExtResource("1_cq8q7")]
+
+[node name="Overworker_ceiling" parent="Bounds" unique_id=1400398735 instance=ExtResource("2_3e52c")]
+
+[node name="Overworker_wall_1" parent="Bounds" unique_id=1596211582 instance=ExtResource("3_5yt4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Overworker_wall_2" parent="Bounds" unique_id=2020202685 instance=ExtResource("3_5yt4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Overworker_wall_22" parent="Bounds" unique_id=672766581 instance=ExtResource("4_i6awq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Overworker_Doorframe" parent="Bounds" unique_id=425063503 instance=ExtResource("5_rgrod")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, 0)
+
+[node name="Decorations" type="Node3D" parent="." unique_id=1456555261]
+
+[node name="Overworker_desk" parent="Decorations" unique_id=1658712161 instance=ExtResource("6_1ol7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.9039564)
+
+[node name="Watercooler" parent="Decorations" unique_id=1471611136 instance=ExtResource("7_jks30")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.6306157, 0, 2.026535)
+
+[node name="Overworker_Coffee_machine" parent="Decorations" unique_id=729018586 instance=ExtResource("8_5uowb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1423697, 0, 0)
+
+[node name="Door" type="Node3D" parent="." unique_id=1640152771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+script = ExtResource("9_xwbor")
+
+[node name="callback_door" parent="Door" unique_id=1742132657 instance=ExtResource("10_iclxq")]
+
+[node name="PlayerMarker" type="Marker3D" parent="Door/callback_door" unique_id=2859008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("11_1e0sh")
+identifier = "Overworker_Inside"
+look_direction = Vector3(1, 0, 0)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[connection signal="interacted" from="Door/callback_door" to="Door" method="_on_callback_door_interacted"]
