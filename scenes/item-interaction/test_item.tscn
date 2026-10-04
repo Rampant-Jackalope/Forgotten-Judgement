@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bl46ux86jw1kr"]
+
+[ext_resource type="Script" uid="uid://j8kri3puae0d" path="res://scripts/Item.gd" id="1_qfcfe"]
+[ext_resource type="Resource" uid="uid://b2rmi2qphl73g" path="res://resources/backstage_key.tres" id="2_x1sto"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="3_0g8ml"]
+[ext_resource type="Texture2D" uid="uid://bynx43ruh1gpn" path="res://assets/npc-billboards/backstage-key.png" id="3_x1sto"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x1sto"]
+
+[node name="BackstageKey" type="Node3D" unique_id=67441525 node_paths=PackedStringArray("interactable", "highlight_sprite")]
+script = ExtResource("1_qfcfe")
+data = ExtResource("2_x1sto")
+interactable = NodePath("Area3D")
+highlight_sprite = NodePath("HighlightSprite")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1868101713]
+pixel_size = 0.0006
+billboard = 1
+texture = ExtResource("3_x1sto")
+
+[node name="HighlightSprite" type="Sprite3D" parent="." unique_id=1436281818]
+transform = Transform3D(1.155, 0, 0, 0, 1.155, 0, 0, 0, 1.155, 0, 0, 0)
+sorting_offset = -0.08
+modulate = Color(0.67940456, 0.6037404, 2.6262926e-06, 1)
+pixel_size = 0.0006
+billboard = 1
+texture = ExtResource("3_x1sto")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1688681646]
+script = ExtResource("3_0g8ml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=793548701]
+shape = SubResource("SphereShape3D_x1sto")

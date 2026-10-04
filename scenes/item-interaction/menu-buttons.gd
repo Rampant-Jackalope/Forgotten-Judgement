@@ -76,7 +76,7 @@ func _setup_hud_popup_label() -> void:
 			hud_popup_label.anchor_bottom = 0.85
 			
 			hud_popup_label.modulate.a = 0.0 # Start fully transparent
-			parent_hud.add_child(hud_popup_label)
+			parent_hud.add_child.call_deferred(hud_popup_label) #because of an error about HUD still adding children.
 
 func _input(event: InputEvent) -> void:
 	# Toggle pause menu with ESC (ui_cancel)
@@ -97,7 +97,7 @@ func toggle_pause_menu() -> void:
 func _on_slot_hovered(item: ItemData) -> void:
 	# Update pause menu label when hovering over slots in pause menu
 	if visible and items_display_label:
-		items_display_label.text = _format_item_text(item)
+		items_display_label.text = item.get_display_text() if item != null else ("Empty Slot")
 
 func _on_slot_unhovered() -> void:
 	if visible:
@@ -118,7 +118,7 @@ func show_hud_popup(item: ItemData) -> void:
 	if popup_tween and popup_tween.is_running():
 		popup_tween.kill()
 
-	hud_popup_label.text = _format_item_text(item)
+	hud_popup_label.text = item.get_display_text() if item != null else "(Empty Slot)"
 
 	# Smoothly fade in, hold, and fade out
 	popup_tween = create_tween()
@@ -126,26 +126,6 @@ func show_hud_popup(item: ItemData) -> void:
 	popup_tween.tween_property(hud_popup_label, "modulate:a", 1.0, 0.2) # Fade in
 	popup_tween.tween_interval(2.0)                                    # Hold for 2s
 	popup_tween.tween_property(hud_popup_label, "modulate:a", 0.0, 0.4) # Fade out
-
-func _format_item_text(item: ItemData) -> String:
-	if item == null:
-		return "(Empty Slot)"
-
-	var display_name: String = ""
-	if "item_name" in item and str(item.get("item_name")) != "":
-		display_name = str(item.get("item_name"))
-	elif "name" in item and str(item.get("name")) != "":
-		display_name = str(item.get("name"))
-	else:
-		display_name = "Item"
-
-	var display_desc: String = ""
-	if "description" in item:
-		display_desc = str(item.get("description"))
-
-	if display_desc != "":
-		return display_name + "\n" + display_desc
-	return display_name
 
 func _clear_pause_display_text() -> void:
 	if items_display_label:
