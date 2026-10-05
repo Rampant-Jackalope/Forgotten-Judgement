@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bw6ukrt4g1kgo" path="res://scenes/main_area/overworker_entrance_door.gd" id="5_1aiv8"]
 [ext_resource type="Script" uid="uid://ddolifd64khrn" path="res://scenes/main_area/lift_top.gd" id="5_1crpi"]
 [ext_resource type="Script" uid="uid://ctqnspc3wwvw6" path="res://scenes/main_area/guest_door.gd" id="5_tl811"]
-[ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/room.tscn" id="7_n1y1w"]
+[ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/overworker_room.tscn" id="7_n1y1w"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 13
