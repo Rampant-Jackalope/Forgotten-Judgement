@@ -80,7 +80,7 @@ func _setup_hud_popup_label() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Toggle pause menu with ESC (ui_cancel)
-	if event.is_action_pressed("ui_cancel") and not event.is_echo():
+	if event.is_action_pressed("ui_cancel") and not event.is_echo() and not _dialogue_active():
 		toggle_pause_menu()
 
 func toggle_pause_menu() -> void:
@@ -137,3 +137,7 @@ func _on_back_to_menu_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+func _dialogue_active() -> bool:
+	var p := get_tree().root.get_node_or_null("World/Player3D") as Player3D
+	return p != null and p.dialogue_locked

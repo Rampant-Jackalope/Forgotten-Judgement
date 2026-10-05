@@ -37,7 +37,6 @@ scene = ExtResource("6_oky47")
 overrides = {
 "box_color_custom": "Color(0.65625, 0.4733716, 0.1517578, 1)",
 "box_color_use_global": "false",
-"box_panel": "\"res://styles/my_style1.tres\"",
 "box_size": "Vector2(600, 150)",
 "next_indicator_texture": "\"res://styles/Judge_cursor.png\""
 }
@@ -76,4 +75,4 @@ layer_info = {
 "16": SubResource("Resource_48g6k"),
 "17": SubResource("Resource_5jui1")
 }
-metadata/_latest_layer = ""
+metadata/_latest_layer = "13"

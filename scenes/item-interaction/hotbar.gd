@@ -68,7 +68,7 @@ func _setup_hover_signals() -> void:
 			slot.mouse_exited.connect(func(): slot_unhovered.emit())
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.is_echo():
+	if event is InputEventKey and event.pressed and not event.is_echo() and not _dialogue_active():
 		if event.keycode == KEY_1: Inventory.select(0)
 		elif event.keycode == KEY_2: Inventory.select(1)
 		elif event.keycode == KEY_3: Inventory.select(2)
@@ -202,3 +202,8 @@ func _on_selected_changed(i: int, item: ItemData) -> void:
 	slot_changed.emit(i, item)   # menu-buttons.gd listens to this
 	_show_popup_text(item)
 	_update_selected_display()
+
+#Note: I added this function to two places (hotbar.gd and menu-buttons.gd), maybe it fits util better, idk.
+func _dialogue_active() -> bool:
+	var p := get_tree().root.get_node_or_null("World/Player3D") as Player3D
+	return p != null and p.dialogue_locked
