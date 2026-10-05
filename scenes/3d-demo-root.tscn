@@ -1,24 +1,30 @@
 [gd_scene format=3 uid="uid://bib1j4off5lvk"]
 
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_0l7dq"]
-[ext_resource type="PackedScene" uid="uid://ctu0nrqkjhwar" path="res://scenes/rooms/main.tscn" id="2_3u6ww"]
-[ext_resource type="PackedScene" uid="uid://bgnyjuftupq7d" path="res://scenes/day_night/day_night_cycle.tscn" id="3_3u6ww"]
+[ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_area/main_3d.tscn" id="1_htues"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
+[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scenes/npcs/npc_position_markers.gd" id="5_htues"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
 [node name="World" type="WorldEnvironment" unique_id=1521744203]
 environment = SubResource("Environment_1kpxu")
 
+[node name="Main3D" parent="." unique_id=473079635 instance=ExtResource("1_htues")]
+
 [node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_0l7dq")]
-
-[node name="DayNightCycle" parent="." unique_id=1668602397 instance=ExtResource("3_3u6ww")]
-transform = Transform3D(0.69834757, -0.68438995, -0.20957357, 0.5968088, 0.39513263, 0.69834757, -0.39513272, -0.6127648, 0.68438995, 0, 0, 0)
-radius = 30.0
-
-[node name="Main" parent="." unique_id=1704310852 instance=ExtResource("2_3u6ww")]
 
 [node name="NPCs" type="Node3D" parent="." unique_id=513783567]
 
 [node name="Michael" parent="NPCs" unique_id=861609196 instance=ExtResource("4_0l7dq")]
-transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 6, 1, 0)
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.08236712, 1.8271654, 20.248186)
+
+[node name="NpcPositionMarkers" type="Node" parent="." unique_id=1245211496]
+script = ExtResource("5_htues")
+metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
+
+[node name="MichaelBarMarker" type="Marker3D" parent="NpcPositionMarkers" unique_id=1632873524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34769568, 1, -17.202671)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1224645926]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14.5509205, 0)

@@ -87,6 +87,8 @@ func process_highlight() -> void:
 
 	if should_be_highlighted != self.is_highlighted:
 		if should_be_highlighted:
+			self.is_highlighted = true
 			highlight_on.emit()
 		else:
+			self.is_highlighted = false
 			highlight_off.emit()

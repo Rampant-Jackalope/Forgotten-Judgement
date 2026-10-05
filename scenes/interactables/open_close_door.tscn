@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://02q2ligg823"]
+
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="1_lvvwu"]
+[ext_resource type="Script" uid="uid://b4xpvu30la2cb" path="res://scenes/interactables/open_close_door.gd" id="1_otvyk"]
+[ext_resource type="PackedScene" uid="uid://dfjanrysg88sf" path="res://assets/Playtest_stuff/Hallway_objects/Lone_Door_Animated.gltf" id="2_otvyk"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="4_a0blr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg8mm"]
+render_priority = 0
+shader = ExtResource("4_a0blr")
+
+[node name="OpenCloseDoor" type="Node3D" unique_id=1742132657]
+script = ExtResource("1_otvyk")
+
+[node name="Lone_Door_Animated" parent="." unique_id=1252440332 instance=ExtResource("2_otvyk")]
+
+[node name="Interactable" type="Area3D" parent="Lone_Door_Animated/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1252440332, 1419786199) index="0" unique_id=205296272 node_paths=PackedStringArray("look_target")]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.6013819, -1.3)
+script = ExtResource("1_lvvwu")
+look_target = NodePath("../LookTarget")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" unique_id=1782608155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_1kpxu")
+
+[node name="LookTarget" type="Node3D" parent="Lone_Door_Animated/Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1252440332, 1419786199) index="1" unique_id=1967718121]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1.0579178, -0.19245398)
+
+[node name="Door" parent="Lone_Door_Animated/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1252440332, 1530373462) index="1" unique_id=296664632]
+material_overlay = SubResource("ShaderMaterial_wg8mm")
+
+[connection signal="highlight_off" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_highlight_on"]
+[connection signal="interacted" from="Lone_Door_Animated/Armature/Skeleton3D/Bone/Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="Lone_Door_Animated"]

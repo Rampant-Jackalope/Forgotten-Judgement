@@ -18,12 +18,14 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 
 Dialogic="*uid://ds2q0uclmolvu"
 EffectScreen="*uid://cvq5l02e684ip"
+PlayerPositionMarkers="*uid://ic45h57m1m20"
 
 [dialogic]
 
 directories/dch_directory={
 "bartender": "res://dialogic/characters/bartender.dch",
-"michael_jackson": "res://dialogic/characters/michael_jackson.dch"
+"michael_jackson": "res://dialogic/characters/michael_jackson.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "bartender/main": "res://dialogic/timelines/bartender/main.dtl",
@@ -44,6 +46,9 @@ variables={
 "REDIRECT_TO_BARTENDER": false,
 "RESPECT": 0,
 "STAGE_DOOR_OPENED": false
+},
+"misc": {
+"GuestName": ""
 }
 }
 glossary/default_case_sensitive=true
@@ -211,3 +216,10 @@ jump={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+highlight_color={
+"type": "color",
+"value": Color(0.15294118, 0.92156863, 0.6, 1)
+}
