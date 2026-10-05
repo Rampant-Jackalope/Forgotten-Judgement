@@ -42,7 +42,8 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Stair_wall": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 0
 }
 }
 }
