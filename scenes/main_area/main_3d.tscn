@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bw6ukrt4g1kgo" path="res://scenes/main_area/overworker_entrance_door.gd" id="5_1aiv8"]
 [ext_resource type="Script" uid="uid://ddolifd64khrn" path="res://scenes/main_area/lift_top.gd" id="5_1crpi"]
 [ext_resource type="Script" uid="uid://ctqnspc3wwvw6" path="res://scenes/main_area/guest_door.gd" id="5_tl811"]
-[ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/room.tscn" id="7_n1y1w"]
+[ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/overworker_room.tscn" id="7_n1y1w"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_mbxjm"]
 map_width = 13
@@ -392,8 +392,8 @@ metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("7_n1y1w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 14)
 
-[connection signal="button_pressed" from="FirstFloor/Lift/MountedButton" to="FirstFloor/Lift" method="_on_mounted_button_button_pressed"]
-[connection signal="button_pressed" from="SecondFloor/Lift/MountedButton" to="SecondFloor/Lift" method="_on_mounted_button_button_pressed"]
+[connection signal="pressed" from="FirstFloor/Lift/MountedButton" to="FirstFloor/Lift" method="_on_mounted_button_pressed"]
+[connection signal="pressed" from="SecondFloor/Lift/MountedButton" to="SecondFloor/Lift" method="_on_mounted_button_pressed"]
 [connection signal="interacted" from="InteractableDoors/Exit/CallbackDoor" to="InteractableDoors/Exit" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="InteractableDoors/Overworker/CallbackDoor" to="InteractableDoors/Overworker" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="InteractableDoors/Guest2/CallbackDoor" to="InteractableDoors/Guest2" method="_on_callback_door_interacted"]
