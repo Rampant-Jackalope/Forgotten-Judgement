@@ -35,12 +35,12 @@ func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> voi
 		if !animation_player.is_playing():
 			state = State.OPEN
 			animation_player.play(_open_animation)
-			await animation_player.animation_finished
+			animation_player.animation_finished
 	else:
 		if !animation_player.is_playing():
 			state = State.CLOSED
 			animation_player.play_backwards(_open_animation)
-			await animation_player.animation_finished
+			animation_player.animation_finished
 
 func _on_interactable_highlight_on() -> void:
 	door_mesh.set_instance_shader_parameter("enabled", true)
