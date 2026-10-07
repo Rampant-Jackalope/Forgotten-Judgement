@@ -2,8 +2,9 @@ class_name ItemInventory
 extends Node
 ## Single owner of "what am I holding". UI (hotbar, pause menu) only listens to signals.
 ## Note: I registered as autoload "Inventory", but perhaps it also works if you just make it a child of the player.
+# TODO: add inventory as child of player instead of autoload.
 
-const SLOT_COUNT := 3
+@export var slot_count := 3
 
 signal slot_changed(index: int, item: ItemData)   ## emitted whenever a slot's contents change
 signal selected_changed(index: int, item: ItemData)
@@ -12,7 +13,7 @@ var slots: Array[ItemData] = []
 var selected_index: int = 0
 
 func _ready() -> void:
-	slots.resize(SLOT_COUNT) # all null
+	slots.resize(slot_count) # all null
 
 func add(item: ItemData) -> bool:
 	assert(item != null, "ItemInventory.add() called with null")
@@ -26,7 +27,7 @@ func add(item: ItemData) -> bool:
 	return true
 
 func remove(id: StringName) -> bool:
-	var i := _find(id)
+	var i := _find_item_index(id)
 	if i == -1:
 		return false
 	slots[i] = null
@@ -36,10 +37,10 @@ func remove(id: StringName) -> bool:
 	return true
 
 func has_item(id: StringName) -> bool:
-	return _find(id) != -1
+	return _find_item_index(id) != -1
 
 func select(index: int) -> void:
-	assert(index >= 0 and index < SLOT_COUNT, "slot index out of range")
+	assert(index >= 0 and index < slot_count, "slot index out of range")
 	selected_index = index
 	selected_changed.emit(index, slots[index])
 
@@ -55,7 +56,7 @@ func use_selected(user: Node) -> void:
 		slot_changed.emit(selected_index, null)
 		selected_changed.emit(selected_index, null)
 
-func _find(id: StringName) -> int:
+func _find_item_index(id: StringName) -> int:
 	for i in slots.size():
 		if slots[i] != null and slots[i].id == id:
 			return i

@@ -3,9 +3,9 @@ extends MarginContainer
 @export var main_menu_scene: PackedScene
 
 
-@export var main_buttons: VBoxContainer# = $MainButtons
-@export var back_to_menu_button: Button# = $MainButtons/BackToMenuButton
-@export var quit_button: Button# = $MainButtons/QuitButton
+@export var main_buttons: VBoxContainer
+@export var back_to_menu_button: Button
+@export var quit_button: Button
 
 @export var hotbar = get_node_or_null("../Hotbar")
 
@@ -34,12 +34,12 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_pressed)
 
 	# Connect Hotbar signals
-	if hotbar.has_signal("slot_hovered"):
-		hotbar.slot_hovered.connect(_on_slot_hovered)
-	if hotbar.has_signal("slot_unhovered"):
-		hotbar.slot_unhovered.connect(_on_slot_unhovered)
-	if hotbar.has_signal("slot_changed"):
-		hotbar.slot_changed.connect(_on_slot_changed)
+	
+	if not hotbar.is_node_ready():
+		await hotbar.ready
+	assert(hotbar.slot_hovered.connect(_on_slot_hovered) == OK, "Failed to connect slot_hovered signal from Hotbar.")
+	assert(hotbar.slot_unhovered.connect(_on_slot_unhovered) == OK, "Failed to connect slot_unhovered signal from Hotbar.")
+	assert(hotbar.slot_changed.connect(_on_slot_changed) == OK, "Failed to connect slot_changed signal from Hotbar.")
 	
 	# Ensure the pause menu is above other UI elements
 	move_to_front.call_deferred() 
@@ -97,17 +97,19 @@ func toggle_pause_menu() -> void:
 func _on_slot_hovered(item: ItemData) -> void:
 	# Update pause menu label when hovering over slots in pause menu
 	if visible and items_display_label:
-		items_display_label.text = item.get_display_text() if item != null else ("Empty Slot")
+		items_display_label.text = _format_item_text(item)
 
 func _on_slot_unhovered() -> void:
 	if visible:
 		_clear_pause_display_text()
 
 func _on_slot_changed(_index: int, item: ItemData) -> void:
+	# print("_on_slot_changed triggered")
 	# Always trigger pop-up description when switching active slots (1, 2, 3)
 	show_hud_popup(item)
 
 func show_hud_popup(item: ItemData) -> void:
+	# print("show_hud_popup triggered")
 	if hud_popup_label == null:
 		_setup_hud_popup_label()
 
@@ -118,7 +120,7 @@ func show_hud_popup(item: ItemData) -> void:
 	if popup_tween and popup_tween.is_running():
 		popup_tween.kill()
 
-	hud_popup_label.text = item.get_display_text() if item != null else "(Empty Slot)"
+	hud_popup_label.text = _format_item_text(item)
 
 	# Smoothly fade in, hold, and fade out
 	popup_tween = create_tween()
@@ -141,3 +143,6 @@ func _on_quit_pressed() -> void:
 func _dialogue_active() -> bool:
 	var p := get_tree().root.get_node_or_null("World/Player3D") as Player3D
 	return p != null and p.dialogue_locked
+
+func _format_item_text(item: ItemData) -> String:
+	return item.get_display_text() if item != null else "Empty Slot"

@@ -1,6 +1,8 @@
 extends HBoxContainer
 
 var selected_slot_index: int = 0
+# TODO: make it an @onready or @export global variable
+# hinge: currently the Inventory as autoload defines a SLOT_COUNT, these nodes should ideally be instantiated at runtime accordingly
 var slots
 
 signal slot_hovered(item: ItemData)
@@ -29,7 +31,7 @@ func _ready() -> void:
 
 	Inventory.slot_changed.connect(_on_slot_changed)
 	Inventory.selected_changed.connect(_on_selected_changed)
-	for i in Inventory.SLOT_COUNT:
+	for i in Inventory.slot_count:
 		_redraw_slot(i, Inventory.slots[i])
 	
 
@@ -95,11 +97,15 @@ func _show_popup_text(item: ItemData) -> void:
 
 	if item_popup_label == null:
 		return
+	
+	# anything below this never reaches, as we don't have an item popup label node.
+	# TODO: create "ItemPopupLabel" node.
 
 	if popup_tween and popup_tween.is_running():
 		popup_tween.kill()
 
-	item_popup_label.text = item.get_display_text() if item != null else "(Empty Slot)"
+	# print("_show_popup_text triggered")
+	item_popup_label.text = item.get_display_text() if item != null else "(Empty Slot)" # TODO: connect with the function of menu-buttons.gd
 
 	item_popup_label.show()
 	popup_tween = create_tween()
@@ -189,18 +195,21 @@ func _on_slot_changed(i: int, item: ItemData) -> void:
 	_redraw_slot(i, item)
 
 func _redraw_slot(i: int, item: ItemData) -> void:
-    # Keep the existing TextureRect; only set its texture.
-	var tr := get_node("Slot %d/TextureRect" % (i + 1)) as TextureRect
-	tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	tr.texture = item.icon if item else null
-	tr.visible = item != null
+	# Keep the existing TextureRect; only set its texture.
+	var tr := slots[i].get_node_or_null("TextureRect") as TextureRect
+	if tr:
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tr.texture = item.icon if item else null
+		tr.visible = item != null
 
 func _on_selected_changed(i: int, item: ItemData) -> void:
+	# print("_on_selected_changed triggered")
 	selected_slot_index = i
 	update_slot_highlights()
 	slot_changed.emit(i, item)   # menu-buttons.gd listens to this
 	_show_popup_text(item)
+	# print("_on_selected_changed triggered 2")
 	_update_selected_display()
 
 #Note: I added this function to two places (hotbar.gd and menu-buttons.gd), maybe it fits util better, idk.

@@ -1,10 +1,9 @@
 class_name Item
 extends Node3D
-## Note: I'm using this scene layout:
-##   Item (Node3D, this script)
-##   ├─ Model / Sprite3D
-##   ├─ HighlightSprite (Sprite3D)      -> assign to highlight_sprite
-##   └─ Interactable (Area3D, Interactable.gd) + CollisionShape3D  -> assign to interactable
+## Note: the following should be a children of this Item node:
+##   Model / Sprite3D
+##   , HighlightSprite (Sprite3D) -> assign to highlight_sprite
+##   , Interactable (Area3D, Interactable.gd) + CollisionShape3D -> assign to interactable
 
 @export var data: ItemData
 @export var interactable: Interactable
