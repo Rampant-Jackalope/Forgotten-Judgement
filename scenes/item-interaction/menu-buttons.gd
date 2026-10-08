@@ -104,12 +104,10 @@ func _on_slot_unhovered() -> void:
 		_clear_pause_display_text()
 
 func _on_slot_changed(_index: int, item: ItemData) -> void:
-	# print("_on_slot_changed triggered")
 	# Always trigger pop-up description when switching active slots (1, 2, 3)
 	show_hud_popup(item)
 
 func show_hud_popup(item: ItemData) -> void:
-	# print("show_hud_popup triggered")
 	if hud_popup_label == null:
 		_setup_hud_popup_label()
 

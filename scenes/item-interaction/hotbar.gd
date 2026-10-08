@@ -104,7 +104,6 @@ func _show_popup_text(item: ItemData) -> void:
 	if popup_tween and popup_tween.is_running():
 		popup_tween.kill()
 
-	# print("_show_popup_text triggered")
 	item_popup_label.text = item.get_display_text() if item != null else "(Empty Slot)" # TODO: connect with the function of menu-buttons.gd
 
 	item_popup_label.show()
@@ -204,12 +203,10 @@ func _redraw_slot(i: int, item: ItemData) -> void:
 		tr.visible = item != null
 
 func _on_selected_changed(i: int, item: ItemData) -> void:
-	# print("_on_selected_changed triggered")
 	selected_slot_index = i
 	update_slot_highlights()
 	slot_changed.emit(i, item)   # menu-buttons.gd listens to this
 	_show_popup_text(item)
-	# print("_on_selected_changed triggered 2")
 	_update_selected_display()
 
 #Note: I added this function to two places (hotbar.gd and menu-buttons.gd), maybe it fits util better, idk.
