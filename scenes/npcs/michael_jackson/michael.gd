@@ -13,9 +13,9 @@ func _on_dialogic_event(action: String) -> void:
 		"fight":
 			get_tree().change_scene_to_file("res://scenes/fights/michael/michael_fight.tscn")
 		"bar":
-			ScreenFader.transition_npc(self, Util.get_npc_marker("MichaelBarMarker").global_position)
+			NpcPositionMarkers.transition("Michael_Bar", self)
 		"stage":
-			ScreenFader.transition_npc(self, _origin.origin)
+			NpcPositionMarkers.transition("Michael_Stage", self)
 		_:
 			push_error("Invalid action " + action)
 	

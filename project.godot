@@ -20,14 +20,15 @@ Dialogic="*uid://ds2q0uclmolvu"
 EffectScreen="*uid://cvq5l02e684ip"
 PlayerPositionMarkers="*uid://ic45h57m1m20"
 Inventory="*uid://c80npkg531tup"
+NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 
 [dialogic]
 
 directories/dch_directory={
 "bartender": "res://dialogic/characters/bartender.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "bb": "res://dialogic/characters/bb.dch",
-"michael_jackson": "res://dialogic/characters/michael_jackson.dch"
+"michael_jackson": "res://dialogic/characters/michael_jackson.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "bartender/main": "res://dialogic/timelines/bartender/main.dtl",
