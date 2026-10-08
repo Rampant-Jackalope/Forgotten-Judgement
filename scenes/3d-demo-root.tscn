@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_area/main_3d.tscn" id="1_htues"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scenes/npcs/npc_position_markers.gd" id="5_htues"]
+[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="6_5s4hk"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -28,3 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34769568, 1, -17.202671)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1224645926]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14.5509205, 0)
+
+[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("6_5s4hk")]

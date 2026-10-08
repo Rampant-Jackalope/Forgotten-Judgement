@@ -52,7 +52,6 @@ func _spawn_projectile() -> void:
 	instance.hit.connect(_on_projectile_hit)
 
 	if is_instance_of(instance, LinearProjectile):
-		print_debug("glove")
 		kick_shoe(instance)
 	elif is_instance_of(instance, FallingProjectile):
 		drop_gloves(instance)

@@ -86,6 +86,7 @@ func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
 
 	if should_be_highlighted != self.is_highlighted:
+		self.is_highlighted = should_be_highlighted   #otherwise it stays false forever.
 		if should_be_highlighted:
 			self.is_highlighted = true
 			highlight_on.emit()

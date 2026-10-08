@@ -1,3 +1,4 @@
+join michael_jackson left [animation="Fade In"]
 michael_jackson: hee hee~
 - fight me | [if {michael.AT_BAR} == false]
 	eyyy let's go bro

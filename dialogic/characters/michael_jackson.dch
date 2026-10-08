@@ -7,15 +7,25 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "Style_test",
 "suffix": ""
 },
-&"default_portrait": "",
+&"default_portrait": "Michael Jackson",
 &"description": "",
 &"display_name": "Michael Jackson",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"Michael Jackson": {
+"export_overrides": {
+"image": "\"res://assets/npc-billboards/michael-jackson.png\""
+},
+"mirror": false,
+"offset": Vector2(40, 400),
+"scale": 0.6,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

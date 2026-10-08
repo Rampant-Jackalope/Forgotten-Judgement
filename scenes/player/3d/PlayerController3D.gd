@@ -36,8 +36,8 @@ func _input(event: InputEvent) -> void:
 		)
 
 	# Let Esc release the mouse (debugging/menu purposes)
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	# if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+	# 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event is InputEventMouseButton and event.pressed and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		return
