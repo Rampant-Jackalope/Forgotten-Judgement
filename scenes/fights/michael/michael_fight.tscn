@@ -53,17 +53,6 @@ animations = [{
 script = ExtResource("1_6y3e3")
 projectile_spawn_interval = 1.0
 
-[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player")]
-script = ExtResource("2_46jaq")
-scene = ExtResource("2_lkias")
-kick_sound_delay = 0.5
-audio_player = NodePath("../AudioStreamPlayer2D")
-metadata/_custom_type_script = "uid://dja725fdmnl25"
-
-[node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328]
-script = ExtResource("4_lhd28")
-scene = ExtResource("2_s2w16")
-
 [node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
@@ -104,6 +93,17 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Michael/Hitbox" unique_id=1272905365]
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
+
+[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("2_46jaq")
+scene = ExtResource("2_lkias")
+kick_sound_delay = 0.5
+audio_player = NodePath("../AudioStreamPlayer2D")
+metadata/_custom_type_script = "uid://dja725fdmnl25"
+
+[node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328]
+script = ExtResource("4_lhd28")
+scene = ExtResource("2_s2w16")
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 
