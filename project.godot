@@ -203,6 +203,7 @@ jump={
 
 3d_physics/layer_1="collision"
 3d_physics/layer_2="interaction"
+2d_physics/layer_7="Fight opponent Hitbox"
 
 [physics]
 
