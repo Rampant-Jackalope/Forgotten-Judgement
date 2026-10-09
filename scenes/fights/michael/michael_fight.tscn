@@ -31,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_ee4lh")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"drop_hat",
 "speed": 2.0
 }, {
@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_8jnm5")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"kick",
 "speed": 2.0
 }]
@@ -51,12 +51,11 @@ animations = [{
 
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
-projectile_spawn_interval = 1.0
 
 [node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
-animation = &"drop_hat"
+animation = &"kick"
 autoplay = "default"
 
 [node name="Health" type="Node" parent="Michael" unique_id=174806862]
@@ -94,20 +93,28 @@ collision_mask = 0
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 
-[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player")]
+[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player", "animator", "anchor")]
 script = ExtResource("2_46jaq")
 scene = ExtResource("2_lkias")
-kick_sound_delay = 0.5
-audio_player = NodePath("../AudioStreamPlayer2D")
+attack_duration = null
+attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
+audio_player = NodePath("AudioStreamPlayer2D")
+animator = NodePath("../Michael")
+animation_name = &"kick"
+trigger_frame = 1
+anchor = NodePath("../Michael/Sprite2DAnchor")
 metadata/_custom_type_script = "uid://dja725fdmnl25"
 
-[node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MichaelKickAttack" unique_id=928181974]
+stream = ExtResource("5_f1qsm")
+
+[node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]
 script = ExtResource("4_lhd28")
 scene = ExtResource("2_s2w16")
+animator = NodePath("../Michael")
+animation_name = &"drop_hat"
+trigger_frame = 1
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=928181974]
-stream = ExtResource("5_f1qsm")
 
 [connection signal="became_empty" from="Michael/Health" to="." method="_on_michael_died"]

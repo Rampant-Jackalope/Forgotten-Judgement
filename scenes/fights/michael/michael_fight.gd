@@ -1,6 +1,13 @@
 extends Node2D
 
-@export var projectile_spawn_interval: float = 0.5
+@export var min_attack_interval: float = 0:
+	set(value):
+		min_attack_interval = value
+		if max_attack_interval < value: max_attack_interval = value
+@export var max_attack_interval: float = 1:
+	set(value):
+		max_attack_interval = value
+		if min_attack_interval > value: min_attack_interval = value
 
 @onready var timer: Timer = Timer.new()
 var rng = RandomNumberGenerator.new()
@@ -16,9 +23,8 @@ var player_health: Health
 var _attacks: Array[AttackBase] = []
 
 func _ready() -> void:
-	timer.one_shot = false
-	timer.wait_time = projectile_spawn_interval
 	timer.timeout.connect(_spawn_projectile)
+	timer.one_shot = true
 	add_child(timer)
 
 	player = get_node("Player2D")
@@ -37,6 +43,7 @@ func _ready() -> void:
 	player_health = player.get_node("Health")
 	assert(player_health != null, "Could not find player health component")
 
+	timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	timer.start()
 
 	for child in get_children():
@@ -44,7 +51,9 @@ func _ready() -> void:
 			_attacks.push_back(child)
 
 func _spawn_projectile() -> void:
-	_attacks.pick_random().trigger(rng)
+	await _attacks.pick_random().trigger(rng)
+	timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
+	timer.start()
 
 func _on_projectile_hit(damage: int) -> void:
 	if player_controller.state == PlayerController2D.State.BLOCKING:
