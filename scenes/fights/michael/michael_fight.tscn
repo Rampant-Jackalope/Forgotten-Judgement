@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://djupj1yyvdif5" path="res://assets/combat/michael/mj-kick.jpg" id="6_8jnm5"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="7_3f3ek"]
+[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_lhd28"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
 animations = [{
@@ -49,8 +50,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
 
-[node name="World" type="Node2D" unique_id=2023541201]
+[node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_6y3e3")
+hurt_audio_player = NodePath("Michael/HurtAudioPlayer")
 
 [node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
@@ -93,10 +95,12 @@ collision_mask = 0
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 
+[node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="Michael" unique_id=1181303130]
+stream = ExtResource("8_lhd28")
+
 [node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player", "animator", "anchor")]
 script = ExtResource("2_46jaq")
 scene = ExtResource("2_lkias")
-attack_duration = null
 attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
 audio_player = NodePath("AudioStreamPlayer2D")
 animator = NodePath("../Michael")
@@ -118,3 +122,4 @@ trigger_frame = 1
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 
 [connection signal="became_empty" from="Michael/Health" to="." method="_on_michael_died"]
+[connection signal="changed" from="Michael/Health" to="." method="_on_michael_health_changed"]
