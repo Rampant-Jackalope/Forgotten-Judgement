@@ -54,3 +54,8 @@ func _on_projectile_hit(damage: int) -> void:
 func _on_player_death() -> void:
 	# TODO: properly handle this shit doesn't matter too much this is a debugging fight anyway
 	get_tree().quit()
+
+# Connected to signal
+func _on_michael_died() -> void:
+	print("michael (x_x)")
+	get_tree().quit()

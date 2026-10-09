@@ -2,8 +2,52 @@
 
 [ext_resource type="Script" uid="uid://da4u2e4n0akmu" path="res://scenes/fights/michael/michael_fight.gd" id="1_6y3e3"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scenes/fights/michael/michael_kick.gd" id="2_46jaq"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_glove.tscn" id="2_s2w16"]
+[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scenes/fights/michael/michael_hat_drop.gd" id="4_lhd28"]
+[ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="4_u2054"]
+[ext_resource type="Texture2D" uid="uid://dih4ef8pmi6g6" path="res://assets/combat/michael/drophat.png" id="5_ee4lh"]
+[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
+[ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="5_qpjmv"]
+[ext_resource type="Texture2D" uid="uid://djupj1yyvdif5" path="res://assets/combat/michael/mj-kick.jpg" id="6_8jnm5"]
+[ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
+[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="7_3f3ek"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u2054")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u2054")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ee4lh")
+}],
+"loop": 1,
+"name": &"drop_mic",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u2054")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8jnm5")
+}],
+"loop": 1,
+"name": &"kick",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
 
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
@@ -20,7 +64,50 @@ metadata/_custom_type_script = "uid://dja725fdmnl25"
 script = ExtResource("4_lhd28")
 scene = ExtResource("2_s2w16")
 
+[node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
+position = Vector2(911, 566)
+sprite_frames = SubResource("SpriteFrames_seols")
+animation = &"drop_mic"
+autoplay = "default"
+
+[node name="Health" type="Node" parent="Michael" unique_id=174806862]
+script = ExtResource("6_8258g")
+max_health = 100
+metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Michael" unique_id=768933520]
+
+[node name="Healthbar" parent="Michael/CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("7_3f3ek")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = -200.0
+offset_bottom = 0.0
+grow_horizontal = 2
+health = NodePath("../../Health")
+normal_color = Color(0.6499996, 0, 1, 1)
+
+[node name="Sprite2DAnchor" type="Node" parent="Michael" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
+script = ExtResource("5_qpjmv")
+adornee = NodePath("..")
+own_anchor_h = 1
+own_anchor_v = 1
+parent_anchor_h = 1
+parent_anchor_v = 1
+metadata/_custom_type_script = "uid://in1tag4vt7uf"
+
+[node name="Hitbox" type="Area2D" parent="Michael" unique_id=119223933]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Michael/Hitbox" unique_id=1272905365]
+scale = Vector2(21.957985, 42.13611)
+shape = SubResource("RectangleShape2D_seols")
+
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=928181974]
 stream = ExtResource("5_f1qsm")
+
+[connection signal="became_empty" from="Michael/Health" to="." method="_on_michael_died"]
