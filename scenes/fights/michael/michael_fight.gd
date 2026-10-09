@@ -16,8 +16,6 @@ var player: Node2D
 var player_controller: PlayerController2D
 var player_health: Health
 
-@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
 @export var kick_sound_delay: float = 0.5
 
 var _attacks: Array[AttackBase] = []
