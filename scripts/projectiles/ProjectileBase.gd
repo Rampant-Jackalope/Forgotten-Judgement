@@ -7,8 +7,7 @@ extends AnimatedSprite2D
 @export var body: Node2D
 
 ## Reusable, inspector-assignable modifiers (punch, spin, flash, etc).
-## Order matters if modifiers touch the same property.
-@export var modifiers: Array[ProjectileModifier] = []
+var _modifiers: Array[ProjectileModifier] = []
 
 @export_group("Cleanup")
 @export var time_out := 0.5
@@ -54,6 +53,10 @@ func _enter_tree() -> void:
 	if body == null:
 		body = self
 
+	for child in get_children():
+		if child is ProjectileModifier:
+			_modifiers.push_back(child)
+
 	hitbox = _find_hitbox()
 	assert(hitbox != null)
 	hitbox.monitoring = false
@@ -71,7 +74,7 @@ func _enter_tree() -> void:
 	on_screen_detector.screen_exited.connect(func(): queue_free())
 	add_child(on_screen_detector)	
 
-	for m in modifiers:
+	for m in _modifiers:
 		m.start(self)
 
 	if enable_timeout:
@@ -81,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	apply_motion(delta)
-	for m in modifiers:
+	for m in _modifiers:
 		m.process_modifier(delta, self)
 
 func activate_hitbox() -> void:
