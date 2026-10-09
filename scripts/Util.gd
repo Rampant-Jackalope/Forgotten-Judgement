@@ -65,3 +65,24 @@ static func find_most_related(node: Node, predicate: Callable, parent_stop: Node
 	if node_parent == parent_stop: return null
 	if predicate.call(node_parent): return node_parent
 	return find_most_related(node_parent, predicate)
+
+## pick_random_weighted<T>(options: Dictionary[T, float]) -> T
+static func pick_random_weighted(options: Dictionary, random: RandomNumberGenerator = null):
+	if random == null:
+		random = RandomNumberGenerator.new()
+		random.randomize()
+	var pre_seed = random.seed # To log for debug later
+
+	var total_weight: float = 0
+	for weight in options.values():
+		total_weight += weight
+
+	var rnd = random.randf() * total_weight
+
+	var accumulator: float = 0
+	for value in options.keys():
+		var weight = options.get(value)
+		accumulator += weight
+		if accumulator >= rnd: return value
+	
+	assert(false, "Didn't pick any option. rnd=" + str(rnd) + ", seed=" + str(pre_seed))
