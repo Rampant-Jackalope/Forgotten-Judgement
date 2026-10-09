@@ -4,12 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_glove.tscn" id="2_s2w16"]
-[ext_resource type="AudioStream" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 
 [node name="World" type="Node2D" unique_id=2023541201]
 script = ExtResource("1_6y3e3")
 projectile_spawn_interval = 1.0
-projectile_types = Array[PackedScene]([ExtResource("2_lkias"), ExtResource("2_s2w16")])
+
+[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("2_46jaq")
+scene = ExtResource("2_lkias")
+kick_sound_delay = 0.5
+audio_player = NodePath("../AudioStreamPlayer2D")
+metadata/_custom_type_script = "uid://dja725fdmnl25"
+
+[node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328]
+script = ExtResource("4_lhd28")
+scene = ExtResource("2_s2w16")
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 

@@ -1,10 +1,9 @@
 extends Node2D
 
 @export var projectile_spawn_interval: float = 0.5
-@export var projectile_types: Array[PackedScene]
 
 @onready var timer: Timer = Timer.new()
-var rng := RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new()
 
 var player: Node2D
 var player_controller: PlayerController2D
@@ -13,6 +12,8 @@ var player_health: Health
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var kick_sound_delay: float = 0.5
+
+var _attacks: Array[AttackBase] = []
 
 func _ready() -> void:
 	timer.one_shot = false
@@ -38,45 +39,12 @@ func _ready() -> void:
 
 	timer.start()
 
+	for child in get_children():
+		if child is AttackBase:
+			_attacks.push_back(child)
+
 func _spawn_projectile() -> void:
-	if projectile_types.is_empty():
-		push_error("No projectile types defined")
-		return
-	var scene: PackedScene = projectile_types.pick_random()
-	var instance := scene.instantiate()
-	if not instance:
-		push_error("Could not spawn projectile instance.")
-		return
-	if not instance.has_signal("hit"):
-		push_error("assigned projectile instance does not have a hit signal")
-	instance.hit.connect(_on_projectile_hit)
-
-	if is_instance_of(instance, LinearProjectile):
-		print_debug("glove")
-		kick_shoe(instance)
-	elif is_instance_of(instance, FallingProjectile):
-		drop_gloves(instance)
-	else:
-		push_error("Unknown projectile type found in projectile_types array")
-
-func kick_shoe(instance: Node) -> void:
-	var viewport_size := get_viewport_rect().size
-	var min_x = viewport_size.x * 0.2
-	var min_y = viewport_size.y * 0.2
-	var max_x = viewport_size.x * 0.8
-	var max_y = viewport_size.y * 0.8
-
-	instance.position.y = rng.randf_range(min_y, max_y)
-	instance.position.x = rng.randf_range(min_x, max_x)
-
-	add_child(instance)
-	await get_tree().create_timer(kick_sound_delay).timeout
-	audio_player.play()
-
-func drop_gloves(instance: Node) -> void:
-	instance.position.y = -300
-	instance.position.x = rng.randf_range(0, get_viewport_rect().size.x)
-	add_child(instance)
+	_attacks.pick_random().trigger(rng)
 
 func _on_projectile_hit(damage: int) -> void:
 	if player_controller.state == PlayerController2D.State.BLOCKING:
