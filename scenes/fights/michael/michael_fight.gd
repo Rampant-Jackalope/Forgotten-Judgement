@@ -71,5 +71,4 @@ func _on_michael_health_changed(old: int, new: int) -> void:
 
 # Connected to signal
 func _on_michael_died() -> void:
-	print("michael (x_x)")
-	get_tree().quit()
+	get_tree().change_scene_to_file.call_deferred("res://scenes/3d-demo-root.tscn") # TODO: Make this good
