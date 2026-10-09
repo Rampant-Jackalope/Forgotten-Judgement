@@ -5,6 +5,7 @@ extends Node2D
 @export var cursor: Node2D
 @export var sprite: AnimatedSprite2D
 @export var collision_shape: CollisionShape2D
+@export var attack_hitbox: Area2D
 
 @export var move_speed := 2500.0
 @export var float_height_percentage: float = 0.0
@@ -21,13 +22,12 @@ enum State {
 
 var state: State = State.MOVING
 
-signal attacked(screen_position: Vector2)
-
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
 	handle_movement()
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	assert(stamina != null, "Stamina component is not assigned in PlayerController2D!")
+	assert(attack_hitbox != null, "No attack hitbox assigned")
 
 func _process(_delta: float) -> void:
 	handle_movement()
@@ -67,7 +67,13 @@ func handle_action_input() -> void:
 			if stamina.try_consume(attack_stamina_cost):
 				state = State.ATTACKING
 				sprite.play("attack")
-				attacked.emit(get_global_mouse_position())
+				if attack_hitbox.has_overlapping_areas():
+					attack(attack_hitbox.get_overlapping_areas()[0])
 			else:
 				print("Not enough stamina to attack!")
 		get_viewport().set_input_as_handled()
+
+func attack(target: Area2D):
+	var health = Util.find_most_related(target, func(v): return v is Health) as Health
+	if health:
+		health.damage(10)
