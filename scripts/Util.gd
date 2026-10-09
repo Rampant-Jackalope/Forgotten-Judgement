@@ -1,4 +1,4 @@
-class_name Util
+@abstract class_name Util
 extends Node
 
 static func show_temp_richlabel(
