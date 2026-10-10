@@ -56,11 +56,6 @@ func _spawn_projectile() -> void:
 	timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	timer.start()
 
-func _on_projectile_hit(damage: int) -> void:
-	if player_controller.state == PlayerController2D.State.BLOCKING:
-		return
-	player_health.damage(damage)
-
 func _on_player_death() -> void:
 	# TODO: properly handle this shit doesn't matter too much this is a debugging fight anyway
 	get_tree().quit()

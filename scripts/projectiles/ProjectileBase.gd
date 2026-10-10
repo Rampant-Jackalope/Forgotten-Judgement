@@ -20,8 +20,6 @@ var timer: Timer
 		visibility_rect = value
 		queue_redraw()
 
-signal hit(damage: int)
-
 func _process(_delta: float) -> void:
 	# compound types like Rect2 don't update consistently apparently??
 	if Engine.is_editor_hint():
@@ -61,7 +59,13 @@ func _enter_tree() -> void:
 	assert(hitbox != null)
 	hitbox.monitoring = false
 	hitbox.monitorable = false
-	hitbox.body_entered.connect(func(_body: Node2D): self.hit.emit(damage))
+	hitbox.body_entered.connect(func(hit_body: Node2D):
+		var controller = Util.find_most_related(hit_body, func(v): return v is PlayerController2D) as PlayerController2D
+		if controller and controller.is_blocking(): return
+
+		var hit_health = Util.find_most_related(hit_body, func(v): return v is Health) as Health
+		if hit_health: hit_health.damage(damage)
+	)
 
 	timer = Timer.new()
 	timer.one_shot = true
