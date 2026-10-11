@@ -15,9 +15,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kpxu"]
-radius = 79.48233
-height = 526.14996
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_finy2"]
+size = Vector2(20, 70.8684)
 
 [node name="LinearProjectile" type="AnimatedSprite2D" unique_id=1291350163]
 scale = Vector2(0.1, 0.1)
@@ -34,9 +33,9 @@ metadata/_custom_type_script = "uid://dhtts2yjk8fal"
 [node name="Area2D" type="Area2D" parent="." unique_id=1011188696]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1382708429]
-position = Vector2(2, -56)
-rotation = 0.7832541
-shape = SubResource("CapsuleShape2D_1kpxu")
+position = Vector2(0, 1054.3535)
+scale = Vector2(20.512262, 37.129276)
+shape = SubResource("RectangleShape2D_finy2")
 
 [node name="PunchModifier" type="Node" parent="." unique_id=1782377362]
 script = ExtResource("3_mprrd")
