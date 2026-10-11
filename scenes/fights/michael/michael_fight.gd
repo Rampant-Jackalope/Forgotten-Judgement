@@ -9,7 +9,7 @@ extends Node2D
 		max_attack_interval = value
 		if min_attack_interval > value: min_attack_interval = value
 
-@onready var timer: Timer = Timer.new()
+@onready var attack_cooldown_timer: Timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 
 var player: Node2D
@@ -22,9 +22,9 @@ var player_health: Health
 var _attacks: Array[AttackBase] = []
 
 func _ready() -> void:
-	timer.timeout.connect(_spawn_projectile)
-	timer.one_shot = true
-	add_child(timer)
+	attack_cooldown_timer.timeout.connect(_spawn_projectile)
+	attack_cooldown_timer.one_shot = true
+	add_child(attack_cooldown_timer)
 
 	player = get_node("Player2D")
 	assert(player != null, "Could not find player node")
@@ -44,8 +44,8 @@ func _ready() -> void:
 	
 	assert(hurt_audio_player)
 
-	timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
-	timer.start()
+	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
+	attack_cooldown_timer.start()
 
 	for child in get_children():
 		if child is AttackBase:
@@ -53,8 +53,8 @@ func _ready() -> void:
 
 func _spawn_projectile() -> void:
 	await _attacks.pick_random().trigger(rng)
-	timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
-	timer.start()
+	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
+	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
 	# TODO: properly handle this shit doesn't matter too much this is a debugging fight anyway
