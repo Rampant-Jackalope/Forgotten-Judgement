@@ -32,6 +32,8 @@ func start(projectile: ProjectileBase) -> void:
 	scale_down_tween.tween_property(projectile, "scale", base_scale, scale_down_time)
 	await scale_down_tween.finished
 
+	projectile.modulate.a = 0
+
 	if audio_player and audio_player.playing: await audio_player.finished
 
 	projectile.queue_free()
