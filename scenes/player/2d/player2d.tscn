@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
-size = Vector2(20, 19.986818)
+size = Vector2(13.240242, 15.282152)
 
 [node name="Player2D" type="Node2D" unique_id=1303601657]
 
@@ -102,7 +102,7 @@ animation = &"moving"
 offset = Vector2(0, -180)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1344663957]
-position = Vector2(0, -720.4731)
+position = Vector2(0, -551.667)
 scale = Vector2(129.65523, 71.76125)
 shape = SubResource("RectangleShape2D_seols")
 
