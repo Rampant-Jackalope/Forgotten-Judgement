@@ -3,15 +3,14 @@ extends AttackBase
 
 @export var scene: PackedScene
 @export var attack_positions: Array[Vector2] = []
-@export var audio_player: AudioStreamPlayer2D
 @export var animator: AnimatedSprite2D
 @export var animation_name: StringName
 @export var trigger_frame: int
 @export var anchor: Sprite2DAnchor
+@export var audio_player: AudioStreamPlayer2D
 
 func _ready() -> void:
 	assert(scene)
-	assert(audio_player)
 	assert(anchor)
 
 	assert(animator)
@@ -28,6 +27,9 @@ func _animation_frame_triggered():
 
 	var instance = scene.instantiate()
 	instance.position = pos
+	if audio_player:
+		var punch_modifier = Util.find_descendant_breadthfirst(instance, func(v): return v is PunchModifier) as PunchModifier
+		if punch_modifier: punch_modifier.audio_player = audio_player
 	add_child(instance)
 
 	anchor.enabled = false
@@ -36,8 +38,6 @@ func _animation_frame_triggered():
 	await animator.animation_finished
 
 	anchor.enabled = true
-
-	audio_player.play()
 
 func do() -> void:
 	var prev_animation = animator.animation

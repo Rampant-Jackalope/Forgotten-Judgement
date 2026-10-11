@@ -98,18 +98,19 @@ shape = SubResource("RectangleShape2D_seols")
 [node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="Michael" unique_id=1181303130]
 stream = ExtResource("8_lhd28")
 
-[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("audio_player", "animator", "anchor")]
+[node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("animator", "anchor", "audio_player")]
 script = ExtResource("2_46jaq")
 scene = ExtResource("2_lkias")
 attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
-audio_player = NodePath("AudioStreamPlayer2D")
 animator = NodePath("../Michael")
 animation_name = &"kick"
 trigger_frame = 1
 anchor = NodePath("../Michael/Sprite2DAnchor")
+audio_player = NodePath("KickSound")
 metadata/_custom_type_script = "uid://dja725fdmnl25"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MichaelKickAttack" unique_id=928181974]
+[node name="KickSound" type="AudioStreamPlayer2D" parent="MichaelKickAttack" unique_id=1657204850]
+scale = Vector2(0.1, 0.1)
 stream = ExtResource("5_f1qsm")
 
 [node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]

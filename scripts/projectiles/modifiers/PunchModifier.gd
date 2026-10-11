@@ -8,6 +8,7 @@ extends ProjectileModifier
 @export var peak_scale: float = 1.8
 @export var scale_up_time: float = 0.25
 @export var scale_down_time: float = 0.15
+@export var audio_player: AudioStreamPlayer2D
 
 func start(projectile: ProjectileBase) -> void:
 	for connection in projectile.hitbox.body_entered.get_connections():
@@ -23,11 +24,14 @@ func start(projectile: ProjectileBase) -> void:
 	if not is_instance_valid(projectile):
 		return
 
+	if audio_player: audio_player.play()
 	projectile.scan_hits()
 
 	var scale_down_tween := projectile.get_tree().create_tween()
 	scale_down_tween.bind_node(projectile)
 	scale_down_tween.tween_property(projectile, "scale", base_scale, scale_down_time)
 	await scale_down_tween.finished
+
+	if audio_player and audio_player.playing: await audio_player.finished
 
 	projectile.queue_free()
