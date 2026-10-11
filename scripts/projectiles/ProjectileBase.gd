@@ -40,10 +40,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return warnings
 
 func _find_hitbox() -> Area2D:
-	for child in get_children():
-		if child is Area2D:
-			return child
-	return null
+	return Util.find_descendant_breadthfirst(self, func(v): return v is Area2D) as Area2D
 
 func _enter_tree() -> void:
 	if Engine.is_editor_hint():
