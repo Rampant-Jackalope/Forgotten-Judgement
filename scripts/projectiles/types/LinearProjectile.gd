@@ -7,6 +7,10 @@ extends ProjectileBase
 		direction = value.normalized()
 @export var speed: float = 400.0
 
+func _enter_tree() -> void:
+	super._enter_tree()
+	hitbox.body_entered.connect(_on_projectile_hit)
+
 func apply_motion(delta: float) -> void:
 	position += direction * speed * delta
 

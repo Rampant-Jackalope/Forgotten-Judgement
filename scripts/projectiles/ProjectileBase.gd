@@ -10,8 +10,8 @@ extends AnimatedSprite2D
 var _modifiers: Array[ProjectileModifier] = []
 
 @export_group("Cleanup")
-@export var time_out := 0.5
-@export var enable_timeout := false
+@export var time_out: float = 10.0
+@export var enable_timeout: bool = false
 var timer: Timer
 
 @export_group("Screen Culling")
@@ -57,15 +57,8 @@ func _enter_tree() -> void:
 
 	hitbox = _find_hitbox()
 	assert(hitbox != null)
-	hitbox.monitoring = false
-	hitbox.monitorable = false
-	hitbox.body_entered.connect(func(hit_body: Node2D):
-		var controller = Util.find_most_related(hit_body, func(v): return v is PlayerController2D) as PlayerController2D
-		if controller and controller.is_blocking(): return
-
-		var hit_health = Util.find_most_related(hit_body, func(v): return v is Health) as Health
-		if hit_health: hit_health.damage(damage)
-	)
+	hitbox.monitoring = true
+	hitbox.monitorable = true
 
 	timer = Timer.new()
 	timer.one_shot = true
@@ -79,10 +72,21 @@ func _enter_tree() -> void:
 	add_child(on_screen_detector)	
 
 	for m in _modifiers:
-		m.start(self)
+		m.start.call_deferred(self) # To give time for modifiers to disconnect/replace hitbox events
 
 	if enable_timeout:
 		timer.start()
+
+func scan_hits():
+	for hit_body in hitbox.get_overlapping_bodies():
+		_on_projectile_hit(hit_body)
+
+func _on_projectile_hit(hit_body: Node2D):
+	var controller = Util.find_most_related(hit_body, func(v): return v is PlayerController2D) as PlayerController2D
+	if controller and controller.is_blocking(): return
+
+	var hit_health = Util.find_most_related(hit_body, func(v): return v is Health) as Health
+	if hit_health: hit_health.damage(damage)
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -90,16 +94,6 @@ func _physics_process(delta: float) -> void:
 	apply_motion(delta)
 	for m in _modifiers:
 		m.process_modifier(delta, self)
-
-func activate_hitbox() -> void:
-	if hitbox:
-		hitbox.monitoring = true
-		hitbox.monitorable = true
-
-func deactivate_hitbox() -> void:
-	if hitbox:
-		hitbox.monitoring = false
-		hitbox.monitorable = false
 
 @abstract
 func apply_motion(delta: float) -> void
