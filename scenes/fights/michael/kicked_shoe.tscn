@@ -25,7 +25,6 @@ autoplay = "default"
 frame_progress = 0.41394928
 script = ExtResource("2_mprrd")
 direction = Vector2(0, 0)
-time_out = 0.3
 enable_timeout = true
 visibility_rect = Rect2(-205, -262, 410, 418)
 metadata/_custom_type_script = "uid://dhtts2yjk8fal"
