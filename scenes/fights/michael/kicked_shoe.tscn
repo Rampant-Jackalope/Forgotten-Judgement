@@ -40,5 +40,5 @@ shape = SubResource("RectangleShape2D_finy2")
 [node name="PunchModifier" type="Node" parent="." unique_id=1782377362]
 script = ExtResource("3_mprrd")
 peak_scale = 15.0
-scale_up_time = 0.3
+scale_up_time = 0.4
 metadata/_custom_type_script = "uid://442kj5on2xc2"
