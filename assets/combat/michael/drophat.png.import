@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ekfrn7so7o8o"
-path="res://.godot/imported/mj_glove.png-32dc029ff86f757b31b6db4ee738250c.ctex"
+uid="uid://dih4ef8pmi6g6"
+path="res://.godot/imported/drophat.png-48a881cdfa9f19696856a2cd7257f831.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/combat/mj_glove.png"
-dest_files=["res://.godot/imported/mj_glove.png-32dc029ff86f757b31b6db4ee738250c.ctex"]
+source_file="res://assets/combat/michael/drophat.png"
+dest_files=["res://.godot/imported/drophat.png-48a881cdfa9f19696856a2cd7257f831.ctex"]
 
 [params]
 

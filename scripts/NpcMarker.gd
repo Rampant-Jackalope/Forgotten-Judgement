@@ -5,3 +5,5 @@ class_name NpcMarker
 
 func _ready() -> void:
 	NpcPositionMarkers.add(self)
+func _exit_tree() -> void:
+	NpcPositionMarkers.remove(self.identifier)

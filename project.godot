@@ -27,14 +27,13 @@ NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 directories/dch_directory={
 "bartender": "res://dialogic/characters/bartender.dch",
 "bb": "res://dialogic/characters/bb.dch",
-"michael_jackson": "res://dialogic/characters/michael_jackson.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"michael_jackson": "res://dialogic/characters/michael_jackson.dch"
 }
 directories/dtl_directory={
-"bartender/main": "res://dialogic/timelines/bartender/main.dtl",
-"bartender/warning": "res://dialogic/timelines/bartender/warning.dtl",
+"main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
-"misc-popups": "res://dialogic/timelines/misc-popups.dtl"
+"misc-popups": "res://dialogic/timelines/misc-popups.dtl",
+"warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
 layout/style_directory={
 "": "res://resources/Style_test.tres",
@@ -221,6 +220,7 @@ jump={
 
 3d_physics/layer_1="collision"
 3d_physics/layer_2="interaction"
+2d_physics/layer_7="Fight opponent Hitbox"
 
 [physics]
 

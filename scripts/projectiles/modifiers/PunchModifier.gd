@@ -8,10 +8,12 @@ extends ProjectileModifier
 @export var peak_scale: float = 1.8
 @export var scale_up_time: float = 0.25
 @export var scale_down_time: float = 0.15
-## How long the hitbox stays live once activated, at the apex.
-@export var hitbox_active_time: float = 0.08
+@export var audio_player: AudioStreamPlayer2D
 
 func start(projectile: ProjectileBase) -> void:
+	for connection in projectile.hitbox.body_entered.get_connections():
+		projectile.hitbox.body_entered.disconnect(connection.callable)
+
 	var base_scale := projectile.scale
 
 	var scale_up_tween := projectile.get_tree().create_tween()
@@ -22,26 +24,16 @@ func start(projectile: ProjectileBase) -> void:
 	if not is_instance_valid(projectile):
 		return
 
-	projectile.activate_hitbox()
-
-	var active_timer := Timer.new()
-	active_timer.one_shot = true
-	active_timer.wait_time = hitbox_active_time
-	projectile.add_child(active_timer)
-	active_timer.start()
-
-	await projectile.get_tree().physics_frame
-
-	if active_timer.time_left > 0.0:
-		await active_timer.timeout
-
-	active_timer.queue_free()
-
-	if not is_instance_valid(projectile):
-		return
-
-	projectile.deactivate_hitbox()
+	if audio_player: audio_player.play()
+	projectile.scan_hits()
 
 	var scale_down_tween := projectile.get_tree().create_tween()
 	scale_down_tween.bind_node(projectile)
 	scale_down_tween.tween_property(projectile, "scale", base_scale, scale_down_time)
+	await scale_down_tween.finished
+
+	projectile.modulate.a = 0
+
+	if audio_player and audio_player.playing: await audio_player.finished
+
+	projectile.queue_free()

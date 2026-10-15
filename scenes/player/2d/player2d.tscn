@@ -44,6 +44,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_seols"]
+radius = 2.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
 animations = [{
 "frames": [{
@@ -56,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
-size = Vector2(20, 19.986818)
+size = Vector2(13.240242, 15.282152)
 
 [node name="Player2D" type="Node2D" unique_id=1303601657]
 
@@ -70,17 +73,25 @@ animation = &"block"
 autoplay = "idle"
 flip_h = true
 
+[node name="AttackHitboxArea2D" type="Area2D" parent="Cursor" unique_id=2104404038]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/AttackHitboxArea2D" unique_id=1303511433]
+shape = SubResource("CircleShape2D_seols")
+
 [node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_m651b")
 health = NodePath("../Health")
 
-[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape", "stamina")]
+[node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape", "attack_hitbox", "stamina")]
 script = ExtResource("5_p4ibx")
 body = NodePath("..")
 cursor = NodePath("../../Cursor")
 sprite = NodePath("../../Cursor/AnimatedSprite2D")
 collision_shape = NodePath("../CollisionShape2D")
+attack_hitbox = NodePath("../../Cursor/AttackHitboxArea2D")
 stamina = NodePath("../../Stamina")
 metadata/_custom_type_script = "uid://cwcs3ksl166ko"
 
@@ -91,7 +102,7 @@ animation = &"moving"
 offset = Vector2(0, -180)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=1344663957]
-position = Vector2(0, -720.4731)
+position = Vector2(0, -551.667)
 scale = Vector2(129.65523, 71.76125)
 shape = SubResource("RectangleShape2D_seols")
 

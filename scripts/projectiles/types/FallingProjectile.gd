@@ -9,8 +9,8 @@ var velocity: Vector2
 
 func _enter_tree() -> void:
 	super._enter_tree()
+	hitbox.body_entered.connect(_on_projectile_hit)
 	velocity = initial_velocity
-	activate_hitbox()
 
 func apply_motion(delta: float) -> void:
 	velocity += gravity * delta
