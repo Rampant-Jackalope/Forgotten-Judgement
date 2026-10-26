@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://caucfym3vffpc"]
+
+[ext_resource type="Script" uid="uid://dxg5onxxakava" path="res://scenes/ui_additions/healthbar.gd" id="1_dalnd"]
+[ext_resource type="Texture2D" uid="uid://21pwqtbylmt0" path="res://assets/progress_bars/Under.png" id="2_1s073"]
+[ext_resource type="Texture2D" uid="uid://bd30np60r20uk" path="res://assets/progress_bars/Over.png" id="3_dilpe"]
+[ext_resource type="Texture2D" uid="uid://17k8jp6thqmm" path="res://assets/progress_bars/Progress.png" id="4_wiedq"]
+
+[node name="Healthbar" type="Control" unique_id=1386320540]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 9.0
+mouse_filter = 2
+script = ExtResource("1_dalnd")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=999517243]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 23.0
+offset_right = 426.0
+offset_bottom = 69.0
+value = 60.0
+texture_under = ExtResource("2_1s073")
+texture_over = ExtResource("3_dilpe")
+texture_progress = ExtResource("4_wiedq")

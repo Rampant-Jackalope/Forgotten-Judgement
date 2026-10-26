@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bib1j4off5lvk"]
+
+[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_0l7dq"]
+[ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_area/main_3d.tscn" id="1_htues"]
+[ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
+[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="5_htues"]
+[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="6_5s4hk"]
+
+[sub_resource type="Environment" id="Environment_1kpxu"]
+
+[node name="World" type="WorldEnvironment" unique_id=1521744203]
+environment = SubResource("Environment_1kpxu")
+
+[node name="Main3D" parent="." unique_id=473079635 instance=ExtResource("1_htues")]
+
+[node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_0l7dq")]
+
+[node name="NPCs" type="Node3D" parent="." unique_id=513783567]
+
+[node name="Michael" parent="NPCs" unique_id=861609196 instance=ExtResource("4_0l7dq")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.08236712, 1.8271654, 20.248186)
+
+[node name="NpcMarkers" type="Node" parent="." unique_id=845109100]
+
+[node name="Michael_Bar" type="Marker3D" parent="NpcMarkers" unique_id=216737694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -16.004242)
+script = ExtResource("5_htues")
+identifier = "Michael_Bar"
+metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
+
+[node name="Michael_Stage" type="Marker3D" parent="NpcMarkers" unique_id=1543174661]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.08236712, 1.8271654, 20.248186)
+script = ExtResource("5_htues")
+identifier = "Michael_Stage"
+metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1224645926]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14.5509205, 0)
+
+[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("6_5s4hk")]

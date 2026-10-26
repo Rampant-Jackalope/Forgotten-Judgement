@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bvyi6x1q7qx3b"]
+
+[ext_resource type="Script" uid="uid://cg16v40o5rsat" path="res://scenes/npcs/michael_jackson/michael.gd" id="1_d0kk0"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="1_taim4"]
+[ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="2_d0kk0"]
+[ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="4_y8dd1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+radius = 2.0
+
+[node name="Michael" type="Node3D" unique_id=861609196]
+script = ExtResource("1_d0kk0")
+
+[node name="Interactable" type="Area3D" parent="." unique_id=2083321633 node_paths=PackedStringArray("look_target")]
+script = ExtResource("1_taim4")
+look_target = NodePath("..")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1250792995]
+shape = SubResource("SphereShape3D_1kpxu")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2061141493]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_d0kk0")
+
+[node name="DialogicSignalable" type="Node" parent="." unique_id=986865015]
+script = ExtResource("4_y8dd1")
+subject = "michael"
+metadata/_custom_type_script = "uid://d04vnm70e1wfo"
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="recieved" from="DialogicSignalable" to="." method="_on_dialogic_event"]

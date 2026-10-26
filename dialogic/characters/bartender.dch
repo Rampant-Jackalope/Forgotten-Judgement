@@ -7,15 +7,25 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "New_File",
 "suffix": ""
 },
-&"default_portrait": "",
+&"default_portrait": "Bartender concept",
 &"description": "",
 &"display_name": "Bartender",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"Bartender concept": {
+"export_overrides": {
+"image": "\"res://assets/npc-billboards/bartender_pouring_stance.png\""
+},
+"mirror": true,
+"offset": Vector2(80, 200),
+"scale": 0.5,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

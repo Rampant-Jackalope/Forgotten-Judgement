@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://5swq431tn4aw"]
+
+[ext_resource type="Script" uid="uid://cnfin2xw1srep" path="res://scenes/interactables/mounted_button.gd" id="1_ugt2p"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_sxmlu"]
+[ext_resource type="PackedScene" uid="uid://dyja57mroprw8" path="res://assets/PreStylizedButton/PreStylizedButton.gltf" id="3_xa6sq"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="4_3xsyk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kemyr"]
+render_priority = 0
+shader = ExtResource("4_3xsyk")
+shader_parameter/visible_fill = 0.0250000011875
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.999999977648
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugt2p"]
+render_priority = 0
+shader = ExtResource("4_3xsyk")
+shader_parameter/visible_fill = 0.0250000011875
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.999999977648
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[node name="MountedButton" type="Node3D" unique_id=1335172545]
+script = ExtResource("1_ugt2p")
+
+[node name="Interactable" type="Area3D" parent="." unique_id=37421906]
+script = ExtResource("2_sxmlu")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1476193570]
+shape = SubResource("SphereShape3D_1kpxu")
+
+[node name="LookTarget" type="Node3D" parent="." unique_id=1595083073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0890706, 0)
+
+[node name="PreStylizedButton" parent="." unique_id=898329878 instance=ExtResource("3_xa6sq")]
+
+[node name="Button" parent="PreStylizedButton" index="0" unique_id=2020749996]
+material_overlay = SubResource("ShaderMaterial_kemyr")
+
+[node name="ButtonMount" parent="PreStylizedButton" index="1" unique_id=1377107981]
+material_overlay = SubResource("ShaderMaterial_ugt2p")
+
+[connection signal="highlight_off" from="Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="Interactable" to="." method="_on_interactable_highlight_on"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="PreStylizedButton"]
