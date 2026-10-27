@@ -7,15 +7,25 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "",
+"style": "Style_test",
 "suffix": ""
 },
-&"default_portrait": "",
+&"default_portrait": "New portrait",
 &"description": "",
 &"display_name": "Overworker",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"New portrait": {
+"export_overrides": {
+"image": "\"res://assets/npc-billboards/overworker-template.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 400),
+"scale": 0.6,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

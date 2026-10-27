@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1790588017]
+billboard = 1
 texture = ExtResource("3_up6pv")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

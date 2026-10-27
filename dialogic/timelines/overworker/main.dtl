@@ -1,2 +1,14 @@
-join overworker center
-overworker: Hello, i am the overworker. Nice to meet you!
+join overworker left
+overworker: Wait.. just gotta finish this..
+leave overworker [animation="Instant Out"]
+join main_player center
+main_player: What are you working on?
+leave main_player
+join overworker left [animation="Instant In"]
+overworker: Ha! What am I working on, you say!.. Well.. Uh.. Hard to explain really, you probably wouldn't get it anyway...
+leave overworker [animation="Instant Out"]
+join main_player center
+main_player: C'mon, give me a chance
+leave main_player
+join overworker left
+overworker: Alright.. But DONT touch anything!!

@@ -27,6 +27,7 @@ NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 directories/dch_directory={
 "bartender": "res://dialogic/characters/bartender.dch",
 "bb": "res://dialogic/characters/bb.dch",
+"main_player": "res://dialogic/characters/main_player.dch",
 "michael_jackson": "res://dialogic/characters/michael_jackson.dch",
 "overworker": "res://dialogic/characters/overworker.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
@@ -35,6 +36,9 @@ directories/dtl_directory={
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
+"overworker-warning1": "res://dialogic/timelines/overworker/overworker-warning1.dtl",
+"overworker-warning2": "res://dialogic/timelines/overworker/overworker-warning2.dtl",
+"overworker-warning3": "res://dialogic/timelines/overworker/overworker-warning3.dtl",
 "overworker/main": "res://dialogic/timelines/overworker/main.dtl",
 "warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
@@ -59,6 +63,9 @@ variables={
 },
 "misc": {
 "GuestName": ""
+},
+"overworker": {
+"overworker_warnings": 0
 }
 }
 glossary/default_case_sensitive=true

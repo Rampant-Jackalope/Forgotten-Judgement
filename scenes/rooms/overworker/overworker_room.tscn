@@ -8,9 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://bknkx5jhietff" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_desk.gltf" id="6_1ol7r"]
 [ext_resource type="PackedScene" uid="uid://bty5vvrjkyptx" path="res://assets/Playtest_stuff/Overworker_objects/Watercooler.gltf" id="7_jks30"]
 [ext_resource type="PackedScene" uid="uid://d6h2ycdq8cua" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Coffee_machine.gltf" id="8_5uowb"]
+[ext_resource type="Script" uid="uid://7mslbg5x0oxq" path="res://assets/Playtest_stuff/Overworker_objects/warning_count.gd" id="9_g78rx"]
 [ext_resource type="Script" uid="uid://c3o0hfw8nosfb" path="res://scenes/rooms/overworker/exit_door.gd" id="9_xwbor"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="10_iclxq"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="10_mopld"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="11_1e0sh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 2.232544, 1)
 
 [node name="OverworkerRoom" type="Node3D" unique_id=211864694]
 
@@ -42,6 +47,15 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.63
 
 [node name="Overworker_Coffee_machine" parent="Decorations" unique_id=729018586 instance=ExtResource("8_5uowb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1423697, 0, 0)
+script = ExtResource("9_g78rx")
+
+[node name="Interactable" type="Area3D" parent="Decorations/Overworker_Coffee_machine" unique_id=1876514961]
+script = ExtResource("10_mopld")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Overworker_Coffee_machine/Interactable" unique_id=1796768590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48261786, 0.616272, 0.009708005)
+shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Door" type="Node3D" parent="." unique_id=1640152771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
@@ -56,4 +70,5 @@ identifier = "Overworker_Inside"
 look_direction = Vector3(1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
+[connection signal="interacted" from="Decorations/Overworker_Coffee_machine/Interactable" to="Decorations/Overworker_Coffee_machine" method="_on_interactable_interacted"]
 [connection signal="interacted" from="Door/callback_door" to="Door" method="_on_callback_door_interacted"]
