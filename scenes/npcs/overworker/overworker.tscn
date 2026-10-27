@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="1_nkym7"]
 [ext_resource type="Script" uid="uid://bhe744ibfqyjt" path="res://scenes/npcs/overworker/overworker.gd" id="1_up6pv"]
-[ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="2_up6pv"]
+[ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="3_up6pv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 
-[node name="Overworker" type="Node3D" unique_id=955105355]
+[node name="OverworkerPlayer" type="Node3D" unique_id=955105355]
 script = ExtResource("1_up6pv")
 
 [node name="Interactable" type="Area3D" parent="." unique_id=479839825]
@@ -17,6 +17,6 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1790588017]
-texture = ExtResource("2_up6pv")
+texture = ExtResource("3_up6pv")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

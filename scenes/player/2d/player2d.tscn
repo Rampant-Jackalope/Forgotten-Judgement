@@ -121,13 +121,35 @@ metadata/_custom_type_script = "uid://b5mvfuc3psd86"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1773186473]
 
 [node name="Healthbar" parent="CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("9_feiep")]
+offset_top = 900.0
+offset_bottom = 909.0
 health = NodePath("../../Health")
+
+[node name="Label" type="Label" parent="CanvasLayer/Healthbar" unique_id=158402797]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -3.0
+offset_right = 173.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 0, 0.19215687, 1)
+text = "Player health bar"
 
 [node name="Staminabar" parent="CanvasLayer" unique_id=852893516 node_paths=PackedStringArray("stamina") instance=ExtResource("10_finy2")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1.0
+offset_top = 900.0
 offset_right = 0.0
+offset_bottom = 909.0
 grow_horizontal = 0
 stamina = NodePath("../../Stamina")
+
+[node name="Label" type="Label" parent="CanvasLayer/Staminabar" unique_id=1676065207]
+layout_mode = 0
+offset_left = -400.0
+offset_top = -10.0
+offset_right = -253.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Player Stamina bar"

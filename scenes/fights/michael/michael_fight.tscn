@@ -76,7 +76,16 @@ offset_right = -200.0
 offset_bottom = 0.0
 grow_horizontal = 2
 health = NodePath("../../Health")
-normal_color = Color(0.6499996, 0, 1, 1)
+normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
+
+[node name="Label" type="Label" parent="Michael/CanvasLayer/Healthbar" unique_id=1218080225]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 73.0
+offset_right = 83.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.22745098, 0, 0, 1)
+text = "Boss health bar"
 
 [node name="Sprite2DAnchor" type="Node" parent="Michael" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
 script = ExtResource("5_qpjmv")
