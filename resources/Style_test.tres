@@ -16,7 +16,7 @@
 script = ExtResource("2_fess7")
 scene = ExtResource("1_vwuqm")
 overrides = {
-"global_bg_color": "Color(0.015686275, 0.09019608, 0.23921569, 0.9019608)"
+"global_bg_color": "Color(0.81757516, 0.86875, 0.58640623, 0.9019608)"
 }
 
 [sub_resource type="Resource" id="Resource_fhrmi"]
@@ -35,11 +35,11 @@ scene = ExtResource("5_8kklm")
 script = ExtResource("2_fess7")
 scene = ExtResource("6_oky47")
 overrides = {
-"box_color_custom": "Color(0.654902, 0.8117647, 0.38039216, 1)",
+"box_color_custom": "Color(0.0688672, 0.08057862, 0.25625002, 1)",
 "box_color_use_global": "false",
 "box_size": "Vector2(600, 150)",
 "next_indicator_texture": "\"res://styles/Judge_cursor.png\"",
-"text_custom_color": "Color(0.003125012, 0, 0, 1)",
+"text_custom_color": "Color(0.928125, 0.8730176, 0.8730176, 1)",
 "text_use_global_color": "false"
 }
 

@@ -12,3 +12,11 @@ main_player: C'mon, give me a chance
 leave main_player
 join overworker left
 overworker: Alright.. But DONT touch anything!!
+- Not my problem. Get back to work.
+	do PlayerStats.add_apathy()
+	overworker: Fine! See if I care...
+- Are you okay? You seem really stressed.
+	do PlayerStats.add_empathy()
+	overworker: I... I guess I am. Thanks...
+leave overworker
+leave main_player
