@@ -22,7 +22,7 @@ environment = SubResource("Environment_1kpxu")
 transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.08236712, 1.8271654, 20.248186)
 
 [node name="OverworkerPlayer" parent="NPCs" unique_id=955105355 instance=ExtResource("4_5s4hk")]
-transform = Transform3D(-1.2239188e-08, 0, -0.28, 0, 0.28, 0, 0.28, 0, -1.2239188e-08, 26.469143, 0.7774602, 14.568807)
+transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 26.469143, 0.7774602, 14.568807)
 
 [node name="NpcMarkers" type="Node" parent="." unique_id=845109100]
 

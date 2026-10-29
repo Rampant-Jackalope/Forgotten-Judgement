@@ -50,6 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
+size = Vector2(18.743969, 18.819962)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_g1ueg")
@@ -63,10 +64,7 @@ texture = ExtResource("2_lfram")
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
-animation = &"kick"
 autoplay = "default"
-frame = 1
-frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")
@@ -109,6 +107,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworker/Hitbox" unique_id=1272905365]
+position = Vector2(-13.789917, -14.5)
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 

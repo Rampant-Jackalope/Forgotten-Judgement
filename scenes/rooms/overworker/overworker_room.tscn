@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="11_1e0sh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(1, 2.232544, 1)
+size = Vector3(0.96, 2.398, 1.225)
 
 [node name="OverworkerRoom" type="Node3D" unique_id=211864694]
 
@@ -54,7 +54,7 @@ script = ExtResource("10_mopld")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Overworker_Coffee_machine/Interactable" unique_id=1796768590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48261786, 0.616272, 0.009708005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24241447, 0.616272, 0.0097080255)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Door" type="Node3D" parent="." unique_id=1640152771]
