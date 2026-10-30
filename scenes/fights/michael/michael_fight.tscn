@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da4u2e4n0akmu" path="res://scenes/fights/michael/michael_fight.gd" id="1_6y3e3"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
-[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/LinearAttack.gd" id="2_46jaq"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="2_46jaq"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_hat.tscn" id="2_s2w16"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="4_lhd28"]

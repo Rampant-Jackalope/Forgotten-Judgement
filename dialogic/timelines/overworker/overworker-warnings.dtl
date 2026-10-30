@@ -1,0 +1,11 @@
+set {overworker.overworker_warnings} += 1.0
+if {overworker.overworker_warnings} == 3.0:
+	join overworker left
+	overworker: NO! You’ll ruin everything!
+	[signal arg_type="dict" arg="{"action":"fight","subject":"overworker"}"]
+elif {overworker.overworker_warnings} == 1.0:
+	join overworker left
+	overworker: Quit that!
+elif {overworker.overworker_warnings} == 2.0:
+	join overworker left
+	overworker: I said don't!

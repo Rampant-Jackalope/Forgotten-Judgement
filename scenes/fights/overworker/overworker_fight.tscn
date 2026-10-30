@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_hxhm1"]
-[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/LinearAttack.gd" id="9_fpkjb"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
 [ext_resource type="PackedScene" uid="uid://ewwgtfmh4xes" path="res://scenes/fights/overworker/punching_fist.tscn" id="11_lfram"]
 [ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="11_wvpof"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="12_c52m2"]

@@ -10,14 +10,14 @@
 "style": "Style_test",
 "suffix": ""
 },
-&"default_portrait": "Overwoker-neutralstance",
+&"default_portrait": "Overworker-neutralstance",
 &"description": "",
 &"display_name": "Overworker",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Overwoker-neutralstance": {
+"Overworker-neutralstance": {
 "export_overrides": {
 "image": "\"res://assets/npc-billboards/overworker-template.png\""
 },
