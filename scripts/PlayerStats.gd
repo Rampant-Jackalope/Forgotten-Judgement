@@ -44,3 +44,8 @@ func show_popup(text: String, text_color: Color, sound: AudioStream) -> void:
 		tween.tween_interval(1.5)
 		tween.tween_property(label, "modulate:a", 0.0, 1.5).from(1.0)
 		tween.tween_callback(label.queue_free)
+		
+func change_to_fight_scene() -> void:
+	var tree = Engine.get_main_loop() as SceneTree
+	if tree:
+		tree.change_scene_to_file("res://scenes/fights/overworker/overworker_fight.tscn")

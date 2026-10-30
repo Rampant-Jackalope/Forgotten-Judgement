@@ -6,7 +6,18 @@ extends Control
 @export var normal_color: Color = Color.RED
 @export var warning_color: Color = Color.YELLOW
 
+@export var subtitle_text: String = "":
+	set(value):
+		subtitle_text = value
+		_update_subtitle()
+
+@export var subtitle_color: Color = Color.WHITE:
+	set(value):
+		subtitle_color = value
+		_update_subtitle()
+
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	assert(health != null, "No health component assigned to Healthbar!")
@@ -16,6 +27,7 @@ func _ready() -> void:
 		return
 		
 	_setup_health()
+	_update_subtitle()
 
 func _setup_health() -> void:
 	progress_bar.max_value = float(health.max_health)
@@ -39,3 +51,15 @@ func _update_bar_color(health_ratio: float) -> void:
 		progress_bar.tint_progress = warning_color
 	else:
 		progress_bar.tint_progress = normal_color
+
+func _update_subtitle() -> void:
+	if not is_node_ready():
+		return
+	
+	if label:
+		label.text = subtitle_text
+		label.modulate = subtitle_color
+		label.visible = not subtitle_text.is_empty()
+		
+		label.add_theme_color_override("font_outline_color", Color.DARK_RED)
+		label.add_theme_constant_override("outline_size", 3)

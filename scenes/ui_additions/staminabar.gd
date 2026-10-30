@@ -11,7 +11,18 @@ extends Control
 
 @export var max_segments_to_draw: int = 10
 
+@export var subtitle_text: String = "":
+	set(value):
+		subtitle_text = value
+		_update_subtitle()
+
+@export var subtitle_color: Color = Color.WHITE:
+	set(value):
+		subtitle_color = value
+		_update_subtitle()
+
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var label: Label = $Label
 
 var _flash_tween: Tween
 
@@ -26,13 +37,13 @@ func _ready() -> void:
 	stamina.consume_failed.connect(_on_stamina_consume_failed)
 	
 	_update_ui(stamina.get_stamina())
+	_update_subtitle()
 
 func _draw() -> void:
 	var max_sp: int = stamina.max_stamina if stamina else 0
 	if max_sp <= 1 or max_sp > max_segments_to_draw:
 		return
 
-	# Draw segment dividers on top of the TextureProgressBar
 	var bar_rect: Rect2 = progress_bar.get_rect()
 	var step_x: float = bar_rect.size.x / float(max_sp)
 
@@ -77,3 +88,15 @@ func _flash_red() -> void:
 	_flash_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	progress_bar.tint_progress = flash_color
 	_flash_tween.tween_property(progress_bar, "tint_progress", target_color, 0.25)
+
+func _update_subtitle() -> void:
+	if not is_node_ready():
+		return
+	
+	if label:
+		label.text = subtitle_text
+		label.modulate = subtitle_color
+		label.visible = not subtitle_text.is_empty()
+		
+		label.add_theme_color_override("font_outline_color", Color.DARK_GREEN)
+		label.add_theme_constant_override("outline_size", 3)
