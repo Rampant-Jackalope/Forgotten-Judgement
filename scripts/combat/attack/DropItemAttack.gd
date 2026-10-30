@@ -1,4 +1,4 @@
-class_name MichaelHatDropAttack
+class_name DropItemAttack
 extends AttackBase
 
 @export var scene: PackedScene

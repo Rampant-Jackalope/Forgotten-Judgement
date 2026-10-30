@@ -1,4 +1,4 @@
-class_name MichaelKickAttack
+class_name LinearAttack
 extends AttackBase
 
 @export var scene: PackedScene

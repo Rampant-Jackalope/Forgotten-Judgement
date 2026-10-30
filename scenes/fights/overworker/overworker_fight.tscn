@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn0f3xw3pqjbi"]
 
-[ext_resource type="Script" uid="uid://da4u2e4n0akmu" path="res://scenes/fights/michael/michael_fight.gd" id="1_g1ueg"]
+[ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
 [ext_resource type="Texture2D" uid="uid://c86hd337o2mu4" path="res://assets/combat/overworker/overworker_fightingstance.png" id="3_lfram"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_hxhm1"]
-[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scenes/fights/michael/michael_kick.gd" id="9_fpkjb"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/LinearAttack.gd" id="9_fpkjb"]
 [ext_resource type="PackedScene" uid="uid://ewwgtfmh4xes" path="res://scenes/fights/overworker/punching_fist.tscn" id="11_lfram"]
 [ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="11_wvpof"]
-[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scenes/fights/michael/michael_hat_drop.gd" id="12_c52m2"]
+[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="12_c52m2"]
 [ext_resource type="PackedScene" uid="uid://dtw6swrpfrg3x" path="res://scenes/fights/overworker/falling_stapler.tscn" id="14_lfram"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="14_qkqcx"]
 
@@ -53,13 +53,15 @@ animations = [{
 size = Vector2(18.743969, 18.819962)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
-script = ExtResource("1_g1ueg")
+script = ExtResource("1_lfram")
 hurt_audio_player = NodePath("Overworker/HurtAudioPlayer")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=489841130]
+[node name="OverworkerFightBackground" type="TextureRect" parent="." unique_id=489841130]
 offset_right = 1921.0
 offset_bottom = 1112.0
 texture = ExtResource("2_lfram")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
@@ -84,14 +86,14 @@ grow_horizontal = 2
 health = NodePath("../../Health")
 normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
 
-[node name="Label" type="Label" parent="Overworker/CanvasLayer/Healthbar" unique_id=1218080225]
+[node name="Label2" type="Label" parent="Overworker/CanvasLayer/Healthbar" unique_id=1218080225]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 73.0
 offset_right = 83.0
 offset_bottom = 96.0
 theme_override_colors/font_color = Color(0.22745098, 0, 0, 1)
-text = "Boss health bar"
+text = "Boss Health"
 
 [node name="Sprite2DAnchor" type="Node" parent="Overworker" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
 script = ExtResource("7_8px47")
@@ -138,5 +140,5 @@ trigger_frame = 1
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("14_qkqcx")]
 
-[connection signal="became_empty" from="Overworker/Health" to="." method="_on_michael_died"]
-[connection signal="changed" from="Overworker/Health" to="." method="_on_michael_health_changed"]
+[connection signal="became_empty" from="Overworker/Health" to="." method="_on_overworker_died"]
+[connection signal="changed" from="Overworker/Health" to="." method="_on_overworker_health_changed"]

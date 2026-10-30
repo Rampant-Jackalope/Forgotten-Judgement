@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://da4u2e4n0akmu" path="res://scenes/fights/michael/michael_fight.gd" id="1_6y3e3"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
-[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scenes/fights/michael/michael_kick.gd" id="2_46jaq"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/LinearAttack.gd" id="2_46jaq"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/michael/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/michael/falling_hat.tscn" id="2_s2w16"]
-[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scenes/fights/michael/michael_hat_drop.gd" id="4_lhd28"]
+[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="4_lhd28"]
 [ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="4_u2054"]
 [ext_resource type="Texture2D" uid="uid://dih4ef8pmi6g6" path="res://assets/combat/michael/drophat.png" id="5_ee4lh"]
 [ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
@@ -78,7 +78,7 @@ grow_horizontal = 2
 health = NodePath("../../Health")
 normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
 
-[node name="Label" type="Label" parent="Michael/CanvasLayer/Healthbar" unique_id=1218080225]
+[node name="Label2" type="Label" parent="Michael/CanvasLayer/Healthbar" unique_id=1218080225]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 73.0
