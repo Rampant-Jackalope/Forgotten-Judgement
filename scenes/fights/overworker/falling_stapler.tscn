@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dtw6swrpfrg3x"]
+
+[ext_resource type="Texture2D" uid="uid://besnjhmpg0f4t" path="res://assets/combat/overworker/overworker_stapler.png" id="1_ya603"]
+[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_hstfn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ya603")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FallingStapler" type="AnimatedSprite2D" unique_id=1790080963]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_1kpxu")
+autoplay = "default"
+script = ExtResource("2_hstfn")
+visibility_rect = Rect2(-130, -141.5, 260, 283)
+metadata/_custom_type_script = "uid://by4hm67spp0hm"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1769332955]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=2081136811]
+polygon = PackedVector2Array(158.4049, -105.60327, 183.04568, -70.40218, 186.56578, -10.560328, 140.80437, 35.20109, 31.680983, 91.52284, -77.4424, 144.32448, -158.4049, 119.683716, -158.4049, -7.0402184, -147.84459, -80.96251, 14.080437, -102.08317)

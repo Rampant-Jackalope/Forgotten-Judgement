@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ewwgtfmh4xes"]
+
+[ext_resource type="Texture2D" uid="uid://5lqk3hlx3i0k" path="res://assets/combat/overworker/overworker_fist.png" id="1_ltxsr"]
+[ext_resource type="Script" uid="uid://dhtts2yjk8fal" path="res://scripts/projectiles/types/LinearProjectile.gd" id="2_bvdfr"]
+[ext_resource type="Script" uid="uid://442kj5on2xc2" path="res://scripts/projectiles/modifiers/PunchModifier.gd" id="3_q1vil"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ltxsr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_finy2"]
+size = Vector2(20, 70.8684)
+
+[node name="LinearProjectile" type="AnimatedSprite2D" unique_id=1291350163]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_1kpxu")
+autoplay = "default"
+frame_progress = 0.41394928
+script = ExtResource("2_bvdfr")
+direction = Vector2(0, 0)
+enable_timeout = true
+visibility_rect = Rect2(-205, -262, 410, 418)
+metadata/_custom_type_script = "uid://dhtts2yjk8fal"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1011188696]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1382708429]
+position = Vector2(0, 1054.3535)
+scale = Vector2(20.512262, 37.129276)
+shape = SubResource("RectangleShape2D_finy2")
+
+[node name="PunchModifier" type="Node" parent="." unique_id=1782377362]
+script = ExtResource("3_q1vil")
+peak_scale = 15.0
+scale_up_time = 0.4
+metadata/_custom_type_script = "uid://442kj5on2xc2"

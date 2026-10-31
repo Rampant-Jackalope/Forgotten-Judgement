@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_0l7dq"]
 [ext_resource type="PackedScene" uid="uid://cpgsvc3l11gqe" path="res://scenes/main_area/main_3d.tscn" id="1_htues"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="4_0l7dq"]
+[ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="4_5s4hk"]
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="5_htues"]
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="6_5s4hk"]
 
@@ -19,6 +20,9 @@ environment = SubResource("Environment_1kpxu")
 
 [node name="Michael" parent="NPCs" unique_id=861609196 instance=ExtResource("4_0l7dq")]
 transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.08236712, 1.8271654, 20.248186)
+
+[node name="OverworkerPlayer" parent="NPCs" unique_id=955105355 instance=ExtResource("4_5s4hk")]
+transform = Transform3D(-6.9938224e-08, 0, -1.6, 0, 1.6, 0, 1.6, 0, -6.9938224e-08, 26.469143, 0.7774602, 14.568807)
 
 [node name="NpcMarkers" type="Node" parent="." unique_id=845109100]
 

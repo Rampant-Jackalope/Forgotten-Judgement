@@ -23,3 +23,13 @@ value = 60.0
 texture_under = ExtResource("2_a4i78")
 texture_over = ExtResource("3_5uuw4")
 texture_progress = ExtResource("4_61cth")
+
+[node name="Label" type="Label" parent="." unique_id=30871118]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -80.32201
+anchor_right = -80.32201
+offset_left = -324.67798
+offset_top = -1.0
+offset_right = -228.678
+offset_bottom = 22.0
