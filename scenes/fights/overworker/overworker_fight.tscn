@@ -8,11 +8,11 @@
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
-[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_hxhm1"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
+[ext_resource type="AudioStream" uid="uid://l7vatlkf11cx" path="res://assets/sounds/OOF.mp3" id="9_lfram"]
 [ext_resource type="PackedScene" uid="uid://ewwgtfmh4xes" path="res://scenes/fights/overworker/punching_fist.tscn" id="11_lfram"]
-[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="11_wvpof"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="12_c52m2"]
+[ext_resource type="AudioStream" uid="uid://dfbxra0pqpkwk" path="res://assets/sounds/strongpunch.mp3" id="12_lfram"]
 [ext_resource type="PackedScene" uid="uid://dtw6swrpfrg3x" path="res://scenes/fights/overworker/falling_stapler.tscn" id="14_lfram"]
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="14_qkqcx"]
 
@@ -114,7 +114,7 @@ scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 
 [node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="Overworker" unique_id=1181303130]
-stream = ExtResource("8_hxhm1")
+stream = ExtResource("9_lfram")
 
 [node name="OverworkerPunchAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("animator", "anchor", "audio_player")]
 script = ExtResource("9_fpkjb")
@@ -124,12 +124,12 @@ animator = NodePath("../Overworker")
 animation_name = &"kick"
 trigger_frame = 1
 anchor = NodePath("../Overworker/Sprite2DAnchor")
-audio_player = NodePath("KickSound")
+audio_player = NodePath("PunchSound")
 metadata/_custom_type_script = "uid://dja725fdmnl25"
 
-[node name="KickSound" type="AudioStreamPlayer2D" parent="OverworkerPunchAttack" unique_id=1657204850]
+[node name="PunchSound" type="AudioStreamPlayer2D" parent="OverworkerPunchAttack" unique_id=1657204850]
 scale = Vector2(0.1, 0.1)
-stream = ExtResource("11_wvpof")
+stream = ExtResource("12_lfram")
 
 [node name="OverworkerStaplerAttack" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]
 script = ExtResource("12_c52m2")
