@@ -44,9 +44,6 @@ material_override = SubResource("StandardMaterial3D_jnuwi")
 [node name="SecondFloor" parent="Layout" index="10" unique_id=477192743]
 material_override = SubResource("StandardMaterial3D_aks2q")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1748563002]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11, 12)
-
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
@@ -133,8 +130,6 @@ script = ExtResource("9_2wd05")
 identifier = "Overworker_Outside"
 look_direction = Vector3(1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
-
-[node name="NpcMarkers" type="Node3D" parent="." unique_id=1866888258]
 
 [connection signal="interacted" from="ExitDoors/R" to="ExitDoors" method="_on_interacted"]
 [connection signal="interacted" from="ExitDoors/L" to="ExitDoors" method="_on_interacted"]
