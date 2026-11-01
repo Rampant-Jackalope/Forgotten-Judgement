@@ -5,7 +5,7 @@ extends Node3D
 
 # NOTE:
 # EDITABLE CHILDREN IS ON FOR THE Lone_Door_Animated
-# THIS IS BECAUSE THE 'LookTarget' && 'Interactable' NEEDS TO FOLLOW THE DOOR ANIMATION AND THUS NEEDS TO BE UNDER THE 'Bone' NODE.
+# THIS IS BECAUSE THE 'LookTarget' && 'Interactable' NEEDS TO FOLLOW THE DOOR ANIMATION AND THUS NEEDS TO BE UNDER THE 'Bone'/'mesh' NODE.
 
 signal interacted(door: Node3D, interactor: Interactor, pop: Callable)
 
