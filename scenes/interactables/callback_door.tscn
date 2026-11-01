@@ -12,17 +12,16 @@ script = ExtResource("1_6xrkf")
 
 [node name="DoorAnimated" parent="." unique_id=1056316910 instance=ExtResource("4_iy3uq")]
 
-[node name="LookTarget" type="Node3D" parent="DoorAnimated/Door" parent_id_path=PackedInt32Array(1056316910, 109579826) index="0" unique_id=1967718121]
-transform = Transform3D(1, 2.3841855e-07, 7.105427e-15, -2.3841855e-07, 1, 5.960465e-08, 7.1054274e-15, -5.960465e-08, 1, 0.7649271, 1.1075459, -0.45653594)
+[node name="LookTarget" type="Node3D" parent="DoorAnimated/Door" parent_id_path=PackedInt32Array(1056316910, 1706453449) index="0" unique_id=1967718121]
+transform = Transform3D(1, 2.3841855e-07, 7.105427e-15, -2.3841855e-07, 1, 5.960465e-08, 7.1054274e-15, -5.960465e-08, 1, 0.861606, 1.000828, -0.0023961961)
 
 [node name="Interactable" type="Area3D" parent="DoorAnimated/Door/LookTarget" unique_id=205296272 node_paths=PackedStringArray("look_target")]
-transform = Transform3D(1, -4.235165e-22, 0, -4.235165e-22, 1, 0, 0, 0, 1, -2.842171e-14, -1.1075459, 0.45653594)
+transform = Transform3D(1, -4.235165e-22, 0, -4.235165e-22, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("3_pb15j")
 look_target = NodePath("..")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorAnimated/Door/LookTarget/Interactable" unique_id=1782608155]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_1kpxu")
 
 [connection signal="highlight_off" from="DoorAnimated/Door/LookTarget/Interactable" to="." method="_on_interactable_highlight_off"]
