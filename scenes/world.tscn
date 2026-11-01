@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://enfbunf4a3i6"]
+
+[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://2sd0o1svj76a" path="res://scenes/main_area/main_area.tscn" id="2_4wyf3"]
+
+[sub_resource type="Environment" id="Environment_1kpxu"]
+
+[node name="World" type="WorldEnvironment" unique_id=924521940]
+environment = SubResource("Environment_1kpxu")
+
+[node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_rwgxs")]
+transform = Transform3D(-0.7, 0, -2.9802322e-08, 0, 0.7, 0, 2.9802322e-08, 0, -0.7, 0, 0, 8)
+
+[node name="MainArea" parent="." unique_id=251183288 instance=ExtResource("2_4wyf3")]
