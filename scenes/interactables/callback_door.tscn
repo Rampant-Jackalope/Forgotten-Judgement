@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_1kpxu")
 
 [connection signal="highlight_off" from="DoorAnimated/LookTarget/Interactable" to="." method="_on_interactable_highlight_off"]
-[connection signal="highlight_on" from="DoorAnimated/LookTarget/Interactable" to="." method="_on_interactable_highlight_on"]
+[connection signal="highlight_on" from="DoorAnimated/LookTarget/Interactable" to="." method="_on_interactable_highlight_off"]
 [connection signal="interacted" from="DoorAnimated/LookTarget/Interactable" to="." method="_on_interactable_interacted"]
 
 [editable path="DoorAnimated"]
