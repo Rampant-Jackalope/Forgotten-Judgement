@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d1p6u4el8cfd4" path="res://scenes/main_area/guets_door_placeholder.gd" id="7_ipjo4"]
 [ext_resource type="Script" uid="uid://c6ravfv2mjwmj" path="res://scenes/main_area/overworker_door.gd" id="7_wkrbv"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="9_2wd05"]
+[ext_resource type="PackedScene" uid="uid://bfjcxdph6we44" path="res://assets/environment/Barstool.gltf" id="10_18u1t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmils"]
 albedo_color = Color(1, 0.6509804, 1, 1)
@@ -130,6 +131,29 @@ script = ExtResource("9_2wd05")
 identifier = "Overworker_Outside"
 look_direction = Vector3(1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="Decorations" type="Node3D" parent="." unique_id=1254379724]
+
+[node name="Barstool" parent="Decorations" unique_id=1466791660 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 9)
+
+[node name="Barstool2" parent="Decorations" unique_id=1426786123 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 10)
+
+[node name="Barstool3" parent="Decorations" unique_id=620989367 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 11)
+
+[node name="Barstool4" parent="Decorations" unique_id=549619914 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 12)
+
+[node name="Barstool5" parent="Decorations" unique_id=1967792731 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 13)
+
+[node name="Barstool6" parent="Decorations" unique_id=91048093 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 14)
+
+[node name="Barstool7" parent="Decorations" unique_id=1425693616 instance=ExtResource("10_18u1t")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 15)
 
 [connection signal="interacted" from="ExitDoors/R" to="ExitDoors" method="_on_interacted"]
 [connection signal="interacted" from="ExitDoors/L" to="ExitDoors" method="_on_interacted"]
