@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx4g1ae71clpj"]
 
-[ext_resource type="Script" uid="uid://do7lhbrysmmdy" path="res://scenes/ui_additions/staminabar.gd" id="1_mjcjx"]
+[ext_resource type="Script" uid="uid://do7lhbrysmmdy" path="res://scenes/ui/stats/staminabar.gd" id="1_mjcjx"]
 [ext_resource type="Texture2D" uid="uid://21pwqtbylmt0" path="res://assets/progress_bars/Under.png" id="2_a4i78"]
 [ext_resource type="Texture2D" uid="uid://bd30np60r20uk" path="res://assets/progress_bars/Over.png" id="3_5uuw4"]
 [ext_resource type="Texture2D" uid="uid://yatph3kvupt2" path="res://assets/progress_bars/Progress_stamina.png" id="4_61cth"]

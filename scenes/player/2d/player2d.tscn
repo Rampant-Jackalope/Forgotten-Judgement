@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_uomm1"]
 [ext_resource type="Texture2D" uid="uid://bdw0pmkhvbfp6" path="res://assets/combat/hands.png" id="6_ycis5"]
 [ext_resource type="Script" uid="uid://b5mvfuc3psd86" path="res://scripts/combat/Stamina.gd" id="8_feiep"]
-[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="9_feiep"]
-[ext_resource type="PackedScene" uid="uid://bx4g1ae71clpj" path="res://scenes/ui_additions/staminabar.tscn" id="10_finy2"]
+[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="9_feiep"]
+[ext_resource type="PackedScene" uid="uid://bx4g1ae71clpj" path="res://scenes/ui/stats/staminabar.tscn" id="10_finy2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{

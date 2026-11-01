@@ -15,6 +15,7 @@ environment = SubResource("Environment_1kpxu")
 [node name="Main3D" parent="." unique_id=473079635 instance=ExtResource("1_htues")]
 
 [node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_0l7dq")]
+transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, 0, 0, 0)
 
 [node name="NPCs" type="Node3D" parent="." unique_id=513783567]
 
