@@ -1,27 +1,30 @@
 extends Node
 
+## Emitted right before saving. Connect to quickly save before write is finalized
+signal about_to_save
+
 const SAVE_PATH := "user://player_state.json"
 
 enum DataKey {
-	PLAYER_POSITION
+	PLAYER_POSITION,
+	LOAD_SAVE,
 }
 
 ## Only keys listed here are saved and loaded. The values are the defaults.
+## Keys are written to the file by enum NAME, so reordering or inserting enum
+## values won't break old saves (renaming one will).
 ## NOTE: when too many values are added to this list just start creating classes/objects to nest them under
-## ```
-## var data: Dictionary = {
-## 	PLAYER_POSITION: Vector3(0, 0, 8),
-##  SETTINGS: { "fov": 90, "dpi_scaler": 1.5, "color_blindness": Blind.RED_BLUE }
-## }
-## ```
 var data: Dictionary = {
-	"player_global_position": Vector3(0, 0, 8),
+	DataKey.PLAYER_POSITION: Vector3(0, 0, 8),
+	DataKey.LOAD_SAVE: false
 }
 
 func save_to_disk(path: String = SAVE_PATH) -> Error:
+	about_to_save.emit()
+
 	var out := { "data": { }, "dialogic": { } }
 	for key in data:
-		out["data"][key] = var_to_str(data[key])
+		out["data"][DataKey.find_key(key)] = var_to_str(data[key])
 	var vars := _get_dialogic_vars()
 	for key in vars:
 		out["dialogic"][key] = var_to_str(vars[key])
@@ -42,8 +45,9 @@ func load_from_disk(path: String = SAVE_PATH) -> bool:
 	# only keys that exist in `data` are restored, everything else is ignored
 	var saved: Dictionary = parsed.get("data", { })
 	for key in data:
-		if saved.has(key):
-			data[key] = str_to_var(saved[key])
+		var k: String = DataKey.find_key(key)
+		if saved.has(k):
+			data[key] = str_to_var(saved[k])
 
 	var loaded := { }
 	var saved_vars: Dictionary = parsed.get("dialogic", { })
@@ -62,7 +66,7 @@ func _get_dialogic_vars() -> Dictionary:
 	var d = get_node_or_null("/root/Dialogic")
 	var out := { }
 	if d == null:
-		push_warning("PlayerState: /root/Dialogic not found, is the plugin enabled?")
+		push_warning("GameState: /root/Dialogic not found, is the plugin enabled?")
 		return out
 	_flatten(d.VAR.var_storage, "", out)
 	return out
@@ -77,7 +81,7 @@ func _flatten(folder: Dictionary, prefix: String, out: Dictionary) -> void:
 func _set_dialogic_vars(vars: Dictionary) -> void:
 	var d = get_node_or_null("/root/Dialogic")
 	if d == null:
-		push_warning("PlayerState: /root/Dialogic not found, skipping Dialogic variables")
+		push_warning("GameState: /root/Dialogic not found, skipping Dialogic variables")
 		return
 	for path in vars:
 		var parts: PackedStringArray = path.split(".")
