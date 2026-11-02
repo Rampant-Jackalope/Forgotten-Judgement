@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 if {overworker.HasMetOverworker} == true:
 	join bartender left
 	bartender: Ahh, back already, friend. How was your little visit to room 101?
