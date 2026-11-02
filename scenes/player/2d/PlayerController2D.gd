@@ -58,8 +58,9 @@ func handle_action_input() -> void:
 			if stamina.try_consume(block_stamina_cost):
 				sprite.play("block")
 				state = State.BLOCKING
-			else:
-				print("Not enough stamina to block!")
+			# TODO: do some shit in an else branch
+			# else:
+				
 		get_viewport().set_input_as_handled()
 
 	elif Input.is_action_just_pressed("attack"):
