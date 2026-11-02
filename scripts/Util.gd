@@ -86,3 +86,7 @@ static func pick_random_weighted(options: Dictionary, random: RandomNumberGenera
 		if accumulator >= rnd: return value
 	
 	assert(false, "Didn't pick any option. rnd=" + str(rnd) + ", seed=" + str(pre_seed))
+
+# bc normal sleep method does not work in static functions
+static func static_sleep(seconds: float) -> void:
+	await (Engine.get_main_loop() as SceneTree).create_timer(seconds).timeout
