@@ -46,7 +46,8 @@ layout/style_directory={
 "": "res://resources/Style_test.tres",
 "New_File": "res://resources/New_File.tres",
 "New_File 2": "res://dialogic/styles/New_File.tres",
-"Style_test": "res://resources/Style_test.tres"
+"Style_test": "res://resources/Style_test.tres",
+"bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
 "bartender": {
@@ -101,7 +102,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres"]
+layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
 layout/default_style="res://resources/Style_test.tres"
 
 [display]

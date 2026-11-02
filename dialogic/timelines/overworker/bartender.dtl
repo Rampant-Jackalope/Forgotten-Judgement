@@ -1,2 +1,49 @@
 join bartender left
-bartender: Test for bartender introduction
+bartender: This is Lethe's End, friend. I'm the owner, and bartender, of this inn. And you are a resident, staying here for an indefinite amount of time.
+leave bartender [animation="Instant Out"]
+main_player: Where am I?
+join bartender left [animation="Instant In"]
+bartender: Purgatory.
+leave bartender [animation="Instant Out"]
+main_player: Purgatory?
+join bartender left [animation="Instant In"]
+bartender: You better make yourself at home, friend, because you are not leaving anytime soon, I'm afraid.
+leave bartender [animation="Instant Out"]
+main_player: I don't remember anything.
+join bartender left [animation="Instant In"]
+bartender: This place serves as purgatory. Perhaps the loss of memory is a measure meant to aid you in your cleansing?
+leave bartender [animation="Instant Out"]
+main_player: Why can't I remember?
+join bartender left [animation="Instant In"]
+bartender: After all, just because you have amnesia doesn't mean you have no culpability.
+leave bartender [animation="Instant Out"]
+main_player: What does that mean?
+join bartender left [animation="Instant In"]
+bartender: This is just my word, but maybe you deserve it?
+leave bartender [animation="Instant Out"]
+You become concerned about your situation, whilst the bartender remains calm and dismissive.
+join bartender left [animation="Instant In"]
+bartender: Now now, relax, there is no reason to have an elevated heartbeat in this instance...
+leave bartender [animation="Instant Out"]
+main_player: How do I get out?
+join bartender left [animation="Instant In"]
+bartender: Don't bother asking for the exit. This is purgatory\: the whole concept doesn't support haphazard departures.
+leave bartender [animation="Instant Out"]
+main_player: What am I supposed to do?
+join bartender left [animation="Instant In"]
+bartender: Well, find a way to convince him to leave his room.
+leave bartender [animation="Instant Out"]
+When you ask about the residents, the bartender gives just enough information to point them in the right direction.
+main_player: Who is resident 101?
+join bartender left [animation="Instant In"]
+bartender: Ahh, resident 101. Richard. 'The Overworker' I call him.
+leave bartender [animation="Instant Out"]
+main_player: Why?
+join bartender left [animation="Instant In"]
+bartender: You should see for yourself, then you'd understand.
+leave bartender [animation="Instant Out"]
+The bartender can also provide access to parts of the mansion when the player needs it, but always keeps his own detached attitude.
+main_player: I guess i'll go see this 'Overworker' person, then.
+join bartender left [animation="Instant In"]
+bartender: Good luck, friend.
+leave bartender [animation="Fade Out" length="1.0"]
