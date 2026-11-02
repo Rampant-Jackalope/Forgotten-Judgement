@@ -2,12 +2,16 @@ extends Node
 
 const SAVE_PATH := "user://player_state.json"
 
+enum DataKey {
+	PLAYER_POSITION
+}
+
 ## Only keys listed here are saved and loaded. The values are the defaults.
 ## NOTE: when too many values are added to this list just start creating classes/objects to nest them under
 ## ```
 ## var data: Dictionary = {
-## 	"player_global_position": Vector3(0, 0, 8),
-##  "settings": { "fov": 90, "dpi_scaler": 1.5, "color_blindness": Blind.RED_BLUE }
+## 	PLAYER_POSITION: Vector3(0, 0, 8),
+##  SETTINGS: { "fov": 90, "dpi_scaler": 1.5, "color_blindness": Blind.RED_BLUE }
 ## }
 ## ```
 var data: Dictionary = {
