@@ -57,7 +57,8 @@ script = ExtResource("1_lfram")
 hurt_audio_player = NodePath("Overworker/HurtAudioPlayer")
 
 [node name="OverworkerFightBackground" type="TextureRect" parent="." unique_id=489841130]
-offset_right = 1921.0
+offset_left = 2.0
+offset_right = 1923.0
 offset_bottom = 1112.0
 texture = ExtResource("2_lfram")
 expand_mode = 1
