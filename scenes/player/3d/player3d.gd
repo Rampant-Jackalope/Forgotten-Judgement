@@ -8,10 +8,12 @@ var dialogue_locked: bool = false
 
 func dialogue_lock() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	InputStash.disable_action("interact")
 	dialogue_locked = true
 
 func dialogue_unlock() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InputStash.enable_action("interact")
 	dialogue_locked = false
 
 func run_locked(callback: Callable) -> void:
