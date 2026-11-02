@@ -58,7 +58,7 @@ func _enter_tree() -> void:
 		func(_area: Area3D) -> void:
 			Interactable.interaction_queue.erase(self),
 	)
-	self.collision_mask = 1 << 2
+	self.collision_mask = INTERACTOR_LAYER
 
 	if look_target != null:
 		self.interacted.connect(
