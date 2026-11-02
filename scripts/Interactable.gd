@@ -2,6 +2,7 @@ class_name Interactable
 extends Area3D
 
 @export var look_target: Node3D ## Node3D that the player looks at when interacting
+const INTERACTOR_LAYER := 1 << 2
 
 # When a player actually interacts with an item it should grab the first item in the queue.
 # Instead of running its own intended behavior, this is to avoid two items being active at the same time.
@@ -57,8 +58,7 @@ func _enter_tree() -> void:
 		func(_area: Area3D) -> void:
 			Interactable.interaction_queue.erase(self),
 	)
-	self.collision_mask = 1 << 2
-	self.collision_layer = 1 << 2
+	self.collision_mask = INTERACTOR_LAYER
 
 	if look_target != null:
 		self.interacted.connect(

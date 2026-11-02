@@ -66,4 +66,4 @@ func _on_overworker_health_changed(old: int, new: int) -> void:
 
 # Connected to signal
 func _on_overworker_died() -> void:
-	get_tree().change_scene_to_file.call_deferred("res://scenes/3d-demo-root.tscn") # TODO: Make this good
+	get_tree().change_scene_to_file.call_deferred("res://scenes/world.tscn") # TODO: Make this good

@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="5_qpjmv"]
 [ext_resource type="Texture2D" uid="uid://djupj1yyvdif5" path="res://assets/combat/michael/mj-kick.jpg" id="6_8jnm5"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
-[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui_additions/healthbar.tscn" id="7_3f3ek"]
+[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_3f3ek"]
 [ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_lhd28"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dywc13eglt4bi" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_ceiling.gltf" id="2_3e52c"]
 [ext_resource type="PackedScene" uid="uid://dmjtghgygsbd2" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_1.gltf" id="3_5yt4t"]
 [ext_resource type="PackedScene" uid="uid://blxra0w8xmwxo" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_2.gltf" id="4_i6awq"]
-[ext_resource type="PackedScene" uid="uid://b3d777bnk32cs" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Doorframe.gltf" id="5_rgrod"]
 [ext_resource type="PackedScene" uid="uid://bknkx5jhietff" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_desk.gltf" id="6_1ol7r"]
 [ext_resource type="PackedScene" uid="uid://bty5vvrjkyptx" path="res://assets/Playtest_stuff/Overworker_objects/Watercooler.gltf" id="7_jks30"]
 [ext_resource type="PackedScene" uid="uid://d6h2ycdq8cua" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Coffee_machine.gltf" id="8_5uowb"]
@@ -34,8 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 [node name="Overworker_wall_22" parent="Bounds" unique_id=672766581 instance=ExtResource("4_i6awq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 
-[node name="Overworker_Doorframe" parent="Bounds" unique_id=425063503 instance=ExtResource("5_rgrod")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0, 0)
+[node name="Overworker_wall_23" parent="Bounds" unique_id=1787167449 instance=ExtResource("4_i6awq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
 [node name="Decorations" type="Node3D" parent="." unique_id=1456555261]
 
@@ -62,9 +61,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 script = ExtResource("9_xwbor")
 
 [node name="callback_door" parent="Door" unique_id=1742132657 instance=ExtResource("10_iclxq")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -0.5)
 
 [node name="PlayerMarker" type="Marker3D" parent="Door/callback_door" unique_id=2859008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
 script = ExtResource("11_1e0sh")
 identifier = "Overworker_Inside"
 look_direction = Vector3(1, 0, 0)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://caucfym3vffpc"]
 
-[ext_resource type="Script" uid="uid://dxg5onxxakava" path="res://scenes/ui_additions/healthbar.gd" id="1_dalnd"]
+[ext_resource type="Script" uid="uid://dxg5onxxakava" path="res://scenes/ui/stats/healthbar.gd" id="1_dalnd"]
 [ext_resource type="Texture2D" uid="uid://21pwqtbylmt0" path="res://assets/progress_bars/Under.png" id="2_1s073"]
 [ext_resource type="Texture2D" uid="uid://bd30np60r20uk" path="res://assets/progress_bars/Over.png" id="3_dilpe"]
 [ext_resource type="Texture2D" uid="uid://17k8jp6thqmm" path="res://assets/progress_bars/Progress.png" id="4_wiedq"]
