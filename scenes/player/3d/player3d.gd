@@ -6,8 +6,13 @@ extends CharacterBody3D
 
 var dialogue_locked: bool = false
 
+func _restore_position() -> void:
+	global_position = GameState.data[GameState.DataKey.PLAYER_POSITION]
+
 func _ready() -> void:
-	InputStash.enable_action("interact") # ensure map is popped from stash so later instances are not softlocked
+	InputStash.enable_action("interact")
+	GameState.about_to_save.connect(_write_state)
+	global_position = GameState.data[GameState.DataKey.PLAYER_POSITION]
 
 func dialogue_lock() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -29,4 +34,14 @@ func run_locked_dialogue(timeline: String, label: String = "") -> void:
 	dialogue_lock()
 	Dialogic.start(timeline, label)
 	await Dialogic.timeline_ended
-	if self: dialogue_unlock()
+	if self:
+		dialogue_unlock()
+
+func _write_state() -> void:
+	if not is_inside_tree():
+		return
+	GameState.data[GameState.DataKey.PLAYER_POSITION] = global_position
+
+func _exit_tree() -> void:
+	_write_state()
+	GameState.about_to_save.disconnect(_write_state)

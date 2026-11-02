@@ -19,6 +19,9 @@ var data: Dictionary = {
 	DataKey.LOAD_SAVE: false
 }
 
+var _defaults := data.duplicate(true)
+
+# NOTE: when using `get_tree().quit()` be sure to save cuzz apparently that does not run the _exit_tree() functions
 func save_to_disk(path: String = SAVE_PATH) -> Error:
 	about_to_save.emit()
 
@@ -55,6 +58,17 @@ func load_from_disk(path: String = SAVE_PATH) -> bool:
 		loaded[key] = str_to_var(saved_vars[key])
 	_set_dialogic_vars(loaded)
 	return true
+
+func erase_save(path: String = SAVE_PATH, reset_memory: bool = true) -> Error:
+	var err := OK
+	if FileAccess.file_exists(path):
+		err = DirAccess.remove_absolute(path)
+	if reset_memory:
+		data = _defaults.duplicate(true)
+		var d = get_node_or_null("/root/Dialogic")
+		if d:
+			d.VAR.reset() # documented: resets all variables to the editor's values
+	return err
 
 # Dialogic
 # Variables live in Dialogic.VAR.var_storage, a nested dict:

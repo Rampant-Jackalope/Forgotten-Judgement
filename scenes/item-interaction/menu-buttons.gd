@@ -136,6 +136,7 @@ func _on_back_to_menu_pressed() -> void:
 	get_tree().change_scene_to_file(main_menu_scene.get_path())
 
 func _on_quit_pressed() -> void:
+	GameState.save_to_disk()
 	get_tree().quit()
 
 func _dialogue_active() -> bool:
