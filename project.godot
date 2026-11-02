@@ -22,6 +22,7 @@ PlayerPositionMarkers="*uid://ic45h57m1m20"
 Inventory="*uid://c80npkg531tup"
 NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 PlayerStats="*uid://r3p146iquj8d"
+PlayerState="*uid://ducmw5bv6wfu3"
 
 [dialogic]
 
