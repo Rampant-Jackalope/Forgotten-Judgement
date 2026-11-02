@@ -38,13 +38,14 @@ func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> voi
 			animation_player_2.play(l_open)
 			await animation_player_1.animation_finished
 			await animation_player_2.animation_finished
-	else:
-		if !animation_player_1.is_playing() || !animation_player_2.is_playing():
-			state = State.CLOSED
-			animation_player_1.play_backwards(r_open)
-			animation_player_2.play_backwards(l_open)
-			await animation_player_1.animation_finished
-			await animation_player_2.animation_finished
+		return
+
+	if !animation_player_1.is_playing() || !animation_player_2.is_playing():
+		state = State.CLOSED
+		animation_player_1.play_backwards(r_open)
+		animation_player_2.play_backwards(l_open)
+		await animation_player_1.animation_finished
+		await animation_player_2.animation_finished
 
 func _on_interactable_highlight_on() -> void:
 	door_mesh_1.set_instance_shader_parameter("enabled", true)
