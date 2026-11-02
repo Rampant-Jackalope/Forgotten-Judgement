@@ -41,3 +41,42 @@ static func transition_player(destination: Vector3, look_direction: Vector3) -> 
 
 	player.dialogue_locked = false
 	_is_transitioning = false
+
+static func wait_player_ready() -> Player3D:
+	var tree := Engine.get_main_loop() as SceneTree
+	var old = Util.get_player()
+	while true:
+		await tree.process_frame
+		var p = Util.get_player()
+		# wait for a NEW player that has finished its _ready()
+		if is_instance_valid(p) and p != old and p.is_node_ready():
+			return p
+	return null  # unreachable, but keeps the parser happy
+
+
+static func player_death_transition() -> void:
+	# TODO: insert better animation
+	if _is_transitioning:
+		return
+	
+	_is_transitioning = true
+
+	EffectScreen.force_blackout()
+	var player = await wait_player_ready()
+
+	var death_marker = PlayerPositionMarkers.get_marker("Player_Death")
+	var look_direction = death_marker.look_direction
+
+	player.dialogue_locked = true # INFO: setting manually bc the dialogue_lock() function changes the mouse mode
+	player.global_position = death_marker.global_position
+
+	if look_direction != Vector3.ZERO:
+		player.global_rotation = Vector3(0.0, atan2(-look_direction.x, -look_direction.z), 0.0)
+		player.get_node("CamPivot").rotation = Vector3.ZERO  # reset camera pitch
+
+	await Util.static_sleep(1.5)
+	await EffectScreen.fade_out(0.8)
+
+	player.dialogue_locked = false
+	_is_transitioning = false
+	player.run_locked_dialogue("misc-popups", "player_death")

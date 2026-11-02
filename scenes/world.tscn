@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_i7141"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_4mrxx"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -45,3 +46,9 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
 
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
+
+[node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8691797, 0.057750702, 11.355218)
+script = ExtResource("8_4mrxx")
+identifier = "Player_Death"
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"

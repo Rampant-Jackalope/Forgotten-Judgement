@@ -14,3 +14,6 @@ label exit_door_locked
 label guest_door_interaction_placeholder
 {misc.GuestName} seems to have locked their door
 [end_timeline]
+label player_death
+main_player: <Ugh... my head hurts/Why am I here?/Well shit I think I lost>
+[end_timeline]

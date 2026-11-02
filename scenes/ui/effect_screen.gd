@@ -20,6 +20,9 @@ func _ready() -> void:
 	_fadingRect.visible = false
 	add_child(_fadingRect)
 	
+func force_blackout() -> void:
+	_fadingRect.visible = true
+	_fadingRect.color.a = 1
 
 ## Fade to black. Awaitable.
 func fade_in(duration: float = 0.4) -> void:
