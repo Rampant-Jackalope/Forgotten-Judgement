@@ -52,6 +52,8 @@ animations = [{
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_6y3e3")
+min_attack_interval = 1.0
+max_attack_interval = 1.5
 hurt_audio_player = NodePath("Michael/HurtAudioPlayer")
 
 [node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
