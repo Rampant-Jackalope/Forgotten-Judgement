@@ -58,8 +58,6 @@ func handle_action_input() -> void:
 			if stamina.try_consume(block_stamina_cost):
 				sprite.play("block")
 				state = State.BLOCKING
-			# TODO: do some shit in an else branch
-			# else:
 				
 		get_viewport().set_input_as_handled()
 
@@ -70,8 +68,6 @@ func handle_action_input() -> void:
 				sprite.play("attack")
 				if attack_hitbox.has_overlapping_areas():
 					attack(attack_hitbox.get_overlapping_areas()[0])
-			else:
-				print("Not enough stamina to attack!")
 		get_viewport().set_input_as_handled()
 
 func attack(target: Area2D):
