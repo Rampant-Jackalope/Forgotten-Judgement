@@ -196,12 +196,12 @@ func _on_slot_changed(i: int, item: ItemData) -> void:
 func _redraw_slot(i: int, item: ItemData) -> void:
 	# Keep the existing TextureRect; only set its texture.
 	# TODO: Rename to better ¯\_(ツ)_/¯
-	var tr := slots[i].get_node_or_null("TextureRect") as TextureRect
-	if tr:
-		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		tr.texture = item.icon if item else null
-		tr.visible = item != null
+	var tex := slots[i].get_node_or_null("TextureRect") as TextureRect
+	if tex:
+		tex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tex.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tex.texture = item.icon if item else null
+		tex.visible = item != null
 
 func _on_selected_changed(i: int, item: ItemData) -> void:
 	selected_slot_index = i
