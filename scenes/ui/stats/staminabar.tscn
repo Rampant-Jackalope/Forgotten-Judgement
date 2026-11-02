@@ -33,3 +33,5 @@ offset_left = -324.67798
 offset_top = -1.0
 offset_right = -228.678
 offset_bottom = 22.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=189006783]
