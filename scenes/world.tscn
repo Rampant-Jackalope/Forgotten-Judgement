@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://br5vww1hv62jp" path="res://scenes/npcs/bartender/bartender.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_i7141"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -17,7 +19,7 @@ environment = SubResource("Environment_1kpxu")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11, 12)
 
 [node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_rwgxs")]
-transform = Transform3D(-0.7, 0, -2.9802322e-08, 0, 0.7, 0, 2.9802322e-08, 0, -0.7, 0, 0, 8)
+transform = Transform3D(-0.7, 0, -2.9802322e-08, 0, 0.7, 0, 2.9802322e-08, 0, -0.7, 2.117908, 0, 10.534679)
 
 [node name="NpcMarkers" type="Node3D" parent="." unique_id=1509749773]
 
@@ -40,3 +42,8 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.8111565, 23.49843)
 
 [node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("5_71j4m")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
+
+[node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.8622055, 0.86, 9.998)
+
+[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
