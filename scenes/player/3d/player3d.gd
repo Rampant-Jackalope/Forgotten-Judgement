@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 var dialogue_locked: bool = false
 
+func _ready() -> void:
+	InputStash.enable_action("interact") # ensure map is popped from stash so later instances are not softlocked
+
 func dialogue_lock() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	InputStash.disable_action("interact")
