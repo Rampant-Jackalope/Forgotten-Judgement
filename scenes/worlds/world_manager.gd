@@ -64,9 +64,6 @@ static func set_world_to_2d(identifier: String) -> void:
 
 static func _clear_2d(local_instance: WorldManager) -> void:
 	for child in local_instance.container_2d.get_children():
-		# remove first so the old scene is gone from the tree immediately
-		# queue_free alone leaves it there (still processing) until end of frame
-		local_instance.container_2d.remove_child(child)
 		child.queue_free()
 
 ## The mouse mode the 3D side wants. Always remembered, applied immediately

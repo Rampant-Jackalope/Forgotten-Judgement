@@ -12,3 +12,7 @@ func start(_projectile: ProjectileBase) -> void:
 ## Called every physics frame, after apply_motion().
 func process_modifier(_delta: float, _projectile: ProjectileBase) -> void:
 	pass
+
+## Shorthand for checking for life, this is to guard against timing issues cuzz fucking godot
+static func is_alive(projectile: ProjectileBase) -> bool:
+	return is_instance_valid(projectile) and projectile.is_inside_tree()
