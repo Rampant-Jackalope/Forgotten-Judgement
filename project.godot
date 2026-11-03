@@ -64,7 +64,7 @@ variables={
 "GuestName": ""
 },
 "overworker": {
-"overworker_warnings": 0
+"warnings": 0
 }
 }
 glossary/default_case_sensitive=true

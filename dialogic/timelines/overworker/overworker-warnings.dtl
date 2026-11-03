@@ -1,7 +1,7 @@
-if {overworker.overworker_warnings} == 1.0:
+if {overworker.warnings} == 1.0:
 	join overworker left
 	overworker: Quit that!
-elif {overworker.overworker_warnings} == 2.0:
+elif {overworker.warnings} == 2.0:
 	join overworker left
 	overworker: I said don't!
 else:
