@@ -81,13 +81,10 @@ func _exit_tree() -> void:
 # boilerplate functions to throw into _process() or wherever, when an item needs custom _process() behavior
 
 func process_interaction() -> void:
-	if not Input.is_action_just_pressed("interact"):
-		return
-	if not Interactable.interaction_queue.is_priority(self):
-		return
+	if not Input.is_action_just_pressed("interact"): return
+	if not Interactable.interaction_queue.is_priority(self): return
 	var frame := Engine.get_process_frames()
-	if frame == _last_interact_frame:
-		return
+	if frame == _last_interact_frame: return
 	_last_interact_frame = frame
 	interacted.emit(Util.get_player().interactor, Interactable.interaction_queue.pop)
 

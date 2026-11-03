@@ -12,7 +12,7 @@ func _restore_position() -> void:
 func _ready() -> void:
 	InputStash.enable_action("interact")
 	GameState.about_to_save.connect(_write_state)
-	global_position = GameState.data[GameState.DataKey.PLAYER_POSITION]
+	_restore_position()
 
 func dialogue_lock() -> void:
 	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -34,12 +34,10 @@ func run_locked_dialogue(timeline: String, label: String = "") -> void:
 	dialogue_lock()
 	Dialogic.start(timeline, label)
 	await Dialogic.timeline_ended
-	if self:
-		dialogue_unlock()
+	if self: dialogue_unlock()
 
 func _write_state() -> void:
-	if not is_inside_tree():
-		return
+	if not is_inside_tree(): return
 	GameState.data[GameState.DataKey.PLAYER_POSITION] = global_position
 
 func _exit_tree() -> void:

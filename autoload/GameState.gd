@@ -42,17 +42,14 @@ func save_to_disk(path: String = SAVE_PATH) -> Error:
 		out["dialogic"][key] = var_to_str(vars[key])
 
 	var f := FileAccess.open(path, FileAccess.WRITE)
-	if f == null:
-		return FileAccess.get_open_error()
-	f.store_string(JSON.stringify(out, "\t"))
+	if f == null: return FileAccess.get_open_error()
+	f.store_string(JSON.stringify(out))
 	return OK
 
 func load_from_disk(path: String = SAVE_PATH) -> bool:
-	if not FileAccess.file_exists(path):
-		return false
+	if not FileAccess.file_exists(path): return false
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
-	if not (parsed is Dictionary):
-		return false
+	if not (parsed is Dictionary): return false
 
 	# only keys that exist in `data` are restored, everything else is ignored
 	var saved: Dictionary = parsed.get("data", { })
