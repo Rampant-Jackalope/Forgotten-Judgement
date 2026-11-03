@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="4_i8noq"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="5_mm762"]
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="6_gsnu6"]
-[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_fjrd7"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
@@ -44,8 +43,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
 
 [node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
-
-[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_fjrd7")]
 
 [node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8691797, 0.057750702, 11.355218)

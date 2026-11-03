@@ -1,0 +1,48 @@
+class_name WorldManager
+extends Node
+
+@export var world_3d: WorldEnvironment
+@export var worlds_2d: Dictionary[String, PackedScene]
+
+@onready var container_2d: Node = $'2D'
+
+# recreating singleton pattern bc managing configuration with scene editor is better than keeping path strings up to date in code
+static var instance: WorldManager
+
+func _ready() -> void:
+	assert(WorldManager.instance == null, "WorldManager instance already exists")
+	assert(world_3d != null, "No 3D world found")
+	assert(container_2d != null, "No 2D container found")
+	WorldManager.instance = self
+
+func _exit_tree() -> void:
+	# clear as to not fuck ourselves over
+	if WorldManager.instance == self:
+		WorldManager.instance = null
+
+static func set_world_to_3d() -> void:
+	var local_instance := WorldManager.instance
+	assert(local_instance != null, "WorldManager has not been initialized")
+	_clear_2d(local_instance)
+	Util.set_enabled(local_instance.world_3d, true)
+
+static func set_world_to_2d(identifier: String) -> void:
+	var local_instance := WorldManager.instance
+	assert(local_instance != null, "WorldManager has not been initialized")
+	assert(local_instance.worlds_2d.has(identifier), "Could not find '%s' 2d world" % identifier)
+
+	Util.set_enabled(local_instance.world_3d, false)
+	assert(local_instance.world_3d.process_mode == Node.PROCESS_MODE_DISABLED, "Failed to disable 3d world while setting 2d world")
+
+	# swapping 2d -> 2d shouldn't stack scenes
+	_clear_2d(local_instance)
+
+	var scene_instance := local_instance.worlds_2d[identifier].instantiate()
+	local_instance.container_2d.add_child(scene_instance)
+
+static func _clear_2d(local_instance: WorldManager) -> void:
+	for child in local_instance.container_2d.get_children():
+		# remove first so the old scene is gone from the tree immediately
+		# queue_free alone leaves it there (still processing) until end of frame
+		local_instance.container_2d.remove_child(child)
+		child.queue_free()
