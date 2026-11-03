@@ -3,7 +3,7 @@ class_name NpcMarker
 
 @export var identifier: String
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	NpcPositionMarkers.add(self)
 func _exit_tree() -> void:
 	NpcPositionMarkers.remove(self.identifier)
