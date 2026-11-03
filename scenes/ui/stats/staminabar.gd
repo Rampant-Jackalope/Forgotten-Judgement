@@ -163,14 +163,18 @@ func _update_label_position() -> void:
 			x = bar_rect.position.x
 		LabelPlacement.TOP_MIDDLE, LabelPlacement.BOTTOM_MIDDLE:
 			x = bar_rect.position.x + (bar_rect.size.x - label_size.x) / 2.0
-		_:
+		LabelPlacement.TOP_RIGHT, LabelPlacement.BOTTOM_RIGHT:
 			x = bar_rect.end.x - label_size.x
-
+		_:
+			assert(false, "Unhandled LabelPlacement: %d" % label_placement)
+	
 	match label_placement:
 		LabelPlacement.TOP_LEFT, LabelPlacement.TOP_MIDDLE, LabelPlacement.TOP_RIGHT:
 			y = bar_rect.position.y - label_size.y
-		_:
+		LabelPlacement.BOTTOM_LEFT, LabelPlacement.BOTTOM_MIDDLE, LabelPlacement.BOTTOM_RIGHT:
 			y = bar_rect.end.y
+		_:
+			assert(false, "Unhandled LabelPlacement: %d" % label_placement)
 
 	label.position = Vector2(x, y) + label_offset
 
