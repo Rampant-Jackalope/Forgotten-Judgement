@@ -6,6 +6,7 @@ signal closed
 
 @export var main_menu_scene: PackedScene
 @export var back_to_menu_button: Button
+@export var save_button: Button
 @export var quit_button: Button
 
 var _prev_mouse_mode: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
@@ -17,9 +18,11 @@ func _ready() -> void:
 	assert(back_to_menu_button != null, "BackToMenuButton not assigned in PauseMenu.")
 	assert(quit_button != null, "QuitButton not assigned in PauseMenu.")
 	assert(main_menu_scene != null, "main_menu_scene not assigned in PauseMenu.")
+	assert(save_button != null, "Save button not assigned in PauseMenu")
 
 	back_to_menu_button.pressed.connect(_on_back_to_menu_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
+	save_button.pressed.connect(GameState.save_to_disk)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not event.is_echo() and not Util.is_dialogue_active():
