@@ -1,6 +1,8 @@
 class_name WorldManager
 extends Node
 
+signal world_changed(in_2d: bool)
+
 @export var world_3d: WorldEnvironment
 @export var worlds_2d: Dictionary[String, PackedScene]
 
@@ -12,11 +14,15 @@ static var instance: WorldManager
 var _mouse_mode_3d: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
 var _in_2d := false
 
-func _ready() -> void:
+# set in _enter_tree (top-down) rather than _ready (bottom-up) so listeners
+# can safely connect to the instance from their own _ready
+func _enter_tree() -> void:
 	assert(WorldManager.instance == null, "WorldManager instance already exists")
+	WorldManager.instance = self
+
+func _ready() -> void:
 	assert(world_3d != null, "No 3D world found")
 	assert(container_2d != null, "No 2D container found")
-	WorldManager.instance = self
 
 func _exit_tree() -> void:
 	# clear as to not fuck ourselves over
@@ -34,7 +40,7 @@ static func set_world_to_3d() -> void:
 		Input.mouse_mode = local_instance._mouse_mode_3d
 
 	# after Util.set_enabled so listeners get the last word over whatever it restored
-	local_instance.get_tree().call_group("world_aware", "on_world_changed", false)
+	local_instance.world_changed.emit(false)
 
 static func set_world_to_2d(identifier: String) -> void:
 	var local_instance := WorldManager.instance
@@ -51,7 +57,7 @@ static func set_world_to_2d(identifier: String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 	# after Util.set_enabled so listeners get the last word over whatever it saved/hid
-	local_instance.get_tree().call_group("world_aware", "on_world_changed", true)
+	local_instance.world_changed.emit(true)
 
 	var scene_instance := local_instance.worlds_2d[identifier].instantiate()
 	local_instance.container_2d.add_child(scene_instance)

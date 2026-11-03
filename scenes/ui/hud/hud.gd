@@ -31,9 +31,9 @@ var _in_2d := false
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS # tweens/input keep working while the tree is paused
-	add_to_group("world_aware") # WorldManager calls on_world_changed on this group
 	assert(hotbar != null, "HUD needs a Hotbar child.")
 	assert(blur_rect != null, "HUD needs a BlurRect child.")
+	assert(WorldManager.instance != null, "HUD needs a WorldManager in the tree.")
 
 	_setup_popup_label()
 	update_slot_highlights()
@@ -53,6 +53,8 @@ func _ready() -> void:
 	Dialogic.timeline_started.connect(_on_timeline_started)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
+	WorldManager.instance.world_changed.connect(_on_world_changed)
+
 func _on_timeline_started() -> void:
 	_in_dialogue = true
 	set_expanded(false) # in case the hotbar was open when dialogue started
@@ -62,7 +64,7 @@ func _on_timeline_ended() -> void:
 	_in_dialogue = false
 	_refresh_visibility()
 
-func on_world_changed(is_2d: bool) -> void:
+func _on_world_changed(is_2d: bool) -> void:
 	_in_2d = is_2d
 	if is_2d:
 		set_expanded(false)
