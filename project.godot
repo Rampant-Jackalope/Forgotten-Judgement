@@ -36,7 +36,7 @@ directories/dtl_directory={
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
-"overworker-warning1": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
+"overworker-warning": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
 "overworker/main": "res://dialogic/timelines/overworker/main.dtl",
 "warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
