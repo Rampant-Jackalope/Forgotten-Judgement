@@ -95,6 +95,10 @@ static func pick_random_weighted(options: Dictionary, random: RandomNumberGenera
 static func static_sleep(seconds: float) -> void:
 	await (Engine.get_main_loop() as SceneTree).create_timer(seconds).timeout
 
+const WAS_DISABLED = "_was_disabled"
+const WAS_PICKABLE = "_was_pickable"
+const WAS_VISIBLE = "_was_visible"
+
 static func set_enabled(root: Node, enabled: bool) -> void:
 	root.process_mode = Node.PROCESS_MODE_INHERIT if enabled else Node.PROCESS_MODE_DISABLED
 	_toggle_visibility(root, enabled)
@@ -103,12 +107,12 @@ static func set_enabled(root: Node, enabled: bool) -> void:
 static func _toggle_visibility(node: Node, enabled: bool) -> void:
 	if node is Node3D or node is CanvasItem or node is CanvasLayer:
 		if enabled:
-			if node.has_meta("_was_visible"):
-				node.visible = node.get_meta("_was_visible")
-				node.remove_meta("_was_visible")
+			if node.has_meta(WAS_VISIBLE):
+				node.visible = node.get_meta(WAS_VISIBLE)
+				node.remove_meta(WAS_VISIBLE)
 		else:
-			if not node.has_meta("_was_visible"):
-				node.set_meta("_was_visible", node.visible)
+			if not node.has_meta(WAS_VISIBLE):
+				node.set_meta(WAS_VISIBLE, node.visible)
 			node.visible = false
 		return
 
@@ -120,23 +124,23 @@ static func _toggle_collision(node: Node, enabled: bool) -> void:
 	if node is CollisionShape2D or node is CollisionPolygon2D \
 			or node is CollisionShape3D or node is CollisionPolygon3D:
 		if enabled:
-			if node.has_meta("_was_disabled"):
-				node.set_deferred("disabled", node.get_meta("_was_disabled"))
-				node.remove_meta("_was_disabled")
+			if node.has_meta(WAS_DISABLED):
+				node.set_deferred("disabled", node.get_meta(WAS_DISABLED))
+				node.remove_meta(WAS_DISABLED)
 		else:
-			if not node.has_meta("_was_disabled"):
-				node.set_meta("_was_disabled", node.disabled)
+			if not node.has_meta(WAS_DISABLED):
+				node.set_meta(WAS_DISABLED, node.disabled)
 			node.set_deferred("disabled", true)
 
 	# stop the pesky rays
 	if node is CollisionObject3D or node is CollisionObject2D:
 		if enabled:
-			if node.has_meta("_was_pickable"):
-				node.input_ray_pickable = node.get_meta("_was_pickable")
-				node.remove_meta("_was_pickable")
+			if node.has_meta(WAS_PICKABLE):
+				node.input_ray_pickable = node.get_meta(WAS_PICKABLE)
+				node.remove_meta(WAS_PICKABLE)
 		else:
-			if not node.has_meta("_was_pickable"):
-				node.set_meta("_was_pickable", node.input_ray_pickable)
+			if not node.has_meta(WAS_PICKABLE):
+				node.set_meta(WAS_PICKABLE, node.input_ray_pickable)
 			node.input_ray_pickable = false
 
 	for child in node.get_children():
