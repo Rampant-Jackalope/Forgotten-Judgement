@@ -72,7 +72,6 @@ variables={
 "HasMetOverworker": false,
 "overworker_warnings": 0
 }
-}
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

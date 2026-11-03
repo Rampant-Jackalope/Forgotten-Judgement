@@ -1,8 +1,15 @@
 if {overworker.warnings} == 1.0:
 	join overworker left
 	overworker: Quit that!
+<<<<<<< HEAD
   set {overworker.HasMetOverworker} = true
 elif {overworker.overworker_warnings} == 2.0:
+||||||| parent of 5c18864 (feat: update bartender timelines, stairs barrier and overworker fight sprites)
+elif {overworker.warnings} == 2.0:
+=======
+  set {overworker.HasMetOverworker} = true
+elif {overworker.warnings} == 2.0:
+>>>>>>> 5c18864 (feat: update bartender timelines, stairs barrier and overworker fight sprites)
 	join overworker left
 	overworker: I said don't!
 else:
