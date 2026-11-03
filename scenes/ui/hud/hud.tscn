@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bq2dvrnlu2j0m"]
+
+[ext_resource type="Script" uid="uid://wq44d8r7fv6h" path="res://scenes/ui/hud/hud.gd" id="1_jp6c7"]
+[ext_resource type="Shader" uid="uid://cu3l15l5ijrfn" path="res://shaders/blur.gdshader" id="4_dc681"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4pep"]
+shader = ExtResource("4_dc681")
+shader_parameter/blur_amount = 0.0
+shader_parameter/dim = 0.0
+
+[node name="HUD" type="CanvasLayer" unique_id=1099807587]
+script = ExtResource("1_jp6c7")
+
+[node name="Label" type="Label" parent="." unique_id=1229339649]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlurRect" type="ColorRect" parent="." unique_id=1722507324]
+visible = false
+material = SubResource("ShaderMaterial_w4pep")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Hotbar" type="HBoxContainer" parent="." unique_id=238236539]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -120.0
+offset_right = 100.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Slot 1" type="PanelContainer" parent="Hotbar" unique_id=1860967713]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 1" unique_id=328664778]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Slot 2" type="PanelContainer" parent="Hotbar" unique_id=2123845363]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 2" unique_id=8795754]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Slot 3" type="PanelContainer" parent="Hotbar" unique_id=830845277]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot 3" unique_id=1518347946]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
