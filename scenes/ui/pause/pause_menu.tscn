@@ -7,13 +7,14 @@
 [sub_resource type="Theme" id="Theme_pause"]
 default_font = ExtResource("2_font")
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=399798200 node_paths=PackedStringArray("back_to_menu_button", "quit_button")]
+[node name="PauseMenu" type="CanvasLayer" unique_id=399798200 node_paths=PackedStringArray("back_to_menu_button", "save_button", "quit_button")]
 process_mode = 3
 layer = 100
 visible = false
 script = ExtResource("1_pause")
 main_menu_scene = ExtResource("3_menu")
 back_to_menu_button = NodePath("Center/MainButtons/BackToMenuButton")
+save_button = NodePath("Center/MainButtons/SaveButton")
 quit_button = NodePath("Center/MainButtons/QuitButton")
 
 [node name="Center" type="CenterContainer" parent="." unique_id=474459181]
@@ -39,6 +40,11 @@ custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "Options"
+
+[node name="SaveButton" type="Button" parent="Center/MainButtons" unique_id=1594398401]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Save"
 
 [node name="QuitButton" type="Button" parent="Center/MainButtons" unique_id=125066079]
 custom_minimum_size = Vector2(600, 0)
