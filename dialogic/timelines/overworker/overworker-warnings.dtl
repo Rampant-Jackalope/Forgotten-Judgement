@@ -9,3 +9,4 @@ elif {overworker.overworker_warnings} == 1.0:
 elif {overworker.overworker_warnings} == 2.0:
 	join overworker left
 	overworker: I said don't!
+set {overworker.HasMetOverworker} = true

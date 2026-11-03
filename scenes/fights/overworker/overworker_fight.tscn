@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
-[ext_resource type="Texture2D" uid="uid://c86hd337o2mu4" path="res://assets/combat/overworker/overworker_fightingstance.png" id="3_lfram"]
-[ext_resource type="Texture2D" uid="uid://domxmj170k4hs" path="res://assets/combat/overworker/overworker_crawl.png" id="4_q0dkp"]
+[ext_resource type="Texture2D" uid="uid://y4xnp4et74qo" path="res://assets/combat/overworker/overworker-stance1.png" id="4_lfram"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
+[ext_resource type="Texture2D" uid="uid://c03v0a077at8" path="res://assets/combat/overworker/overworker-stance2.png" id="5_lfram"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
@@ -31,7 +31,7 @@ animations = [{
 "texture": ExtResource("2_sev54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_lfram")
+"texture": ExtResource("4_lfram")
 }],
 "loop": 0,
 "name": &"drop_hat",
@@ -42,7 +42,7 @@ animations = [{
 "texture": ExtResource("2_sev54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_q0dkp")
+"texture": ExtResource("5_lfram")
 }],
 "loop": 0,
 "name": &"kick",
@@ -66,6 +66,7 @@ stretch_mode = 6
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
+animation = &"kick"
 autoplay = "default"
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]

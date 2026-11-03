@@ -35,6 +35,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "bartender": "res://dialogic/timelines/overworker/bartender.dtl",
+"introduction-warning": "res://dialogic/timelines/overworker/introduction-warning.dtl",
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
@@ -52,6 +53,7 @@ layout/style_directory={
 variables={
 "bartender": {
 "HAS_WARNING_RUN": false,
+"HasMetBartender": false,
 "TRIED_TO_EXIT": false
 },
 "michael": {
@@ -66,6 +68,7 @@ variables={
 "GuestName": ""
 },
 "overworker": {
+"HasMetOverworker": false,
 "overworker_warnings": 0
 }
 }
@@ -109,6 +112,7 @@ layout/default_style="res://resources/Style_test.tres"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

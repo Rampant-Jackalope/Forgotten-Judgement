@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c86hd337o2mu4"
-path="res://.godot/imported/overworker_fightingstance.png-b12b84e389d1f64108ef2641f8e5e8ea.ctex"
+uid="uid://y4xnp4et74qo"
+path="res://.godot/imported/overworker-stance1.png-f9a59efc2407c67c23a56b6a8483f44c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/combat/overworker/overworker_fightingstance.png"
-dest_files=["res://.godot/imported/overworker_fightingstance.png-b12b84e389d1f64108ef2641f8e5e8ea.ctex"]
+source_file="res://assets/combat/overworker/overworker-stance1.png"
+dest_files=["res://.godot/imported/overworker-stance1.png-f9a59efc2407c67c23a56b6a8483f44c.ctex"]
 
 [params]
 

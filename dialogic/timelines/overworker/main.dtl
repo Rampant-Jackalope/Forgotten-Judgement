@@ -20,3 +20,4 @@ overworker: Alright.. But DONT touch anything!!
 	overworker: I... I guess I am. Thanks...
 leave overworker
 leave main_player
+set {overworker.HasMetOverworker} = true
