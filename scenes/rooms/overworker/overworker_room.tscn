@@ -187,7 +187,7 @@ script = ExtResource("9_g78rx")
 [node name="Coffee_machine2" parent="Decorations" unique_id=1514329234 instance=ExtResource("5_fcbs4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Coffee_machine" parent="Decorations/Coffee_machine2" index="0" unique_id=45418538]
+[node name="Coffee_machine" parent="Decorations/Coffee_machine2" index="0" unique_id=1252492769]
 material_overlay = SubResource("ShaderMaterial_m3lho")
 
 [node name="Interactable" type="Area3D" parent="Decorations/Coffee_machine2" unique_id=949414624]
@@ -201,7 +201,7 @@ shape = SubResource("BoxShape3D_1kpxu")
 [node name="Cube2" parent="Decorations" unique_id=729085450 instance=ExtResource("6_5txki")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Cube" parent="Decorations/Cube2" index="0" unique_id=42673794]
+[node name="Cube" parent="Decorations/Cube2" index="0" unique_id=1592564232]
 material_overlay = SubResource("ShaderMaterial_fcbs4")
 
 [node name="Interactable2" type="Area3D" parent="Decorations/Cube2" unique_id=637981855]
@@ -251,7 +251,7 @@ material_overlay = SubResource("ShaderMaterial_n3ini")
 [node name="Water_cooler2" parent="Decorations" unique_id=822848682 instance=ExtResource("13_18wda")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Water_cooler" parent="Decorations/Water_cooler2" index="0" unique_id=1740318461]
+[node name="Water_cooler" parent="Decorations/Water_cooler2" index="0" unique_id=1204477641]
 material_overlay = SubResource("ShaderMaterial_fsv2b")
 
 [node name="Interactable" type="Area3D" parent="Decorations/Water_cooler2" unique_id=213062284]
