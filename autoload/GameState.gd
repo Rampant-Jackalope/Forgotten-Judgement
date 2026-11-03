@@ -21,6 +21,15 @@ var data: Dictionary = {
 
 var _defaults := data.duplicate(true)
 
+func _ready() -> void:
+	get_tree().auto_accept_quit = false
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# TODO: add confirm UI
+		save_to_disk()
+		get_tree().quit()
+
 # NOTE: when using `get_tree().quit()` be sure to save cuzz apparently that does not run the _exit_tree() functions
 func save_to_disk(path: String = SAVE_PATH) -> Error:
 	about_to_save.emit()
