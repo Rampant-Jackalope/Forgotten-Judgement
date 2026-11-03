@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="6_gsnu6"]
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="8_lue4o"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
+[ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/item-interaction/test_item.tscn" id="6_qfnet"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -52,3 +53,7 @@ identifier = "Player_Death"
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("8_lue4o")]
+||||||| parent of 5d872ba (feat: backstage key demo with Michael):scenes/world.tscn
+
+[node name="BackstageKey" parent="." unique_id=67441525 instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.346, 5, 21.978)

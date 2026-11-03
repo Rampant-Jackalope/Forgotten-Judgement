@@ -1,12 +1,27 @@
 join michael_jackson left [animation="Fade In"]
 michael_jackson: hee hee~
 - fight me | [if {michael.AT_BAR} == false]
-	eyyy let's go bro
-	[signal arg_type="dict" arg="{"action":"fight","subject":"michael"}"]
+	if {michael.PLAYER_ON_STAGE} == true:
+		eyyy let's go bro
+		[signal arg_type="dict" arg="{"action":"fight","subject":"michael"}"]
+	else:
+		michael_jackson: get up here then
 - go to bar | [if {michael.AT_BAR} == false]
 	[signal arg_type="dict" arg="{"action":"bar","subject":"michael"}"]
 	set {michael.AT_BAR} = true
 - go back on stage | [if {michael.AT_BAR} == true]
 	[signal arg_type="dict" arg="{"action":"stage","subject":"michael"}"]
 	set {michael.AT_BAR} = false
+- How do I get up there? | [if {michael.AT_BAR} == false && {michael.REDIRECT_TO_BARTENDER} == false]
+	michael_jackson: Backstage is locked. Ask the bartender about a key.
+	michael_jackson: Bartender isn't here, and the door is one way. So once you have the key...
+	michael_jackson: [wave][ns=0] [lspeed=0.05]♫ Give it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [pause=0.5] [lspeed=0.05] ♫ pass it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [input]
+	set {michael.REDIRECT_TO_BARTENDER} = true
+- give backstage key | [if {michael.AT_BAR} == false && {michael.REDIRECT_TO_BARTENDER} == true && {michael.HAS_STAGE_KEY} == false]
+	if Inventory.has_item("backstage_key"):
+		michael_jackson: You have the key !
+		do Inventory.remove("backstage_key")
+		set {michael.HAS_STAGE_KEY} = true
+	else:
+		michael_jackson: you no have key !
 - exit

@@ -57,6 +57,7 @@ variables={
 "AT_BAR": false,
 "HAS_STAGE_KEY": false,
 "NEARBY": false,
+"PLAYER_ON_STAGE": false,
 "REDIRECT_TO_BARTENDER": false,
 "RESPECT": 0,
 "STAGE_DOOR_OPENED": false
