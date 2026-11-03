@@ -100,7 +100,7 @@ func _on_stamina_consume_failed(_amount: int) -> void:
 	audio_player.play()
 
 func _update_ui(current_stamina: float) -> void:
-	var max_sp: float = _get_max_stamina()
+	var max_sp: float = _get_max_stamina_or_default()
 	var stamina_ratio: float = current_stamina / max_sp
 
 	progress_bar.max_value = max_sp
@@ -133,10 +133,10 @@ func flash(duration: float = 0.35, color: Color = Color(3, 3, 3)) -> void:
 	_flash_tween.parallel().tween_property(progress_bar, "scale", Vector2.ONE, duration)
 
 func _get_base_color() -> Color:
-	var ratio: float = stamina.get_stamina() / _get_max_stamina()
+	var ratio: float = stamina.get_stamina() / _get_max_stamina_or_default()
 	return warning_color if ratio <= low_stamina_threshold else normal_color
 
-func _get_max_stamina() -> float:
+func _get_max_stamina_or_default() -> float:
 	return float(stamina.max_stamina) if stamina.max_stamina > 0 else 100.0
 
 func _update_audio() -> void:
