@@ -57,7 +57,7 @@ func _spawn_projectile() -> void:
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
-	get_tree().change_scene_to_file.call_deferred("res://scenes/world.tscn")
+	WorldManager.set_world_to_3d()
 	ScreenFader.player_death_transition()
 
 # Connected to signal
@@ -66,4 +66,4 @@ func _on_michael_health_changed(old: int, new: int) -> void:
 
 # Connected to signal
 func _on_michael_died() -> void:
-	get_tree().change_scene_to_file.call_deferred("res://scenes/world.tscn")
+	WorldManager.set_world_to_3d()
