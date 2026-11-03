@@ -1,54 +1,54 @@
 [gd_scene format=3 uid="uid://enfbunf4a3i6"]
 
-[ext_resource type="Script" uid="uid://cvngnlj24qc3k" path="res://scenes/world.gd" id="1_qfnet"]
-[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="1_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://2sd0o1svj76a" path="res://scenes/main_area/main_area.tscn" id="2_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="3_4wyf3"]
-[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="3_k0juu"]
-[ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="5_71j4m"]
-[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_i7141"]
-[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://cvngnlj24qc3k" path="res://scenes/world_3d.gd" id="1_d1fl1"]
+[ext_resource type="PackedScene" uid="uid://2sd0o1svj76a" path="res://scenes/main_area/main_area.tscn" id="2_4spaj"]
+[ext_resource type="PackedScene" uid="uid://be0b44t272oxb" path="res://scenes/player/3d/player3d.tscn" id="3_xuumg"]
+[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="4_n0aq3"]
+[ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="5_h6247"]
+[ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="6_i1cbo"]
+[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_nytc1"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_1s4lt"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
 [node name="World" type="WorldEnvironment" unique_id=924521940]
 environment = SubResource("Environment_1kpxu")
-script = ExtResource("1_qfnet")
+script = ExtResource("1_d1fl1")
 
-[node name="MainArea" parent="." unique_id=251183288 instance=ExtResource("2_4wyf3")]
+[node name="MainArea" parent="." unique_id=251183288 instance=ExtResource("2_4spaj")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=651488295]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11, 12)
 
-[node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("1_rwgxs")]
+[node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("3_xuumg")]
 transform = Transform3D(-0.7, 0, -2.9802322e-08, 0, 0.7, 0, 2.9802322e-08, 0, -0.7, 0, 0, 8)
 
 [node name="NpcMarkers" type="Node3D" parent="." unique_id=1509749773]
 
 [node name="Michael_Stage" type="Marker3D" parent="NpcMarkers" unique_id=1990764237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7014809, 23.49843)
-script = ExtResource("3_k0juu")
+script = ExtResource("4_n0aq3")
 identifier = "Michael_Stage"
 metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
 
 [node name="Michael_Bar" type="Marker3D" parent="NpcMarkers" unique_id=160862933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.176, 0.875, 12.247)
-script = ExtResource("3_k0juu")
+script = ExtResource("4_n0aq3")
 identifier = "Michael_Bar"
 metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
 
 [node name="Npc" type="Node3D" parent="." unique_id=1667203005]
 
-[node name="Michael" parent="Npc" unique_id=861609196 instance=ExtResource("3_4wyf3")]
+[node name="Michael" parent="Npc" unique_id=861609196 instance=ExtResource("5_h6247")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
 
-[node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("5_71j4m")]
+[node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_i1cbo")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
 
-[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
+[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_nytc1")]
 
 [node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8691797, 0.057750702, 11.355218)
-script = ExtResource("8_4mrxx")
+script = ExtResource("8_1s4lt")
 identifier = "Player_Death"
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
