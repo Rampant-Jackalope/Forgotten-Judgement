@@ -10,6 +10,8 @@ const INTERACTOR_LAYER := 1 << 2
 # also even if that would happen, this could make it annoying if you want to pick up a specific item
 static var interaction_queue: InteractQueue = InteractQueue.new()
 
+static var _last_interact_frame: int = -1
+
 var is_highlighted: bool = false
 
 signal interacted(interactor: Interactor, pop: Callable)
@@ -26,7 +28,7 @@ class InteractQueue:
 		arr.push_back(item)
 
 	func pop() -> Interactable:
-		return arr.pop_back()
+		return arr.pop_front()
 
 	func peek() -> Interactable:
 		if arr.size() > 0:
@@ -72,21 +74,28 @@ func _process(_delta: float) -> void:
 	process_interaction()
 	process_highlight()
 
+func _exit_tree() -> void:
+	Interactable.interaction_queue.erase(self)
+
 # ------------------
 # boilerplate functions to throw into _process() or wherever, when an item needs custom _process() behavior
 
 func process_interaction() -> void:
-	if Input.is_action_just_pressed("interact"):
-		if Interactable.interaction_queue.size() > 0:
-			var val := Interactable.interaction_queue.peek()
-			if val != null:
-				val.interacted.emit(Util.get_player().interactor, Interactable.interaction_queue.pop)
+	if not Input.is_action_just_pressed("interact"):
+		return
+	if not Interactable.interaction_queue.is_priority(self):
+		return
+	var frame := Engine.get_process_frames()
+	if frame == _last_interact_frame:
+		return
+	_last_interact_frame = frame
+	interacted.emit(Util.get_player().interactor, Interactable.interaction_queue.pop)
 
 func process_highlight() -> void:
 	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
 
 	if should_be_highlighted != self.is_highlighted:
-		self.is_highlighted = should_be_highlighted   #otherwise it stays false forever.
+		self.is_highlighted = should_be_highlighted #otherwise it stays false forever.
 		if should_be_highlighted:
 			self.is_highlighted = true
 			highlight_on.emit()

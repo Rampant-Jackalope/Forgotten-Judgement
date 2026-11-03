@@ -16,12 +16,12 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
-	Dialogic.VAR.overworker.overworker_warnings += 1
+	Dialogic.VAR.overworker.warnings += 1
 	Util.get_player().run_locked_dialogue("overworker-warning")
 
 func _on_dialogic_signal(action: String) -> void:
 	if action == "fight":
-		Dialogic.VAR.overworker.overworker_warnings = 0
+		Dialogic.VAR.overworker.warnings = 0
 		get_tree().change_scene_to_file("res://scenes/fights/overworker/overworker_fight.tscn")
 
 func water_cooler_highlight_on():
