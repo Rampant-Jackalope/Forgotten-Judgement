@@ -1,5 +1,14 @@
 extends Control
 
+enum LabelPlacement {
+	BOTTOM_LEFT,
+	BOTTOM_MIDDLE,
+	BOTTOM_RIGHT,
+	TOP_LEFT,
+	TOP_MIDDLE,
+	TOP_RIGHT,
+}
+
 @export_category("Stamina Bar Settings")
 ## Reference to the Stamina resource component that manages stamina values.
 @export var stamina: Stamina
@@ -36,6 +45,18 @@ extends Control
 	set(value):
 		subtitle_modulate = value
 		_update_subtitle()
+
+## Where the subtitle sits relative to the progress bar.
+@export var label_placement: LabelPlacement = LabelPlacement.TOP_RIGHT:
+	set(value):
+		label_placement = value
+		_update_label_position()
+
+## Extra pixel offset applied after placement (nudge it off the bar's frame).
+@export var label_offset: Vector2 = Vector2.ZERO:
+	set(value):
+		label_offset = value
+		_update_label_position()
 
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var label: Label = $Label
@@ -126,6 +147,33 @@ func _update_audio() -> void:
 
 	audio_player.stream = fail_sound
 
+func _update_label_position() -> void:
+	if not is_node_ready() or label == null or progress_bar == null:
+		return
+
+	var label_size: Vector2 = label.get_combined_minimum_size()
+	label.size = label_size
+
+	var bar_rect: Rect2 = progress_bar.get_rect()
+	var x: float
+	var y: float
+
+	match label_placement:
+		LabelPlacement.TOP_LEFT, LabelPlacement.BOTTOM_LEFT:
+			x = bar_rect.position.x
+		LabelPlacement.TOP_MIDDLE, LabelPlacement.BOTTOM_MIDDLE:
+			x = bar_rect.position.x + (bar_rect.size.x - label_size.x) / 2.0
+		_:
+			x = bar_rect.end.x - label_size.x
+
+	match label_placement:
+		LabelPlacement.TOP_LEFT, LabelPlacement.TOP_MIDDLE, LabelPlacement.TOP_RIGHT:
+			y = bar_rect.position.y - label_size.y
+		_:
+			y = bar_rect.end.y
+
+	label.position = Vector2(x, y) + label_offset
+
 func _update_subtitle() -> void:
 	if not is_node_ready():
 		return
@@ -137,3 +185,5 @@ func _update_subtitle() -> void:
 
 		label.add_theme_color_override("font_outline_color", Color.DARK_GREEN)
 		label.add_theme_constant_override("outline_size", 3)
+
+		_update_label_position()
