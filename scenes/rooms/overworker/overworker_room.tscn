@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bknkx5jhietff" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_desk.gltf" id="6_1ol7r"]
 [ext_resource type="PackedScene" uid="uid://bty5vvrjkyptx" path="res://assets/Playtest_stuff/Overworker_objects/Watercooler.gltf" id="7_jks30"]
 [ext_resource type="PackedScene" uid="uid://d6h2ycdq8cua" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Coffee_machine.gltf" id="8_5uowb"]
-[ext_resource type="Script" uid="uid://7mslbg5x0oxq" path="res://assets/Playtest_stuff/Overworker_objects/warning_count.gd" id="9_g78rx"]
+[ext_resource type="Script" uid="uid://7mslbg5x0oxq" path="res://scenes/rooms/overworker/warning_count.gd" id="9_g78rx"]
 [ext_resource type="Script" uid="uid://c3o0hfw8nosfb" path="res://scenes/rooms/overworker/exit_door.gd" id="9_xwbor"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="10_iclxq"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="10_mopld"]
@@ -32,6 +32,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Overworker_wall_22" parent="Bounds" unique_id=672766581 instance=ExtResource("4_i6awq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Overworker_wall_2" parent="Bounds/Overworker_wall_22" index="0" unique_id=1687569097]
+ignore_occlusion_culling = true
 
 [node name="Overworker_wall_23" parent="Bounds" unique_id=1787167449 instance=ExtResource("4_i6awq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
@@ -72,3 +75,5 @@ metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [connection signal="interacted" from="Decorations/Overworker_Coffee_machine/Interactable" to="Decorations/Overworker_Coffee_machine" method="_on_interactable_interacted"]
 [connection signal="interacted" from="Door/callback_door" to="Door" method="_on_callback_door_interacted"]
+
+[editable path="Bounds/Overworker_wall_22"]
