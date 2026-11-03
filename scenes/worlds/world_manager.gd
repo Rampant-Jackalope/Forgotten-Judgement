@@ -33,6 +33,9 @@ static func set_world_to_3d() -> void:
 		local_instance._in_2d = false
 		Input.mouse_mode = local_instance._mouse_mode_3d
 
+	# after Util.set_enabled so listeners get the last word over whatever it restored
+	local_instance.get_tree().call_group("world_aware", "on_world_changed", false)
+
 static func set_world_to_2d(identifier: String) -> void:
 	var local_instance := WorldManager.instance
 	assert(local_instance != null, "WorldManager has not been initialized")
@@ -46,6 +49,9 @@ static func set_world_to_2d(identifier: String) -> void:
 
 	local_instance._in_2d = true
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
+	# after Util.set_enabled so listeners get the last word over whatever it saved/hid
+	local_instance.get_tree().call_group("world_aware", "on_world_changed", true)
 
 	var scene_instance := local_instance.worlds_2d[identifier].instantiate()
 	local_instance.container_2d.add_child(scene_instance)

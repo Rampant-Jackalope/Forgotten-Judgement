@@ -24,8 +24,14 @@ var is_expanded := false
 var _home_offset: Vector2
 var _expand_tween: Tween
 
+# visibility is derived from these two flags instead of being stored/restored,
+# so Util.set_enabled (or anything else) can't leave the HUD in a stale state
+var _in_dialogue := false
+var _in_2d := false
+
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS # tweens/input keep working while the tree is paused
+	add_to_group("world_aware") # WorldManager calls on_world_changed on this group
 	assert(hotbar != null, "HUD needs a Hotbar child.")
 	assert(blur_rect != null, "HUD needs a BlurRect child.")
 
@@ -48,13 +54,26 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
 func _on_timeline_started() -> void:
+	_in_dialogue = true
 	set_expanded(false) # in case the hotbar was open when dialogue started
-	hide()
+	_refresh_visibility()
 
 func _on_timeline_ended() -> void:
-	show()
+	_in_dialogue = false
+	_refresh_visibility()
+
+func on_world_changed(is_2d: bool) -> void:
+	_in_2d = is_2d
+	if is_2d:
+		set_expanded(false)
+	_refresh_visibility()
+
+func _refresh_visibility() -> void:
+	visible = not _in_dialogue and not _in_2d
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _in_2d:
+		return
 	if event is InputEventKey and event.pressed and not event.is_echo() and not Util.is_dialogue_active():
 		if event.keycode == KEY_1:
 			Inventory.select(0)
