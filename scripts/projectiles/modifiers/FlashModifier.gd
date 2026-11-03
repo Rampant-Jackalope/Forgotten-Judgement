@@ -10,6 +10,7 @@ extends ProjectileModifier
 @export var flash_time: float = 0.15
 
 func start(projectile: ProjectileBase) -> void:
+	if not is_alive(projectile): return
 	var base_color := projectile.modulate
 	var tween := projectile.get_tree().create_tween()
 	tween.set_loops()
