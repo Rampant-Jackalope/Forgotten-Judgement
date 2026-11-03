@@ -90,3 +90,24 @@ static func pick_random_weighted(options: Dictionary, random: RandomNumberGenera
 # bc normal sleep method does not work in static functions
 static func static_sleep(seconds: float) -> void:
 	await (Engine.get_main_loop() as SceneTree).create_timer(seconds).timeout
+
+static func set_enabled(root: Node, enabled: bool) -> void:
+	root.process_mode = Node.PROCESS_MODE_INHERIT if enabled else Node.PROCESS_MODE_DISABLED
+
+	if root is CanvasItem or root is Node3D:
+		root.visible = enabled
+
+	_toggle_collision(root, enabled)
+
+static func _toggle_collision(node: Node, enabled: bool) -> void:
+	if node is CollisionShape2D or node is CollisionPolygon2D \
+			or node is CollisionShape3D or node is CollisionPolygon3D:
+		if enabled:
+			# restore whatever it was before we disabled it
+			node.set_deferred("disabled", node.get_meta("_was_disabled", false))
+		else:
+			node.set_meta("_was_disabled", node.disabled)
+			node.set_deferred("disabled", true)
+
+	for child in node.get_children():
+		_toggle_collision(child, enabled)
