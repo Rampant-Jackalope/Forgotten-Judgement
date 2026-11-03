@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0f3xw3pqjbi" path="res://scenes/fights/overworker/overworker_fight.tscn" id="2_4i4sl"]
 [ext_resource type="PackedScene" uid="uid://enfbunf4a3i6" path="res://scenes/worlds/world_3d.tscn" id="2_g0w7o"]
 [ext_resource type="PackedScene" uid="uid://ditqs5s16ngi6" path="res://scenes/fights/michael/michael_fight.tscn" id="3_3nnpc"]
-[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="5_wkitm"]
+[ext_resource type="PackedScene" uid="uid://cvvl42y4mgaaq" path="res://scenes/ui/pause/pause_menu.tscn" id="5_wkitm"]
 
 [node name="WorldManager" type="Node" unique_id=678106708 node_paths=PackedStringArray("world_3d")]
 script = ExtResource("1_7ihvj")
@@ -18,4 +18,4 @@ worlds_2d = Dictionary[String, PackedScene]({
 
 [node name="2D" type="Node" parent="." unique_id=678739490]
 
-[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("5_wkitm")]
+[node name="PauseMenu" parent="." unique_id=399798200 instance=ExtResource("5_wkitm")]
