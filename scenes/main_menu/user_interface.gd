@@ -27,7 +27,7 @@ func _on_start_button_pressed() -> void:
 	sound_confirm.play()
 	await sound_confirm.finished
 	GameState.erase_save()
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/worlds/world_manager.tscn")
 
 func _on_quit_button_pressed() -> void:
 	sound_quit.play()
@@ -39,4 +39,4 @@ func _on_load_button_pressed() -> void:
 	sound_confirm.play()
 	GameState.data[GameState.DataKey.LOAD_SAVE] = true
 	await sound_confirm.finished
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/worlds/world_manager.tscn")

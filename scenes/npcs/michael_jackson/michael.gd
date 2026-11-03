@@ -11,7 +11,7 @@ func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void
 func _on_dialogic_event(action: String) -> void:
 	match action:
 		"fight":
-			get_tree().change_scene_to_file("res://scenes/fights/michael/michael_fight.tscn")
+			WorldManager.set_world_to_2d("michael_fight")
 		"bar":
 			NpcPositionMarkers.transition("Michael_Bar", self)
 		"stage":
