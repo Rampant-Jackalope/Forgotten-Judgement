@@ -25,9 +25,6 @@ func _ready():
 	assert(door_mesh_1 != null, "Door mesh 1 not found")
 	assert(door_mesh_2 != null, "Door mesh 2 not found")
 
-	# ensure correct state
-	animation_player_1.play_backwards(r_open)
-	animation_player_2.play_backwards(l_open)
 	_on_interactable_highlight_off()
 
 func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
