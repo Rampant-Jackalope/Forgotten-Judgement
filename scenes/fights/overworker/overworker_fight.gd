@@ -1,5 +1,10 @@
 extends Node2D
 
+# TODO: use NON scaled down animation frames once idle sprite has been made
+# `res://assets/combat/overworker/tpm/` = ../
+#  `../overworker_fightingstance_tmp_scaled.png` is scaled to 1/3.2
+#  `../overworker_crawl_tmp_scaled.png` is scaled to 1/3.5
+
 @export var min_attack_interval: float = 0:
 	set(value):
 		min_attack_interval = value
