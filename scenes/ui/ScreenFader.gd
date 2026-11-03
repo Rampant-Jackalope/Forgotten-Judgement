@@ -42,17 +42,6 @@ static func transition_player(destination: Vector3, look_direction: Vector3) -> 
 	player.dialogue_locked = false
 	_is_transitioning = false
 
-static func wait_player_ready() -> Player3D:
-	var tree := Engine.get_main_loop() as SceneTree
-	var old = Util.get_player()
-	while true:
-		await tree.process_frame
-		var p = Util.get_player()
-		# wait for a NEW player that has finished its _ready()
-		if is_instance_valid(p) and p != old and p.is_node_ready():
-			return p
-	return null  # unreachable, but keeps the parser happy
-
 
 static func player_death_transition() -> void:
 	# TODO: insert better animation
@@ -62,7 +51,7 @@ static func player_death_transition() -> void:
 	_is_transitioning = true
 
 	EffectScreen.force_blackout()
-	var player = await wait_player_ready()
+	var player = Util.get_player()
 
 	var death_marker = PlayerPositionMarkers.get_marker("Player_Death")
 	var look_direction = death_marker.look_direction
