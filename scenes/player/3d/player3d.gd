@@ -15,12 +15,12 @@ func _ready() -> void:
 	global_position = GameState.data[GameState.DataKey.PLAYER_POSITION]
 
 func dialogue_lock() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	InputStash.disable_action("interact")
 	dialogue_locked = true
 
 func dialogue_unlock() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	InputStash.enable_action("interact")
 	dialogue_locked = false
 
