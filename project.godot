@@ -31,8 +31,7 @@ directories/dch_directory={
 "bb": "res://dialogic/characters/bb.dch",
 "main_player": "res://dialogic/characters/main_player.dch",
 "michael_jackson": "res://dialogic/characters/michael_jackson.dch",
-"overworker": "res://dialogic/characters/overworker.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"overworker": "res://dialogic/characters/overworker.dch"
 }
 directories/dtl_directory={
 "bartender": "res://dialogic/timelines/overworker/bartender.dtl",
@@ -70,7 +69,8 @@ variables={
 },
 "overworker": {
 "HasMetOverworker": false,
-"overworker_warnings": 0
+"warnings": 0
+}
 }
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
