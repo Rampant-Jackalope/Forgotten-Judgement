@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bn0f3xw3pqjbi"]
 
-[ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
+[ext_resource type="Script" uid="uid://dymqw8rbhiceb" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
 [ext_resource type="Texture2D" uid="uid://dqk8rc67f0tc1" path="res://assets/combat/overworker/tmp/overworker_fightingstance_tmp_scaled.png" id="4_lfram"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
-[ext_resource type="Texture2D" uid="uid://6v2rqyegwyq6" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
+[ext_resource type="Texture2D" uid="uid://bvcrbyte3pdko" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
@@ -45,7 +45,6 @@ animations = [{
 "texture": ExtResource("2_sev54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_q0dkp")
 "texture": ExtResource("5_q0dkp")
 }, {
 "duration": 1.0,
@@ -82,10 +81,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
-animation = &"kick"
+animation = &"punch"
 autoplay = "default"
-frame = 2
-frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")

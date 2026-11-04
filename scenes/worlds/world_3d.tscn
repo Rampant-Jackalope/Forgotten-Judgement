@@ -6,11 +6,10 @@
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="4_i8noq"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="5_mm762"]
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="6_gsnu6"]
-[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="8_lue4o"]
-[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
 [ext_resource type="PackedScene" uid="uid://br5vww1hv62jp" path="res://scenes/npcs/bartender/bartender.tscn" id="6_qfnet"]
-[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/item-interaction/hud.tscn" id="7_i7141"]
+[ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://c7jo2ec6j6inl" path="res://scenes/introduction_warning.gd" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -53,16 +52,16 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
 
 [node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
+
+[node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.8622055, 0.86, 9.998)
+
 [node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8691797, 0.057750702, 11.355218)
 script = ExtResource("8_yn0ly")
 identifier = "Player_Death"
+look_direction = Vector3(1, 1.5, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
-
-[node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("8_lue4o")]
-
-[node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.8622055, 0.86, 9.998)
 
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
 

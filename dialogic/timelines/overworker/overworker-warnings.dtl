@@ -1,8 +1,8 @@
 if {overworker.warnings} == 1.0:
 	join overworker left
 	overworker: Quit that!
-  set {overworker.HasMetOverworker} = true
-elif {overworker.overworker_warnings} == 2.0:
+	set {overworker.HasMetOverworker} = true
+elif {overworker.warnings} == 2.0:
 	join overworker left
 	overworker: I said don't!
 else:
