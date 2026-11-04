@@ -1,60 +1,272 @@
 [gd_scene format=3 uid="uid://bwna8f5x58t1x"]
 
-[ext_resource type="PackedScene" uid="uid://cytnkiuflh8gs" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_floor.gltf" id="1_cq8q7"]
-[ext_resource type="PackedScene" uid="uid://dywc13eglt4bi" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_ceiling.gltf" id="2_3e52c"]
-[ext_resource type="PackedScene" uid="uid://dmjtghgygsbd2" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_1.gltf" id="3_5yt4t"]
-[ext_resource type="PackedScene" uid="uid://blxra0w8xmwxo" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_wall_2.gltf" id="4_i6awq"]
-[ext_resource type="PackedScene" uid="uid://bknkx5jhietff" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_desk.gltf" id="6_1ol7r"]
-[ext_resource type="PackedScene" uid="uid://bty5vvrjkyptx" path="res://assets/Playtest_stuff/Overworker_objects/Watercooler.gltf" id="7_jks30"]
-[ext_resource type="PackedScene" uid="uid://d6h2ycdq8cua" path="res://assets/Playtest_stuff/Overworker_objects/Overworker_Coffee_machine.gltf" id="8_5uowb"]
-[ext_resource type="Script" uid="uid://7mslbg5x0oxq" path="res://assets/Playtest_stuff/Overworker_objects/warning_count.gd" id="9_g78rx"]
+[ext_resource type="PackedScene" uid="uid://bbo6lyufv5vhx" path="res://assets/environment/Overworker/Overworker_ceiling.gltf" id="1_qcsdh"]
+[ext_resource type="PackedScene" uid="uid://f54j1nqaoc6d" path="res://assets/environment/Overworker/Overworker_Floor.gltf" id="2_8hy7u"]
+[ext_resource type="PackedScene" uid="uid://c8abnv187pyix" path="res://assets/environment/Overworker/Overworker_wall_1.gltf" id="3_sb0kq"]
+[ext_resource type="PackedScene" uid="uid://df84jjxh3pvwf" path="res://assets/environment/Overworker/Overworker_wall_2.gltf" id="4_832hi"]
+[ext_resource type="PackedScene" uid="uid://q7kfe83sqxpf" path="res://assets/environment/Overworker/Coffee_machine.gltf" id="5_fcbs4"]
+[ext_resource type="PackedScene" uid="uid://cflfrje1gjg6s" path="res://assets/environment/Overworker/Cube.gltf" id="6_5txki"]
+[ext_resource type="PackedScene" uid="uid://byvwej7gcqp15" path="res://assets/environment/Overworker/FloppyDisk.gltf" id="7_5fq1n"]
+[ext_resource type="PackedScene" uid="uid://cq2xikff0cjwb" path="res://assets/environment/Overworker/Macintosh.gltf" id="8_axflx"]
+[ext_resource type="PackedScene" uid="uid://dp862tdglc8w7" path="res://assets/environment/Overworker/Mouse.gltf" id="9_8s3gu"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="9_832hi"]
+[ext_resource type="Script" uid="uid://7mslbg5x0oxq" path="res://scenes/rooms/overworker/decoration_interactions.gd" id="9_g78rx"]
 [ext_resource type="Script" uid="uid://c3o0hfw8nosfb" path="res://scenes/rooms/overworker/exit_door.gd" id="9_xwbor"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="10_iclxq"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="10_mopld"]
+[ext_resource type="PackedScene" uid="uid://7pcd406e47mw" path="res://assets/environment/Overworker/MouseCable.gltf" id="10_n3ini"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="11_1e0sh"]
+[ext_resource type="PackedScene" uid="uid://b44njbrqbast1" path="res://assets/environment/Overworker/Printer.gltf" id="11_m3lho"]
+[ext_resource type="PackedScene" uid="uid://b688tmyteuuuk" path="res://assets/environment/Overworker/ShittyKeyboard.gltf" id="12_fsv2b"]
+[ext_resource type="PackedScene" uid="uid://c0to66drfpc2b" path="res://assets/environment/Overworker/Water_cooler.gltf" id="13_18wda"]
+[ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="20_fcbs4"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.96, 2.398, 1.225)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3lho"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kpxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcbs4"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbxjm"]
+size = Vector3(2.5, 1.25, 2.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_832hi"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5txki"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fq1n"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axflx"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8s3gu"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n3ini"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsv2b"]
+render_priority = 0
+shader = ExtResource("9_832hi")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mbxjm"]
+radius = 0.75
 
 [node name="OverworkerRoom" type="Node3D" unique_id=211864694]
 
 [node name="Bounds" type="Node3D" parent="." unique_id=694484944]
 
-[node name="Overworker_floor" parent="Bounds" unique_id=268085334 instance=ExtResource("1_cq8q7")]
+[node name="Overworker_ceiling2" parent="Bounds" unique_id=517091259 instance=ExtResource("1_qcsdh")]
 
-[node name="Overworker_ceiling" parent="Bounds" unique_id=1400398735 instance=ExtResource("2_3e52c")]
+[node name="Overworker_Floor2" parent="Bounds" unique_id=2139594421 instance=ExtResource("2_8hy7u")]
 
-[node name="Overworker_wall_1" parent="Bounds" unique_id=1596211582 instance=ExtResource("3_5yt4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="Overworker_wall_12" parent="Bounds" unique_id=453341946 instance=ExtResource("3_sb0kq")]
 
-[node name="Overworker_wall_2" parent="Bounds" unique_id=2020202685 instance=ExtResource("3_5yt4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+[node name="Overworker_wall_13" parent="Bounds" unique_id=1676009984 instance=ExtResource("3_sb0kq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Overworker_wall_22" parent="Bounds" unique_id=672766581 instance=ExtResource("4_i6awq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+[node name="Overworker_wall_22" parent="Bounds" unique_id=1078026361 instance=ExtResource("4_832hi")]
 
-[node name="Overworker_wall_23" parent="Bounds" unique_id=1787167449 instance=ExtResource("4_i6awq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+[node name="Overworker_wall_23" parent="Bounds" unique_id=1271612692 instance=ExtResource("4_832hi")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Decorations" type="Node3D" parent="." unique_id=1456555261]
-
-[node name="Overworker_desk" parent="Decorations" unique_id=1658712161 instance=ExtResource("6_1ol7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.9039564)
-
-[node name="Watercooler" parent="Decorations" unique_id=1471611136 instance=ExtResource("7_jks30")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.6306157, 0, 2.026535)
-
-[node name="Overworker_Coffee_machine" parent="Decorations" unique_id=729018586 instance=ExtResource("8_5uowb")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.1423697, 0, 0)
 script = ExtResource("9_g78rx")
 
-[node name="Interactable" type="Area3D" parent="Decorations/Overworker_Coffee_machine" unique_id=1876514961]
+[node name="DialogicSubject" type="Node" parent="Decorations" unique_id=1636909941]
+script = ExtResource("20_fcbs4")
+subject = "overworker"
+metadata/_custom_type_script = "uid://d04vnm70e1wfo"
+
+[node name="Coffee_machine2" parent="Decorations" unique_id=1514329234 instance=ExtResource("5_fcbs4")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Coffee_machine" parent="Decorations/Coffee_machine2" index="0" unique_id=1252492769]
+material_overlay = SubResource("ShaderMaterial_m3lho")
+
+[node name="Interactable" type="Area3D" parent="Decorations/Coffee_machine2" unique_id=949414624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.401213, 0.97059476, 0.49414828)
 script = ExtResource("10_mopld")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Overworker_Coffee_machine/Interactable" unique_id=1796768590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24241447, 0.616272, 0.0097080255)
-shape = SubResource("BoxShape3D_g4v7s")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Coffee_machine2/Interactable" unique_id=161717526]
+shape = SubResource("BoxShape3D_1kpxu")
+
+[node name="Cube2" parent="Decorations" unique_id=729085450 instance=ExtResource("6_5txki")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Cube" parent="Decorations/Cube2" index="0" unique_id=1592564232]
+material_overlay = SubResource("ShaderMaterial_fcbs4")
+
+[node name="Interactable2" type="Area3D" parent="Decorations/Cube2" unique_id=637981855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409, 0.625, 3)
+script = ExtResource("10_mopld")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Cube2/Interactable2" unique_id=369253352]
+shape = SubResource("BoxShape3D_mbxjm")
+
+[node name="FloppyDisk2" parent="Decorations" unique_id=1284237272 instance=ExtResource("7_5fq1n")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="FloppyDisk" parent="Decorations/FloppyDisk2" index="0" unique_id=2104026253]
+material_overlay = SubResource("ShaderMaterial_832hi")
+
+[node name="Macintosh2" parent="Decorations" unique_id=1228577386 instance=ExtResource("8_axflx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Macintosh" parent="Decorations/Macintosh2" index="0" unique_id=782917255]
+material_overlay = SubResource("ShaderMaterial_5txki")
+
+[node name="Mouse2" parent="Decorations" unique_id=1179892946 instance=ExtResource("9_8s3gu")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Mouse" parent="Decorations/Mouse2" index="0" unique_id=1259849139]
+material_overlay = SubResource("ShaderMaterial_5fq1n")
+
+[node name="MouseCable2" parent="Decorations" unique_id=1002174022 instance=ExtResource("10_n3ini")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MouseCable" parent="Decorations/MouseCable2" index="0" unique_id=1300241991]
+material_overlay = SubResource("ShaderMaterial_axflx")
+
+[node name="Printer2" parent="Decorations" unique_id=370806855 instance=ExtResource("11_m3lho")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Printer" parent="Decorations/Printer2" index="0" unique_id=640763089]
+material_overlay = SubResource("ShaderMaterial_8s3gu")
+
+[node name="ShittyKeyboard2" parent="Decorations" unique_id=1941166790 instance=ExtResource("12_fsv2b")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="ShittyKeyboard" parent="Decorations/ShittyKeyboard2" index="0" unique_id=1787510222]
+material_overlay = SubResource("ShaderMaterial_n3ini")
+
+[node name="Water_cooler2" parent="Decorations" unique_id=822848682 instance=ExtResource("13_18wda")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Water_cooler" parent="Decorations/Water_cooler2" index="0" unique_id=1204477641]
+material_overlay = SubResource("ShaderMaterial_fsv2b")
+
+[node name="Interactable" type="Area3D" parent="Decorations/Water_cooler2" unique_id=213062284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4126368, 0.8783537, -1.5200585)
+script = ExtResource("10_mopld")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/Water_cooler2/Interactable" unique_id=471982770]
+shape = SubResource("SphereShape3D_mbxjm")
 
 [node name="Door" type="Node3D" parent="." unique_id=1640152771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
@@ -70,5 +282,24 @@ identifier = "Overworker_Inside"
 look_direction = Vector3(1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
-[connection signal="interacted" from="Decorations/Overworker_Coffee_machine/Interactable" to="Decorations/Overworker_Coffee_machine" method="_on_interactable_interacted"]
+[connection signal="recieved" from="Decorations/DialogicSubject" to="Decorations" method="_on_dialogic_signal"]
+[connection signal="highlight_off" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_off"]
+[connection signal="highlight_on" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_on"]
+[connection signal="interacted" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="_on_interactable_interacted"]
+[connection signal="highlight_off" from="Decorations/Cube2/Interactable2" to="Decorations" method="desk_highlight_off"]
+[connection signal="highlight_on" from="Decorations/Cube2/Interactable2" to="Decorations" method="desk_highlight_on"]
+[connection signal="interacted" from="Decorations/Cube2/Interactable2" to="Decorations" method="_on_interactable_interacted"]
+[connection signal="highlight_off" from="Decorations/Water_cooler2/Interactable" to="Decorations" method="water_cooler_highlight_off"]
+[connection signal="highlight_on" from="Decorations/Water_cooler2/Interactable" to="Decorations" method="water_cooler_highlight_on"]
+[connection signal="interacted" from="Decorations/Water_cooler2/Interactable" to="Decorations" method="_on_interactable_interacted"]
 [connection signal="interacted" from="Door/callback_door" to="Door" method="_on_callback_door_interacted"]
+
+[editable path="Decorations/Coffee_machine2"]
+[editable path="Decorations/Cube2"]
+[editable path="Decorations/FloppyDisk2"]
+[editable path="Decorations/Macintosh2"]
+[editable path="Decorations/Mouse2"]
+[editable path="Decorations/MouseCable2"]
+[editable path="Decorations/Printer2"]
+[editable path="Decorations/ShittyKeyboard2"]
+[editable path="Decorations/Water_cooler2"]

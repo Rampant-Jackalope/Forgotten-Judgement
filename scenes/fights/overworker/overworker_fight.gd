@@ -1,5 +1,10 @@
 extends Node2D
 
+# TODO: use NON scaled down animation frames once idle sprite has been made
+# `res://assets/combat/overworker/tpm/` = ../
+#  `../overworker_fightingstance_tmp_scaled.png` is scaled to 1/3.2
+#  `../overworker_crawl_tmp_scaled.png` is scaled to 1/3.5
+
 @export var min_attack_interval: float = 0:
 	set(value):
 		min_attack_interval = value
@@ -57,8 +62,8 @@ func _spawn_projectile() -> void:
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
-	# TODO: properly handle this shit doesn't matter too much this is a debugging fight anyway
-	get_tree().quit()
+	WorldManager.set_world_to_3d()
+	ScreenFader.player_death_transition()
 
 # Connected to signal
 func _on_overworker_health_changed(old: int, new: int) -> void:
@@ -66,4 +71,4 @@ func _on_overworker_health_changed(old: int, new: int) -> void:
 
 # Connected to signal
 func _on_overworker_died() -> void:
-	get_tree().change_scene_to_file.call_deferred("res://scenes/world.tscn") # TODO: Make this good
+	WorldManager.set_world_to_3d()

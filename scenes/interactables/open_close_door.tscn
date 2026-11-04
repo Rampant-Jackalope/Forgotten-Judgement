@@ -28,7 +28,7 @@ script = ExtResource("1_otvyk")
 
 [node name="DoorAnimated" parent="." unique_id=1056316910 instance=ExtResource("2_otvyk")]
 
-[node name="Door" parent="DoorAnimated" index="0" unique_id=195757734]
+[node name="Door" parent="DoorAnimated" index="0" unique_id=914642753]
 material_overlay = SubResource("ShaderMaterial_71j4m")
 
 [node name="LookTarget" type="Node3D" parent="DoorAnimated/Door" index="0" unique_id=1967718121]

@@ -5,6 +5,6 @@ var random: RandomNumberGenerator
 
 func trigger(rng: RandomNumberGenerator) -> void:
 	random = rng
-	await do()
+	do()
 
 @abstract func do() -> void

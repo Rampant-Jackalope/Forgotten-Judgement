@@ -4,7 +4,8 @@ extends Node3D
 @onready var animation_player_2 = get_node("L/AnimationPlayer")
 @onready var door_mesh_1 = get_node("R/Door")
 @onready var door_mesh_2 = get_node("L/Door")
-
+@onready var collision_shape_1: CollisionShape3D = $R/Door/LookTarget/Interactable/CollisionShape3D
+@onready var collision_shape_2: CollisionShape3D = $R/Door/LookTarget/Interactable/CollisionShape3D
 var r_open = "Open_neg"
 var l_open = "Open_pos"
 
@@ -25,9 +26,6 @@ func _ready():
 	assert(door_mesh_1 != null, "Door mesh 1 not found")
 	assert(door_mesh_2 != null, "Door mesh 2 not found")
 
-	# ensure correct state
-	animation_player_1.play_backwards(r_open)
-	animation_player_2.play_backwards(l_open)
 	_on_interactable_highlight_off()
 
 func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
@@ -36,16 +34,30 @@ func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> voi
 			state = State.OPEN
 			animation_player_1.play(r_open)
 			animation_player_2.play(l_open)
+
+			collision_shape_1.set_deferred("disabled", true)
+			collision_shape_2.set_deferred("disabled", true)
+
 			await animation_player_1.animation_finished
 			await animation_player_2.animation_finished
+
+			collision_shape_1.set_deferred("disabled", false)
+			collision_shape_2.set_deferred("disabled", false)
 		return
 
 	if !animation_player_1.is_playing() || !animation_player_2.is_playing():
 		state = State.CLOSED
 		animation_player_1.play_backwards(r_open)
 		animation_player_2.play_backwards(l_open)
+
+		collision_shape_1.set_deferred("disabled", true)
+		collision_shape_2.set_deferred("disabled", true)
+
 		await animation_player_1.animation_finished
 		await animation_player_2.animation_finished
+
+		collision_shape_1.set_deferred("disabled", false)
+		collision_shape_2.set_deferred("disabled", false)
 
 func _on_interactable_highlight_on() -> void:
 	door_mesh_1.set_instance_shader_parameter("enabled", true)

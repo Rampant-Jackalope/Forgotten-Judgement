@@ -33,7 +33,11 @@ static func show_temp_richlabel(
 	return label
 
 static func get_player() -> Player3D:
-	return Engine.get_main_loop().root.get_node("World/Player3D")
+	return Engine.get_main_loop().root.get_node("WorldManager/World3D/Player3D")
+
+static func is_dialogue_active() -> bool:
+	var p := get_player()
+	return p != null and p.dialogue_locked
 
 ##For getting a marker node for an npc to move to, given the marker's id.
 static func get_npc_marker(id: String) -> Node3D:
@@ -86,3 +90,58 @@ static func pick_random_weighted(options: Dictionary, random: RandomNumberGenera
 		if accumulator >= rnd: return value
 	
 	assert(false, "Didn't pick any option. rnd=" + str(rnd) + ", seed=" + str(pre_seed))
+
+# bc normal sleep method does not work in static functions
+static func static_sleep(seconds: float) -> void:
+	await (Engine.get_main_loop() as SceneTree).create_timer(seconds).timeout
+
+const WAS_DISABLED = "_was_disabled"
+const WAS_PICKABLE = "_was_pickable"
+const WAS_VISIBLE = "_was_visible"
+
+static func set_enabled(root: Node, enabled: bool) -> void:
+	root.process_mode = Node.PROCESS_MODE_INHERIT if enabled else Node.PROCESS_MODE_DISABLED
+	_toggle_visibility(root, enabled)
+	_toggle_collision(root, enabled)
+
+static func _toggle_visibility(node: Node, enabled: bool) -> void:
+	if node is Node3D or node is CanvasItem or node is CanvasLayer:
+		if enabled:
+			if node.has_meta(WAS_VISIBLE):
+				node.visible = node.get_meta(WAS_VISIBLE)
+				node.remove_meta(WAS_VISIBLE)
+		else:
+			if not node.has_meta(WAS_VISIBLE):
+				node.set_meta(WAS_VISIBLE, node.visible)
+			node.visible = false
+		return
+
+	# plain Node (WorldEnvironment, etc.): no visibility of its own, keep looking
+	for child in node.get_children():
+		_toggle_visibility(child, enabled)
+
+static func _toggle_collision(node: Node, enabled: bool) -> void:
+	if node is CollisionShape2D or node is CollisionPolygon2D \
+			or node is CollisionShape3D or node is CollisionPolygon3D:
+		if enabled:
+			if node.has_meta(WAS_DISABLED):
+				node.set_deferred("disabled", node.get_meta(WAS_DISABLED))
+				node.remove_meta(WAS_DISABLED)
+		else:
+			if not node.has_meta(WAS_DISABLED):
+				node.set_meta(WAS_DISABLED, node.disabled)
+			node.set_deferred("disabled", true)
+
+	# stop the pesky rays
+	if node is CollisionObject3D or node is CollisionObject2D:
+		if enabled:
+			if node.has_meta(WAS_PICKABLE):
+				node.input_ray_pickable = node.get_meta(WAS_PICKABLE)
+				node.remove_meta(WAS_PICKABLE)
+		else:
+			if not node.has_meta(WAS_PICKABLE):
+				node.set_meta(WAS_PICKABLE, node.input_ray_pickable)
+			node.input_ray_pickable = false
+
+	for child in node.get_children():
+		_toggle_collision(child, enabled)

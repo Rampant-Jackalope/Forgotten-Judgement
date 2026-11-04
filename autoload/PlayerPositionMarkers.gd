@@ -12,3 +12,7 @@ func remove(identifier: String) -> bool:
 func transition(identifier: String) -> void:
 	assert(_positions.has(identifier), "No player marker with identifier %s" % identifier)	
 	_positions[identifier].transition()
+
+func get_marker(identifier: String) -> PlayerMarker:
+	assert(_positions.has(identifier), "No player marker with identifier %s" % identifier)	
+	return _positions[identifier]

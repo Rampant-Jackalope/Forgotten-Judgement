@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://b5mvfuc3psd86" path="res://scripts/combat/Stamina.gd" id="8_feiep"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="9_feiep"]
 [ext_resource type="PackedScene" uid="uid://bx4g1ae71clpj" path="res://scenes/ui/stats/staminabar.tscn" id="10_finy2"]
+[ext_resource type="AudioStream" uid="uid://b4dply84748di" path="res://assets/sounds/mc-hurt.mp3" id="10_jqwqw"]
+[ext_resource type="AudioStream" uid="uid://df2xtd3fedguq" path="res://assets/sounds/denied.mp3" id="12_2oi0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{
@@ -124,8 +126,8 @@ metadata/_custom_type_script = "uid://b5mvfuc3psd86"
 offset_top = 900.0
 offset_bottom = 909.0
 health = NodePath("../../Health")
+damage_sound = ExtResource("10_jqwqw")
 subtitle_text = "Player health"
-subtitle_color = Color(1, 0.32534945, 0.2473095, 1)
 
 [node name="Staminabar" parent="CanvasLayer" unique_id=852893516 node_paths=PackedStringArray("stamina") instance=ExtResource("10_finy2")]
 anchors_preset = 1
@@ -137,5 +139,5 @@ offset_right = 0.0
 offset_bottom = 909.0
 grow_horizontal = 0
 stamina = NodePath("../../Stamina")
+fail_sound = ExtResource("12_2oi0r")
 subtitle_text = "Player stamina"
-subtitle_color = Color(0.17707133, 0.65850556, 0.007091007, 1)

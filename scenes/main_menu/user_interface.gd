@@ -20,15 +20,23 @@ func _ready() -> void:
 		btn.mouse_entered.connect(sound_scroll.play)
 
 	start_button.pressed.connect(_on_start_button_pressed)
-	load_button.pressed.connect(func(): sound_confirm.play())
+	load_button.pressed.connect(_on_load_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 
 func _on_start_button_pressed() -> void:
 	sound_confirm.play()
 	await sound_confirm.finished
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	GameState.erase_save()
+	get_tree().change_scene_to_file("res://scenes/worlds/world_manager.tscn")
 
 func _on_quit_button_pressed() -> void:
 	sound_quit.play()
 	await sound_quit.finished
+	GameState.save_to_disk()
 	get_tree().quit()
+
+func _on_load_button_pressed() -> void:
+	sound_confirm.play()
+	GameState.data[GameState.DataKey.LOAD_SAVE] = true
+	await sound_confirm.finished
+	get_tree().change_scene_to_file("res://scenes/worlds/world_manager.tscn")

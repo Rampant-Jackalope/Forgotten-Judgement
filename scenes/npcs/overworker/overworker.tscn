@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 shape = SubResource("SphereShape3D_g4v7s")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=1969721173]
-billboard = 1
+billboard = 2
 texture_filter = 0
 texture = ExtResource("3_up6pv")
 script = ExtResource("4_pk74u")

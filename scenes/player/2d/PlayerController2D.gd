@@ -54,24 +54,18 @@ func is_blocking() -> bool:
 
 func handle_action_input() -> void:
 	if Input.is_action_just_pressed("block"):
-		if state == State.MOVING:
-			if stamina.try_consume(block_stamina_cost):
-				sprite.play("block")
-				state = State.BLOCKING
-			else:
-				print("Not enough stamina to block!")
 		get_viewport().set_input_as_handled()
+		if state == State.MOVING and stamina.try_consume(block_stamina_cost):
+			sprite.play("block")
+			state = State.BLOCKING
 
 	elif Input.is_action_just_pressed("attack"):
-		if state == State.MOVING:
-			if stamina.try_consume(attack_stamina_cost):
-				state = State.ATTACKING
-				sprite.play("attack")
-				if attack_hitbox.has_overlapping_areas():
-					attack(attack_hitbox.get_overlapping_areas()[0])
-			else:
-				print("Not enough stamina to attack!")
 		get_viewport().set_input_as_handled()
+		if state == State.MOVING and stamina.try_consume(attack_stamina_cost):
+			state = State.ATTACKING
+			sprite.play("attack")
+			if attack_hitbox.has_overlapping_areas():
+				attack(attack_hitbox.get_overlapping_areas()[0]) # attack() can trigger a world switch that removes this node from the tree, so do not add code after this
 
 func attack(target: Area2D):
 	var health = Util.find_most_related(target, func(v): return v is Health) as Health

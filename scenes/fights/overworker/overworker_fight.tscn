@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
-[ext_resource type="Texture2D" uid="uid://c86hd337o2mu4" path="res://assets/combat/overworker/overworker_fightingstance.png" id="3_lfram"]
-[ext_resource type="Texture2D" uid="uid://domxmj170k4hs" path="res://assets/combat/overworker/overworker_crawl.png" id="4_q0dkp"]
+[ext_resource type="Texture2D" uid="uid://dqk8rc67f0tc1" path="res://assets/combat/overworker/tmp/overworker_fightingstance_tmp_scaled.png" id="4_lfram"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
+[ext_resource type="Texture2D" uid="uid://rbuksopbpsju" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
@@ -31,10 +31,13 @@ animations = [{
 "texture": ExtResource("2_sev54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_lfram")
+"texture": ExtResource("4_lfram")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lfram")
 }],
 "loop": 0,
-"name": &"drop_hat",
+"name": &"drop_stapler",
 "speed": 2.0
 }, {
 "frames": [{
@@ -42,10 +45,13 @@ animations = [{
 "texture": ExtResource("2_sev54")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_q0dkp")
+"texture": ExtResource("5_q0dkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q0dkp")
 }],
 "loop": 0,
-"name": &"kick",
+"name": &"punch",
 "speed": 2.0
 }]
 
@@ -54,19 +60,31 @@ size = Vector2(18.743969, 18.819962)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_lfram")
+min_attack_interval = 1.0
+max_attack_interval = 1.5
 hurt_audio_player = NodePath("Overworker/HurtAudioPlayer")
 
-[node name="OverworkerFightBackground" type="TextureRect" parent="." unique_id=489841130]
-offset_right = 1921.0
-offset_bottom = 1112.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2129020474]
+layer = -1
+
+[node name="OverworkerFightBackground" type="TextureRect" parent="CanvasLayer" unique_id=489841130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_lfram")
 expand_mode = 1
 stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
+animation = &"punch"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")
@@ -79,21 +97,17 @@ metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -200.0
-offset_right = -200.0
-offset_bottom = 0.0
+offset_left = -254.0
+offset_top = 20.0
+offset_right = -254.0
+offset_bottom = 20.0
 grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 health = NodePath("../../Health")
 normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
-
-[node name="Label2" type="Label" parent="Overworker/CanvasLayer/Healthbar" unique_id=1218080225]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 73.0
-offset_right = 83.0
-offset_bottom = 96.0
-theme_override_colors/font_color = Color(0.22745098, 0, 0, 1)
-text = "Boss Health"
+subtitle_text = "Boss Health"
+label_placement = 1
 
 [node name="Sprite2DAnchor" type="Node" parent="Overworker" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
 script = ExtResource("7_8px47")
@@ -121,8 +135,8 @@ script = ExtResource("9_fpkjb")
 scene = ExtResource("11_lfram")
 attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
 animator = NodePath("../Overworker")
-animation_name = &"kick"
-trigger_frame = 1
+animation_name = &"punch"
+trigger_frame = 2
 anchor = NodePath("../Overworker/Sprite2DAnchor")
 audio_player = NodePath("PunchSound")
 metadata/_custom_type_script = "uid://dja725fdmnl25"
@@ -135,8 +149,8 @@ stream = ExtResource("12_lfram")
 script = ExtResource("12_c52m2")
 scene = ExtResource("14_lfram")
 animator = NodePath("../Overworker")
-animation_name = &"drop_hat"
-trigger_frame = 1
+animation_name = &"drop_stapler"
+trigger_frame = 2
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("14_qkqcx")]
 

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cvvl42y4mgaaq"]
+
+[ext_resource type="Script" uid="uid://ds2c6sc2sihca" path="res://scenes/ui/pause/pause_menu.gd" id="1_pause"]
+[ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="2_font"]
+[ext_resource type="PackedScene" uid="uid://dxfwnogo10lw7" path="res://scenes/main_menu/user_interface.tscn" id="3_menu"]
+
+[sub_resource type="Theme" id="Theme_pause"]
+default_font = ExtResource("2_font")
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=399798200 node_paths=PackedStringArray("back_to_menu_button", "save_button", "quit_button")]
+process_mode = 3
+layer = 100
+visible = false
+script = ExtResource("1_pause")
+main_menu_scene = ExtResource("3_menu")
+back_to_menu_button = NodePath("Center/MainButtons/BackToMenuButton")
+save_button = NodePath("Center/MainButtons/SaveButton")
+quit_button = NodePath("Center/MainButtons/QuitButton")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=474459181]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="Center" unique_id=1895093129]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme = SubResource("Theme_pause")
+
+[node name="BackToMenuButton" type="Button" parent="Center/MainButtons" unique_id=1034707266]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Back to main menu"
+
+[node name="OptionsButton" type="Button" parent="Center/MainButtons" unique_id=163398230]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Options"
+
+[node name="SaveButton" type="Button" parent="Center/MainButtons" unique_id=1594398401]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Save"
+
+[node name="QuitButton" type="Button" parent="Center/MainButtons" unique_id=125066079]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Quit"

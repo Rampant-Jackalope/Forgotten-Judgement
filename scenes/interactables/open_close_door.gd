@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var animation_player = get_node("DoorAnimated/AnimationPlayer")
 @onready var door_mesh = get_node("DoorAnimated/Door")
-
+@onready var collision_shape: CollisionShape3D = $DoorAnimated/Door/StaticBody3D/CollisionShape3D
 @export var invert_open_direction: bool = false 
 
 # NOTE:
@@ -26,8 +26,6 @@ func _ready():
 	assert(animation_player != null, "Animation player not found")
 	assert(door_mesh != null, "Door mesh not found")
 
-	# ensure correct state
-	animation_player.play_backwards(get_animation())
 	_on_interactable_highlight_off()
 
 func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
@@ -35,13 +33,17 @@ func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> voi
 		if !animation_player.is_playing():
 			state = State.OPEN
 			animation_player.play(get_animation())
+			collision_shape.set_deferred("disabled", true)
 			await animation_player.animation_finished
+			collision_shape.set_deferred("disabled", false)
 		return
 
 	if !animation_player.is_playing():
 		state = State.CLOSED
 		animation_player.play_backwards(get_animation())
+		collision_shape.set_deferred("disabled", true)
 		await animation_player.animation_finished
+		collision_shape.set_deferred("disabled", false)
 
 func _on_interactable_highlight_on() -> void:
 	door_mesh.set_instance_shader_parameter("enabled", true)

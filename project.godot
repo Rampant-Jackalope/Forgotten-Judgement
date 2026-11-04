@@ -21,6 +21,7 @@ EffectScreen="*uid://cvq5l02e684ip"
 PlayerPositionMarkers="*uid://ic45h57m1m20"
 Inventory="*uid://c80npkg531tup"
 NpcPositionMarkers="*uid://cm8ewu6hq86ih"
+GameState="*uid://ducmw5bv6wfu3"
 PlayerStats="*uid://r3p146iquj8d"
 
 [dialogic]
@@ -36,7 +37,7 @@ directories/dtl_directory={
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
-"overworker-warning1": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
+"overworker-warning": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
 "overworker/main": "res://dialogic/timelines/overworker/main.dtl",
 "warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
@@ -63,7 +64,7 @@ variables={
 "GuestName": ""
 },
 "overworker": {
-"overworker_warnings": 0
+"warnings": 0
 }
 }
 glossary/default_case_sensitive=true
@@ -173,6 +174,7 @@ toggle_camera_perspective={
 interact={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(244, 16),"global_position":Vector2(253, 64),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 block={

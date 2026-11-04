@@ -25,6 +25,7 @@ autoplay = "default"
 frame_progress = 0.41394928
 script = ExtResource("2_mprrd")
 direction = Vector2(0, 0)
+speed = 300.0
 enable_timeout = true
 visibility_rect = Rect2(-205, -262, 410, 418)
 metadata/_custom_type_script = "uid://dhtts2yjk8fal"
@@ -39,5 +40,5 @@ shape = SubResource("RectangleShape2D_finy2")
 [node name="PunchModifier" type="Node" parent="." unique_id=1782377362]
 script = ExtResource("3_mprrd")
 peak_scale = 15.0
-scale_up_time = 0.4
+scale_up_time = 0.6
 metadata/_custom_type_script = "uid://442kj5on2xc2"
