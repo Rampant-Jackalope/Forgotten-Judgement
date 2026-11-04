@@ -71,9 +71,10 @@ func _on_flag_changed(path: String, old_value: Variant, new_value: Variant) -> v
 
 
 func _show_next_popup() -> void:
-	var player := _get_player()
-	if player == null:
-		return # not in the world scene (menu, fight, ...): try again once the player exists
+	var player := Util.find_player()
+	# No player (main menu) or 3D world disabled (2D fight, pause): try again later.
+	if player == null or not player.can_process():
+		return
 	var popup: Array = _queue.pop_front()
 	# Not awaited: run_locked_dialogue() sets dialogue_locked right away, which keeps
 	# _process() idle until this popup is done. The next queued popup follows after.
@@ -84,10 +85,5 @@ func _is_dialogue_busy() -> bool:
 	if Dialogic.current_timeline != null:
 		return true
 	# Also covers the frame between Dialogic.start() and the timeline actually starting.
-	var player := _get_player()
+	var player := Util.find_player()
 	return player != null and player.dialogue_locked
-
-
-## Like Util.get_player(), but returns null instead of erroring outside the world scene.
-func _get_player() -> Player3D:
-	return get_tree().root.get_node_or_null("World/Player3D") as Player3D
