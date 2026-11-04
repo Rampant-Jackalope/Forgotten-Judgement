@@ -34,7 +34,7 @@ directories/dch_directory={
 "overworker": "res://dialogic/characters/overworker.dch"
 }
 directories/dtl_directory={
-"bartender": "res://dialogic/timelines/overworker/bartender.dtl",
+"bartender": "res://dialogic/timelines/bartender/bartender.dtl",
 "introduction-warning": "res://dialogic/timelines/overworker/introduction-warning.dtl",
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
