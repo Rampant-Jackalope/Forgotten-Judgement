@@ -67,10 +67,5 @@ leave bartender [animation="Fade Out" length="1.0"]
 set {bartender.HasMetBartender} = true
 [end_timeline]
 label Has_not_met_overworker
-if randf() < 0.33:
-	bartender: Have you talked to Richard yet?
-elif randf() < 0.66:
-	bartender: He should be upstairs in room 101.
-else:
-	bartender: Go check on the Overworker first.
+bartender: <Have you talked to Richard yet?/He should be upstairs in room 101./Go check on the Overworker first.>
 [end_timeline]
