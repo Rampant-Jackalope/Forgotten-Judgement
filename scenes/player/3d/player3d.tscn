@@ -26,6 +26,7 @@ camera = NodePath("../CamPivot/Camera3D")
 collider = NodePath("../CollisionShape3D")
 body = NodePath("..")
 player_root = NodePath("..")
+step_height = 0.2
 metadata/_custom_type_script = "uid://beiwcpw3cydd5"
 
 [node name="Interactor" type="Area3D" parent="." unique_id=82966384 node_paths=PackedStringArray("player")]
