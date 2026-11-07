@@ -66,7 +66,7 @@ bartender: Good luck, friend.
 leave bartender [animation="Fade Out" length="1.0"]
 [end_timeline]
 label idle_demo_active
-- About the richard... | [if {bartender.DemoDone} == false]
+- About the richard... | [if {bartender.DemoDone}  ==  false]
 	join bartender left
 	bartender: Have you talked to him?
 	leave bartender
@@ -81,7 +81,7 @@ label idle_demo_active
 		main_player: I have
 		leave main_player
 		jump Has_met_overworker
-- Do you know where I can get the backstage key? | [if !Inventory.has_item("backstage_key") && {singer.HAS_TALKED_TO} == true]
+- Do you know where I can get the backstage key? | [if !{singer.HAS_STAGE_KEY} && {singer.HAS_TALKED_TO} == true]
 	join bartender left
 	bartender: Maybe
 	leave bartender

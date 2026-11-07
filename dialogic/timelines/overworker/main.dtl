@@ -1,4 +1,5 @@
 label first_interaction
+set {overworker.HasMetOverworker} = true
 join overworker left
 overworker: Wait.. just gotta finish this..
 leave overworker [animation="Instant Out"]

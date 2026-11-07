@@ -10,8 +10,8 @@
 script = ExtResource("1_7ihvj")
 world_3d = NodePath("World3D")
 worlds_2d = Dictionary[String, PackedScene]({
-"singer_fight": ExtResource("3_3nnpc"),
-"overworker_fight": ExtResource("3_wkitm")
+"overworker_fight": ExtResource("3_wkitm"),
+"singer_fight": ExtResource("3_3nnpc")
 })
 
 [node name="World3D" parent="." unique_id=924521940 instance=ExtResource("2_g0w7o")]
