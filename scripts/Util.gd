@@ -32,11 +32,17 @@ static func show_temp_richlabel(
 
 	return label
 
+const PLAYER_PATH := "WorldManager/World3D/Player3D"
+
 static func get_player() -> Player3D:
-	return Engine.get_main_loop().root.get_node("WorldManager/World3D/Player3D")
+	var player = get_player_or_null()
+	assert(player, "Could not find Player3D in tree")
+	return player
+static func get_player_or_null() -> Player3D:
+	return Engine.get_main_loop().root.get_node_or_null(PLAYER_PATH) as Player3D
 
 static func is_dialogue_active() -> bool:
-	var p := get_player()
+	var p := get_player_or_null()
 	return p != null and p.dialogue_locked
 
 ##For getting a marker node for an npc to move to, given the marker's id.
