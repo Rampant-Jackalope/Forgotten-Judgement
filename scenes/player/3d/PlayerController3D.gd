@@ -8,18 +8,15 @@ extends Node3D
 @export var player_root: Player3D
 
 @export var run_speed := 5.0
-@export var jump_height := 0.5 # meters, average casual human jump
 @export var gravity := 9.81
 
 @export var mouse_sensitivity := 0.0025
 @export_range(0, -90) var min_pitch_deg := -90.0 # how far down you can look
 @export_range(0, 90) var max_pitch_deg := 90.0 # how far up you can look
 
-var jump_speed: float
 
 func _ready() -> void:
 	camera.current = true
-	jump_speed = sqrt(2.0 * gravity * jump_height)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
@@ -63,9 +60,6 @@ func get_input() -> void:
 	var direction: Vector3 = (body.transform.basis * input_dir)
 	body.velocity.x = direction.x * run_speed
 	body.velocity.z = direction.z * run_speed
-
-	if body.is_on_floor() and Input.is_action_just_pressed("jump"):
-		body.velocity.y = jump_speed
 
 func _process(delta: float) -> void:
 	if not body.is_on_floor():
