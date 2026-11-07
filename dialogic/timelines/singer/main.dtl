@@ -1,4 +1,4 @@
-join  center [animation="Fade In"]
+join center [animation="Fade In"]
 singer: hee hee~
 set {singer.HAS_TALKED_TO} = true
 - fight me
@@ -9,13 +9,6 @@ set {singer.HAS_TALKED_TO} = true
 		singer: get up here then
 - How do I get up there? | [if {singer.REDIRECT_TO_BARTENDER} == false] [else="hide"]
 	singer: Backstage is locked. Ask the bartender about a key.
-	singer: Once you have the key. [wave][ns=0] [lspeed=0.05]♫ Give it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [pause=0.5] [lspeed=0.05] ♫ pass it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [input]
+	singer: Once you have the key.. [wave][pause=0.5][lspeed=0.05]♫ Use it with glee ♫ [pause=0.5][lspeed=0.01]Hoo~ [pause=0.5][lspeed=0.05]♫ Come to me ♫ [pause=0.5][lspeed=0.01]Hee~ [input]
 	set {singer.REDIRECT_TO_BARTENDER} = true
-- give backstage key | [if {singer.REDIRECT_TO_BARTENDER} == true && {singer.HAS_STAGE_KEY} == false] [else="hide"]
-	if Inventory.has_item("backstage_key"):
-		singer: You have the key !
-		do Inventory.remove("backstage_key")
-		set {singer.HAS_STAGE_KEY} = true
-	else:
-		singer: you no have key !
 - exit
