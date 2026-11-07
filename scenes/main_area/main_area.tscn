@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2sd0o1svj76a"]
 
-[ext_resource type="PackedScene" uid="uid://gvjarqlqapy3" path="res://assets/environment/Layout.gltf" id="1_81n4i"]
+[ext_resource type="PackedScene" uid="uid://crj5fjug3u2qe" path="res://assets/environment/Layout.gltf" id="1_81n4i"]
 [ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/overworker_room.tscn" id="2_hmils"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_aks2q"]
 [ext_resource type="Script" uid="uid://dholpp4cvpoeg" path="res://scenes/main_area/exit_doors.gd" id="3_hmils"]
@@ -13,17 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
 [ext_resource type="Script" uid="uid://bk3864uiwkuvp" path="res://scripts/DialogicFlagArea.gd" id="13_yglnl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmils"]
-albedo_color = Color(1, 0.6509804, 1, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnuwi"]
 albedo_color = Color(0.4392157, 1, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aks2q"]
-albedo_color = Color(1, 1, 0.5529412, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wd05"]
-albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkrbv"]
 albedo_color = Color(0, 1, 1, 1)
@@ -41,26 +32,13 @@ size = Vector3(1, 1.81, 2.215)
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
 
-[node name="FirstFloor" parent="Layout" index="5" unique_id=184538720]
-material_override = SubResource("StandardMaterial3D_hmils")
-
-[node name="RegulationStairs" parent="Layout" index="8" unique_id=1955811173]
+[node name="RegulationStairs" parent="Layout" index="21" unique_id=1085144448]
 material_override = SubResource("StandardMaterial3D_jnuwi")
-
-[node name="SecondFloor" parent="Layout" index="10" unique_id=2014928042]
-material_override = SubResource("StandardMaterial3D_aks2q")
 
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="OpenCloseDoors" type="Node3D" parent="." unique_id=1691008114]
-
-[node name="Toilet1" parent="OpenCloseDoors" unique_id=126706914 instance=ExtResource("5_aks2q")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6772666, 0, 8.404666)
-invert_open_direction = true
-
-[node name="Door" parent="OpenCloseDoors/Toilet1/DoorAnimated" parent_id_path=PackedInt32Array(126706914, 1056316910) index="0" unique_id=1671068106]
-material_override = SubResource("StandardMaterial3D_2wd05")
 
 [node name="Toilet2" parent="OpenCloseDoors" unique_id=1742132657 instance=ExtResource("5_aks2q")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6848955, 0, 11.503755)
@@ -136,26 +114,20 @@ metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [node name="Decorations" type="Node3D" parent="." unique_id=1254379724]
 
-[node name="Barstool" parent="Decorations" unique_id=1466791660 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 9)
-
-[node name="Barstool2" parent="Decorations" unique_id=1426786123 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 10)
-
 [node name="Barstool3" parent="Decorations" unique_id=620989367 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 11)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 11)
 
 [node name="Barstool4" parent="Decorations" unique_id=549619914 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 12)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 12)
 
 [node name="Barstool5" parent="Decorations" unique_id=1967792731 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 13)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 13)
 
 [node name="Barstool6" parent="Decorations" unique_id=91048093 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 14)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 14)
 
 [node name="Barstool7" parent="Decorations" unique_id=1425693616 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.5, 0, 15)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
 
 [node name="LockedDoors" type="Node3D" parent="." unique_id=1572863137]
 
@@ -189,8 +161,6 @@ debug_color = Color(0.23376629, 0.63818175, 1.92523e-07, 0.8745098)
 [connection signal="interacted" from="GuestDoors/Couple/callback_door" to="GuestDoors/Couple" method="_on_callback_door_interacted"]
 
 [editable path="Layout"]
-[editable path="OpenCloseDoors/Toilet1"]
-[editable path="OpenCloseDoors/Toilet1/DoorAnimated"]
 [editable path="OpenCloseDoors/Toilet2"]
 [editable path="OpenCloseDoors/Toilet2/DoorAnimated"]
 [editable path="ExitDoors/R"]
