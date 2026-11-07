@@ -41,12 +41,10 @@ shader_parameter/bias_per_meter = 0.02
 [sub_resource type="SphereShape3D" id="SphereShape3D_vivyq"]
 radius = 1.0
 
-[node name="DoubleOpenCloseDoor" type="Node3D" unique_id=1742132657 node_paths=PackedStringArray("animation_player_r", "door_mesh_r", "collision_shape_r", "animation_player_l", "door_mesh_l", "collision_shape_l")]
+[node name="DoubleOpenCloseDoor" type="Node3D" unique_id=1742132657 node_paths=PackedStringArray("door_mesh_r", "collision_shape_r", "door_mesh_l", "collision_shape_l")]
 script = ExtResource("1_t67n2")
-animation_player_r = NodePath("R/AnimationPlayer")
 door_mesh_r = NodePath("R/DoorAniimated")
 collision_shape_r = NodePath("R/DoorAniimated/StaticBody3D/CollisionShape3D")
-animation_player_l = NodePath("L/AnimationPlayer")
 door_mesh_l = NodePath("L/DoorAniimated")
 collision_shape_l = NodePath("L/DoorAniimated/StaticBody3D/CollisionShape3D")
 
