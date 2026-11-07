@@ -12,6 +12,7 @@ bartender: Well, everyone has their own way of dealing with things, friend. You 
 main_player: So what am I supposed to do?
 bartender: That's for you to figure out. I'm merely the bartender, after all.
 This is the end of the demo. Feel free to look around, or press ESC and then the Quit button to exit the game. Thanks for testing.
+set {bartender.DemoDone} = true
 [end_timeline]
 label Introduction_bartender
 join bartender left
@@ -68,4 +69,8 @@ set {bartender.HasMetBartender} = true
 [end_timeline]
 label Has_not_met_overworker
 bartender: <Have you talked to Richard yet?/He should be upstairs in room 101./Go check on the Overworker first.>
+[end_timeline]
+label demo_done
+join bartender left [animation="Fade Out" length="1.0"]
+bartender: <Go explore./See if you can find something to do>
 [end_timeline]
