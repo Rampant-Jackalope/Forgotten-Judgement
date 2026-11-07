@@ -9,13 +9,13 @@ radius = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1kpxu"]
 radius = 0.3
+height = 1.78
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1kpxu"]
-margin = 0.05
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_71l47"]
 radius = 0.3
+height = 1.78
 
 [node name="Player3D" type="CharacterBody3D" unique_id=230271742]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("2_gmlin")
@@ -39,19 +39,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9670925, 0)
 shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="CamPivot" type="Node3D" parent="." unique_id=487757868]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.7500001, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.55, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CamPivot" unique_id=1249185946]
 current = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2013850323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
 layers = 2
 mesh = SubResource("CapsuleMesh_1kpxu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1178372153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
-shape = SubResource("CapsuleShape3D_1kpxu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1485125279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
+shape = SubResource("CapsuleShape3D_71l47")
 
 [node name="crosshair" type="Panel" parent="." unique_id=279089937]
 custom_minimum_size = Vector2(5, 5)
