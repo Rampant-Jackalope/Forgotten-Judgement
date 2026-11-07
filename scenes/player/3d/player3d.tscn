@@ -11,7 +11,7 @@ radius = 1.0
 radius = 0.3
 height = 1.78
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_71l47"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6xc1e"]
 radius = 0.3
 height = 1.78
 
@@ -27,6 +27,7 @@ camera = NodePath("../CamPivot/Camera3D")
 collider = NodePath("../CollisionShape3D")
 body = NodePath("..")
 player_root = NodePath("..")
+step_height = 0.2
 metadata/_custom_type_script = "uid://beiwcpw3cydd5"
 
 [node name="Interactor" type="Area3D" parent="." unique_id=82966384 node_paths=PackedStringArray("player")]
@@ -50,8 +51,8 @@ layers = 2
 mesh = SubResource("CapsuleMesh_1kpxu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1485125279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89, 0)
-shape = SubResource("CapsuleShape3D_71l47")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95765424, 0)
+shape = SubResource("CylinderShape3D_6xc1e")
 
 [node name="crosshair" type="Panel" parent="." unique_id=279089937]
 custom_minimum_size = Vector2(5, 5)

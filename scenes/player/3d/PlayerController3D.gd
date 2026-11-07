@@ -8,18 +8,25 @@ extends Node3D
 @export var player_root: Player3D
 
 @export var run_speed := 5.0
-@export var jump_height := 0.5 # meters, average casual human jump
 @export var gravity := 9.81
+@export var step_height := 0.1
 
 @export var mouse_sensitivity := 0.0025
 @export_range(0, -90) var min_pitch_deg := -90.0 # how far down you can look
 @export_range(0, 90) var max_pitch_deg := 90.0 # how far up you can look
 
-var jump_speed: float
+var _step_shapecast: ShapeCast3D
+
+func _enter_tree() -> void:
+	_step_shapecast = ShapeCast3D.new()
+	# _step_shapecast.process_mode = Node.PROCESS_MODE_DISABLED
+	_step_shapecast.shape = collider.shape
+	_step_shapecast.collision_mask = body.collision_mask
+	_step_shapecast.add_exception(body)
+	add_child(_step_shapecast)
 
 func _ready() -> void:
 	camera.current = true
-	jump_speed = sqrt(2.0 * gravity * jump_height)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
@@ -64,14 +71,27 @@ func get_input() -> void:
 	body.velocity.x = direction.x * run_speed
 	body.velocity.z = direction.z * run_speed
 
-	if body.is_on_floor() and Input.is_action_just_pressed("jump"):
-		body.velocity.y = jump_speed
-
 func _process(delta: float) -> void:
 	if not body.is_on_floor():
 		body.velocity.y -= gravity * delta
 	get_input()
+
+	var target_movement = body.velocity * delta
 	body.move_and_slide()
+
+	if not body.is_on_floor(): return
+	_step_shapecast.global_position = collider.global_position + target_movement.slide(Vector3.UP) + Vector3(0, step_height, 0)
+	_step_shapecast.target_position = Vector3.ZERO
+	_step_shapecast.force_shapecast_update()
+	if not _step_shapecast.is_colliding():
+		_step_shapecast.target_position = Vector3(0, -step_height, 0)
+		_step_shapecast.force_shapecast_update()
+		if _step_shapecast.is_colliding():
+			var fraction = _step_shapecast.get_closest_collision_safe_fraction() # FIXME: For some reason returns an incorrect value
+			var safe_position = _step_shapecast.target_position * fraction + _step_shapecast.global_position
+			var collider_offset = collider.global_position - body.global_position
+			body.global_position = safe_position - collider_offset + Vector3(0, 0.05, 0) # Hardcoded offset is correct for 15cm steps # TODO: Remove hardcoded offset when above is fixed
+			body.velocity.y = 0
 
 @export_group("Look At")
 @export_range(0, 100) var minimum_pitch_distance = 0.2 ## The minimum distance to the target before pitch is also included
