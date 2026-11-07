@@ -51,16 +51,6 @@ layout/style_directory={
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
-"Singer": {
-"AT_BAR": false,
-"HAS_STAGE_KEY": false,
-"HAS_TALKED_TO": false,
-"NEARBY": false,
-"PLAYER_ON_STAGE": false,
-"REDIRECT_TO_BARTENDER": false,
-"RESPECT": 0,
-"STAGE_DOOR_OPENED": false
-},
 "bartender": {
 "DemoDone": false,
 "HAS_WARNING_RUN": false,
@@ -74,6 +64,16 @@ variables={
 "HasFoughtOverworker": false,
 "HasMetOverworker": false,
 "warnings": 0
+},
+"singer": {
+"AT_BAR": false,
+"HAS_STAGE_KEY": false,
+"HAS_TALKED_TO": false,
+"NEARBY": false,
+"PLAYER_ON_STAGE": false,
+"REDIRECT_TO_BARTENDER": false,
+"RESPECT": 0,
+"STAGE_DOOR_OPENED": false
 }
 }
 glossary/default_case_sensitive=true
