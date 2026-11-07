@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ssoj8xu5iorp"]
 
-[ext_resource type="Texture2D" uid="uid://viieshhvr5vd" path="res://assets/combat/michael/hat.png" id="1_hg4dg"]
+[ext_resource type="Texture2D" uid="uid://viieshhvr5vd" path="res://assets/combat/singer/hat.png" id="1_hg4dg"]
 [ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_fgpdo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]

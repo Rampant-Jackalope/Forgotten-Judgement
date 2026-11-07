@@ -86,8 +86,8 @@ func erase_save(path: String = SAVE_PATH, reset_memory: bool = true) -> Error:
 
 # Dialogic
 # Variables live in Dialogic.VAR.var_storage, a nested dict:
-#   { "michael": { "RESPECT": 0 }, "misc": { "GuestName": "" } }
-# They're saved flat by dotted path ("michael.RESPECT").
+#   { "singer": { "RESPECT": 0 }, "misc": { "GuestName": "" } }
+# They're saved flat by dotted path ("singer.RESPECT").
 
 func _get_dialogic_vars() -> Dictionary:
 	# untyped on purpose: looked up by path so this still parses without the plugin

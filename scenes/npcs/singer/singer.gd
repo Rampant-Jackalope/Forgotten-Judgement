@@ -6,12 +6,12 @@ func _ready() -> void:
 	_origin = global_transform
 
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
-	interactor.player.run_locked_dialogue("michael_jackson/main")
+	interactor.player.run_locked_dialogue("singer/main")
 
 func _on_dialogic_event(action: String) -> void:
 	match action:
 		"fight":
-			WorldManager.set_world_to_2d("michael_fight")
+			WorldManager.set_world_to_2d("singer_fight")
 		"bar":
 			NpcPositionMarkers.transition("Michael_Bar", self)
 		"stage":

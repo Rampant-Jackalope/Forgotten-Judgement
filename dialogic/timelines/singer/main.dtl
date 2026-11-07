@@ -1,0 +1,21 @@
+join  left [animation="Fade In"]
+singer: hee hee~
+set {Singer.HAS_TALKED_TO} = true
+- fight me
+	if {Singer.PLAYER_ON_STAGE} == true:
+		eyyy let's go bro
+		[signal arg_type="dict" arg="{"action":"fight","subject":"singer"}"]
+	else:
+		singer: get up here then
+- How do I get up there? | [if {singer.REDIRECT_TO_BARTENDER} == false]
+	singer: Backstage is locked. Ask the bartender about a key.
+	singer: Once you have the key. [wave][ns=0] [lspeed=0.05]♫ Give it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [pause=0.5] [lspeed=0.05] ♫ pass it to me ♫ [pause=0.5] [lspeed=0.01] HEE~ [input]
+	set {Singer.REDIRECT_TO_BARTENDER} = true
+- give backstage key | [if {singer.REDIRECT_TO_BARTENDER} == true && {singer.HAS_STAGE_KEY} == false]
+	if Inventory.has_item("backstage_key"):
+		singer: You have the key !
+		do Inventory.remove("backstage_key")
+		set {Singer.HAS_STAGE_KEY} = true
+	else:
+		singer: you no have key !
+- exit

@@ -81,7 +81,7 @@ label idle_demo_active
 		main_player: I have
 		leave main_player
 		jump Has_met_overworker
-- Do you know where I can get the backstage key? | [if !Inventory.has_item("backstage_key") && {michael.HAS_TALKED_TO} == true]
+- Do you know where I can get the backstage key? | [if !Inventory.has_item("backstage_key") && {singer.HAS_TALKED_TO} == true]
 	join bartender left
 	bartender: Maybe
 	leave bartender

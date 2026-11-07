@@ -2,7 +2,7 @@ extends "res://scenes/interactables/open_close_door.gd"
 ## An open/close door that only opens while the Dialogic variable `flag` is true.
 ## Otherwise it plays `locked_label` from `locked_timeline`.
 
-@export var flag: String = "" ## Dialogic variable, e.g. "michael.HAS_STAGE_KEY"
+@export var flag: String = "" ## Dialogic variable, e.g. "singer.HAS_STAGE_KEY"
 @export var locked_timeline: String = "misc-popups"
 @export var locked_label: String = "" ## Label in locked_timeline, e.g. "backstage_door_locked"
 
