@@ -1,10 +1,14 @@
-if {overworker.warnings} == 1.0:
-	join overworker left
-	overworker: Quit that!
-elif {overworker.warnings} == 2.0:
-	join overworker left
-	overworker: I said don't!
-else:
-	join overworker left
-	overworker: NO! You’ll ruin everything!
-	[signal arg_type="dict" arg="{"action":"fight","subject":"overworker"}"]
+label 3
+join overworker left
+overworker: NO! You’ll ruin everything!
+[signal arg_type="dict" arg="{"action":"fight","subject":"overworker"}"]
+[end_timeline]
+label 2
+join overworker left
+overworker: I said don't!
+[end_timeline]
+label 1
+set {overworker.HasMetOverworker} = true
+join overworker left
+overworker: Quit that!
+[end_timeline]

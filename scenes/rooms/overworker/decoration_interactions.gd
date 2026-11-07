@@ -15,13 +15,19 @@ extends Node3D
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
-func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
+func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
 	Dialogic.VAR.overworker.warnings += 1
-	Util.get_player().run_locked_dialogue("overworker-warning")
+	var warnings = Dialogic.VAR.overworker.warnings
+	if Dialogic.VAR.overworker.HasFoughtOverworker|| warnings == 3:
+		interactor.player.run_locked_dialogue("overworker-warning", "3")
+	if warnings == 2:
+		interactor.player.run_locked_dialogue("overworker-warning", "2")
+	if warnings <= 1:
+		interactor.player.run_locked_dialogue("overworker-warning", "1")
 
 func _on_dialogic_signal(action: String) -> void:
 	if action == "fight":
-		Dialogic.VAR.overworker.warnings = 0
+		Dialogic.VAR.overworker.HasFoughtOverworker = true
 		WorldManager.set_world_to_2d("overworker_fight")
 
 func water_cooler_highlight_on():

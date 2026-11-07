@@ -1,4 +1,9 @@
 extends Node3D
 
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
-	interactor.player.run_locked_dialogue("overworker/main")
+	if !Dialogic.VAR.overworker.HasMetOverworker:
+		interactor.player.run_locked_dialogue("overworker/main", "first_interaction")
+	elif Dialogic.VAR.overworker.HasFoughtOverworker:
+		interactor.player.run_locked_dialogue("overworker/main", "idle_angry")
+	else:
+		interactor.player.run_locked_dialogue("overworker/main", "idle_neutral")

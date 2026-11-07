@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bn0f3xw3pqjbi"]
 
-[ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
+[ext_resource type="Script" uid="uid://dymqw8rbhiceb" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
 [ext_resource type="Texture2D" uid="uid://dqk8rc67f0tc1" path="res://assets/combat/overworker/tmp/overworker_fightingstance_tmp_scaled.png" id="4_lfram"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
-[ext_resource type="Texture2D" uid="uid://rbuksopbpsju" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
+[ext_resource type="Texture2D" uid="uid://bvcrbyte3pdko" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
