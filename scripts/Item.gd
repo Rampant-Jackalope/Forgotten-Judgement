@@ -10,9 +10,17 @@ extends Node3D
 @export var interactable: Interactable
 @export var highlight_sprite: Sprite3D
 
+## Override this to define if an item can spawn in the world or not.
+## For stuff such as unique items that can only be spawned once or have already been consumed.
+func _can_spawn() -> bool:
+	return !Inventory.has_item(data.id)
+
 func _ready() -> void:
 	assert(data != null, "Item '%s' has no ItemData assigned." % name)
 	assert(interactable != null, "Item '%s' has no Interactable assigned." % name)
+
+	if !_can_spawn():
+		queue_free()
 
 	if highlight_sprite != null:
 		highlight_sprite.hide()

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="1_lvvwu"]
 [ext_resource type="Script" uid="uid://b4xpvu30la2cb" path="res://scenes/interactables/open_close_door.gd" id="1_otvyk"]
-[ext_resource type="PackedScene" uid="uid://cpajm3243y8m5" path="res://assets/environment/DoorAnimated.gltf" id="2_otvyk"]
+[ext_resource type="PackedScene" uid="uid://cknks4qomt2ai" path="res://assets/environment/DoorAnimated.gltf" id="2_otvyk"]
 [ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="3_a0blr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_71j4m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg8mm"]
 render_priority = 0
 shader = ExtResource("3_a0blr")
 shader_parameter/visible_fill = 0.01
@@ -20,30 +20,33 @@ shader_parameter/glow = 1.0
 shader_parameter/bias = 0.1
 shader_parameter/bias_per_meter = 0.02
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_mbxjm"]
 radius = 1.0
 
-[node name="OpenCloseDoor" type="Node3D" unique_id=1742132657]
+[node name="OpenCloseDoor" type="Node3D" unique_id=1742132657 node_paths=PackedStringArray("animation_player", "door_mesh", "collision_shape")]
 script = ExtResource("1_otvyk")
+animation_player = NodePath("DoorAnimated/AnimationPlayer")
+door_mesh = NodePath("DoorAnimated/DoorAniimated")
+collision_shape = NodePath("DoorAnimated/DoorAniimated/StaticBody3D/CollisionShape3D")
 
 [node name="DoorAnimated" parent="." unique_id=1056316910 instance=ExtResource("2_otvyk")]
 
-[node name="Door" parent="DoorAnimated" index="0" unique_id=914642753]
-material_overlay = SubResource("ShaderMaterial_71j4m")
+[node name="DoorAniimated" parent="DoorAnimated" index="0" unique_id=1104962726]
+material_overlay = SubResource("ShaderMaterial_wg8mm")
 
-[node name="LookTarget" type="Node3D" parent="DoorAnimated/Door" index="0" unique_id=1967718121]
-transform = Transform3D(1, 2.3841856e-07, 7.1054274e-15, -2.3841856e-07, 1, 5.960465e-08, 7.105427e-15, -5.960465e-08, 1, 0.8679659, 0.9960053, 0.0031089485)
+[node name="Target" type="Node3D" parent="DoorAnimated/DoorAniimated" index="1" unique_id=167861951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8949667, 0.8980634, 0)
 
-[node name="Interactable" type="Area3D" parent="DoorAnimated/Door/LookTarget" unique_id=205296272 node_paths=PackedStringArray("look_target")]
+[node name="Interactable" type="Area3D" parent="DoorAnimated/DoorAniimated/Target" unique_id=939544514 node_paths=PackedStringArray("look_target")]
 script = ExtResource("1_lvvwu")
 look_target = NodePath("..")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorAnimated/Door/LookTarget/Interactable" unique_id=1782608155]
-shape = SubResource("SphereShape3D_1kpxu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorAnimated/DoorAniimated/Target/Interactable" unique_id=1676417315]
+shape = SubResource("SphereShape3D_mbxjm")
 
-[connection signal="highlight_off" from="DoorAnimated/Door/LookTarget/Interactable" to="." method="_on_interactable_highlight_off"]
-[connection signal="highlight_on" from="DoorAnimated/Door/LookTarget/Interactable" to="." method="_on_interactable_highlight_on"]
-[connection signal="interacted" from="DoorAnimated/Door/LookTarget/Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="highlight_off" from="DoorAnimated/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="DoorAnimated/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_on"]
+[connection signal="interacted" from="DoorAnimated/DoorAniimated/Target/Interactable" to="." method="_on_interactable_interacted"]
 
 [editable path="DoorAnimated"]

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cyrymm3u5uypo"]
+
+[ext_resource type="Script" uid="uid://c1tl3lpwnnl43" path="res://scenes/interactables/double_callback_door.gd" id="1_qudk3"]
+[ext_resource type="PackedScene" uid="uid://dicgru32thayg" path="res://assets/environment/DoorAnimated_Frameless.gltf" id="2_cwn67"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="3_6aw37"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="4_mhts2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t67n2"]
+render_priority = 0
+shader = ExtResource("3_6aw37")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
+radius = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttu10"]
+render_priority = 0
+shader = ExtResource("3_6aw37")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vivyq"]
+radius = 1.0
+
+[node name="DoubleCallbackDoor" type="Node3D" unique_id=1742132657 node_paths=PackedStringArray("door_mesh_r", "collision_shape_r", "door_mesh_l", "collision_shape_l")]
+script = ExtResource("1_qudk3")
+door_mesh_r = NodePath("R/DoorAniimated")
+collision_shape_r = NodePath("R/DoorAniimated/StaticBody3D/CollisionShape3D")
+door_mesh_l = NodePath("L/DoorAniimated")
+collision_shape_l = NodePath("L/DoorAniimated/Target/Interactable/CollisionShape3D")
+
+[node name="R" parent="." unique_id=571457973 instance=ExtResource("2_cwn67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="DoorAniimated" parent="R" index="0" unique_id=2016987327]
+material_overlay = SubResource("ShaderMaterial_t67n2")
+
+[node name="Target" type="Node3D" parent="R/DoorAniimated" index="1" unique_id=1215282247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8949667, 0.8980634, 0)
+
+[node name="Interactable" type="Area3D" parent="R/DoorAniimated/Target" unique_id=281935413]
+script = ExtResource("4_mhts2")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="R/DoorAniimated/Target/Interactable" unique_id=990232197]
+shape = SubResource("SphereShape3D_1kpxu")
+
+[node name="L" parent="." unique_id=334333840 instance=ExtResource("2_cwn67")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5, 0, 0)
+
+[node name="DoorAniimated" parent="L" index="0" unique_id=2016987327]
+material_overlay = SubResource("ShaderMaterial_ttu10")
+
+[node name="Target" type="Node3D" parent="L/DoorAniimated" index="1" unique_id=1755311570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8949667, 0.8980634, 0)
+
+[node name="Interactable" type="Area3D" parent="L/DoorAniimated/Target" unique_id=1210133099]
+script = ExtResource("4_mhts2")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="L/DoorAniimated/Target/Interactable" unique_id=1412982280]
+shape = SubResource("SphereShape3D_vivyq")
+
+[connection signal="highlight_off" from="R/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="R/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_on"]
+[connection signal="interacted" from="R/DoorAniimated/Target/Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="highlight_off" from="L/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="L/DoorAniimated/Target/Interactable" to="." method="_on_interactable_highlight_off"]
+[connection signal="interacted" from="L/DoorAniimated/Target/Interactable" to="." method="_on_interactable_interacted"]
+
+[editable path="R"]
+[editable path="L"]

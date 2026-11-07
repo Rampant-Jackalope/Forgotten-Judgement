@@ -3,7 +3,7 @@ extends Node
 ## Autoload "FlagWatcher".
 ##
 ## Reacts to Dialogic variables changing, e.g. showing
-## "(you can now open the backstage door)" the moment michael.HAS_STAGE_KEY becomes true.
+## "(you can now open the backstage door)" the moment singer.HAS_STAGE_KEY becomes true.
 ##
 ## Snapshots are used instead of Dialogic.VAR.variable_changed because that signal only
 ## fires for `set` events / VAR.set_variable(); `Dialogic.VAR.some.flag = x` from GDScript
@@ -13,14 +13,14 @@ extends Node
 ## Perhaps logic like this can also be used for a diary/logbook.
 
 ## Emitted (outside of dialogue) for every Dialogic variable whose value changed.
-## `path` is the dotted variable name, e.g. "michael.HAS_STAGE_KEY".
+## `path` is the dotted variable name, e.g. "singer.HAS_STAGE_KEY".
 signal flag_changed(path: String, old_value: Variant, new_value: Variant)
 
 
 ## Popups shown when a variable becomes true: variable path -> [timeline, label].
 ## One line per popup.
 var POPUPS: Dictionary[String, PopupDef] = {
-	"michael.HAS_STAGE_KEY": PopupDef.new("misc-popups", "backstage_door_unlocked"),
+	"singer.HAS_STAGE_KEY": PopupDef.new("misc-popups", "backstage_door_unlocked"),
 }
 
 var _snapshot: Dictionary = {}

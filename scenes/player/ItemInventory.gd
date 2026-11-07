@@ -14,6 +14,20 @@ var selected_index: int = 0
 
 func _ready() -> void:
 	slots.resize(slot_count) # all null
+	GameState.about_to_save.connect(func():
+		var items: Array[ItemData] = []
+		for item in slots:
+			if item != null:
+				items.append(item)
+		GameState.data[GameState.DataKey.ITEMS] = items
+	)
+
+func clear() -> void:
+	for i in slots.size():
+		if slots[i] != null:
+			slots[i] = null
+			slot_changed.emit(i, null)
+	selected_changed.emit(selected_index, null)
 
 func add(item: ItemData) -> bool:
 	assert(item != null, "ItemInventory.add() called with null")

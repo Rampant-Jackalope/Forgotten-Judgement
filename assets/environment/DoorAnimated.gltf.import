@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpajm3243y8m5"
+uid="uid://cknks4qomt2ai"
 path="res://.godot/imported/DoorAnimated.gltf-7f605ec84ca7cdac6f61b6b98ee2b11a.scn"
 
 [deps]
@@ -41,7 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Door": {
+"PATH:DoorAniimated": {
+"generate/physics": true
+},
+"PATH:Doorframe": {
 "generate/physics": true
 }
 }

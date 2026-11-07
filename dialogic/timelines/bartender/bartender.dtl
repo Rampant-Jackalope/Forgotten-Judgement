@@ -1,7 +1,5 @@
 label Has_met_overworker
 join bartender left
-bartender: Ahh, back already, friend. How was your little visit to room 101?
-main_player: I talked to Richard.
 bartender: Did you now? And how did you find him?
 main_player: He seems pretty obsessed with his work.
 bartender: Hah! That's Richard for you. The man could probably work himself into an early grave.
@@ -15,6 +13,7 @@ This is the end of the demo. Feel free to look around, or press ESC and then the
 set {bartender.DemoDone} = true
 [end_timeline]
 label Introduction_bartender
+set {bartender.HasMetBartender} = true
 join bartender left
 bartender: This is Lethe's End, friend. I'm the owner, and bartender, of this inn. And you are a resident, staying here for an indefinite amount of time.
 leave bartender [animation="Instant Out"]
@@ -65,12 +64,37 @@ main_player: I guess i'll go see this 'Overworker' person, then.
 join bartender left [animation="Instant In"]
 bartender: Good luck, friend.
 leave bartender [animation="Fade Out" length="1.0"]
-set {bartender.HasMetBartender} = true
 [end_timeline]
-label Has_not_met_overworker
-bartender: <Have you talked to Richard yet?/He should be upstairs in room 101./Go check on the Overworker first.>
+label idle_demo_active
+- About the richard... | [if {bartender.DemoDone}  ==  false]
+	join bartender left
+	bartender: Have you talked to him?
+	leave bartender
+	join main_player center
+	if {overworker.HasMetOverworker} == false:
+		main_player: No[pause=0.25].[pause=0.25].[pause=0.25].
+		leave main_player
+		join bartender left
+		bartender: Well go do that
+	else:
+		join main_player center
+		main_player: I have
+		leave main_player
+		jump Has_met_overworker
+- Do you know where I can get the backstage key? | [if !{singer.HAS_STAGE_KEY} && {singer.HAS_TALKED_TO} == true]
+	join bartender left
+	bartender: Maybe
+	leave bartender
+	join main_player center
+	main_player: Why maybe?
+	leave main_player
+	join bartender left
+	bartender: Well I lost it when I went upstairs. So it has to be up there somewhere. I think.
+	leave bartender
+	join main_player center
+	main_player: I'll go look there then.
 [end_timeline]
-label demo_done
-join bartender left [animation="Fade Out" length="1.0"]
-bartender: <Go explore./See if you can find something to do>
+label idle_demo_done
+join bartender left
+bartender: <Go explore/See if you can do something with your time>
 [end_timeline]

@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var animation_player = get_node("DoorAnimated/AnimationPlayer")
-@onready var door_mesh = get_node("DoorAnimated/Door")
-@onready var collision_shape: CollisionShape3D = $DoorAnimated/Door/StaticBody3D/CollisionShape3D
+@export var animation_player: AnimationPlayer
+@export var door_mesh: MeshInstance3D
+@export var collision_shape: CollisionShape3D
 @export var invert_open_direction: bool = false 
 
 # NOTE:

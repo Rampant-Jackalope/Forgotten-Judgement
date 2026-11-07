@@ -1,12 +1,12 @@
 class_name DialogicFlagArea
 extends Area3D
 ## Sets a Dialogic variable to true while the player is inside this area, false otherwise.
-## Lets timelines branch on where the player is, e.g. `if {michael.PLAYER_ON_STAGE} == true:`.
+## Lets timelines branch on where the player is, e.g. `if {singer.PLAYER_ON_STAGE} == true:`.
 ## Give it a CollisionShape3D child like any Area3D.
 ## 
 ## Reason for adding: for if we need dialogue options to be dependant on where the player is.
 
-@export var flag: String ## Dialogic variable to drive, e.g. "michael.PLAYER_ON_STAGE"
+@export var flag: String ## Dialogic variable to drive, e.g. "singer.PLAYER_ON_STAGE"
 
 
 func _ready() -> void:
