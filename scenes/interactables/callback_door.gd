@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var animation_player = get_node("DoorAnimated/AnimationPlayer")
-@onready var door_mesh = get_node("DoorAnimated/Door")
+@export var animation_player: AnimationPlayer
+@export var door_mesh: MeshInstance3D
 
 @export var invert_open_direction: bool = false 
 
