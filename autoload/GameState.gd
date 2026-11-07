@@ -8,6 +8,7 @@ const SAVE_PATH := "user://player_state.json"
 enum DataKey {
 	PLAYER_POSITION,
 	LOAD_SAVE,
+	ITEMS
 }
 
 ## Only keys listed here are saved and loaded. The values are the defaults.
@@ -16,7 +17,8 @@ enum DataKey {
 ## NOTE: when too many values are added to this list just start creating classes/objects to nest them under
 var data: Dictionary = {
 	DataKey.PLAYER_POSITION: Vector3(0, 0, 8),
-	DataKey.LOAD_SAVE: false
+	DataKey.LOAD_SAVE: false,
+	DataKey.ITEMS: [] as Array[ItemData],
 }
 
 var _defaults := data.duplicate(true)
@@ -57,6 +59,12 @@ func load_from_disk(path: String = SAVE_PATH) -> bool:
 		var k: String = DataKey.find_key(key)
 		if saved.has(k):
 			data[key] = str_to_var(saved[k])
+
+	if data.has(DataKey.ITEMS):
+		Inventory.clear()
+		for item in data[DataKey.ITEMS]:
+			if item is ItemData:
+				Inventory.add(item)
 
 	var loaded := { }
 	var saved_vars: Dictionary = parsed.get("dialogic", { })
