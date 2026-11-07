@@ -19,7 +19,7 @@
 &"portraits": {
 "Bartender concept": {
 "export_overrides": {
-"image": "\"res://assets/npc-billboards/bartender_pouring_stance.png\""
+"image": "\"res://assets/npc-billboards/bartender/Bartender_Idle.png\""
 },
 "mirror": true,
 "offset": Vector2(80, 200),
