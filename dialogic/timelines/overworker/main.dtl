@@ -1,3 +1,4 @@
+label first_interaction
 join overworker left
 overworker: Wait.. just gotta finish this..
 leave overworker [animation="Instant Out"]
@@ -20,3 +21,22 @@ overworker: Alright.. But DONT touch anything!!
 	overworker: I... I guess I am. Thanks...
 leave overworker
 leave main_player
+set {overworker.HasMetOverworker} = true
+[end_timeline]
+label idle_angry
+join overworker left
+overworker: <What do you want scoundrel!/Do you not have anything else to do with your life.>
+leave overworker
+- Just here to look at a soulless bastard
+	do PlayerStats.add_apathy()
+	join overworker left
+	overworker: <I HATE YOU!!!/Why must I be tormented by your presence./BE GONE!/Find a different hobby...>
+- I'm sorry for not listening, I'll leave now.
+	do PlayerStats.add_empathy()
+	join overworker left
+	overworker: <You better./Good, and stay away.>
+[end_timeline]
+label idle_neutral
+join overworker left
+overworker: <Go away im busy./You can stay if you don't touch anything./Go do something else besides bothering me.>
+[end_timeline]

@@ -35,6 +35,8 @@ directories/dch_directory={
 "overworker": "res://dialogic/characters/overworker.dch"
 }
 directories/dtl_directory={
+"bartender": "res://dialogic/timelines/bartender/bartender.dtl",
+"introduction-warning": "res://dialogic/timelines/overworker/introduction-warning.dtl",
 "main": "res://dialogic/timelines/bartender/main.dtl",
 "michael_jackson/main": "res://dialogic/timelines/michael_jackson/main.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
@@ -46,11 +48,14 @@ layout/style_directory={
 "": "res://resources/Style_test.tres",
 "New_File": "res://resources/New_File.tres",
 "New_File 2": "res://dialogic/styles/New_File.tres",
-"Style_test": "res://resources/Style_test.tres"
+"Style_test": "res://resources/Style_test.tres",
+"bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
 "bartender": {
+"DemoDone": false,
 "HAS_WARNING_RUN": false,
+"HasMetBartender": false,
 "TRIED_TO_EXIT": false
 },
 "michael": {
@@ -66,6 +71,8 @@ variables={
 "GuestName": ""
 },
 "overworker": {
+"HasFoughtOverworker": false,
+"HasMetOverworker": false,
 "warnings": 0
 }
 }
@@ -102,13 +109,14 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres"]
+layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
 layout/default_style="res://resources/Style_test.tres"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
