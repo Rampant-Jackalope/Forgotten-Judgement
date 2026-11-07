@@ -21,5 +21,5 @@ label backstage_door_locked
 main_player: This is the door that would lead to the backstage, it is locked.
 [end_timeline]
 label backstage_door_unlocked
-main_player: (you can now open the backstage door)
+(you can now open the backstage door)
 [end_timeline]

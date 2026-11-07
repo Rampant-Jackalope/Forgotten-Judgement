@@ -41,13 +41,13 @@ size = Vector3(1, 1.81, 2.215)
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
 
-[node name="FirstFloor" parent="Layout" index="5" unique_id=96873388]
+[node name="FirstFloor" parent="Layout" index="5" unique_id=184538720]
 material_override = SubResource("StandardMaterial3D_hmils")
 
-[node name="RegulationStairs" parent="Layout" index="8" unique_id=1910955]
+[node name="RegulationStairs" parent="Layout" index="8" unique_id=1955811173]
 material_override = SubResource("StandardMaterial3D_jnuwi")
 
-[node name="SecondFloor" parent="Layout" index="10" unique_id=477192743]
+[node name="SecondFloor" parent="Layout" index="10" unique_id=2014928042]
 material_override = SubResource("StandardMaterial3D_aks2q")
 
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
@@ -59,14 +59,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6772666, 0, 8.404666)
 invert_open_direction = true
 
-[node name="Door" parent="OpenCloseDoors/Toilet1/DoorAnimated" parent_id_path=PackedInt32Array(126706914, 1056316910) index="0" unique_id=914642753]
+[node name="Door" parent="OpenCloseDoors/Toilet1/DoorAnimated" parent_id_path=PackedInt32Array(126706914, 1056316910) index="0" unique_id=1671068106]
 material_override = SubResource("StandardMaterial3D_2wd05")
 
 [node name="Toilet2" parent="OpenCloseDoors" unique_id=1742132657 instance=ExtResource("5_aks2q")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6848955, 0, 11.503755)
 invert_open_direction = true
 
-[node name="Door" parent="OpenCloseDoors/Toilet2/DoorAnimated" parent_id_path=PackedInt32Array(1742132657, 1056316910) index="0" unique_id=914642753]
+[node name="Door" parent="OpenCloseDoors/Toilet2/DoorAnimated" parent_id_path=PackedInt32Array(1742132657, 1056316910) index="0" unique_id=1671068106]
 material_override = SubResource("StandardMaterial3D_wkrbv")
 
 [node name="DoubleOpenCloseDoor" parent="OpenCloseDoors" unique_id=1279994241 instance=ExtResource("4_jnuwi")]
@@ -78,13 +78,13 @@ script = ExtResource("3_hmils")
 [node name="R" parent="ExitDoors" unique_id=1395723070 instance=ExtResource("3_aks2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="Door" parent="ExitDoors/R/DoorAnimated" parent_id_path=PackedInt32Array(1395723070, 1056316910) index="0" unique_id=914642753]
+[node name="Door" parent="ExitDoors/R/DoorAnimated" parent_id_path=PackedInt32Array(1395723070, 1056316910) index="0" unique_id=1671068106]
 material_override = SubResource("StandardMaterial3D_oxodp")
 
 [node name="L" parent="ExitDoors" unique_id=473111194 instance=ExtResource("3_aks2q")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1, 0, 0)
 
-[node name="Door" parent="ExitDoors/L/DoorAnimated" parent_id_path=PackedInt32Array(473111194, 1056316910) index="0" unique_id=914642753]
+[node name="Door" parent="ExitDoors/L/DoorAnimated" parent_id_path=PackedInt32Array(473111194, 1056316910) index="0" unique_id=1671068106]
 material_override = SubResource("StandardMaterial3D_ipjo4")
 
 [node name="GuestDoors" type="Node3D" parent="." unique_id=1105856613]

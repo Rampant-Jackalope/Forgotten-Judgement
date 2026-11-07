@@ -6,11 +6,11 @@
 [ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="4_i8noq"]
 [ext_resource type="PackedScene" uid="uid://bvyi6x1q7qx3b" path="res://scenes/npcs/michael_jackson/michael.tscn" id="5_mm762"]
 [ext_resource type="PackedScene" uid="uid://bwt5padmgwh35" path="res://scenes/npcs/overworker/overworker.tscn" id="6_gsnu6"]
-[ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/items/test_item.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://br5vww1hv62jp" path="res://scenes/npcs/bartender/bartender.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://c7jo2ec6j6inl" path="res://scenes/introduction_warning.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
+[ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/items/test_item.tscn" id="9_i8noq"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -64,8 +64,9 @@ identifier = "Player_Death"
 look_direction = Vector3(1, 1.5, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
-[node name="BackstageKey" parent="." unique_id=67441525 instance=ExtResource("6_qfnet")]
+[node name="BackstageKey" parent="." unique_id=67441525 instance=ExtResource("9_i8noq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1503371, 4.2158213, 16.939154)
+
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
 
 [node name="IntroductionChecker" type="StaticBody3D" parent="." unique_id=931798651]
