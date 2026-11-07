@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j4y8ftfndul1"]
 
-[ext_resource type="Texture2D" uid="uid://dkx1i7rl6226u" path="res://assets/combat/michael/MJ-shoes.png" id="1_7xfjq"]
+[ext_resource type="Texture2D" uid="uid://5lqk3hlx3i0k" path="res://assets/combat/overworker/overworker_fist.png" id="1_tu1ex"]
 [ext_resource type="Script" uid="uid://dhtts2yjk8fal" path="res://scripts/projectiles/types/LinearProjectile.gd" id="2_mprrd"]
 [ext_resource type="Script" uid="uid://442kj5on2xc2" path="res://scripts/projectiles/modifiers/PunchModifier.gd" id="3_mprrd"]
 
@@ -8,7 +8,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_7xfjq")
+"texture": ExtResource("1_tu1ex")
 }],
 "loop": 1,
 "name": &"default",

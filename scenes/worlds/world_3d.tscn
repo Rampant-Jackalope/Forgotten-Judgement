@@ -34,7 +34,7 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0
 [node name="Npc" type="Node3D" parent="." unique_id=1667203005]
 
 [node name="Singer" parent="Npc" unique_id=861609196 instance=ExtResource("5_mm762")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 23.498)
 
 [node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.004, 0.875, 0)

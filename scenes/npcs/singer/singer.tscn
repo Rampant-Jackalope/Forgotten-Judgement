@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg16v40o5rsat" path="res://scenes/npcs/singer/singer.gd" id="1_wphqx"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_5u0pl"]
-[ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="3_j16c8"]
+[ext_resource type="Texture2D" uid="uid://y47g2h3brrt5" path="res://assets/npc-billboards/singer/Singer_Idle.png" id="3_wphqx"]
 [ext_resource type="Script" uid="uid://c63qvq2jgegbh" path="res://scripts/ScaledSprite3D.gd" id="4_vbtkr"]
 [ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="5_55pki"]
 
@@ -12,20 +12,23 @@ radius = 2.0
 [node name="Michael" type="Node3D" unique_id=861609196]
 script = ExtResource("1_wphqx")
 
+[node name="Target" type="Node3D" parent="." unique_id=667794285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5012129, 0)
+
 [node name="Interactable" type="Area3D" parent="." unique_id=2083321633 node_paths=PackedStringArray("look_target")]
 script = ExtResource("2_5u0pl")
-look_target = NodePath("..")
+look_target = NodePath("../Target")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1250792995]
 shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=446790918]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
-pixel_size = 0.002024747
+pixel_size = 0.0006619594
 billboard = 2
-texture = ExtResource("3_j16c8")
+texture = ExtResource("3_wphqx")
 script = ExtResource("4_vbtkr")
+height_m = 1.5
 metadata/_custom_type_script = "uid://c63qvq2jgegbh"
 
 [node name="DialogicSignalable" type="Node" parent="." unique_id=986865015]

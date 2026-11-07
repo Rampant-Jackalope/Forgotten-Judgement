@@ -5,12 +5,11 @@
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="2_46jaq"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/singer/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/singer/falling_hat.tscn" id="2_s2w16"]
+[ext_resource type="Texture2D" uid="uid://y47g2h3brrt5" path="res://assets/npc-billboards/singer/Singer_Idle.png" id="2_umune"]
+[ext_resource type="Texture2D" uid="uid://bp74hwyv5dx8h" path="res://assets/npc-billboards/singer/Singer_Fighting_Stance.png" id="3_umune"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="4_lhd28"]
-[ext_resource type="Texture2D" uid="uid://chvj7kjmql6te" path="res://assets/npc-billboards/michael-jackson.png" id="4_u2054"]
-[ext_resource type="Texture2D" uid="uid://dih4ef8pmi6g6" path="res://assets/combat/michael/drophat.png" id="5_ee4lh"]
 [ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="5_qpjmv"]
-[ext_resource type="Texture2D" uid="uid://djupj1yyvdif5" path="res://assets/combat/michael/mj-kick.jpg" id="6_8jnm5"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_3f3ek"]
 [ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_lhd28"]
@@ -19,7 +18,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_u2054")
+"texture": ExtResource("2_umune")
 }],
 "loop": 1,
 "name": &"default",
@@ -27,49 +26,57 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_u2054")
+"texture": ExtResource("2_umune")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ee4lh")
+"texture": ExtResource("3_umune")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_umune")
 }],
 "loop": 0,
-"name": &"drop_hat",
+"name": &"drop_sigarette",
 "speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_u2054")
+"texture": ExtResource("2_umune")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_8jnm5")
+"texture": ExtResource("3_umune")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_umune")
 }],
 "loop": 0,
-"name": &"kick",
+"name": &"punch",
 "speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
+size = Vector2(29.488148, 37.91285)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_6y3e3")
 min_attack_interval = 1.0
 max_attack_interval = 1.5
-hurt_audio_player = NodePath("Michael/HurtAudioPlayer")
+hurt_audio_player = NodePath("Singer/HurtAudioPlayer")
 
-[node name="Michael" type="AnimatedSprite2D" parent="." unique_id=213536300]
+[node name="Singer" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_seols")
-animation = &"kick"
+animation = &"punch"
 autoplay = "default"
 
-[node name="Health" type="Node" parent="Michael" unique_id=174806862]
+[node name="Health" type="Node" parent="Singer" unique_id=174806862]
 script = ExtResource("6_8258g")
 max_health = 100
 metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Michael" unique_id=768933520]
+[node name="CanvasLayer" type="CanvasLayer" parent="Singer" unique_id=768933520]
 
-[node name="Healthbar" parent="Michael/CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("7_3f3ek")]
+[node name="Healthbar" parent="Singer/CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("7_3f3ek")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -83,7 +90,7 @@ normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
 subtitle_text = "Boss Health"
 label_placement = 1
 
-[node name="Sprite2DAnchor" type="Node" parent="Michael" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
+[node name="Sprite2DAnchor" type="Node" parent="Singer" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
 script = ExtResource("5_qpjmv")
 adornee = NodePath("..")
 own_anchor_h = 1
@@ -92,25 +99,27 @@ parent_anchor_h = 1
 parent_anchor_v = 1
 metadata/_custom_type_script = "uid://in1tag4vt7uf"
 
-[node name="Hitbox" type="Area2D" parent="Michael" unique_id=119223933]
+[node name="Hitbox" type="Area2D" parent="Singer" unique_id=119223933]
 collision_layer = 64
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Michael/Hitbox" unique_id=1272905365]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Singer/Hitbox" unique_id=1272905365]
+position = Vector2(18.75, -128.75)
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 
-[node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="Michael" unique_id=1181303130]
+[node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="Singer" unique_id=1181303130]
 stream = ExtResource("8_lhd28")
+pitch_scale = 1.25
 
 [node name="MichaelKickAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("animator", "anchor", "audio_player")]
 script = ExtResource("2_46jaq")
 scene = ExtResource("2_lkias")
 attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
-animator = NodePath("../Michael")
-animation_name = &"kick"
+animator = NodePath("../Singer")
+animation_name = &"punch"
 trigger_frame = 1
-anchor = NodePath("../Michael/Sprite2DAnchor")
+anchor = NodePath("../Singer/Sprite2DAnchor")
 audio_player = NodePath("KickSound")
 metadata/_custom_type_script = "uid://dja725fdmnl25"
 
@@ -121,11 +130,11 @@ stream = ExtResource("5_f1qsm")
 [node name="MichaelHatDropAttack" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]
 script = ExtResource("4_lhd28")
 scene = ExtResource("2_s2w16")
-animator = NodePath("../Michael")
-animation_name = &"drop_hat"
+animator = NodePath("../Singer")
+animation_name = &"drop_sigarette"
 trigger_frame = 1
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("1_mal7u")]
 
-[connection signal="became_empty" from="Michael/Health" to="." method="_on_michael_died"]
-[connection signal="changed" from="Michael/Health" to="." method="_on_michael_health_changed"]
+[connection signal="became_empty" from="Singer/Health" to="." method="_on_michael_died"]
+[connection signal="changed" from="Singer/Health" to="." method="_on_michael_health_changed"]
