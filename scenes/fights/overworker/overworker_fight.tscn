@@ -83,6 +83,8 @@ position = Vector2(911, 566)
 sprite_frames = SubResource("SpriteFrames_seols")
 animation = &"punch"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")
