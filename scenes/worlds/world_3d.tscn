@@ -30,7 +30,7 @@ script = ExtResource("1_lue4o")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11, 12)
 
 [node name="Player3D" parent="." unique_id=230271742 instance=ExtResource("3_virv7")]
-transform = Transform3D(-0.7, 0, -2.9802322e-08, 0, 0.7, 0, 2.9802322e-08, 0, -0.7, 0, 0, 8)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 8)
 
 [node name="NpcMarkers" type="Node3D" parent="." unique_id=1509749773]
 
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.7014809, 23.49843)
 
 [node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 20.004, 0.777, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.004, 0.875, 0)
 
 [node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.351571, 0.86, 12.303509)

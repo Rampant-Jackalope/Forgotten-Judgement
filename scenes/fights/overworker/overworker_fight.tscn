@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bn0f3xw3pqjbi"]
 
-[ext_resource type="Script" uid="uid://dymqw8rbhiceb" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
+[ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://dkr2binf4ufnr" path="res://assets/combat/overworker/overworker_room_battle_background.png" id="2_lfram"]
-[ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="2_sev54"]
-[ext_resource type="Texture2D" uid="uid://dqk8rc67f0tc1" path="res://assets/combat/overworker/tmp/overworker_fightingstance_tmp_scaled.png" id="4_lfram"]
+[ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_lfram"]
+[ext_resource type="Texture2D" uid="uid://djt1n114qsoe4" path="res://assets/npc-billboards/overworker/Overworker_high_stance.png" id="4_q0dkp"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="5_62ms7"]
-[ext_resource type="Texture2D" uid="uid://bvcrbyte3pdko" path="res://assets/combat/overworker/tmp/overworker_crawl_tmp_scaled.png" id="5_q0dkp"]
+[ext_resource type="Texture2D" uid="uid://dhw5dhkg7o3j" path="res://assets/npc-billboards/overworker/Overworker_low_stance.png" id="5_p7oqb"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="6_txjsj"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="7_8px47"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="9_fpkjb"]
@@ -20,7 +20,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sev54")
+"texture": ExtResource("3_lfram")
 }],
 "loop": 1,
 "name": &"default",
@@ -28,13 +28,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sev54")
+"texture": ExtResource("3_lfram")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_lfram")
+"texture": ExtResource("4_q0dkp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_lfram")
+"texture": ExtResource("4_q0dkp")
 }],
 "loop": 0,
 "name": &"drop_stapler",
@@ -42,13 +42,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sev54")
+"texture": ExtResource("3_lfram")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_q0dkp")
+"texture": ExtResource("5_p7oqb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_q0dkp")
+"texture": ExtResource("5_p7oqb")
 }],
 "loop": 0,
 "name": &"punch",
@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
-size = Vector2(18.743969, 18.819962)
+size = Vector2(34.30794, 46.75325)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_lfram")
@@ -80,11 +80,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Overworker" type="AnimatedSprite2D" parent="." unique_id=213536300]
 position = Vector2(911, 566)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_seols")
 animation = &"punch"
 autoplay = "default"
-frame = 2
-frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")
@@ -108,6 +107,7 @@ health = NodePath("../../Health")
 normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
 subtitle_text = "Boss Health"
 label_placement = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2DAnchor" type="Node" parent="Overworker" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
 script = ExtResource("7_8px47")
@@ -123,7 +123,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Overworker/Hitbox" unique_id=1272905365]
-position = Vector2(-13.789917, -14.5)
+position = Vector2(13.33374, 11.666626)
 scale = Vector2(21.957985, 42.13611)
 shape = SubResource("RectangleShape2D_seols")
 

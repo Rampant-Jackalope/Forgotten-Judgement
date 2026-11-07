@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="1_nkym7"]
 [ext_resource type="Script" uid="uid://bhe744ibfqyjt" path="res://scenes/npcs/overworker/overworker.gd" id="1_up6pv"]
-[ext_resource type="Texture2D" uid="uid://1btbm0srjuwq" path="res://assets/npc-billboards/overworker-template.png" id="3_up6pv"]
+[ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_pk74u"]
 [ext_resource type="Script" uid="uid://c63qvq2jgegbh" path="res://scripts/ScaledSprite3D.gd" id="4_pk74u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
@@ -20,8 +20,9 @@ shape = SubResource("SphereShape3D_g4v7s")
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=1969721173]
 billboard = 2
 texture_filter = 0
-texture = ExtResource("3_up6pv")
+texture = ExtResource("3_pk74u")
 script = ExtResource("4_pk74u")
+height_m = 1.75
 metadata/_custom_type_script = "uid://c63qvq2jgegbh"
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

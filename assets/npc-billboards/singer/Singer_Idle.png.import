@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqk8rc67f0tc1"
-path="res://.godot/imported/overworker_fightingstance_tmp_scaled.png-af13acfe9999073048f3ed0016e9a84c.ctex"
+uid="uid://y47g2h3brrt5"
+path="res://.godot/imported/Singer_Idle.png-51302ab160c0f0621bf66f96c1b8b8f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/combat/overworker/tmp/overworker_fightingstance_tmp_scaled.png"
-dest_files=["res://.godot/imported/overworker_fightingstance_tmp_scaled.png-af13acfe9999073048f3ed0016e9a84c.ctex"]
+source_file="res://assets/npc-billboards/singer/Singer_Idle.png"
+dest_files=["res://.godot/imported/Singer_Idle.png-51302ab160c0f0621bf66f96c1b8b8f4.ctex"]
 
 [params]
 
