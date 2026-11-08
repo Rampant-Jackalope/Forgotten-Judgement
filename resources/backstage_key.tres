@@ -7,5 +7,5 @@
 script = ExtResource("1_lqvb8")
 id = &"backstage_key"
 item_name = "Backstage Key"
-description = "A fancy key to get on stage with Michael Jackson"
+description = "A fancy key to get on stage with the Singer"
 icon = ExtResource("1_tqayy")
