@@ -24,7 +24,7 @@ size = Vector3(1, 1.81, 2.215)
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
 
-[node name="RegulationStairs" parent="Layout" index="21" unique_id=491018164]
+[node name="RegulationStairs" parent="Layout" index="21" unique_id=1395503792]
 material_override = SubResource("StandardMaterial3D_jnuwi")
 
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
@@ -109,7 +109,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
 
 [node name="BackStageDoor" parent="LockedDoors/BackStage" unique_id=1301150372 instance=ExtResource("12_yglnl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
-flag = "singer.HAS_STAGE_KEY"
+key_item_id = &"backstage_key"
 locked_label = "backstage_door_locked"
 
 [node name="CollisionAreas" type="Node3D" parent="." unique_id=1898434092]
