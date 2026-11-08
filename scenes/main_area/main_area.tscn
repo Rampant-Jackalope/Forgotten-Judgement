@@ -14,18 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
 [ext_resource type="Script" uid="uid://bk3864uiwkuvp" path="res://scripts/DialogicFlagArea.gd" id="13_yglnl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnuwi"]
-albedo_color = Color(0.4392157, 1, 1, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_3kj8n"]
 size = Vector3(1, 1.81, 2.215)
 
 [node name="MainArea" type="Node3D" unique_id=251183288]
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
-
-[node name="RegulationStairs" parent="Layout" index="21" unique_id=1395503792]
-material_override = SubResource("StandardMaterial3D_jnuwi")
 
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
