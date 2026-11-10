@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn0f3xw3pqjbi"]
 
-[ext_resource type="Script" uid="uid://j0vfhusvyr26" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
+[ext_resource type="Script" uid="uid://dymqw8rbhiceb" path="res://scenes/fights/overworker/overworker_fight.gd" id="1_lfram"]
 [ext_resource type="Texture2D" uid="uid://blvvbwa644cdy" path="res://assets/combat/overworker/overworker_fight_bg.png" id="2_lfram"]
 [ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_lfram"]
 [ext_resource type="Texture2D" uid="uid://djt1n114qsoe4" path="res://assets/npc-billboards/overworker/Overworker_high_stance.png" id="4_q0dkp"]
@@ -87,7 +87,7 @@ autoplay = "default"
 
 [node name="Health" type="Node" parent="Overworker" unique_id=174806862]
 script = ExtResource("5_62ms7")
-max_health = 100
+max_health = 70
 metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Overworker" unique_id=768933520]
