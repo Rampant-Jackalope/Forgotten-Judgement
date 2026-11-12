@@ -45,37 +45,42 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game" unique_id=1350680641]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/TabContainer/Game" unique_id=1922251446]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer" unique_id=1350680641]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_type_variation = &"SettingsCategoryListVBoxContainer"
 
-[node name="Flow" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups" unique_id=215154586]
+[node name="Flow" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups" unique_id=215154586]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups/Flow" unique_id=45649534]
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow" unique_id=45649534]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Game flow"
 horizontal_alignment = 1
 
-[node name="QuickRestart" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups/Flow" unique_id=643861039 node_paths=PackedStringArray("input")]
+[node name="QuickRestart" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow" unique_id=643861039 node_paths=PackedStringArray("input")]
 layout_mode = 2
 script = ExtResource("3_q16sk")
 input = NodePath("CheckButton")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups/Flow/QuickRestart" unique_id=1253781524]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/QuickRestart" unique_id=1253781524]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Quick restart"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups/Flow/QuickRestart" unique_id=2067079876]
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/QuickRestart" unique_id=2067079876]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CheckButton" type="CheckButton" parent="AspectRatioContainer/Panel/TabContainer/Game/Groups/Flow/QuickRestart" unique_id=331100954]
+[node name="CheckButton" type="CheckButton" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/QuickRestart" unique_id=331100954]
 layout_mode = 2
 
 [node name="Video" type="ScrollContainer" parent="AspectRatioContainer/Panel/TabContainer" unique_id=1195236415]
@@ -83,37 +88,42 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video" unique_id=1451296822]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/TabContainer/Video" unique_id=1938345775]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer" unique_id=1451296822]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_type_variation = &"SettingsCategoryListVBoxContainer"
 
-[node name="Behaviour" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups" unique_id=1639839192]
+[node name="Behaviour" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups" unique_id=1639839192]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour" unique_id=791261544]
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour" unique_id=791261544]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Behaviour"
 horizontal_alignment = 1
 
-[node name="WindowMode" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour" unique_id=867260182 node_paths=PackedStringArray("input")]
+[node name="WindowMode" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour" unique_id=867260182 node_paths=PackedStringArray("input")]
 layout_mode = 2
 script = ExtResource("3_osa27")
 input = NodePath("OptionButton")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/WindowMode" unique_id=1770673246]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/WindowMode" unique_id=1770673246]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Window Mode"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/WindowMode" unique_id=2017513976]
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/WindowMode" unique_id=2017513976]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/WindowMode" unique_id=2111813420]
+[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/WindowMode" unique_id=2111813420]
 layout_mode = 2
 item_count = 3
 popup/item_0/text = "Windowed"
@@ -123,26 +133,26 @@ popup/item_1/id = 1
 popup/item_2/text = "Borderless Fullscreen"
 popup/item_2/id = 2
 
-[node name="Resolution" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour" unique_id=1705197185 node_paths=PackedStringArray("input_x", "input_y")]
+[node name="Resolution" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour" unique_id=1705197185 node_paths=PackedStringArray("input_x", "input_y")]
 layout_mode = 2
 script = ExtResource("4_qvi1m")
 input_x = NodePath("HBoxContainer/XSpinBox")
 input_y = NodePath("HBoxContainer/YSpinBox")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/Resolution" unique_id=247468434]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/Resolution" unique_id=247468434]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Resolution"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/Resolution" unique_id=1674894039]
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/Resolution" unique_id=1674894039]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/Resolution" unique_id=1090576666]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/Resolution" unique_id=1090576666]
 layout_mode = 2
 
-[node name="XSpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/Resolution/HBoxContainer" unique_id=1543386281]
+[node name="XSpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/Resolution/HBoxContainer" unique_id=1543386281]
 layout_mode = 2
 min_value = 960.0
 max_value = 3840.0
@@ -152,7 +162,7 @@ allow_greater = true
 allow_lesser = true
 suffix = "px"
 
-[node name="YSpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/Behaviour/Resolution/HBoxContainer" unique_id=2107493830]
+[node name="YSpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/Behaviour/Resolution/HBoxContainer" unique_id=2107493830]
 layout_mode = 2
 min_value = 540.0
 max_value = 2160.0
@@ -162,31 +172,31 @@ allow_greater = true
 allow_lesser = true
 suffix = "px"
 
-[node name="FramePacing" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups" unique_id=486398558]
+[node name="FramePacing" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups" unique_id=486398558]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing" unique_id=298971862]
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing" unique_id=298971862]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Frame timing"
 horizontal_alignment = 1
 
-[node name="VSync" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing" unique_id=1567801575 node_paths=PackedStringArray("input")]
+[node name="VSync" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing" unique_id=1567801575 node_paths=PackedStringArray("input")]
 layout_mode = 2
 script = ExtResource("5_8e5ad")
 input = NodePath("OptionButton")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/VSync" unique_id=896011574]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/VSync" unique_id=896011574]
 layout_mode = 2
 size_flags_vertical = 1
 text = "V-sync"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/VSync" unique_id=1873236278]
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/VSync" unique_id=1873236278]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/VSync" unique_id=1260367542]
+[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/VSync" unique_id=1260367542]
 layout_mode = 2
 item_count = 3
 popup/item_0/text = "Disabled"
@@ -196,22 +206,22 @@ popup/item_1/id = 1
 popup/item_2/text = "Adaptive"
 popup/item_2/id = 2
 
-[node name="FramerateLimit" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing" unique_id=892415843 node_paths=PackedStringArray("input")]
+[node name="FramerateLimit" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing" unique_id=892415843 node_paths=PackedStringArray("input")]
 layout_mode = 2
 script = ExtResource("6_7e8uy")
 input = NodePath("SpinBox")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/FramerateLimit" unique_id=186141867]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/FramerateLimit" unique_id=186141867]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Framerate Limit"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/FramerateLimit" unique_id=28860945]
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/FramerateLimit" unique_id=28860945]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/Groups/FramePacing/FramerateLimit" unique_id=808127528]
+[node name="SpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Video/MarginContainer/Groups/FramePacing/FramerateLimit" unique_id=808127528]
 layout_mode = 2
 step = 0.0
 allow_greater = true
@@ -232,41 +242,46 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio" unique_id=1811153510]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio" unique_id=185847368]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer" unique_id=1811153510]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_type_variation = &"SettingsCategoryListVBoxContainer"
 
-[node name="Volume" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups" unique_id=962019693 node_paths=PackedStringArray("template", "container")]
+[node name="Volume" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups" unique_id=962019693 node_paths=PackedStringArray("template", "container")]
 layout_mode = 2
 script = ExtResource("8_gp3ea")
 template = NodePath("Template")
 container = NodePath("Container")
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume" unique_id=1232839316]
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume" unique_id=1232839316]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Volume"
 horizontal_alignment = 1
 
-[node name="Container" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume" unique_id=918842948]
+[node name="Container" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume" unique_id=918842948]
 layout_mode = 2
 
-[node name="Template" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume" unique_id=936018859 node_paths=PackedStringArray("slider", "spin_box", "label")]
+[node name="Template" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume" unique_id=936018859 node_paths=PackedStringArray("slider", "spin_box", "label")]
 layout_mode = 2
 script = ExtResource("9_cnluk")
 slider = NodePath("HSlider")
 spin_box = NodePath("SpinBox")
 label = NodePath("Label")
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume/Template" unique_id=973519520]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume/Template" unique_id=973519520]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Master"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume/Template" unique_id=1787445811]
+[node name="HSlider" type="HSlider" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume/Template" unique_id=1787445811]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -274,7 +289,7 @@ max_value = 200.0
 value = 100.0
 rounded = true
 
-[node name="SpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Audio/Groups/Volume/Template" unique_id=513362142]
+[node name="SpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Audio/MarginContainer/Groups/Volume/Template" unique_id=513362142]
 layout_mode = 2
 max_value = 200.0
 rounded = true
@@ -285,48 +300,53 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls" unique_id=653808632]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls" unique_id=1589215604]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Groups" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer" unique_id=653808632]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_type_variation = &"SettingsCategoryListVBoxContainer"
 
-[node name="Keys" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups" unique_id=1407022335 node_paths=PackedStringArray("template", "container")]
+[node name="Keys" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups" unique_id=1407022335 node_paths=PackedStringArray("template", "container")]
 layout_mode = 2
 script = ExtResource("11_cnluk")
 template = NodePath("Template")
 container = NodePath("Container")
 
-[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys" unique_id=566389878]
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys" unique_id=566389878]
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Keys"
 horizontal_alignment = 1
 
-[node name="Container" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys" unique_id=573942441]
+[node name="Container" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys" unique_id=573942441]
 layout_mode = 2
 
-[node name="Template" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys" unique_id=2043227445]
+[node name="Template" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys" unique_id=2043227445]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=1836977972]
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys/Template" unique_id=1836977972]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Keybind Name"
 vertical_alignment = 1
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=202777567]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys/Template" unique_id=202777567]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment_horizontal = 2
 
-[node name="ResetButton" type="Button" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template/AspectRatioContainer" unique_id=882868204]
+[node name="ResetButton" type="Button" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys/Template/AspectRatioContainer" unique_id=882868204]
 layout_mode = 2
 icon = ExtResource("11_ifayw")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ActionEventEdit" type="TextEdit" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=457983451 node_paths=PackedStringArray("reset_button")]
+[node name="ActionEventEdit" type="TextEdit" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/Keys/Template" unique_id=457983451 node_paths=PackedStringArray("reset_button")]
 custom_minimum_size = Vector2(100, 0)
 custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
