@@ -45,6 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_246eg")
 script = ExtResource("1_i7dvk")
+settings_scene = "uid://bopovfvgljpeh"
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Control" parent="." unique_id=1528783850]

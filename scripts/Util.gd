@@ -151,3 +151,18 @@ static func _toggle_collision(node: Node, enabled: bool) -> void:
 
 	for child in node.get_children():
 		_toggle_collision(child, enabled)
+
+static func array_as_readonly(arr: Array) -> Array:
+	var clone: Array = []
+	for v in arr: clone.push_back(v)
+
+	clone.make_read_only()
+
+	return clone
+static func dict_as_readonly(dict: Dictionary) -> Dictionary:
+	var clone: Dictionary = {}
+	for key in dict.keys(): clone[key] = dict[key]
+	
+	clone.make_read_only()
+
+	return clone
