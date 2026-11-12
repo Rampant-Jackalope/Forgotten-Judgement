@@ -9,7 +9,12 @@ var _current_event: InputEvent:
 		self.text = event.as_text() if event else "Unset"
 
 		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, event)
+		InputMap.action_add_event(action, event if event else _default_event)
+
+		if event and _default_event and event.is_match(_default_event):
+			Settings.controls.erase(action)
+		else:
+			Settings.controls.set(action, event)
 
 var _was_focused: bool = false
 var _focused: bool = false:
@@ -32,8 +37,11 @@ func _enter_tree() -> void:
 
 	if not events.is_empty():
 		_default_event = events[0]
-	
-	_current_event = _default_event
+
+	if Settings.controls.has(action):
+		_current_event = Settings.controls[action]
+	else:
+		_current_event = _default_event
 
 	self.focus_entered.connect(func(): _focused = true)
 	self.focus_exited.connect(func(): _focused = false)

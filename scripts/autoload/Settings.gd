@@ -71,6 +71,8 @@ func _process(_delta: float) -> void:
 			_: assert(false)
 		_prev_window_mode = current_window_mode
 
+var controls: Dictionary[StringName, InputEvent] = {}
+
 func _ready() -> void:
 	get_viewport().size_changed.connect(func(): resolution = get_viewport().size)
 
@@ -86,6 +88,12 @@ func _exit_tree() -> void:
 func save_settings():
 	var save_file = FileAccess.open(SETTINGS_FILE_PATH, FileAccess.WRITE)
 
+	var save_controls: Dictionary[StringName, Dictionary] = {}
+	for action in controls.keys():
+		if InputMap.get_action_description(action) == null: continue
+		if controls[action] == null: continue # For some reason the loop *does* do these
+		save_controls[action] = dictionarise_inputevent(controls[action])
+
 	var save_dict = {
 		"quick_restart":   self.quick_restart,
 		"window_mode":     self.window_mode,
@@ -95,6 +103,7 @@ func save_settings():
 		"framerate_limit": self.framerate_limit,
 		"anti_aliasing":   self.anti_aliasing,
 		"volume":          self._bus_volumes,
+		"controls":        save_controls,
 	}
 
 	var json_string = JSON.stringify(save_dict)
@@ -117,7 +126,9 @@ func load_settings() -> bool:
 	
 	var save_dict = JSON.parse_string(json_string)
 
-	assert(save_dict)
+	if save_dict == null:
+		push_error("Tried to load empty/corrupt settings")
+		return false
 
 	self.quick_restart   = save_dict.quick_restart
 	self.window_mode     = save_dict.window_mode
@@ -126,7 +137,74 @@ func load_settings() -> bool:
 	self.framerate_limit = save_dict.framerate_limit
 	self.anti_aliasing   = save_dict.anti_aliasing
 
+	for action in save_dict.controls.keys():
+		if InputMap.get_action_description(action) == null: continue
+		var event = dedictionarise_inputevent(save_dict.controls[action])
+		self.controls[action] = event
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, event)
+
 	if save_dict.volume: for bus_name in save_dict.volume.keys():
 		if AudioServer.get_bus_index(bus_name) >= 0: set_volume(bus_name, save_dict.volume[bus_name])
 
 	return true
+
+func dictionarise_inputevent(event: InputEvent) -> Dictionary:
+	if event is InputEventKey:
+		return {
+			"type": "key",
+
+			"key": event.keycode,
+			"modifiers": {
+				"shift": event.shift_pressed,
+				"ctrl":  event.ctrl_pressed,
+				"alt":   event.alt_pressed,
+				"meta":  event.meta_pressed,
+			},
+		}
+	elif event is InputEventMouseButton:
+		return {
+			"type": "mouse_button",
+
+			"button": event.button_index,
+			"modifiers": {
+				"shift": event.shift_pressed,
+				"ctrl":  event.ctrl_pressed,
+				"alt":   event.alt_pressed,
+				"meta":  event.meta_pressed,
+			},
+		}
+	
+	assert(false, "Cannot dictionarise unknown InputEvent: " + str(event))
+	return {} # Impossible to run, is to calm the LSP
+func dedictionarise_inputevent(dict: Dictionary) -> InputEvent:
+	if dict.type == null:
+		push_error("Cannot dedictionarise dict " + JSON.stringify(dict) + ": No 'type' is present")
+		return null
+
+	match dict.type:
+		"key":
+			assert(dict.key is float) # JSON.parse_string only outputs floats
+			var event = InputEventKey.new()
+			event.keycode = int(dict.key)
+			var modifiers = dict.modifiers
+			event.shift_pressed = modifiers.shift
+			event.ctrl_pressed  = modifiers.ctrl
+			event.alt_pressed   = modifiers.alt
+			event.meta_pressed  = modifiers.meta
+			event.pressed = true
+			return event
+		"mouse_button":
+			assert(dict.button)
+			var event = InputEventMouseButton.new()
+			event.button_index = dict.button
+			var modifiers = dict.modifiers
+			event.shift_pressed = modifiers.shift
+			event.ctrl_pressed  = modifiers.ctrl
+			event.alt_pressed   = modifiers.alt
+			event.meta_pressed  = modifiers.meta
+			event.pressed = true
+			return event
+
+	assert(false, "Cannot dedictionarise dict " + JSON.stringify(dict) + ": Unknown 'type'")
+	return null # Impossible to run, is to calm the LSP
