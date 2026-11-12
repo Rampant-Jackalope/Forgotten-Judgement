@@ -71,6 +71,12 @@ func _process(_delta: float) -> void:
 			_: assert(false)
 		_prev_window_mode = current_window_mode
 
+@export_group("Controls")
+@export var sensitivity: float = 0.14: ## Sensitivity in °/px
+	set(value):
+		sensitivity = value
+		sensitivity_changed.emit()
+signal sensitivity_changed()
 var controls: Dictionary[StringName, InputEvent] = {}
 
 func _ready() -> void:
@@ -103,6 +109,7 @@ func save_settings():
 		"framerate_limit": self.framerate_limit,
 		"anti_aliasing":   self.anti_aliasing,
 		"volume":          self._bus_volumes,
+		"sensitivity":     self.sensitivity,
 		"controls":        save_controls,
 	}
 
@@ -136,6 +143,8 @@ func load_settings() -> bool:
 	if save_dict.has("v_sync"):                                         self.v_sync          = save_dict.v_sync
 	if save_dict.has("framerate_limit"):                                self.framerate_limit = save_dict.framerate_limit
 	if save_dict.has("anti_aliasing"):                                  self.anti_aliasing   = save_dict.anti_aliasing
+	if save_dict.has("sensitivity"):                                    self.sensitivity     = save_dict.sensitivity
+
 	if save_dict.has("controls"): for action in save_dict.controls.keys():
 		if InputMap.get_action_description(action) == null: continue
 		var event = dedictionarise_inputevent(save_dict.controls[action])

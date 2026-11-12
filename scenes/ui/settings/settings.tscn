@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b0xaf00brtljh" path="res://scenes/ui/settings/framerate_limit_setting.gd" id="6_7e8uy"]
 [ext_resource type="Script" uid="uid://bcadhyr82vwf5" path="res://scenes/ui/settings/volume_manager.gd" id="8_gp3ea"]
 [ext_resource type="Script" uid="uid://cjldug2my88nf" path="res://scenes/ui/settings/volume_setting.gd" id="9_cnluk"]
+[ext_resource type="Script" uid="uid://sq85gwdqpue4" path="res://scenes/ui/settings/sensitivity_setting.gd" id="10_ifayw"]
 [ext_resource type="Script" uid="uid://dyyx5qsd03335" path="res://scenes/ui/settings/keys_manager.gd" id="11_cnluk"]
 [ext_resource type="Script" uid="uid://bvtahy4fahvbm" path="res://scenes/ui/settings/ActionEventEdit.gd" id="11_gp3ea"]
 [ext_resource type="Texture2D" uid="uid://cuftppqgqvb1o" path="res://assets/icons/reset.svg" id="11_ifayw"]
@@ -310,6 +311,37 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_type_variation = &"SettingsCategoryListVBoxContainer"
+
+[node name="General" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups" unique_id=864529712]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/General" unique_id=2023907041]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "General"
+horizontal_alignment = 1
+
+[node name="Sensitivity" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/General" unique_id=500038259 node_paths=PackedStringArray("input")]
+layout_mode = 2
+script = ExtResource("10_ifayw")
+input = NodePath("SpinBox")
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/General/Sensitivity" unique_id=2000553177]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Sensitivity"
+vertical_alignment = 1
+
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/General/Sensitivity" unique_id=1121422305]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups/General/Sensitivity" unique_id=1956934661]
+layout_mode = 2
+step = 0.0
+allow_greater = true
+suffix = "°/px"
+custom_arrow_step = 1.0
 
 [node name="Keys" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/MarginContainer/Groups" unique_id=1407022335 node_paths=PackedStringArray("template", "container")]
 layout_mode = 2

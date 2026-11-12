@@ -28,6 +28,10 @@ func _enter_tree() -> void:
 	_step_shapecast.add_exception(body)
 	add_child(_step_shapecast)
 
+	if Settings.sensitivity:
+		mouse_sensitivity = deg_to_rad(Settings.sensitivity)
+		Settings.sensitivity_changed.connect(func(): mouse_sensitivity = deg_to_rad(Settings.sensitivity))
+
 func _ready() -> void:
 	camera.current = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
