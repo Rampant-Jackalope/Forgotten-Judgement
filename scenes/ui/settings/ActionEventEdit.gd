@@ -27,7 +27,7 @@ func _enter_tree() -> void:
 	self.scroll_fit_content_width = true
 	self.scroll_fit_content_height = true
 
-	var events = InputMap.action_get_events(action)
+	var events = ProjectSettings.get_setting("input/" + action).events
 	if events.size() > 1: push_warning("Action '%s' has multiple events; will cause undefined behaviour" % action)
 
 	if not events.is_empty():
