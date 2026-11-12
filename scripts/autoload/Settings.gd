@@ -107,7 +107,7 @@ func save_settings():
 	}
 
 	var json_string = JSON.stringify(save_dict)
-	print("saving: " + json_string)
+	print("Saving settings: " + json_string)
 	save_file.store_string(json_string)
 
 	save_file.close()
@@ -122,7 +122,7 @@ func load_settings() -> bool:
 		json_string += save_file.get_line()
 	save_file.close()
 
-	print("loading: " + json_string)
+	print("Loading settings: " + json_string)
 	
 	var save_dict = JSON.parse_string(json_string)
 
