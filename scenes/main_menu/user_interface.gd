@@ -1,13 +1,13 @@
 extends Control
 
-# Paden naar de interface-elementen
+@export_group("Interface")
 @export var main_buttons: VBoxContainer
 @export var start_button: Button
 @export var load_button: Button
 @export var settings_button: Button
 @export var quit_button: Button
 
-# Geluidsspelers
+@export_group("Audio Players")
 @export var sound_main_menu: AudioStreamPlayer
 @export var sound_scroll: AudioStreamPlayer
 @export var sound_quit: AudioStreamPlayer
