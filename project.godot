@@ -45,9 +45,7 @@ directories/dtl_directory={
 "warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
 layout/style_directory={
-"New_File": "res://scenes/ui/resources/New_File.tres",
 "New_File 2": "res://dialogic/styles/New_File.tres",
-"Style_test": "res://scenes/ui/resources/Style_test.tres",
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
