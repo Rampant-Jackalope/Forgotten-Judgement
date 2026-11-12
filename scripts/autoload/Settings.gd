@@ -130,21 +130,20 @@ func load_settings() -> bool:
 		push_error("Tried to load empty/corrupt settings")
 		return false
 
-	self.quick_restart   = save_dict.quick_restart
-	self.window_mode     = save_dict.window_mode
-	self.resolution      = Vector2i(save_dict.resolution_x, save_dict.resolution_y)
-	self.v_sync          = save_dict.v_sync
-	self.framerate_limit = save_dict.framerate_limit
-	self.anti_aliasing   = save_dict.anti_aliasing
-
-	for action in save_dict.controls.keys():
+	if save_dict.has("quick_restart"):                                  self.quick_restart   = save_dict.quick_restart
+	if save_dict.has("window_mode"):                                    self.window_mode     = save_dict.window_mode
+	if save_dict.has("resolution_x") and save_dict.has("resolution_y"): self.resolution      = Vector2i(save_dict.resolution_x, save_dict.resolution_y)
+	if save_dict.has("v_sync"):                                         self.v_sync          = save_dict.v_sync
+	if save_dict.has("framerate_limit"):                                self.framerate_limit = save_dict.framerate_limit
+	if save_dict.has("anti_aliasing"):                                  self.anti_aliasing   = save_dict.anti_aliasing
+	if save_dict.has("controls"): for action in save_dict.controls.keys():
 		if InputMap.get_action_description(action) == null: continue
 		var event = dedictionarise_inputevent(save_dict.controls[action])
 		self.controls[action] = event
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, event)
 
-	if save_dict.volume: for bus_name in save_dict.volume.keys():
+	if save_dict.has("volume"): for bus_name in save_dict.volume.keys():
 		if AudioServer.get_bus_index(bus_name) >= 0: set_volume(bus_name, save_dict.volume[bus_name])
 
 	return true
