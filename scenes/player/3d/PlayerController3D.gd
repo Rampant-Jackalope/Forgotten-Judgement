@@ -14,7 +14,7 @@ extends Node3D
 @export_custom(PROPERTY_HINT_RANGE, "0,10,0.1,or_greater,suffix:m") var step_height := 0.1
 
 @export_group("Mouse")
-@export_custom(PROPERTY_HINT_RANGE, "0.0,1.0,0.01,or_greater,radians_as_degrees") var mouse_sensitivity := 0.0025 ## Sensitivity in rad/px
+@export_custom(PROPERTY_HINT_RANGE, "0.0,1.0,0.01,or_greater,radians_as_degrees,suffix:°/px") var mouse_sensitivity := 0.0025
 @export_custom(PROPERTY_HINT_RANGE, "-90,0,1,degrees") var min_pitch_deg := -90.0 ## How far down you can look
 @export_custom(PROPERTY_HINT_RANGE, "0,90,1,degrees") var max_pitch_deg := 90.0 ## How far up you can look
 
