@@ -1,21 +1,32 @@
 extends Control
 
 # Paden naar de interface-elementen
-@onready var main_buttons: VBoxContainer = $MainMenu/MarginContainer/MainButtons
-@onready var start_button: Button = $MainMenu/MarginContainer/MainButtons/StartButton
-@onready var load_button: Button = $MainMenu/MarginContainer/MainButtons/LoadButton
-@onready var settings_button: Button = $MainMenu/MarginContainer/MainButtons/OptionsButton
-@onready var quit_button: Button = $MainMenu/MarginContainer/MainButtons/QuitButton
+@export var main_buttons: VBoxContainer
+@export var start_button: Button
+@export var load_button: Button
+@export var settings_button: Button
+@export var quit_button: Button
 
 # Geluidsspelers
-@onready var sound_main_menu: AudioStreamPlayer = $SoundMainMenu
-@onready var sound_scroll: AudioStreamPlayer = $SoundScroll
-@onready var sound_quit: AudioStreamPlayer = $SoundQuit
-@onready var sound_confirm: AudioStreamPlayer = $SoundConfirm
+@export var sound_main_menu: AudioStreamPlayer
+@export var sound_scroll: AudioStreamPlayer
+@export var sound_quit: AudioStreamPlayer
+@export var sound_confirm: AudioStreamPlayer
 
 @export_file(".tscn") var settings_scene: String
 
 func _enter_tree() -> void:
+	assert(main_buttons)
+	assert(start_button)
+	assert(load_button)
+	assert(settings_button)
+	assert(quit_button)
+
+	assert(sound_main_menu)
+	assert(sound_scroll)
+	assert(sound_quit)
+	assert(sound_confirm)
+
 	assert(load(settings_scene))
 
 func _ready() -> void:
