@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://bopovfvgljpeh"]
 
-[ext_resource type="Theme" uid="uid://gfergxaa3tfq" path="res://scenes/ui/resource/theme.tres" id="1_1m5ku"]
-[ext_resource type="Script" uid="uid://cisw6ddkdu05g" path="res://scenes/ui/settings/settings.gd" id="2_347px"]
-[ext_resource type="Script" uid="uid://bh6a6i55wvrfl" path="res://scenes/ui/settings/window_mode_setting.gd" id="3_osa27"]
-[ext_resource type="Script" uid="uid://byvuocrnycuky" path="res://scenes/ui/settings/quick_restart_setting.gd" id="3_q16sk"]
-[ext_resource type="Script" uid="uid://s784ls7vnflp" path="res://scenes/ui/settings/resolution_setting.gd" id="4_qvi1m"]
-[ext_resource type="Script" uid="uid://djsvjml77jg5c" path="res://scenes/ui/settings/vsync_setting.gd" id="5_8e5ad"]
-[ext_resource type="Script" uid="uid://n0h74ykx7pvo" path="res://scenes/ui/settings/framerate_limit_setting.gd" id="6_7e8uy"]
-[ext_resource type="Script" uid="uid://cfb1pplv5vnou" path="res://scenes/ui/settings/volume_manager.gd" id="8_gp3ea"]
-[ext_resource type="Script" uid="uid://dqmup7yix8kr6" path="res://scenes/ui/settings/volume_setting.gd" id="9_cnluk"]
-[ext_resource type="Script" uid="uid://8xpdt0w08bec" path="res://scenes/ui/settings/keys_manager.gd" id="11_cnluk"]
-[ext_resource type="Script" uid="uid://uh8g6cae8kcv" path="res://scenes/ui/settings/ActionEventEdit.gd" id="11_gp3ea"]
+[ext_resource type="Theme" uid="uid://gfergxaa3tfq" path="res://scenes/ui/resources/theme.tres" id="1_1m5ku"]
+[ext_resource type="Script" uid="uid://dumnjb3gvyqd0" path="res://scenes/ui/settings/settings.gd" id="2_347px"]
+[ext_resource type="Script" uid="uid://bx6rlgefgp6x3" path="res://scenes/ui/settings/window_mode_setting.gd" id="3_osa27"]
+[ext_resource type="Script" uid="uid://c5euh10sq7b4l" path="res://scenes/ui/settings/quick_restart_setting.gd" id="3_q16sk"]
+[ext_resource type="Script" uid="uid://tmmmoi0iexs4" path="res://scenes/ui/settings/resolution_setting.gd" id="4_qvi1m"]
+[ext_resource type="Script" uid="uid://dc4qnb4hayyqy" path="res://scenes/ui/settings/vsync_setting.gd" id="5_8e5ad"]
+[ext_resource type="Script" uid="uid://b0xaf00brtljh" path="res://scenes/ui/settings/framerate_limit_setting.gd" id="6_7e8uy"]
+[ext_resource type="Script" uid="uid://bcadhyr82vwf5" path="res://scenes/ui/settings/volume_manager.gd" id="8_gp3ea"]
+[ext_resource type="Script" uid="uid://cjldug2my88nf" path="res://scenes/ui/settings/volume_setting.gd" id="9_cnluk"]
+[ext_resource type="Script" uid="uid://dyyx5qsd03335" path="res://scenes/ui/settings/keys_manager.gd" id="11_cnluk"]
+[ext_resource type="Script" uid="uid://bvtahy4fahvbm" path="res://scenes/ui/settings/ActionEventEdit.gd" id="11_gp3ea"]
+[ext_resource type="Texture2D" uid="uid://cuftppqgqvb1o" path="res://assets/icons/reset.svg" id="11_ifayw"]
 
 [node name="Settings" type="MarginContainer" unique_id=401034631]
 anchors_preset = 15
@@ -314,13 +315,20 @@ size_flags_vertical = 1
 text = "Keybind Name"
 vertical_alignment = 1
 
-[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=1823802283]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=202777567]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment_horizontal = 2
 
-[node name="ActionEventEdit" type="TextEdit" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=457983451]
+[node name="ResetButton" type="Button" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template/AspectRatioContainer" unique_id=882868204]
+layout_mode = 2
+icon = ExtResource("11_ifayw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ActionEventEdit" type="TextEdit" parent="AspectRatioContainer/Panel/TabContainer/Controls/Groups/Keys/Template" unique_id=457983451 node_paths=PackedStringArray("reset_button")]
 custom_minimum_size = Vector2(100, 0)
 custom_maximum_size = Vector2(300, -1)
 layout_mode = 2
 script = ExtResource("11_gp3ea")
-metadata/_custom_type_script = "uid://uh8g6cae8kcv"
+reset_button = NodePath("../AspectRatioContainer/ResetButton")

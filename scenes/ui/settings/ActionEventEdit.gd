@@ -1,17 +1,22 @@
 class_name ActionEventEdit extends TextEdit
 
+@export var reset_button: Button
+
 @export var action: StringName
 var _default_event: InputEvent
 var _current_event: InputEvent:
 	set(event):
 		_current_event = event
 
+		var is_default = event == _default_event or (event and _default_event and event.is_match(_default_event))
+
 		self.text = event.as_text() if event else "Unset"
+		reset_button.visible = !is_default
 
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, event if event else _default_event)
 
-		if event and _default_event and event.is_match(_default_event):
+		if is_default:
 			Settings.controls.erase(action)
 		else:
 			Settings.controls.set(action, event)
@@ -23,6 +28,7 @@ var _focused: bool = false:
 		set_deferred("_was_focused", value)
 
 func _enter_tree() -> void:
+	assert(reset_button)
 	assert(action)
 	assert(InputMap.get_action_description(action))
 
@@ -48,6 +54,8 @@ func _enter_tree() -> void:
 
 	self.focus_entered.connect(func(): self.text = "")
 
+	reset_button.pressed.connect(reset)
+
 func _input(event: InputEvent) -> void:
 	if not _focused: return
 
@@ -67,6 +75,4 @@ func _gui_input(event: InputEvent) -> void:
 	if _was_focused and event is InputEventMouseButton: _input(event)
 
 func reset() -> void:
-	if not _default_event: return push_warning("Could not reset action '%s'; default not set" % action)
-
 	_current_event = _default_event
