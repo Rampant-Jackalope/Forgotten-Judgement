@@ -33,8 +33,10 @@ func _ready() -> void:
 	sound_main_menu.play()
 	
 	# Knoppen direct koppelen met callbacks en hover-geluid
-	for btn in [start_button, load_button, quit_button]:
-		btn.mouse_entered.connect(sound_scroll.play)
+
+	var buttons = Util.get_descendants_depthfirst(main_buttons, func(v): return v is Button) as Array[Button]
+	for button in buttons:
+		button.mouse_entered.connect(sound_scroll.play)
 
 	start_button.pressed.connect(_on_start_button_pressed)
 	load_button.pressed.connect(_on_load_button_pressed)
