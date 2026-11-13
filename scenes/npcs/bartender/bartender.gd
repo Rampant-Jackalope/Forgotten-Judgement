@@ -7,5 +7,5 @@ func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void
 		else:
 			interactor.player.run_locked_dialogue("bartender", "idle_demo_done")
 	else:
-		interactor.player.run_locked_dialogue("bartender", "Introduction_bartender")	
-	
+		await interactor.player.run_locked_dialogue("bartender", "Introduction_bartender")	
+		WorldManager.set_world_to_2d("rat_fight")

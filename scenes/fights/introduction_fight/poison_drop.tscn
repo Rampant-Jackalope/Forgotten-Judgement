@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://e2mcw2ier03v"]
+
+[ext_resource type="Texture2D" uid="uid://cxny5qgpc8n77" path="res://assets/combat/introduction_fight/rat_poison_splash.png" id="1_le8hc"]
+[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_5xmdh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_le8hc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PoisonDrop" type="AnimatedSprite2D" unique_id=1790080963]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_1kpxu")
+autoplay = "default"
+script = ExtResource("2_5xmdh")
+visibility_rect = Rect2(-130, -141.5, 260, 283)
+metadata/_custom_type_script = "uid://by4hm67spp0hm"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1769332955]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" unique_id=2081136811]
+polygon = PackedVector2Array(141.66666, -118.33333, 150, -75, 216.66666, -26.666666, 161.66666, -1.6666666, 160, 91.666664, 108.33333, 141.66666, 36.666664, 141.66666, -11.666666, 190, -90, 186.66666, -135, 106.666664, -168.33333, 38.333332, -208.33333, -28.333332, -116.666664, -186.66666, -28.333332, -188.33333)

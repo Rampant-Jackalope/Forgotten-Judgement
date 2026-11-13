@@ -4,13 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://enfbunf4a3i6" path="res://scenes/worlds/world_3d.tscn" id="2_g0w7o"]
 [ext_resource type="PackedScene" uid="uid://ditqs5s16ngi6" path="res://scenes/fights/singer/singer.tscn" id="3_3nnpc"]
 [ext_resource type="PackedScene" uid="uid://bn0f3xw3pqjbi" path="res://scenes/fights/overworker/overworker_fight.tscn" id="3_wkitm"]
+[ext_resource type="PackedScene" uid="uid://cchxdo7x5w8ob" path="res://scenes/fights/introduction_fight/rat_introduction_fight.tscn" id="4_crjy8"]
 [ext_resource type="PackedScene" uid="uid://cvvl42y4mgaaq" path="res://scenes/ui/pause/pause_menu.tscn" id="5_wkitm"]
 
 [node name="WorldManager" type="Node" unique_id=678106708 node_paths=PackedStringArray("world_3d")]
 script = ExtResource("1_7ihvj")
 world_3d = NodePath("World3D")
 worlds_2d = Dictionary[String, PackedScene]({
+"": null,
 "overworker_fight": ExtResource("3_wkitm"),
+"rat_fight": ExtResource("4_crjy8"),
 "singer_fight": ExtResource("3_3nnpc")
 })
 

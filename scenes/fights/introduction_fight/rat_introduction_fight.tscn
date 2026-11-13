@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://cchxdo7x5w8ob"]
+
+[ext_resource type="Script" uid="uid://dtmedydlf4j8m" path="res://scenes/fights/introduction_fight/rat_introduction_fight.gd" id="1_66xi1"]
+[ext_resource type="Texture2D" uid="uid://o0a6ye5je8g7" path="res://assets/combat/introduction_fight/Bar_introduction_fight_background.png" id="2_uvrxq"]
+[ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_tir74"]
+[ext_resource type="Texture2D" uid="uid://djt1n114qsoe4" path="res://assets/npc-billboards/overworker/Overworker_high_stance.png" id="4_nojc8"]
+[ext_resource type="Texture2D" uid="uid://dhw5dhkg7o3j" path="res://assets/npc-billboards/overworker/Overworker_low_stance.png" id="5_wl6r4"]
+[ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_dk064"]
+[ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_q813y"]
+[ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="8_wcu8y"]
+[ext_resource type="AudioStream" uid="uid://l7vatlkf11cx" path="res://assets/sounds/OOF.mp3" id="9_3s700"]
+[ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="10_i2ijx"]
+[ext_resource type="PackedScene" uid="uid://dl71s21sedvso" path="res://scenes/fights/introduction_fight/scratch_attack.tscn" id="11_66xi1"]
+[ext_resource type="AudioStream" uid="uid://ckr5s8yy6c3ka" path="res://assets/sounds/rat_scratch_sound.mp3" id="12_66xi1"]
+[ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="13_a51tk"]
+[ext_resource type="PackedScene" uid="uid://e2mcw2ier03v" path="res://scenes/fights/introduction_fight/poison_drop.tscn" id="14_uvrxq"]
+[ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="15_fpfdn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tir74")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tir74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nojc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nojc8")
+}],
+"loop": 0,
+"name": &"drop_poison",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tir74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wl6r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wl6r4")
+}],
+"loop": 0,
+"name": &"scratch",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
+size = Vector2(34.30794, 46.75325)
+
+[node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
+script = ExtResource("1_66xi1")
+hurt_audio_player = NodePath("RatIntroduction/HurtAudioPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2129020474]
+layer = -1
+
+[node name="IntroductionFightBackground" type="TextureRect" parent="CanvasLayer" unique_id=489841130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uvrxq")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="RatIntroduction" type="AnimatedSprite2D" parent="." unique_id=213536300]
+position = Vector2(911, 566)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_seols")
+animation = &"scratch"
+autoplay = "default"
+
+[node name="Health" type="Node" parent="RatIntroduction" unique_id=174806862]
+script = ExtResource("6_dk064")
+max_health = 70
+metadata/_custom_type_script = "uid://c4wgug1cjgt2b"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="RatIntroduction" unique_id=768933520]
+
+[node name="Healthbar" parent="RatIntroduction/CanvasLayer" unique_id=1386320540 node_paths=PackedStringArray("health") instance=ExtResource("7_q813y")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 20.0
+offset_right = -254.0
+offset_bottom = 20.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+health = NodePath("../../Health")
+normal_color = Color(0.20165655, 0.00037007735, 0.32843593, 1)
+subtitle_text = "Boss Health"
+label_placement = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2DAnchor" type="Node" parent="RatIntroduction" unique_id=1105919537 node_paths=PackedStringArray("adornee")]
+script = ExtResource("8_wcu8y")
+adornee = NodePath("..")
+own_anchor_h = 1
+own_anchor_v = 1
+parent_anchor_h = 1
+parent_anchor_v = 1
+metadata/_custom_type_script = "uid://in1tag4vt7uf"
+
+[node name="Hitbox" type="Area2D" parent="RatIntroduction" unique_id=119223933]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RatIntroduction/Hitbox" unique_id=1272905365]
+position = Vector2(13.33374, 11.666626)
+scale = Vector2(21.957985, 42.13611)
+shape = SubResource("RectangleShape2D_seols")
+
+[node name="HurtAudioPlayer" type="AudioStreamPlayer2D" parent="RatIntroduction" unique_id=1181303130]
+stream = ExtResource("9_3s700")
+
+[node name="RatScratchAttack" type="Node2D" parent="." unique_id=2065515817 node_paths=PackedStringArray("animator", "anchor", "audio_player")]
+script = ExtResource("10_i2ijx")
+scene = ExtResource("11_66xi1")
+attack_positions = Array[Vector2]([Vector2(0.25, 0.5), Vector2(0.75, 0.5)])
+animator = NodePath("../RatIntroduction")
+animation_name = &"scratch"
+trigger_frame = 2
+anchor = NodePath("../RatIntroduction/Sprite2DAnchor")
+audio_player = NodePath("ScratchSound")
+metadata/_custom_type_script = "uid://dja725fdmnl25"
+
+[node name="ScratchSound" type="AudioStreamPlayer2D" parent="RatScratchAttack" unique_id=1657204850]
+scale = Vector2(0.1, 0.1)
+stream = ExtResource("12_66xi1")
+
+[node name="RatDropPoison" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]
+script = ExtResource("13_a51tk")
+scene = ExtResource("14_uvrxq")
+animator = NodePath("../RatIntroduction")
+animation_name = &"drop_poison"
+trigger_frame = 2
+
+[node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("15_fpfdn")]
+
+[connection signal="became_empty" from="RatIntroduction/Health" to="." method="_on_rat_introduction_died"]
+[connection signal="changed" from="RatIntroduction/Health" to="." method="_on_rat_introduction_health_changed"]

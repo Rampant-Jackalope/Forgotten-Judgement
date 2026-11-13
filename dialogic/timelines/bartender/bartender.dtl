@@ -64,9 +64,13 @@ main_player: I guess i'll go see this 'Overworker' person, then.
 join bartender left [animation="Instant In"]
 bartender: Good luck, friend.
 leave bartender [animation="Fade Out" length="1.0"]
+leave bartender [animation="Fade Out" length="1.0"]
+leave bartender [animation="Fade Out" length="1.0"]
+leave bartender [animation="Fade Out" length="1.0"]
+leave bartender [animation="Fade Out" length="1.0"]
 [end_timeline]
 label idle_demo_active
-- About the richard... | [if {bartender.DemoDone}  ==  false]
+- About Richard... | [if {bartender.DemoDone}  ==  false]
 	join bartender left
 	bartender: Have you talked to him?
 	leave bartender
