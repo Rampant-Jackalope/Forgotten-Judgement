@@ -1,4 +1,5 @@
-extends Node3D
+@tool
+extends ScaffoldedNpc
 
 var _player: Node = null
 var _has_played_post_fight: bool = false

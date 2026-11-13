@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg16v40o5rsat" path="res://scenes/npcs/singer/singer.gd" id="1_wphqx"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_5u0pl"]
+[ext_resource type="Shader" uid="uid://b5wt3lh0p762y" path="res://shaders/sprite_outline.gdshader" id="3_5u0pl"]
 [ext_resource type="Texture2D" uid="uid://y47g2h3brrt5" path="res://assets/npc-billboards/singer/Singer_Idle.png" id="3_wphqx"]
 [ext_resource type="Script" uid="uid://c63qvq2jgegbh" path="res://scripts/ScaledSprite3D.gd" id="4_vbtkr"]
 [ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="5_55pki"]
@@ -9,8 +10,18 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
 radius = 2.0
 
-[node name="Michael" type="Node3D" unique_id=861609196]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j16c8"]
+render_priority = 0
+shader = ExtResource("3_5u0pl")
+shader_parameter/tex = ExtResource("3_wphqx")
+shader_parameter/enabled = false
+shader_parameter/outline_px = 3.0
+shader_parameter/pulse_amount = 0.3
+shader_parameter/glow = 1.5
+
+[node name="Michael" type="Node3D" unique_id=1274376584]
 script = ExtResource("1_wphqx")
+metadata/_custom_type_script = "uid://ds722qjsiqawc"
 
 [node name="Target" type="Node3D" parent="." unique_id=667794285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5012129, 0)
@@ -24,6 +35,7 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=446790918]
+material_override = SubResource("ShaderMaterial_j16c8")
 pixel_size = 0.0006619594
 billboard = 2
 texture = ExtResource("3_wphqx")
