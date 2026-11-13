@@ -11,9 +11,13 @@ radius = 1.5
 [node name="Bartender" type="Node3D" unique_id=955105355]
 script = ExtResource("1_qblmu")
 
-[node name="Interactable" type="Area3D" parent="." unique_id=479839825]
+[node name="Target" type="Node3D" parent="." unique_id=846332175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75566727, 0)
+
+[node name="Interactable" type="Area3D" parent="." unique_id=479839825 node_paths=PackedStringArray("look_target")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 script = ExtResource("2_8gc22")
+look_target = NodePath("../Target")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=420839961]
