@@ -11,6 +11,8 @@ func _get_scaffold() -> Array:
 		["Interactable", Interactable],
 		["Interactable/CollisionShape3D", CollisionShape3D],
 		["ScaledSprite3D", ScaledSprite3D],
+		["StaticBody3D", StaticBody3D],
+		["StaticBody3D/CollisionShape3D", CollisionShape3D]
 	]
 
 ## Defaults for freshly created nodes only (inspector edits persist).
@@ -20,6 +22,11 @@ func _init_defaults(child: Node, path: String) -> void:
 			var sphere := SphereShape3D.new()
 			sphere.radius = 1.0
 			(child as CollisionShape3D).shape = sphere
+		"StaticBody3D/CollisionShape3D":
+			var pill := CapsuleShape3D.new()
+			pill.radius = 0.45
+			(child as CollisionShape3D).shape = pill 
+
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_READY:

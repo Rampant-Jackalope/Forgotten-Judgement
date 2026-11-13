@@ -10,7 +10,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
 radius = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j16c8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5u0pl"]
 render_priority = 0
 shader = ExtResource("3_5u0pl")
 shader_parameter/tex = ExtResource("3_wphqx")
@@ -18,6 +18,9 @@ shader_parameter/enabled = false
 shader_parameter/outline_px = 3.0
 shader_parameter/pulse_amount = 0.3
 shader_parameter/glow = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j16c8"]
+radius = 0.45
 
 [node name="Michael" type="Node3D" unique_id=1274376584]
 script = ExtResource("1_wphqx")
@@ -35,7 +38,7 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=446790918]
-material_override = SubResource("ShaderMaterial_j16c8")
+material_override = SubResource("ShaderMaterial_5u0pl")
 pixel_size = 0.0006619594
 billboard = 2
 texture = ExtResource("3_wphqx")
@@ -47,6 +50,11 @@ metadata/_custom_type_script = "uid://c63qvq2jgegbh"
 script = ExtResource("5_55pki")
 subject = "singer"
 metadata/_custom_type_script = "uid://d04vnm70e1wfo"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1499454539]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1680828351]
+shape = SubResource("CapsuleShape3D_j16c8")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
 [connection signal="recieved" from="DialogicSignalable" to="." method="_on_dialogic_event"]
