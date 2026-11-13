@@ -1,9 +1,3 @@
-extends Control
-
-@export var input: CheckButton
-
-func _enter_tree() -> void:
-	assert(input)
-
-	input.button_pressed = Settings.quick_restart
-	input.toggled.connect(func(v): Settings.quick_restart = v)
+version https://git-lfs.github.com/spec/v1
+oid sha256:17371acc5d0798cda000bf110cd03c6137f863e643813989f540d32eb2801843
+size 200

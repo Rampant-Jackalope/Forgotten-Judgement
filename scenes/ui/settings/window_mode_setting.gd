@@ -1,9 +1,3 @@
-extends Control
-
-@export var input: OptionButton
-
-func _enter_tree() -> void:
-	assert(input)
-
-	input.selected = Settings.window_mode
-	input.item_selected.connect(func(v): Settings.window_mode = v as Settings.WindowMode)
+version https://git-lfs.github.com/spec/v1
+oid sha256:b0759d946009a96b30f72ff6d471884afdd8be7300ff75c569fed49d95aff150
+size 220

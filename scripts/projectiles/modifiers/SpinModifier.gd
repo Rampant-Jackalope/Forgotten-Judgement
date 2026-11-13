@@ -1,11 +1,3 @@
-@tool
-class_name SpinModifier
-extends ProjectileModifier
-
-## Continuous rotation. Cheap way to make a static sprite read as
-## "dangerous and moving fast" good on linear or homing projectiles.
-
-@export var degrees_per_second: float = 360.0
-
-func process_modifier(delta: float, projectile: ProjectileBase) -> void:
-	projectile.rotation += deg_to_rad(degrees_per_second) * delta
+version https://git-lfs.github.com/spec/v1
+oid sha256:81ee2b0ed366b9f66974841665d354b39c40468e40a31b352af5005d90b4c2e8
+size 377

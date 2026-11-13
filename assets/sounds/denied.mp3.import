@@ -1,19 +1,3 @@
-[remap]
-
-importer="mp3"
-type="AudioStreamMP3"
-uid="uid://df2xtd3fedguq"
-path="res://.godot/imported/denied.mp3-a59ac193c8eb8d4f10cf99b5473fe700.mp3str"
-
-[deps]
-
-source_file="res://assets/sounds/denied.mp3"
-dest_files=["res://.godot/imported/denied.mp3-a59ac193c8eb8d4f10cf99b5473fe700.mp3str"]
-
-[params]
-
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:0148ed078db69f2a382ddebb193e38deb340b10628f43216d3c00015a5c9ec85
+size 361

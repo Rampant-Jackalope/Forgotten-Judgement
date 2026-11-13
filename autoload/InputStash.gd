@@ -1,15 +1,3 @@
-class_name InputStash
-static var _stashed := { }
-
-static func disable_action(action: StringName) -> void:
-	if _stashed.has(action):
-		return
-	_stashed[action] = InputMap.action_get_events(action)
-	InputMap.action_erase_events(action)
-
-static func enable_action(action: StringName) -> void:
-	if not _stashed.has(action):
-		return
-	for ev in _stashed[action]:
-		InputMap.action_add_event(action, ev)
-	_stashed.erase(action)
+version https://git-lfs.github.com/spec/v1
+oid sha256:30f2d36a67c8e31ef25abef688ccfb92f0c2f6859e9208fdfdd2ff32873d986b
+size 422

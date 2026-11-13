@@ -1,14 +1,3 @@
-[gd_resource type="Theme" format=3 uid="uid://gfergxaa3tfq"]
-
-[resource]
-FullscreenPanelMarginContainer/base_type = &"MarginContainer"
-FullscreenPanelMarginContainer/constants/margin_bottom = 30
-FullscreenPanelMarginContainer/constants/margin_left = 30
-FullscreenPanelMarginContainer/constants/margin_right = 30
-FullscreenPanelMarginContainer/constants/margin_top = 30
-MarginContainer/constants/margin_bottom = 10
-MarginContainer/constants/margin_left = 10
-MarginContainer/constants/margin_right = 10
-MarginContainer/constants/margin_top = 10
-SettingsCategoryListVBoxContainer/base_type = &"VBoxContainer"
-SettingsCategoryListVBoxContainer/constants/separation = 30
+version https://git-lfs.github.com/spec/v1
+oid sha256:7817a1eec3a51bfed3b8cff99cabb6eec74399183c328c13b0c99408601ad744
+size 666

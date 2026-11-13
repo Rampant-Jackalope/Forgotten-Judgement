@@ -1,21 +1,3 @@
-extends Node3D
-
-var _origin: Transform3D ## this is the original position of the NPC, used for resetting it back to its original position if needed.
-
-func _ready() -> void:
-	_origin = global_transform
-
-func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
-	interactor.player.run_locked_dialogue("singer/main")
-
-func _on_dialogic_event(action: String) -> void:
-	match action:
-		"fight":
-			WorldManager.set_world_to_2d("singer_fight")
-		"bar":
-			NpcPositionMarkers.transition("Michael_Bar", self)
-		"stage":
-			NpcPositionMarkers.transition("Michael_Stage", self)
-		_:
-			push_error("Invalid action " + action)
-	
+version https://git-lfs.github.com/spec/v1
+oid sha256:d130d10c8d6ea6e35287fbb895092393b074039476541e77ac49a4d4a878afd8
+size 641

@@ -1,14 +1,3 @@
-extends Control
-
-@export var input_x: SpinBox
-@export var input_y: SpinBox
-
-func _enter_tree() -> void:
-	assert(input_x)
-	assert(input_y)
-
-	input_x.value = Settings.resolution.x
-	input_y.value = Settings.resolution.y
-
-	input_x.value_changed.connect(func(x): Settings.resolution.x = x)
-	input_y.value_changed.connect(func(y): Settings.resolution.y = y)
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca25b175702c38d1c704b5d121eceaca8f7d7ba752bf1957390cfc83e56af3c4
+size 352

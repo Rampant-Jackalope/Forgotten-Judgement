@@ -1,35 +1,3 @@
-[gd_scene format=3 uid="uid://ssoj8xu5iorp"]
-
-[ext_resource type="Texture2D" uid="uid://vdhu8f6edib6" path="res://assets/combat/long_sigarette.png" id="1_fmcvn"]
-[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_fgpdo"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_fmcvn")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kpxu"]
-radius = 16.231081
-height = 557.79126
-
-[node name="FallingHat" type="AnimatedSprite2D" unique_id=1790080963]
-texture_filter = 1
-rotation = 0.6981317
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_1kpxu")
-autoplay = "default"
-script = ExtResource("2_fgpdo")
-visibility_rect = Rect2(-237, -141.5, 474, 283)
-metadata/_custom_type_script = "uid://by4hm67spp0hm"
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=1769332955]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=895221453]
-rotation = 1.0496792
-shape = SubResource("CapsuleShape2D_1kpxu")
+version https://git-lfs.github.com/spec/v1
+oid sha256:504b84cdd9eb0ba5def3eeaab5c14de73315dd46ffae2f41ff6dc6287707b1b0
+size 1149

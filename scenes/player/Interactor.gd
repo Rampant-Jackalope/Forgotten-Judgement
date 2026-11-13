@@ -1,11 +1,3 @@
-class_name Interactor
-extends Area3D
-
-@export var player: CharacterBody3D ## Can be used by `Interactables` to access the player node
-
-@export_flags_2d_physics var layer: int = 4
-@export_flags_2d_physics var mask: int = 4
-
-func _ready() -> void:
-	self.collision_mask = 4
-	self.collision_layer = 4
+version https://git-lfs.github.com/spec/v1
+oid sha256:f0ac5b7a945b73749e2b497ac4dba7825ed2c734c884d609d725c98983818a14
+size 297

@@ -1,27 +1,3 @@
-extends Node3D
-
-@export var animation_player: AnimationPlayer
-@export var door_mesh: MeshInstance3D
-
-@export var invert_open_direction: bool = false 
-
-# NOTE:
-# EDITABLE CHILDREN IS ON FOR THE Lone_Door_Animated
-# THIS IS BECAUSE THE 'LookTarget' && 'Interactable' NEEDS TO FOLLOW THE DOOR ANIMATION AND THUS NEEDS TO BE UNDER THE 'Bone'/'mesh' NODE.
-
-signal interacted(door: Node3D, interactor: Interactor, pop: Callable)
-
-func _ready():
-	assert(animation_player != null, "Animation player not found")
-	assert(door_mesh != null, "Door mesh not found")
-
-	_on_interactable_highlight_off()
-
-func _on_interactable_interacted(interactor: Interactor, pop: Callable) -> void:
-	interacted.emit(self, interactor, pop)
-
-func _on_interactable_highlight_on() -> void:
-	door_mesh.set_instance_shader_parameter("enabled", true)
-
-func _on_interactable_highlight_off() -> void:
-	door_mesh.set_instance_shader_parameter("enabled", false)
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7ebba9a0c4c73a391dbd6c88d30254e8f02cc9c0c1697d7eb737fd7b16e4667
+size 922

@@ -1,19 +1,3 @@
-[remap]
-
-importer="mp3"
-type="AudioStreamMP3"
-uid="uid://h5cyxtd1vb6h"
-path="res://.godot/imported/SelectConfirm.mp3-a9575df1eb54c773c60e3d4a069d247d.mp3str"
-
-[deps]
-
-source_file="res://assets/menuscreen_features/SelectConfirm.mp3"
-dest_files=["res://.godot/imported/SelectConfirm.mp3-a9575df1eb54c773c60e3d4a069d247d.mp3str"]
-
-[params]
-
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
-bar_beats=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d60be80277bd706d944f39d20420b0343cd4bac1d9e73d13fc73759972a2592
+size 394

@@ -1,13 +1,3 @@
-extends Marker3D
-class_name PlayerMarker
-
-@export var identifier: String
-@export var look_direction: Vector3
-
-func _ready() -> void:
-	PlayerPositionMarkers.add(self)
-func _exit_tree() -> void:
-	PlayerPositionMarkers.remove(self.identifier)
-
-func transition() -> void:
-	ScreenFader.transition_player(self.global_position, self.look_direction)
+version https://git-lfs.github.com/spec/v1
+oid sha256:a3531a831290ec2f31e8ab1bb8640f5e76a18f028a7f49440aef6bcdd2c0a8b9
+size 341

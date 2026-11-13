@@ -1,5 +1,3 @@
-if {bartender.HAS_WARNING_RUN} == true:
-	[end_timeline]
-else:
-	bartender: You won't find anything interesting in there
-	set {bartender.HAS_WARNING_RUN} = true
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e9e01aabee7152f946df36641a27f7df6a65b96d364a204c1df9cfc8eb8cb1c
+size 158

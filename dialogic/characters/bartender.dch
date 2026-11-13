@@ -1,31 +1,3 @@
-{
-"@path": "res://addons/dialogic/Resources/character.gd",
-"@subpath": NodePath(""),
-&"_translation_id": "",
-&"color": Color(1, 1, 1, 1),
-&"custom_info": {
-"prefix": "",
-"sound_mood_default": "",
-"sound_moods": {},
-"style": "bartender_style",
-"suffix": ""
-},
-&"default_portrait": "Bartender concept",
-&"description": "",
-&"display_name": "Bartender",
-&"mirror": false,
-&"nicknames": [""],
-&"offset": Vector2(0, 0),
-&"portraits": {
-"Bartender concept": {
-"export_overrides": {
-"image": "\"res://assets/npc-billboards/bartender/Bartender_Idle.png\""
-},
-"mirror": true,
-"offset": Vector2(80, 200),
-"scale": 0.5,
-"scene": ""
-}
-},
-&"scale": 1.0
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbeb8ab6e44f218f9373021ab9016ed82ec793705e9e2cb5d001857fcdcaab20
+size 641

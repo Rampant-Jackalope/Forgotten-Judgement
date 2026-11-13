@@ -1,24 +1,3 @@
-[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://b4etu11p2jmgb"]
-
-[ext_resource type="PackedScene" uid="uid://syki6k0e6aac" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_TextBubble/text_bubble_base.tscn" id="1_oxodp"]
-[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_l5qgh"]
-[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_64oht"]
-[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_36fnt"]
-
-[sub_resource type="Resource" id="Resource_37e01"]
-script = ExtResource("2_l5qgh")
-scene = ExtResource("1_oxodp")
-
-[sub_resource type="Resource" id="Resource_hywn4"]
-script = ExtResource("2_l5qgh")
-scene = ExtResource("3_64oht")
-
-[resource]
-script = ExtResource("5_36fnt")
-name = "New_File 2"
-layer_list = Array[String](["10"])
-layer_info = {
-"": SubResource("Resource_37e01"),
-"10": SubResource("Resource_hywn4")
-}
-metadata/_latest_layer = ""
+version https://git-lfs.github.com/spec/v1
+oid sha256:8fc1fb7bb21d1767ceb8065ae286b0b57bd0752b9f79647f4d918ede6c3b9f64
+size 1133

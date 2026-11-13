@@ -1,31 +1,3 @@
-[gd_scene format=3 uid="uid://br5vww1hv62jp"]
-
-[ext_resource type="Script" uid="uid://mc2kcrxuup2h" path="res://scenes/npcs/bartender/bartender.gd" id="1_qblmu"]
-[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_8gc22"]
-[ext_resource type="Texture2D" uid="uid://7dpoaoa0wtfa" path="res://assets/npc-billboards/bartender/Bartender_Idle.png" id="3_qblmu"]
-[ext_resource type="Script" uid="uid://c63qvq2jgegbh" path="res://scripts/ScaledSprite3D.gd" id="4_55rkv"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_i7141"]
-radius = 2.0
-
-[node name="Bartender" type="Node3D" unique_id=955105355]
-script = ExtResource("1_qblmu")
-
-[node name="Interactable" type="Area3D" parent="." unique_id=479839825]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
-script = ExtResource("2_8gc22")
-metadata/_custom_type_script = "uid://f2gpkkmmd74h"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=420839961]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
-shape = SubResource("SphereShape3D_i7141")
-
-[node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=1969721173]
-pixel_size = 0.0009375
-billboard = 2
-texture_filter = 0
-texture = ExtResource("3_qblmu")
-script = ExtResource("4_55rkv")
-metadata/_custom_type_script = "uid://c63qvq2jgegbh"
-
-[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+version https://git-lfs.github.com/spec/v1
+oid sha256:36cc50f194efa06ee3778d9889e5b8b0045dee9ce7c2202c1da89f69358c811f
+size 1453

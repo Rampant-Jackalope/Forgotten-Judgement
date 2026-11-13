@@ -1,26 +1,3 @@
-extends Container
-
-@export var template: Control
-@export var container: Container
-
-func _enter_tree() -> void:
-	assert(template)
-	assert(container)
-
-	if template.get_parent(): template.get_parent().remove_child(template)
-
-	update_items()
-
-func update_items() -> void:
-	for child in container.get_children():
-		container.remove_child(child)
-	
-	var bus_volumes = Settings.bus_volumes
-	for bus_name in bus_volumes.keys():
-		var instance = template.duplicate()
-
-		instance.name = bus_name
-
-		instance.bus_name = bus_name
-
-		container.add_child(instance)
+version https://git-lfs.github.com/spec/v1
+oid sha256:e12e707a8161a1f8244d00b345090749db8210d7f246dbbdbbb23ef8dfb4c064
+size 550

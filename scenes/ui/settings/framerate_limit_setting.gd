@@ -1,16 +1,3 @@
-extends Control
-
-@export var input: SpinBox
-
-func _enter_tree() -> void:
-	assert(input)
-
-	input.value = Settings.framerate_limit
-	input.value_changed.connect(func(v): Settings.framerate_limit = v)
-	# update_input_display.call_deferred()
-	# input.value_changed.connect(update_input_display, CONNECT_DEFERRED)
-
-# func update_input_display():
-# 	var v = input.value
-# 	print(v)
-# 	input.get_line_edit().text = "Unlimited" if v <= 0.0 else str(v)
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4b42d79bda4d1c1258916bc7ae6c0824330803319790025d148b354c7af65b1
+size 443

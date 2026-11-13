@@ -1,9 +1,3 @@
-extends Marker3D 
-class_name NpcMarker 
-
-@export var identifier: String
-
-func _enter_tree() -> void:
-	NpcPositionMarkers.add(self)
-func _exit_tree() -> void:
-	NpcPositionMarkers.remove(self.identifier)
+version https://git-lfs.github.com/spec/v1
+oid sha256:dcff568c0cbf47425669ef7b36538bc255b961267ff712217bb008a55bd93e19
+size 202

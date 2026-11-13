@@ -1,18 +1,3 @@
-@tool
-class_name LinearProjectile
-extends ProjectileBase
-
-@export var direction: Vector2 = Vector2.RIGHT:
-	set(value):
-		direction = value.normalized()
-@export var speed: float = 400.0
-
-func _enter_tree() -> void:
-	super._enter_tree()
-	hitbox.body_entered.connect(_on_projectile_hit)
-
-func apply_motion(delta: float) -> void:
-	position += direction * speed * delta
-
-func _on_timer_timeout() -> void:
-	queue_free()
+version https://git-lfs.github.com/spec/v1
+oid sha256:836c7071568e73b6db40236e322aa73a18e41d52359a7f0372082a564c3d4409
+size 414

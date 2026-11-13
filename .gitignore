@@ -1,7 +1,3 @@
-.godot/
-addons/*
-Tests/*
-assets/.building-kit/
-assets/retro-fantasy-kit/
-.vscode/
-builds/
+version https://git-lfs.github.com/spec/v1
+oid sha256:b56554bd7f95cb2c3f1a651cde98ee54cd0c9692ad1ebcab83ffceaa7eb0fa38
+size 89

@@ -1,14 +1,3 @@
-join center [animation="Fade In"]
-singer: hee hee~
-set {singer.HAS_TALKED_TO} = true
-- fight me
-	if {singer.PLAYER_ON_STAGE} == true:
-		eyyy let's go bro
-		[signal arg_type="dict" arg="{"action":"fight","subject":"singer"}"]
-	else:
-		singer: get up here then
-- How do I get up there? | [if {singer.REDIRECT_TO_BARTENDER} == false] [else="hide"]
-	singer: Backstage is locked. Ask the bartender about a key.
-	singer: Once you have the key.. [wave][pause=0.5][lspeed=0.05]♫ Use it with glee ♫ [pause=0.5][lspeed=0.01]Hoo~ [pause=0.5][lspeed=0.05]♫ Come to me ♫ [pause=0.5][lspeed=0.01]Hee~ [input]
-	set {singer.REDIRECT_TO_BARTENDER} = true
-- exit
+version https://git-lfs.github.com/spec/v1
+oid sha256:44081f56570331de00e565677ddfc03d4e72adddba5da1fe2ed29095dbe4b3ff
+size 652

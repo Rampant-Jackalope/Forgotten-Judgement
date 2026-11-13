@@ -1,9 +1,3 @@
-extends Node3D
-
-func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
-	if !Dialogic.VAR.overworker.HasMetOverworker:
-		interactor.player.run_locked_dialogue("overworker/main", "first_interaction")
-	elif Dialogic.VAR.overworker.HasFoughtOverworker:
-		interactor.player.run_locked_dialogue("overworker/main", "idle_angry")
-	else:
-		interactor.player.run_locked_dialogue("overworker/main", "idle_neutral")
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e3c890642e8db434e34938f4619b8dde8cc4c6e8cb4b33b253dfb727a60a575
+size 431

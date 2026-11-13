@@ -1,4 +1,3 @@
-extends Node3D
-
-func _on_double_callback_door_interacted(_door_l: Node3D, _door_r: Node3D, interactor: Interactor, _pop: Callable) -> void:
-	interactor.player.run_locked_dialogue("misc-popups", "exit_door_locked")
+version https://git-lfs.github.com/spec/v1
+oid sha256:aadaec39ca2f209c4c7ac0cc418681adaff267a77151729322734463af809a8c
+size 214
