@@ -16,26 +16,25 @@ var player: Node2D
 var player_controller: PlayerController2D
 var player_health: Health
 
+@onready var enemy_health: Health = $RatIntroduction/Health
+@onready var rat_hitbox_collision: CollisionShape2D = $RatIntroduction/Hitbox/CollisionShape2D
+
 @export var kick_sound_delay: float = 0.5
 @export var hurt_audio_player: AudioStreamPlayer2D
 
-var _attacks: Array[AttackBase] = []
+@onready var scratch_attack: PunchAttack = $RatScratchAttack
+@onready var poison_attack: DropItemAttack = $RatDropPoison
 
 func _ready() -> void:
-	# Configure and start the attack timer
 	attack_cooldown_timer.timeout.connect(_spawn_projectile)
 	attack_cooldown_timer.one_shot = true
 	add_child(attack_cooldown_timer)
 
-	# Find and validate the player node and its components
 	player = get_node("Player2D")
 	assert(player != null, "Could not find player node")
 
 	var player_body = player.get_node("Body")
-	assert(
-		player_body != null,
-		"Could not find player body component, cannot connect to death signal",
-	)
+	assert(player_body != null, "Could not find player body component")
 	player_body.died.connect(_on_player_death)
 
 	player_controller = player_body.get_node("PlayerController2D")
@@ -45,24 +44,46 @@ func _ready() -> void:
 	assert(player_health != null, "Could not find player health component")
 	
 	assert(hurt_audio_player)
+	assert(scratch_attack, "Could not find RatScratchAttack node!")
+	assert(poison_attack, "Could not find RatDropPoison node!")
+	
+	if rat_hitbox_collision:
+		rat_hitbox_collision.disabled = true
+			
+	if not has_node("TutorialLayer"):
+		start_combat()
 
-	# Start the initial attack cooldown
+func start_combat() -> void:
+	if player_health and "health" in player_health and "max_health" in player_health:
+		player_health.health = player_health.max_health
+	if enemy_health and "health" in enemy_health and "max_health" in enemy_health:
+		enemy_health.health = enemy_health.max_health
+
+	if rat_hitbox_collision:
+		rat_hitbox_collision.disabled = false
+
 	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	attack_cooldown_timer.start()
 
-	# Gather all available attacks from child nodes
-	for child in get_children():
-		if child is AttackBase:
-			_attacks.push_back(child)
+func demo_single_attack(index: int) -> void:
+	if index == 0 and scratch_attack:
+		await scratch_attack.do()
+	elif index == 1 and poison_attack:
+		await poison_attack.do()
+
+func get_attack_count() -> int:
+	return 2
 
 func _spawn_projectile() -> void:
-	# Trigger a random attack and restart the cooldown timer
-	await _attacks.pick_random().trigger(rng)
+	if rng.randf() > 0.5 and scratch_attack:
+		await scratch_attack.do()
+	elif poison_attack:
+		await poison_attack.do()
+		
 	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
-	
 	WorldManager.set_world_to_3d()
 	ScreenFader.player_death_transition()
 

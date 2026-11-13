@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cchxdo7x5w8ob"]
 
 [ext_resource type="Script" uid="uid://dtmedydlf4j8m" path="res://scenes/fights/introduction_fight/rat_introduction_fight.gd" id="1_66xi1"]
+[ext_resource type="Script" uid="uid://ck2ord00j3w5x" path="res://scenes/fights/introduction_fight/tutorial_layer.gd" id="2_nojc8"]
+[ext_resource type="Texture2D" uid="uid://bo5g0nrj7cmu" path="res://assets/npc-billboards/introduction_mice/12.png.webp" id="2_tir74"]
 [ext_resource type="Texture2D" uid="uid://o0a6ye5je8g7" path="res://assets/combat/introduction_fight/Bar_introduction_fight_background.png" id="2_uvrxq"]
 [ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_tir74"]
 [ext_resource type="Texture2D" uid="uid://djt1n114qsoe4" path="res://assets/npc-billboards/overworker/Overworker_high_stance.png" id="4_nojc8"]
@@ -61,6 +63,35 @@ size = Vector2(34.30794, 46.75325)
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_66xi1")
 hurt_audio_player = NodePath("RatIntroduction/HurtAudioPlayer")
+
+[node name="TutorialLayer" type="CanvasLayer" parent="." unique_id=1710094920]
+script = ExtResource("2_nojc8")
+
+[node name="PanelContainer" type="PanelContainer" parent="TutorialLayer" unique_id=1726953820]
+offset_left = 300.0
+offset_top = 400.0
+offset_right = 339.9989
+offset_bottom = 440.0
+
+[node name="TutorialLabel" type="Label" parent="TutorialLayer/PanelContainer" unique_id=449312615]
+layout_mode = 2
+
+[node name="Arrow1" type="TextureRect" parent="TutorialLayer" unique_id=2096863900]
+offset_left = 450.0
+offset_top = 940.18
+offset_right = 585.0
+offset_bottom = 1021.18085
+texture = ExtResource("2_tir74")
+expand_mode = 1
+flip_h = true
+
+[node name="Arrow2" type="TextureRect" parent="TutorialLayer" unique_id=1048784734]
+offset_left = 550.0
+offset_top = 30.0
+offset_right = 685.0
+offset_bottom = 111.00079
+texture = ExtResource("2_tir74")
+expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2129020474]
 layer = -1
