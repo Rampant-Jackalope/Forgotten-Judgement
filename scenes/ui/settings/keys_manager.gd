@@ -16,6 +16,8 @@ func update_items() -> void:
 		container.remove_child(child)
 	
 	for action in InputMap.get_actions():
+		if action.begins_with("ui_"): continue # Hide builtins
+
 		var instance = template.duplicate()
 
 		instance.name = action
