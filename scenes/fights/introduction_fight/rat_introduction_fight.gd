@@ -22,10 +22,12 @@ var player_health: Health
 var _attacks: Array[AttackBase] = []
 
 func _ready() -> void:
+	# Configure and start the attack timer
 	attack_cooldown_timer.timeout.connect(_spawn_projectile)
 	attack_cooldown_timer.one_shot = true
 	add_child(attack_cooldown_timer)
 
+	# Find and validate the player node and its components
 	player = get_node("Player2D")
 	assert(player != null, "Could not find player node")
 
@@ -44,19 +46,23 @@ func _ready() -> void:
 	
 	assert(hurt_audio_player)
 
+	# Start the initial attack cooldown
 	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	attack_cooldown_timer.start()
 
+	# Gather all available attacks from child nodes
 	for child in get_children():
 		if child is AttackBase:
 			_attacks.push_back(child)
 
 func _spawn_projectile() -> void:
+	# Trigger a random attack and restart the cooldown timer
 	await _attacks.pick_random().trigger(rng)
 	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
+	
 	WorldManager.set_world_to_3d()
 	ScreenFader.player_death_transition()
 
@@ -64,4 +70,5 @@ func _on_rat_introduction_health_changed(old: int, new: int) -> void:
 	if new < old: hurt_audio_player.play()
 
 func _on_rat_introduction_died() -> void:
+	Dialogic.VAR.bartender.RatFightCompleted = true
 	WorldManager.set_world_to_3d()

@@ -14,60 +14,39 @@ set {bartender.DemoDone} = true
 [end_timeline]
 label Introduction_bartender
 set {bartender.HasMetBartender} = true
+set {bartender.RatFightCompleted} = false
 join bartender left
 bartender: This is Lethe's End, friend. I'm the owner, and bartender, of this inn. And you are a resident, staying here for an indefinite amount of time.
 leave bartender [animation="Instant Out"]
 main_player: Where am I?
 join bartender left [animation="Instant In"]
-bartender: Somewhere between where you were and where you're supposed to be.
-leave bartender [animation="Instant Out"]
-main_player: Somewhere between?
-join bartender left [animation="Instant In"]
-bartender: Let's just say this is a place where people end up when they have a few things left to figure out.
-bartender: You better make yourself at home, friend, because you are not leaving anytime soon, I'm afraid.
+bartender: Somewhere you might not remember for a while.
 leave bartender [animation="Instant Out"]
 main_player: I don't remember anything.
 join bartender left [animation="Instant In"]
 bartender: Perhaps that's for the best, friend. Sometimes a clean slate is exactly what a person needs.
 leave bartender [animation="Instant Out"]
-main_player: Why can't I remember?
-join bartender left [animation="Instant In"]
-bartender: After all, just because you have amnesia doesn't mean you have no culpability.
-leave bartender [animation="Instant Out"]
-main_player: What does that mean?
-join bartender left [animation="Instant In"]
-bartender: This is just my word, but maybe you deserve it?
-leave bartender [animation="Instant Out"]
-You become concerned about your situation, whilst the bartender remains calm and dismissive.
-join bartender left [animation="Instant In"]
-bartender: Now now, relax, there is no reason to have an elevated heartbeat in this instance...
-leave bartender [animation="Instant Out"]
 main_player: How do I get out?
 join bartender left [animation="Instant In"]
-bartender: Don't bother asking for the exit. This is purgatory\: the whole concept doesn't support haphazard departures.
+bartender: Oh, eager to leave already? Let's not get ahead of ourselves. First, you'll need to get familiar with the place.
 leave bartender [animation="Instant Out"]
-main_player: What am I supposed to do?
+[i]A loud squeaking noise comes from nearby.[/i]
+join rat left [animation="Instant In"]
+rat: AAAAAGH!
+leave rat [animation="Instant Out"]
+main_player: What the hell was that?!
 join bartender left [animation="Instant In"]
-bartender: Well, find a way to convince him to leave his room.
+bartender: Oh! A little visitor! How rude of him not to introduce himself.
 leave bartender [animation="Instant Out"]
-When you ask about the residents, the bartender gives just enough information to point them in the right direction.
-main_player: Who is resident 101?
-join bartender left [animation="Instant In"]
-bartender: Ahh, resident 101. Richard. 'The Overworker' I call him.
-leave bartender [animation="Instant Out"]
-main_player: Why?
-join bartender left [animation="Instant In"]
-bartender: You should see for yourself, then you'd understand.
-leave bartender [animation="Instant Out"]
-The bartender can also provide access to parts of the mansion when the player needs it, but always keeps his own detached attitude.
-main_player: I guess i'll go see this 'Overworker' person, then.
-join bartender left [animation="Instant In"]
-bartender: Good luck, friend.
-leave bartender [animation="Fade Out" length="1.0"]
-leave bartender [animation="Fade Out" length="1.0"]
-leave bartender [animation="Fade Out" length="1.0"]
-leave bartender [animation="Fade Out" length="1.0"]
-leave bartender [animation="Fade Out" length="1.0"]
+[i]The rat attacks the player.[/i]
+[end_timeline]
+label introduction_after_rat_defeated
+set {bartender.RatFightCompleted} = true
+bartender: Wonderful! Pest control and entertainment, all in one. You're quite useful already!
+main_player: So, what now?
+bartender: Well, if you can handle that little fellow, I'm sure you can manage a visit to room 101. Perhaps Richard has a little more information for you.
+main_player: Who is Richard?
+bartender: Ahh, resident 101. 'The Overworker' I call him. You'll understand why soon enough.
 [end_timeline]
 label idle_demo_active
 - About Richard... | [if {bartender.DemoDone}  ==  false]
