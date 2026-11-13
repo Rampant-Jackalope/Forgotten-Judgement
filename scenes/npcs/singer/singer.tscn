@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="5_55pki"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
-radius = 2.0
+radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j16c8"]
 render_priority = 0

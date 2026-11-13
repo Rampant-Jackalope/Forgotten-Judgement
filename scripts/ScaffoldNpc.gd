@@ -10,21 +10,42 @@ func _get_scaffold() -> Array:
 		["Target", Node3D],
 		["Interactable", Interactable],
 		["Interactable/CollisionShape3D", CollisionShape3D],
-		["ScaledSprite3D", ScaledSprite3D]
+		["ScaledSprite3D", ScaledSprite3D],
 	]
 
+## Defaults for freshly created nodes only (inspector edits persist).
 func _init_defaults(child: Node, path: String) -> void:
 	match path:
 		"Interactable/CollisionShape3D":
-			var sphere:= SphereShape3D.new()
-			sphere.radius = 1 
-
+			var sphere := SphereShape3D.new()
+			sphere.radius = 1.0
 			(child as CollisionShape3D).shape = sphere
 
-func _ready() -> void:
-	# Only build in the editor. At runtime the children come from the saved scene.
-	if Engine.is_editor_hint():
-		_build.call_deferred()
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_READY:
+		if Engine.is_editor_hint():
+			# Build scaffolding in the editor only, at runtime the children come from the saved scene.
+			_build.call_deferred()
+		else:
+			_connect_highlighting()
+
+func _connect_highlighting() -> void:
+	var interactable := get_node_or_null("Interactable") as Interactable
+	var scaled_sprite := get_node_or_null("ScaledSprite3D") as ScaledSprite3D
+	assert(interactable != null, "NPC is missing its Interactable child")
+	assert(scaled_sprite != null, "NPC is missing its ScaledSprite3D child")
+
+	if not interactable.highlight_on.is_connected(scaled_sprite.enable_highlight):
+		interactable.highlight_on.connect(scaled_sprite.enable_highlight)
+	if not interactable.highlight_off.is_connected(scaled_sprite.disable_highlight):
+		interactable.highlight_off.connect(scaled_sprite.disable_highlight)
+
+	# To remove the highlight while player is in dialogue
+	var player: Player3D = Util.get_player()
+	if not player.locked_dialogue.is_connected(scaled_sprite.disable_highlight):
+		player.locked_dialogue.connect(scaled_sprite.disable_highlight)
+	if not player.unlocked_dialogue.is_connected(scaled_sprite.enable_highlight):
+		player.unlocked_dialogue.connect(scaled_sprite.enable_highlight)
 
 func _build() -> void:
 	if not is_inside_tree():
