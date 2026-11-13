@@ -15,10 +15,10 @@
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(4, 5, 3)
+size = Vector3(3.3203125, 5, 2.4802246)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
-size = Vector3(5, 1, 4)
+size = Vector3(2.9416504, 2.5649414, 2.258789)
 
 [node name="World" type="WorldEnvironment" unique_id=924521940]
 environment = SubResource("Environment_1kpxu")
@@ -59,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.134008, 5.2282257, 16.45684
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroductionChecker" unique_id=814992330]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.194336, 1, 0.5372864)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Area3D" type="Area3D" parent="IntroductionChecker" unique_id=1908367302 node_paths=PackedStringArray("blocker_collision")]
@@ -67,7 +67,7 @@ script = ExtResource("8_4mrxx")
 blocker_collision = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroductionChecker/Area3D" unique_id=2047577774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7291746, 0.7824707, 0.12939453)
 shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464924879]
