@@ -14,7 +14,8 @@ var _current_event: InputEvent:
 		reset_button.visible = !is_default
 
 		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, event if event else _default_event)
+		var new_event = event if event else _default_event
+		if new_event: InputMap.action_add_event(action, new_event)
 
 		if is_default:
 			Settings.controls.erase(action)
