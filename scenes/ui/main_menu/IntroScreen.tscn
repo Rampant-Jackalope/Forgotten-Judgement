@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwkhiyoqe0c33"]
+
+[ext_resource type="VideoStream" uid="uid://qi0r60lgkbch" path="res://assets/introscreen/intro.ogv" id="1_t1jco"]
+[ext_resource type="Script" uid="uid://bqy6wnm3mpy0f" path="res://scenes/ui/main_menu/IntroScreen.gd" id="2_g0su7"]
+
+[node name="IntroScreen" type="VideoStreamPlayer" unique_id=1786124647]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_t1jco")
+autoplay = true
+expand = true
+script = ExtResource("2_g0su7")
