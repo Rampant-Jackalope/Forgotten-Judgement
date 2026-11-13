@@ -36,10 +36,6 @@ func _ready() -> void:
 
 	_apply_mode()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		print("Click hit: ", get_viewport().gui_get_hovered_control())
-
 func _apply_mode() -> void:
 	Dialogic.Inputs.auto_skip.enabled = false
 	toggle_mode = (mode != Mode.HOLD)
