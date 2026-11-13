@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c7jo2ec6j6inl" path="res://scenes/introduction_warning.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
 [ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/items/test_item.tscn" id="9_i8noq"]
+[ext_resource type="Script" uid="uid://deqdy24n2emcf" path="res://scenes/worlds/skip_dialogue_button.gd" id="10_i8noq"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -68,3 +69,22 @@ blocker_collision = NodePath("../CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroductionChecker/Area3D" unique_id=2047577774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, 1)
 shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464924879]
+layer = 19
+
+[node name="SkipDialogueButton" type="Button" parent="CanvasLayer" unique_id=406446522]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -209.0
+offset_top = -177.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Skip"
+script = ExtResource("10_i8noq")

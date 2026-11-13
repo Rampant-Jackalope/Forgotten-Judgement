@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 var dialogue_locked: bool = false
 
+signal unlocked_dialogue()
+signal locked_dialogue() 
+
 func _restore_position() -> void:
 	global_position = GameState.data[GameState.DataKey.PLAYER_POSITION]
 
@@ -18,11 +21,13 @@ func dialogue_lock() -> void:
 	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	InputStash.disable_action("interact")
 	dialogue_locked = true
+	locked_dialogue.emit()
 
 func dialogue_unlock() -> void:
 	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	InputStash.enable_action("interact")
 	dialogue_locked = false
+	unlocked_dialogue.emit()
 
 func run_locked(callback: Callable) -> void:
 	dialogue_lock()
