@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bcadhyr82vwf5" path="res://scenes/ui/settings/volume_manager.gd" id="8_gp3ea"]
 [ext_resource type="Script" uid="uid://b7g5dlqo0qk38" path="res://scenes/ui/settings/shadow_quality_setting.gd" id="8_jsphf"]
 [ext_resource type="Script" uid="uid://d1fhhdi5myb1f" path="res://scenes/ui/settings/anti_aliasing_setting.gd" id="8_oyqcc"]
+[ext_resource type="Script" uid="uid://cf4jaf658f8f6" path="res://scenes/ui/settings/graphics_presets.gd" id="8_wk28x"]
 [ext_resource type="Script" uid="uid://cjldug2my88nf" path="res://scenes/ui/settings/volume_setting.gd" id="9_cnluk"]
 [ext_resource type="Script" uid="uid://sq85gwdqpue4" path="res://scenes/ui/settings/sensitivity_setting.gd" id="10_ifayw"]
 [ext_resource type="Script" uid="uid://dyyx5qsd03335" path="res://scenes/ui/settings/keys_manager.gd" id="11_cnluk"]
@@ -249,6 +250,26 @@ theme_type_variation = &"SettingsCategoryListVBoxContainer"
 
 [node name="Preset" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups" unique_id=2063654125]
 layout_mode = 2
+
+[node name="Presets" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset" unique_id=1946021112]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset/Presets" unique_id=1559270905]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Shadow Quality"
+vertical_alignment = 1
+
+[node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset/Presets" unique_id=450735593]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset/Presets" unique_id=382811607 node_paths=PackedStringArray("shadow_quality_input", "anti_aliasing_input")]
+layout_mode = 2
+script = ExtResource("8_wk28x")
+shadow_quality_input = NodePath("../../../Settings/ShadowQuality/OptionButton")
+anti_aliasing_input = NodePath("../../../Settings/AntiAliasing/OptionButton")
+metadata/_custom_type_script = "uid://cf4jaf658f8f6"
 
 [node name="Settings" type="VBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups" unique_id=439653560]
 layout_mode = 2
