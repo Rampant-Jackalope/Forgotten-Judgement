@@ -1,0 +1,14 @@
+[gd_resource type="Theme" format=3 uid="uid://gfergxaa3tfq"]
+
+[resource]
+FullscreenPanelMarginContainer/base_type = &"MarginContainer"
+FullscreenPanelMarginContainer/constants/margin_bottom = 30
+FullscreenPanelMarginContainer/constants/margin_left = 30
+FullscreenPanelMarginContainer/constants/margin_right = 30
+FullscreenPanelMarginContainer/constants/margin_top = 30
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+SettingsCategoryListVBoxContainer/base_type = &"VBoxContainer"
+SettingsCategoryListVBoxContainer/constants/separation = 30

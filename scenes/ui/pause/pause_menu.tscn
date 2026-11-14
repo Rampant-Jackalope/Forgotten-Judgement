@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://ds2c6sc2sihca" path="res://scenes/ui/pause/pause_menu.gd" id="1_pause"]
 [ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="2_font"]
 [ext_resource type="PackedScene" uid="uid://dxfwnogo10lw7" path="res://scenes/main_menu/user_interface.tscn" id="3_menu"]
+[ext_resource type="PackedScene" uid="uid://bopovfvgljpeh" path="res://scenes/ui/settings/settings.tscn" id="3_y8cqg"]
 
 [sub_resource type="Theme" id="Theme_pause"]
 default_font = ExtResource("2_font")
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=399798200 node_paths=PackedStringArray("back_to_menu_button", "save_button", "quit_button")]
+[node name="PauseMenu" type="CanvasLayer" unique_id=399798200 node_paths=PackedStringArray("back_to_menu_button", "settings_button", "save_button", "quit_button")]
 process_mode = 3
 layer = 100
-visible = false
 script = ExtResource("1_pause")
 main_menu_scene = ExtResource("3_menu")
 back_to_menu_button = NodePath("Center/MainButtons/BackToMenuButton")
+settings_button = NodePath("Center/MainButtons/OptionsButton")
+settings_scene = ExtResource("3_y8cqg")
 save_button = NodePath("Center/MainButtons/SaveButton")
 quit_button = NodePath("Center/MainButtons/QuitButton")
 

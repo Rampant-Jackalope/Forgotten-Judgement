@@ -1,19 +1,22 @@
 class_name PlayerController3D
 extends Node3D
 
+@export_group("References")
 @export var cam_pivot: Node3D
 @export var camera: Camera3D
 @export var collider: CollisionShape3D
 @export var body: CharacterBody3D
 @export var player_root: Player3D
 
-@export var run_speed := 5.0
-@export var gravity := 9.81
-@export var step_height := 0.1
+@export_group("Movement")
+@export_custom(PROPERTY_HINT_RANGE, "0,10,0.25,or_greater,suffix:m/s") var run_speed := 5.0
+@export_custom(PROPERTY_HINT_RANGE, "0,100,1,or_less,or_greater,suffix:m/s^2") var gravity := 9.81
+@export_custom(PROPERTY_HINT_RANGE, "0,10,0.1,or_greater,suffix:m") var step_height := 0.1
 
-@export var mouse_sensitivity := 0.0025
-@export_range(0, -90) var min_pitch_deg := -90.0 # how far down you can look
-@export_range(0, 90) var max_pitch_deg := 90.0 # how far up you can look
+@export_group("Mouse")
+@export_custom(PROPERTY_HINT_RANGE, "0.0,1.0,0.01,or_greater,radians_as_degrees,suffix:°/px") var mouse_sensitivity := 0.0025
+@export_custom(PROPERTY_HINT_RANGE, "-90,0,1,degrees") var min_pitch_deg := -90.0 ## How far down you can look
+@export_custom(PROPERTY_HINT_RANGE, "0,90,1,degrees") var max_pitch_deg := 90.0 ## How far up you can look
 
 var _step_shapecast: ShapeCast3D
 
@@ -24,6 +27,10 @@ func _enter_tree() -> void:
 	_step_shapecast.collision_mask = body.collision_mask
 	_step_shapecast.add_exception(body)
 	add_child(_step_shapecast)
+
+	if Settings.sensitivity:
+		mouse_sensitivity = deg_to_rad(Settings.sensitivity)
+		Settings.sensitivity_changed.connect(func(): mouse_sensitivity = deg_to_rad(Settings.sensitivity))
 
 func _ready() -> void:
 	camera.current = true

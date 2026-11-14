@@ -36,7 +36,7 @@ default_font = ExtResource("3_s3fax")
 
 [sub_resource type="Theme" id="Theme_fnnle"]
 
-[node name="UserInterface" type="Control" unique_id=1212917609]
+[node name="UserInterface" type="Control" unique_id=1212917609 node_paths=PackedStringArray("main_buttons", "start_button", "load_button", "settings_button", "quit_button", "sound_main_menu", "sound_scroll", "sound_quit", "sound_confirm")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +45,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_246eg")
 script = ExtResource("1_i7dvk")
+main_buttons = NodePath("MainMenu/MarginContainer/MainButtons")
+start_button = NodePath("MainMenu/MarginContainer/MainButtons/StartButton")
+load_button = NodePath("MainMenu/MarginContainer/MainButtons/LoadButton")
+settings_button = NodePath("MainMenu/MarginContainer/MainButtons/OptionsButton")
+quit_button = NodePath("MainMenu/MarginContainer/MainButtons/QuitButton")
+sound_main_menu = NodePath("SoundMainMenu")
+sound_scroll = NodePath("SoundScroll")
+sound_quit = NodePath("SoundQuit")
+sound_confirm = NodePath("SoundConfirm")
+settings_scene = "uid://bopovfvgljpeh"
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" type="Control" parent="." unique_id=1528783850]

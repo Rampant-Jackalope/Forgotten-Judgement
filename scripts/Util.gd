@@ -76,6 +76,29 @@ static func find_most_related(node: Node, predicate: Callable, parent_stop: Node
 	if predicate.call(node_parent): return node_parent
 	return find_most_related(node_parent, predicate)
 
+static func get_descendants_depthfirst(ancestor: Node, predicate: Callable) -> Array[Node]:
+	var result: Array[Node] = []
+
+	var children: Array[Node] = ancestor.get_children()
+	while children.size() > 0:
+		var child = children.pop_back()
+		children.append_array(child.get_children())
+
+		if predicate.call(child): result.push_back(child)
+
+	return result
+static func get_descendants_breadthfirst(ancestor: Node, predicate: Callable) -> Array[Node]:
+	var result: Array[Node] = []
+
+	var children: Array[Node] = ancestor.get_children()
+	while children.size() > 0:
+		var child = children.pop_front()
+		children.append_array(child.get_children())
+
+		if predicate.call(child): result.push_back(child)
+
+	return result
+
 ## pick_random_weighted<T>(options: Dictionary[T, float]) -> T
 static func pick_random_weighted(options: Dictionary, random: RandomNumberGenerator = null):
 	if random == null:
@@ -151,3 +174,18 @@ static func _toggle_collision(node: Node, enabled: bool) -> void:
 
 	for child in node.get_children():
 		_toggle_collision(child, enabled)
+
+static func array_as_readonly(arr: Array) -> Array:
+	var clone: Array = []
+	for v in arr: clone.push_back(v)
+
+	clone.make_read_only()
+
+	return clone
+static func dict_as_readonly(dict: Dictionary) -> Dictionary:
+	var clone: Dictionary = {}
+	for key in dict.keys(): clone[key] = dict[key]
+	
+	clone.make_read_only()
+
+	return clone

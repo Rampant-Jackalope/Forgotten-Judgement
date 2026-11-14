@@ -6,6 +6,8 @@ signal closed
 
 @export var main_menu_scene: PackedScene
 @export var back_to_menu_button: Button
+@export var settings_button: Button
+@export var settings_scene: PackedScene
 @export var save_button: Button
 @export var quit_button: Button
 
@@ -19,8 +21,11 @@ func _ready() -> void:
 	assert(quit_button != null, "QuitButton not assigned in PauseMenu.")
 	assert(main_menu_scene != null, "main_menu_scene not assigned in PauseMenu.")
 	assert(save_button != null, "Save button not assigned in PauseMenu")
+	assert(settings_button != null, "Settings button not assigned in PauseMenu.")
+	assert(settings_scene != null, "settings_scene not assigned in PauseMenu.")
 
 	back_to_menu_button.pressed.connect(_on_back_to_menu_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	save_button.pressed.connect(GameState.save_to_disk)
 
@@ -54,6 +59,10 @@ func close() -> void:
 func _on_back_to_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(main_menu_scene)
+
+func _on_settings_pressed() -> void:
+	var instance = settings_scene.instantiate() as Node
+	add_child(instance)
 
 func _on_quit_pressed() -> void:
 	GameState.save_to_disk()

@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
 
+Settings="*uid://ctktfj6u77be0"
 Dialogic="*uid://ds2q0uclmolvu"
 EffectScreen="*uid://cvq5l02e684ip"
 PlayerPositionMarkers="*uid://ic45h57m1m20"
@@ -44,10 +45,7 @@ directories/dtl_directory={
 "warning": "res://dialogic/timelines/bartender/warning.dtl"
 }
 layout/style_directory={
-"": "res://resources/Style_test.tres",
-"New_File": "res://resources/New_File.tres",
 "New_File 2": "res://dialogic/styles/New_File.tres",
-"Style_test": "res://resources/Style_test.tres",
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
