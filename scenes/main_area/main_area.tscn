@@ -39,8 +39,8 @@ distance_fade_length = 5.0
 omni_range = 8.306145
 
 [node name="StageReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=1916299309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012348175, 1.799561, 21.629704)
-size = Vector3(14.961132, 5.6672897, 12.745279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03988743, 1.799561, 21.629704)
+size = Vector3(15.016211, 5.6672897, 12.745279)
 interior = true
 ambient_mode = 2
 ambient_color = Color(0.1, 0.1, 0.1, 1)
@@ -69,8 +69,8 @@ distance_fade_length = 5.0
 omni_range = 6.7897096
 
 [node name="BackstageReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=659610615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.045877, 1.8020865, 13.484956)
-size = Vector3(6.992137, 5.6060715, 29.015224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.045877, 1.8020865, 13.499155)
+size = Vector3(6.992137, 5.6060715, 29.043623)
 interior = true
 ambient_mode = 2
 ambient_color = Color(0.1, 0.1, 0.1, 1)
