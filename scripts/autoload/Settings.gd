@@ -40,7 +40,7 @@ enum VSyncMode {DISABLED, NORMAL, ADAPTIVE}
 		Engine.max_fps = value
 
 @export_category("Graphics")
-enum AntiAliasingMode {DISABLED, MSAA2, MSAA4, MSAA8, FXAA, SMAA, TAA}
+enum AntiAliasingMode {DISABLED, FXAA, SMAA, MSAA2, MSAA4, MSAA8, TAA}
 @export var anti_aliasing: AntiAliasingMode = AntiAliasingMode.MSAA4:
 	set(value):
 		anti_aliasing = value
@@ -81,6 +81,36 @@ enum AntiAliasingMode {DISABLED, MSAA2, MSAA4, MSAA8, FXAA, SMAA, TAA}
 				viewport.msaa_2d         = Viewport.MSAA_DISABLED
 				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 				viewport.use_taa         = true
+			_: assert(false)
+enum ShadowQuality {POTATO, VERY_LOW, LOW, MEDIUM, HIGH, ULTRA}
+@export var shadow_quality: ShadowQuality = ShadowQuality.LOW:
+	set(value):
+		shadow_quality = value
+		match value:
+			ShadowQuality.POTATO:
+				get_viewport().positional_shadow_atlas_size = 512
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_HARD)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_HARD)
+			ShadowQuality.VERY_LOW:
+				get_viewport().positional_shadow_atlas_size = 512
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_VERY_LOW)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_VERY_LOW)
+			ShadowQuality.LOW:
+				get_viewport().positional_shadow_atlas_size = 1024
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_LOW)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_LOW)
+			ShadowQuality.MEDIUM:
+				get_viewport().positional_shadow_atlas_size = 2048
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
+			ShadowQuality.HIGH:
+				get_viewport().positional_shadow_atlas_size = 2048
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_HIGH)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_HIGH)
+			ShadowQuality.ULTRA:
+				get_viewport().positional_shadow_atlas_size = 4096
+				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
+				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
 			_: assert(false)
 
 var _bus_volumes: Dictionary[StringName, float] = {}
@@ -144,6 +174,7 @@ func save_settings():
 		"resolution_y":    self.resolution.y,
 		"v_sync":          self.v_sync,
 		"framerate_limit": self.framerate_limit,
+		"shadow_quality":  self.shadow_quality,
 		"anti_aliasing":   self.anti_aliasing,
 		"volume":          self._bus_volumes,
 		"sensitivity":     self.sensitivity,
@@ -180,6 +211,7 @@ func load_settings() -> bool:
 	if save_dict.has("v_sync"):                                         self.v_sync          = save_dict.v_sync
 	if save_dict.has("framerate_limit"):                                self.framerate_limit = save_dict.framerate_limit
 	if save_dict.has("anti_aliasing"):                                  self.anti_aliasing   = save_dict.anti_aliasing
+	if save_dict.has("shadow_quality"):                                 self.shadow_quality  = save_dict.shadow_quality
 	if save_dict.has("sensitivity"):                                    self.sensitivity     = save_dict.sensitivity
 
 	if save_dict.has("controls"): for action in save_dict.controls.keys():
