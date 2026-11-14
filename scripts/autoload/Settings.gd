@@ -44,7 +44,44 @@ enum AntiAliasingMode {DISABLED, MSAA2, MSAA4, MSAA8, FXAA, SMAA, TAA}
 @export var anti_aliasing: AntiAliasingMode = AntiAliasingMode.MSAA4:
 	set(value):
 		anti_aliasing = value
-		# TODO: Implement
+		var viewport = get_viewport()
+		match value:
+			AntiAliasingMode.DISABLED:
+				viewport.msaa_3d         = Viewport.MSAA_DISABLED
+				viewport.msaa_2d         = Viewport.MSAA_DISABLED
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				viewport.use_taa         = false
+			AntiAliasingMode.FXAA:
+				viewport.msaa_3d         = Viewport.MSAA_DISABLED
+				viewport.msaa_2d         = Viewport.MSAA_DISABLED
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+				viewport.use_taa         = false
+			AntiAliasingMode.SMAA:
+				viewport.msaa_3d         = Viewport.MSAA_DISABLED
+				viewport.msaa_2d         = Viewport.MSAA_DISABLED
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_SMAA
+				viewport.use_taa         = false
+			AntiAliasingMode.MSAA2:
+				viewport.msaa_3d         = Viewport.MSAA_2X
+				viewport.msaa_2d         = Viewport.MSAA_2X
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				viewport.use_taa         = false
+			AntiAliasingMode.MSAA4:
+				viewport.msaa_3d         = Viewport.MSAA_4X
+				viewport.msaa_2d         = Viewport.MSAA_4X
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				viewport.use_taa         = false
+			AntiAliasingMode.MSAA8:
+				viewport.msaa_3d         = Viewport.MSAA_8X
+				viewport.msaa_2d         = Viewport.MSAA_8X
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				viewport.use_taa         = false
+			AntiAliasingMode.TAA:
+				viewport.msaa_3d         = Viewport.MSAA_DISABLED
+				viewport.msaa_2d         = Viewport.MSAA_DISABLED
+				viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+				viewport.use_taa         = true
+			_: assert(false)
 
 var _bus_volumes: Dictionary[StringName, float] = {}
 @export var bus_volumes: Dictionary[StringName, float]:
