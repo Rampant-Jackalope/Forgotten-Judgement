@@ -257,7 +257,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset/Presets" unique_id=1559270905]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Shadow Quality"
+text = "Preset"
 vertical_alignment = 1
 
 [node name="Spacer" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Graphics/MarginContainer/Groups/Preset/Presets" unique_id=450735593]
