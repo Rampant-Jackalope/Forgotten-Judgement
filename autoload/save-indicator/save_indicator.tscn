@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://bs3y8jwx7423p"]
 
-[ext_resource type="Script" uid="uid://ctd7narqt5ogr" path="res://scenes/ui/save_indicator.gd" id="1_8qyc6"]
+[ext_resource type="Script" uid="uid://ctd7narqt5ogr" path="res://autoload/save-indicator/save_indicator.gd" id="1_8qyc6"]
 [ext_resource type="Shader" uid="uid://dctrgnlbs0pv1" path="res://shaders/transparency_stream.gdshader" id="1_esifr"]
-[ext_resource type="VideoStream" uid="uid://br62r7lkehtyq" path="res://assets/animations/save/beatbox-rat.ogv" id="2_8qyc6"]
-[ext_resource type="VideoStream" uid="uid://du74clm2ut5de" path="res://assets/animations/save/drinking-rat.ogv" id="2_esifr"]
-[ext_resource type="VideoStream" uid="uid://bgumio81bdttu" path="res://assets/animations/save/spinning-rat.ogv" id="4_h8tk0"]
+[ext_resource type="VideoStream" uid="uid://bq3b1jcchjrdu" path="res://assets/animations/save/loading-bottle.ogv" id="2_ibwa6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_esifr"]
 shader = ExtResource("1_esifr")
-shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/key_color = Color(0, 0, 0, 1)
 shader_parameter/threshold = 0.5
 shader_parameter/softness = 0.5
 
@@ -21,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8qyc6")
 vid_stream = NodePath("VideoStreamPlayer")
-animations = Array[VideoStream]([ExtResource("2_8qyc6"), ExtResource("2_esifr"), ExtResource("4_h8tk0")])
+animations = Array[VideoStream]([ExtResource("2_ibwa6")])
 metadata/_edit_use_anchors_ = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2121337475]
@@ -37,5 +35,5 @@ offset_top = -480.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(400, 400)
+pivot_offset = Vector2(800, 450)
 loop = true

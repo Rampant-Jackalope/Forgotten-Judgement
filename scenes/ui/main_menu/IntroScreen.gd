@@ -1,6 +1,6 @@
 extends VideoStreamPlayer
 
-@export_file("*.tscn") var main_menu_scene: String = "res://scenes/main_menu/user_interface.tscn"
+@export_file("*.tscn") var main_menu_scene: String = "res://scenes/ui/main_menu/user_interface.tscn"
 
 var _is_changing_scene: bool = false
 
