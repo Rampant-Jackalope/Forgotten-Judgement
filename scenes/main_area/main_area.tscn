@@ -12,10 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bfjcxdph6we44" path="res://assets/environment/Barstool.gltf" id="10_18u1t"]
 [ext_resource type="PackedScene" uid="uid://cyrymm3u5uypo" path="res://scenes/interactables/double_callback_door.tscn" id="12_3jgwd"]
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
-[ext_resource type="Script" uid="uid://bk3864uiwkuvp" path="res://scripts/DialogicFlagArea.gd" id="13_yglnl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3kj8n"]
-size = Vector3(1, 1.81, 2.215)
 
 [node name="MainArea" type="Node3D" unique_id=251183288]
 
@@ -105,19 +101,6 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
 key_item_id = &"backstage_key"
 locked_label = "backstage_door_locked"
-
-[node name="CollisionAreas" type="Node3D" parent="." unique_id=1898434092]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 1.7558537)
-
-[node name="StageArea" type="Area3D" parent="CollisionAreas" unique_id=1168189977]
-transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 23.460226, 0.913, -5.755865)
-script = ExtResource("13_yglnl")
-flag = "singer.PLAYER_ON_STAGE"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionAreas/StageArea" unique_id=2034659548]
-transform = Transform3D(0.99909043, 0, -0.042642243, 0, 1, 0, 0.042642243, 0, 0.99909043, -0.32352448, 0.30249026, -0.54683703)
-shape = SubResource("BoxShape3D_3kj8n")
-debug_color = Color(0.23376629, 0.63818175, 1.92523e-07, 0.8745098)
 
 [node name="ExitDoor" type="Node3D" parent="." unique_id=1267921120]
 script = ExtResource("3_hmils")
