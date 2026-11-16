@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dtmedydlf4j8m" path="res://scenes/fights/introduction_fight/rat_introduction_fight.gd" id="1_66xi1"]
 [ext_resource type="Script" uid="uid://ck2ord00j3w5x" path="res://scenes/fights/introduction_fight/tutorial_layer.gd" id="2_nojc8"]
-[ext_resource type="Texture2D" uid="uid://bo5g0nrj7cmu" path="res://assets/npc-billboards/introduction_mice/12.png.webp" id="2_tir74"]
+[ext_resource type="Texture2D" uid="uid://bo5g0nrj7cmu" path="res://assets/npc-billboards/introduction_rat/12.png.webp" id="2_tir74"]
 [ext_resource type="Texture2D" uid="uid://o0a6ye5je8g7" path="res://assets/combat/introduction_fight/Bar_introduction_fight_background.png" id="2_uvrxq"]
-[ext_resource type="Texture2D" uid="uid://brmm0wlmm2ji4" path="res://assets/npc-billboards/overworker/Overworker_Idle.png" id="3_tir74"]
-[ext_resource type="Texture2D" uid="uid://djt1n114qsoe4" path="res://assets/npc-billboards/overworker/Overworker_high_stance.png" id="4_nojc8"]
-[ext_resource type="Texture2D" uid="uid://dhw5dhkg7o3j" path="res://assets/npc-billboards/overworker/Overworker_low_stance.png" id="5_wl6r4"]
+[ext_resource type="Texture2D" uid="uid://bbmlhh5qxxg5j" path="res://assets/npc-billboards/introduction_rat/rat_scurry.png" id="5_nojc8"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_dk064"]
+[ext_resource type="Texture2D" uid="uid://blr2l7cj02ugm" path="res://assets/npc-billboards/introduction_rat/rat_poison.png" id="6_wl6r4"]
+[ext_resource type="Texture2D" uid="uid://c5y2ybij0vu4t" path="res://assets/npc-billboards/introduction_rat/rat_slash1.png" id="7_dk064"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_q813y"]
+[ext_resource type="Texture2D" uid="uid://dco7llgqthg6m" path="res://assets/npc-billboards/introduction_rat/rat_slash2.png" id="8_q813y"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="8_wcu8y"]
 [ext_resource type="AudioStream" uid="uid://l7vatlkf11cx" path="res://assets/sounds/OOF.mp3" id="9_3s700"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="10_i2ijx"]
@@ -22,7 +23,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tir74")
+"texture": ExtResource("5_nojc8")
 }],
 "loop": 1,
 "name": &"default",
@@ -30,13 +31,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tir74")
+"texture": ExtResource("5_nojc8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nojc8")
+"texture": ExtResource("6_wl6r4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nojc8")
+"texture": ExtResource("7_dk064")
 }],
 "loop": 0,
 "name": &"drop_poison",
@@ -44,13 +45,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tir74")
+"texture": ExtResource("5_nojc8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wl6r4")
+"texture": ExtResource("7_dk064")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wl6r4")
+"texture": ExtResource("8_q813y")
 }],
 "loop": 0,
 "name": &"scratch",
@@ -173,6 +174,7 @@ metadata/_custom_type_script = "uid://dja725fdmnl25"
 [node name="ScratchSound" type="AudioStreamPlayer2D" parent="RatScratchAttack" unique_id=1657204850]
 scale = Vector2(0.1, 0.1)
 stream = ExtResource("12_66xi1")
+volume_db = 5.52
 
 [node name="RatDropPoison" type="Node2D" parent="." unique_id=539482328 node_paths=PackedStringArray("animator")]
 script = ExtResource("13_a51tk")

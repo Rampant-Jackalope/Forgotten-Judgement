@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo5g0nrj7cmu"
-path="res://.godot/imported/12.png.webp-dc91530d61064c0f2772a95b445f876b.ctex"
+uid="uid://bbmlhh5qxxg5j"
+path="res://.godot/imported/rat_scurry.png-bc55a674c71a777a19dd42fe1b6c9abd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc-billboards/introduction_mice/12.png.webp"
-dest_files=["res://.godot/imported/12.png.webp-dc91530d61064c0f2772a95b445f876b.ctex"]
+source_file="res://assets/npc-billboards/introduction_rat/rat_scurry.png"
+dest_files=["res://.godot/imported/rat_scurry.png-bc55a674c71a777a19dd42fe1b6c9abd.ctex"]
 
 [params]
 
