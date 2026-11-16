@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://cb3y7cyjn44pp" path="res://assets/combat/scope.png" id="3_lrraa"]
 [ext_resource type="Script" uid="uid://ccvwlfq0jbdbh" path="res://scenes/player/2d/body.gd" id="4_m651b"]
 [ext_resource type="Script" uid="uid://cwcs3ksl166ko" path="res://scenes/player/2d/PlayerController2D.gd" id="5_p4ibx"]
+[ext_resource type="Shader" uid="uid://cpyot8qn73va7" path="res://shaders/hands_color.gdshader" id="6_jqwqw"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_uomm1"]
 [ext_resource type="Texture2D" uid="uid://bdw0pmkhvbfp6" path="res://assets/combat/hands.png" id="6_ycis5"]
 [ext_resource type="Script" uid="uid://b5mvfuc3psd86" path="res://scripts/combat/Stamina.gd" id="8_feiep"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="9_feiep"]
-[ext_resource type="PackedScene" uid="uid://bx4g1ae71clpj" path="res://scenes/ui/stats/staminabar.tscn" id="10_finy2"]
 [ext_resource type="AudioStream" uid="uid://b4dply84748di" path="res://assets/sounds/mc-hurt.mp3" id="10_jqwqw"]
-[ext_resource type="AudioStream" uid="uid://df2xtd3fedguq" path="res://assets/sounds/denied.mp3" id="12_2oi0r"]
+[ext_resource type="FontFile" uid="uid://bln1m6vqnm4uo" path="res://assets/fonts/Ananias.ttf" id="12_2oi0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{
@@ -49,6 +49,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_seols"]
 radius = 2.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oi0r"]
+shader = ExtResource("6_jqwqw")
+shader_parameter/stamina_ratio = 1.0
+shader_parameter/green_color = Color(0, 1, 0, 1)
+shader_parameter/hand_threshold = 0.8
+shader_parameter/is_damaged = 0.0
+shader_parameter/damage_color = Color(1, 0, 0, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
 animations = [{
 "frames": [{
@@ -62,6 +70,12 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seols"]
 size = Vector2(13.240242, 15.282152)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jqwqw"]
+font = ExtResource("12_2oi0r")
+font_size = 20
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.5568628)
 
 [node name="Player2D" type="Node2D" unique_id=1303601657]
 
@@ -82,10 +96,13 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/AttackHitboxArea2D" unique_id=1303511433]
 shape = SubResource("CircleShape2D_seols")
 
-[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health")]
+[node name="Body" type="CharacterBody2D" parent="." unique_id=190933267 node_paths=PackedStringArray("health", "stamina", "hands_sprite", "warning_label")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_m651b")
 health = NodePath("../Health")
+stamina = NodePath("../Stamina")
+hands_sprite = NodePath("AnimatedSprite2D")
+warning_label = NodePath("../WarningLabel")
 
 [node name="PlayerController2D" type="Node2D" parent="Body" unique_id=1352938218 node_paths=PackedStringArray("body", "cursor", "sprite", "collision_shape", "attack_hitbox", "stamina")]
 script = ExtResource("5_p4ibx")
@@ -98,6 +115,7 @@ stamina = NodePath("../../Stamina")
 metadata/_custom_type_script = "uid://cwcs3ksl166ko"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body" unique_id=447231792]
+material = SubResource("ShaderMaterial_2oi0r")
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_seols")
 animation = &"moving"
@@ -129,15 +147,9 @@ health = NodePath("../../Health")
 damage_sound = ExtResource("10_jqwqw")
 subtitle_text = "Player health"
 
-[node name="Staminabar" parent="CanvasLayer" unique_id=852893516 node_paths=PackedStringArray("stamina") instance=ExtResource("10_finy2")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1.0
-offset_top = 900.0
-offset_right = 0.0
-offset_bottom = 909.0
-grow_horizontal = 0
-stamina = NodePath("../../Stamina")
-fail_sound = ExtResource("12_2oi0r")
-subtitle_text = "Player stamina"
+[node name="WarningLabel" type="Label" parent="." unique_id=876055823]
+offset_left = 200.0
+offset_top = 460.0
+offset_right = 738.0
+offset_bottom = 539.0
+label_settings = SubResource("LabelSettings_jqwqw")
