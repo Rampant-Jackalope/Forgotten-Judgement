@@ -23,3 +23,6 @@ main_player: This is the door that would lead to the backstage, it is locked.
 label backstage_door_unlocked
 (you can now open the backstage door)
 [end_timeline]
+label lethe_interaction
+A partially empty bottle.[pause=1] Smelling its contents gives you a sense of déjà vu.
+[end_timeline]
