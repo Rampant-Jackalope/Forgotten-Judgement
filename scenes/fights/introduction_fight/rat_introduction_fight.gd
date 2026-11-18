@@ -63,9 +63,9 @@ func _ready() -> void:
 
 func start_combat() -> void:
 	if player_health is Health:
-		player_health.health = player_health.max_health
+		player_health.set_health(player_health.max_health)
 	if enemy_health is Health:
-		enemy_health.health = enemy_health.max_health
+		enemy_health.set_health(enemy_health.max_health)
 
 	if rat_hitbox_collision:
 		rat_hitbox_collision.disabled = false
