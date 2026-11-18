@@ -43,9 +43,7 @@ leave bartender [animation="Instant Out"]
 label introduction_after_rat_defeated
 bartender: Wonderful! Pest control and entertainment, all in one. You're quite useful already!
 main_player: So, what now?
-bartender: Well, if you can handle that little fellow, I'm sure you can manage a visit to room 101. Perhaps Richard has a little more information for you.
-main_player: Who is Richard?
-bartender: Ahh, resident 101. 'The Overworker' I call him. You'll understand why soon enough.
+bartender: If you can handle that little rascal, I'm sure you'll survive a visit to the residents upstairs. Hah!
 [end_timeline]
 label idle_demo_active
 - About Richard... | [if {bartender.DemoDone}  ==  false]
