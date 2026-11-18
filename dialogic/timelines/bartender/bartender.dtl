@@ -41,7 +41,6 @@ leave bartender [animation="Instant Out"]
 [i]The rat attacks the player.[/i]
 [end_timeline]
 label introduction_after_rat_defeated
-set {bartender.RatFightCompleted} = true
 bartender: Wonderful! Pest control and entertainment, all in one. You're quite useful already!
 main_player: So, what now?
 bartender: Well, if you can handle that little fellow, I'm sure you can manage a visit to room 101. Perhaps Richard has a little more information for you.

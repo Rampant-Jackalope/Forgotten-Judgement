@@ -20,7 +20,6 @@ func _animation_frame_changed():
 func _animation_frame_triggered():
 	var instance = scene.instantiate()
 	instance.position.y = -300
-	# OPGELOST: Gebruik de globale randf_range in plaats van de niet-geïnitialiseerde 'random' variabele
 	instance.position.x = randf_range(0, get_viewport_rect().size.x)
 	add_child(instance)
 

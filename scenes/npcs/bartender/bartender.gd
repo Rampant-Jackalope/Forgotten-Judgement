@@ -1,34 +1,33 @@
 extends Node3D
 
+var _player: Node = null
 var _has_played_post_fight: bool = false
 
+func _ready() -> void:
+	if WorldManager.instance:
+		WorldManager.instance.world_changed.connect(_on_world_changed)
+
+func _on_world_changed(in_2d: bool) -> void:
+	if in_2d or _has_played_post_fight:
+		return
+		
+	if Dialogic.VAR.bartender.HasMetBartender and Dialogic.VAR.bartender.RatFightCompleted:
+		_has_played_post_fight = true
+		
+		# Wait one frame for the 3D world and player node to fully re-enable
+		await get_tree().process_frame
+		if _player and _player.has_method("run_locked_dialogue"):
+			_player.run_locked_dialogue("bartender", "introduction_after_rat_defeated")
+
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
-	# Check if the player has already met the bartender
+	_player = interactor.player
 	if Dialogic.VAR.bartender.HasMetBartender:
-		# Play post-fight dialogue ONLY ONCE right after the rat fight is completed
-		if Dialogic.VAR.bartender.RatFightCompleted and not _has_played_post_fight:
-			_has_played_post_fight = true
-			interactor.player.run_locked_dialogue("bartender", "introduction_after_rat_defeated")
-			
-		# Regular idle dialogue branches for all subsequent interactions
-		elif (!Dialogic.VAR.singer.HAS_STAGE_KEY && Dialogic.VAR.singer.HAS_TALKED_TO) || !Dialogic.VAR.bartender.DemoDone:
+		if (!Dialogic.VAR.singer.HAS_STAGE_KEY && Dialogic.VAR.singer.HAS_TALKED_TO) || !Dialogic.VAR.bartender.DemoDone:
 			interactor.player.run_locked_dialogue("bartender", "idle_demo_active")
 		else:
 			interactor.player.run_locked_dialogue("bartender", "idle_demo_done")
-			
 	else:
-		# First time meeting: play introduction dialogue and switch to the rat fight
 		await interactor.player.run_locked_dialogue("bartender", "Introduction_bartender")
 		Dialogic.VAR.bartender.HasMetBartender = true
 		Dialogic.VAR.bartender.RatFightCompleted = false
 		WorldManager.set_world_to_2d("rat_fight")
-		
-		# Wait until the rat fight is completed in 2D
-		while not Dialogic.VAR.bartender.RatFightCompleted:
-			await get_tree().create_timer(0.1).timeout
-			
-		# Give the 3D world a brief moment to settle, then play the post-fight dialogue automatically
-		await get_tree().create_timer(0.5).timeout
-		if not _has_played_post_fight:
-			_has_played_post_fight = true
-			interactor.player.run_locked_dialogue("bartender", "introduction_after_rat_defeated")
