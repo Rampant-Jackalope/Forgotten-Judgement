@@ -25,6 +25,8 @@ var player_health: Health
 @onready var scratch_attack: PunchAttack = $RatScratchAttack
 @onready var poison_attack: DropItemAttack = $RatDropPoison
 
+var _attacks: Array[AttackBase] = []
+
 func _ready() -> void:
 	attack_cooldown_timer.timeout.connect(_spawn_projectile)
 	attack_cooldown_timer.one_shot = true
@@ -46,6 +48,12 @@ func _ready() -> void:
 	assert(hurt_audio_player)
 	assert(scratch_attack, "Could not find RatScratchAttack node!")
 	assert(poison_attack, "Could not find RatDropPoison node!")
+
+	for child in get_children():
+		if child is AttackBase:
+			_attacks.push_back(child)
+			
+	assert(_attacks.size() > 0, "No attacks found in rat introduction fight!")
 	
 	if rat_hitbox_collision:
 		rat_hitbox_collision.disabled = true
@@ -54,9 +62,9 @@ func _ready() -> void:
 		start_combat()
 
 func start_combat() -> void:
-	if player_health and "health" in player_health and "max_health" in player_health:
+	if player_health is Health:
 		player_health.health = player_health.max_health
-	if enemy_health and "health" in enemy_health and "max_health" in enemy_health:
+	if enemy_health is Health:
 		enemy_health.health = enemy_health.max_health
 
 	if rat_hitbox_collision:
@@ -66,19 +74,17 @@ func start_combat() -> void:
 	attack_cooldown_timer.start()
 
 func demo_single_attack(index: int) -> void:
-	if index == 0 and scratch_attack:
+	if index == 0:
 		await scratch_attack.do()
-	elif index == 1 and poison_attack:
+	elif index == 1:
 		await poison_attack.do()
 
 func get_attack_count() -> int:
-	return 2
+	return _attacks.size()
 
 func _spawn_projectile() -> void:
-	if rng.randf() > 0.5 and scratch_attack:
-		await scratch_attack.do()
-	elif poison_attack:
-		await poison_attack.do()
+	if _attacks.size() > 0:
+		await _attacks.pick_random().do()
 		
 	attack_cooldown_timer.wait_time = rng.randf_range(min_attack_interval, max_attack_interval)
 	attack_cooldown_timer.start()
@@ -87,9 +93,9 @@ func _on_player_death() -> void:
 	WorldManager.set_world_to_3d()
 	ScreenFader.player_death_transition()
 
-func _on_rat_introduction_health_changed(old: int, new: int) -> void:
+func _on_rat_health_changed(old: int, new: int) -> void:
 	if new < old: hurt_audio_player.play()
 
-func _on_rat_introduction_died() -> void:
+func _on_rat_died() -> void:
 	Dialogic.VAR.bartender.RatFightCompleted = true
 	WorldManager.set_world_to_3d()

@@ -185,5 +185,5 @@ trigger_frame = 2
 
 [node name="Player2D" parent="." unique_id=1303601657 instance=ExtResource("15_fpfdn")]
 
-[connection signal="became_empty" from="RatIntroduction/Health" to="." method="_on_rat_introduction_died"]
-[connection signal="changed" from="RatIntroduction/Health" to="." method="_on_rat_introduction_health_changed"]
+[connection signal="became_empty" from="RatIntroduction/Health" to="." method="_on_rat_died"]
+[connection signal="changed" from="RatIntroduction/Health" to="." method="_on_rat_health_changed"]
