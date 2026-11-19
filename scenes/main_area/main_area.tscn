@@ -21,8 +21,118 @@ size = Vector3(1, 1.81, 2.215)
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
 
+[node name="LobbyReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=12106176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 1.8155351, 8.12771)
+size = Vector3(15.016562, 5.6893845, 18.24178)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="LobbyCeilingLight" type="OmniLight3D" parent="Layout" unique_id=1207651053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 8.12771)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_length = 5.0
+omni_range = 8.306145
+
+[node name="StageReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=1916299309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03988743, 1.799561, 21.629704)
+size = Vector3(15.016211, 5.6672897, 12.745279)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="StageSpotLight" type="SpotLight3D" parent="Layout" unique_id=1216161621]
+transform = Transform3D(-0.8231364, -0.45350012, 0.34173688, 0, 0.601815, 0.7986354, -0.56784374, 0.65738595, -0.4953758, 1.1753943, 3.5131593, 22.8009)
+light_energy = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 4.0
+distance_fade_length = 5.0
+spot_range = 4.5920362
+spot_angle = 15.933593
+
+[node name="StageCeilingLight" type="OmniLight3D" parent="Layout" unique_id=1047315979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 19.668219)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_energy = 0.3
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_length = 5.0
+omni_range = 6.7897096
+
+[node name="BackstageReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=659610615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.045877, 1.8020865, 13.499155)
+size = Vector3(6.992137, 5.6060715, 29.043623)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="BackstagePainting1AreaLight" type="AreaLight3D" parent="Layout" unique_id=706354639]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -11.266067, 3.5801165, 5.3980556)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 3.0
+distance_fade_length = 5.0
+area_range = 3.469
+area_size = Vector2(0.4298191, 1)
+
+[node name="BackstagePainting2AreaLight" type="AreaLight3D" parent="Layout" unique_id=2143262327]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -11.266067, 3.5801165, 16.200462)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 3.0
+distance_fade_length = 5.0
+area_range = 3.469
+area_size = Vector2(0.4298191, 1)
+
+[node name="RoomsReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=510994978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2561092, 5.506189, 13.49725)
+size = Vector3(12.527517, 5.6893845, 29.037907)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="RoomsCeilingFrontLight" type="OmniLight3D" parent="Layout" unique_id=662538164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1564409, 7.154515, 6.7013836)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+distance_fade_length = 0.0
+omni_range = 8.306145
+
+[node name="RoomsCeilingBackLight" type="OmniLight3D" parent="Layout" unique_id=94265764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1564409, 7.154515, 18.416967)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+distance_fade_length = 0.0
+omni_range = 9.099267
+
+[node name="StoreRoomReflectionProbe" type="ReflectionProbe" parent="Layout" unique_id=1278864452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.098788, 1.8155351, 11.911127)
+size = Vector3(5.057021, 5.6893845, 10.674947)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.254303, 0, 0)
 
 [node name="OpenCloseDoors" type="Node3D" parent="." unique_id=1691008114]
 
