@@ -26,6 +26,7 @@ GameState="*uid://ducmw5bv6wfu3"
 PlayerStats="*uid://r3p146iquj8d"
 FlagWatcher="*uid://c1f4rvqk4x4m7"
 SaveIndicator="*uid://bs3y8jwx7423p"
+ActionHints="*uid://dqegbt18xpehy"
 
 [dialogic]
 
