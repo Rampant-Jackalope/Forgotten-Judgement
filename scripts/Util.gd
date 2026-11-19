@@ -194,4 +194,6 @@ static func get_action_key_text(action: StringName) -> String:
 	for event in InputMap.action_get_events(action):
 		if event is InputEventKey:
 			return event.as_text_physical_keycode() if event.keycode == 0 else event.as_text_keycode()
+		if event is InputEventMouseButton:
+			return event.as_text()
 	return "Unset"
