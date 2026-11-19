@@ -190,7 +190,7 @@ static func dict_as_readonly(dict: Dictionary) -> Dictionary:
 
 	return clone
 
-func get_action_key_text(action: StringName) -> String:
+static func get_action_key_text(action: StringName) -> String:
 	for event in InputMap.action_get_events(action):
 		if event is InputEventKey:
 			return event.as_text_physical_keycode() if event.keycode == 0 else event.as_text_keycode()
