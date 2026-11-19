@@ -33,7 +33,9 @@ directories/dch_directory={
 "bb": "res://dialogic/characters/bb.dch",
 "main_player": "res://dialogic/characters/main_player.dch",
 "overworker": "res://dialogic/characters/overworker.dch",
-"singer": "res://dialogic/characters/singer.dch"
+"rat": "res://dialogic/characters/rat.dch",
+"singer": "res://dialogic/characters/singer.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "bartender": "res://dialogic/timelines/bartender/bartender.dtl",
@@ -53,6 +55,7 @@ variables={
 "DemoDone": false,
 "HAS_WARNING_RUN": false,
 "HasMetBartender": false,
+"RatFightCompleted": false,
 "TRIED_TO_EXIT": false
 },
 "misc": {
