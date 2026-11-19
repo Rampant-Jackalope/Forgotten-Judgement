@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dumnjb3gvyqd0" path="res://scenes/ui/settings/settings.gd" id="2_347px"]
 [ext_resource type="Script" uid="uid://bx6rlgefgp6x3" path="res://scenes/ui/settings/window_mode_setting.gd" id="3_osa27"]
 [ext_resource type="Script" uid="uid://c5euh10sq7b4l" path="res://scenes/ui/settings/quick_restart_setting.gd" id="3_q16sk"]
+[ext_resource type="Script" uid="uid://cjp52krtd3aq4" path="res://scenes/ui/settings/show_save_indicator.gd" id="4_oyqcc"]
 [ext_resource type="Script" uid="uid://tmmmoi0iexs4" path="res://scenes/ui/settings/resolution_setting.gd" id="4_qvi1m"]
 [ext_resource type="Script" uid="uid://dc4qnb4hayyqy" path="res://scenes/ui/settings/vsync_setting.gd" id="5_8e5ad"]
 [ext_resource type="Script" uid="uid://b0xaf00brtljh" path="res://scenes/ui/settings/framerate_limit_setting.gd" id="6_7e8uy"]
@@ -82,6 +83,23 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CheckButton" type="CheckButton" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/QuickRestart" unique_id=331100954]
+layout_mode = 2
+
+[node name="SaveIndicator" type="HBoxContainer" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow" unique_id=420629539 node_paths=PackedStringArray("input")]
+layout_mode = 2
+script = ExtResource("4_oyqcc")
+input = NodePath("CheckButton")
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/SaveIndicator" unique_id=1930014305]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Show save indicator"
+
+[node name="Container" type="Container" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/SaveIndicator" unique_id=1442995062]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="AspectRatioContainer/Panel/TabContainer/Game/MarginContainer/Groups/Flow/SaveIndicator" unique_id=1406176764]
 layout_mode = 2
 
 [node name="Video" type="ScrollContainer" parent="AspectRatioContainer/Panel/TabContainer" unique_id=1195236415]

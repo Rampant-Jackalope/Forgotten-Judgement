@@ -20,7 +20,7 @@ func _ready() -> void:
 	GameState.save_done.connect(stop)
 
 func play() -> void:
-	if !GameState.data[GameState.DataKey.SHOW_AUTO_SAVE_INDICATOR]: return
+	if !Settings.show_save_indicator: return
 	_session += 1
 	_playing = true
 	_play_started_msec = Time.get_ticks_msec()

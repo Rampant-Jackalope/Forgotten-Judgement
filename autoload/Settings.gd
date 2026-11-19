@@ -4,6 +4,7 @@ const SETTINGS_FILE_PATH: String = "user://settings.json"
 
 @export_category("Game")
 @export var quick_restart: bool = false ## Quickly restart gameplay after a game over, skipping the game over screen
+@export var show_save_indicator: bool = true
 
 @export_category("Video")
 @export_group("Size")
@@ -102,6 +103,7 @@ func save_settings():
 
 	var save_dict = {
 		"quick_restart":   self.quick_restart,
+		"show_save_indicator": self.show_save_indicator,
 		"window_mode":     self.window_mode,
 		"resolution_x":    self.resolution.x,
 		"resolution_y":    self.resolution.y,
@@ -138,6 +140,7 @@ func load_settings() -> bool:
 		return false
 
 	if save_dict.has("quick_restart"):                                  self.quick_restart   = save_dict.quick_restart
+	if save_dict.has("show_save_indicator"):														self.show_save_indicator = save_dict.show_save_indicator
 	if save_dict.has("window_mode"):                                    self.window_mode     = save_dict.window_mode
 	if save_dict.has("resolution_x") and save_dict.has("resolution_y"): self.resolution      = Vector2i(save_dict.resolution_x, save_dict.resolution_y)
 	if save_dict.has("v_sync"):                                         self.v_sync          = save_dict.v_sync
