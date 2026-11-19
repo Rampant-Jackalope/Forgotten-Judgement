@@ -3,7 +3,7 @@ extends Node
 const SETTINGS_FILE_PATH: String = "user://settings.json"
 
 @export_category("Game")
-@export var quick_restart: bool = false ## Quickly restart gameplay after a game over, skipping the game over screen
+@export var show_action_hints: bool = true
 @export var show_save_indicator: bool = true
 
 @export_category("Video")
@@ -102,7 +102,7 @@ func save_settings():
 		save_controls[action] = dictionarise_inputevent(controls[action])
 
 	var save_dict = {
-		"quick_restart":   self.quick_restart,
+		"show_action_hints":   self.show_action_hints,
 		"show_save_indicator": self.show_save_indicator,
 		"window_mode":     self.window_mode,
 		"resolution_x":    self.resolution.x,
@@ -139,7 +139,7 @@ func load_settings() -> bool:
 		push_error("Tried to load empty/corrupt settings")
 		return false
 
-	if save_dict.has("quick_restart"):                                  self.quick_restart   = save_dict.quick_restart
+	if save_dict.has("show_action_hints"):                              self.show_action_hints   = save_dict.show_action_hints
 	if save_dict.has("show_save_indicator"):														self.show_save_indicator = save_dict.show_save_indicator
 	if save_dict.has("window_mode"):                                    self.window_mode     = save_dict.window_mode
 	if save_dict.has("resolution_x") and save_dict.has("resolution_y"): self.resolution      = Vector2i(save_dict.resolution_x, save_dict.resolution_y)

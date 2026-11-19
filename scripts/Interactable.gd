@@ -97,10 +97,9 @@ func process_highlight() -> void:
 		self.is_highlighted = should_be_highlighted #otherwise it stays false forever.
 		if should_be_highlighted:
 			self.is_highlighted = true
-			self.hint_pop_ref = ActionHints.push_hint("interact")
+			if Settings.show_action_hints: self.hint_pop_ref = ActionHints.push_hint("interact")
 			highlight_on.emit()
 		else:
 			self.is_highlighted = false
-			if self.hint_pop_ref.is_valid():
-				self.hint_pop_ref.call()
+			if Settings.show_action_hints and self.hint_pop_ref.is_valid(): self.hint_pop_ref.call()
 			highlight_off.emit()
