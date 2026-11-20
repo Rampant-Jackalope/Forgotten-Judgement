@@ -55,16 +55,13 @@ func _connect_highlighting() -> void:
 		player.unlocked_dialogue.connect(scaled_sprite.enable_highlight)
 
 func _build() -> void:
-	if not is_inside_tree():
-		return
+	if not is_inside_tree(): return
 	var root := get_tree().edited_scene_root
-	if root == null:
-		return
+	if root == null: return
 
 	for entry in _get_scaffold():
 		var path: String = entry[0]
-		if get_node_or_null(path):
-			continue
+		if get_node_or_null(path): continue
 
 		var parent: Node = self
 		var child_name := path

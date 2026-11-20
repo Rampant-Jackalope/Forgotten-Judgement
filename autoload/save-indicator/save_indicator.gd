@@ -1,6 +1,6 @@
 extends Control
 
-@export var vid_stream: VideoStreamPlayer
+@export var video_stream_player: VideoStreamPlayer
 @export var animations: Array[VideoStream]
 ## Minimum time the indicator stays visible, so fast saves don't flicker.
 @export_range(0.0, 5.0, 0.1, "suffix:s") var minimum_display_time: float = 1.0
@@ -10,12 +10,12 @@ var _session := 0 # bumped on every play(), invalidates pending stops
 var _playing := false
 
 func _ready() -> void:
-	assert(vid_stream != null, "No video stream player assigned")
+	assert(video_stream_player != null, "No video stream player assigned")
 	assert(animations.size() > 0, "No animations assigned")
 
 	process_mode = PROCESS_MODE_ALWAYS # so its visible in pause menu
 
-	vid_stream.loop = true
+	video_stream_player.loop = true
 	GameState.about_to_save.connect(play)
 	GameState.save_done.connect(stop)
 
@@ -24,8 +24,8 @@ func play() -> void:
 	_session += 1
 	_playing = true
 	_play_started_msec = Time.get_ticks_msec()
-	vid_stream.stream = animations.pick_random()
-	vid_stream.play()
+	video_stream_player.stream = animations.pick_random()
+	video_stream_player.play()
 
 func stop() -> void:
 	if not _playing: return
@@ -42,5 +42,5 @@ func stop() -> void:
 		if session != _session: return
 
 	_playing = false
-	vid_stream.stop()
-	vid_stream.stream = null
+	video_stream_player.stop()
+	video_stream_player.stream = null
