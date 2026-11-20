@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://bmstmuk0h33yw" path="res://assets/fonts/Ananias.otf" id="2_font"]
 [ext_resource type="PackedScene" uid="uid://dxfwnogo10lw7" path="res://scenes/main_menu/user_interface.tscn" id="3_menu"]
 [ext_resource type="PackedScene" uid="uid://bopovfvgljpeh" path="res://scenes/ui/settings/settings.tscn" id="3_y8cqg"]
-[ext_resource type="PackedScene" uid="uid://dxfwnogo10lw7" path="res://scenes/ui/main_menu/user_interface.tscn" id="3_menu"]
 
 [sub_resource type="Theme" id="Theme_pause"]
 default_font = ExtResource("2_font")
