@@ -189,3 +189,32 @@ static func dict_as_readonly(dict: Dictionary) -> Dictionary:
 	clone.make_read_only()
 
 	return clone
+
+static func get_key_event_text(event: InputEventKey) -> String:
+	if event.keycode == 0 and event.physical_keycode == 0: assert(false, "InputEventKey has neither keycode nor physical_keycode set")
+	return event.as_text_physical_keycode() if event.keycode == 0 else event.as_text_keycode()
+static func get_mousebutton_event_text(event: InputEventMouseButton) -> String:
+	match event.button_index:
+		MOUSE_BUTTON_NONE:       assert(false, "Got \"none\" mouse button")
+		MOUSE_BUTTON_LEFT:       return "Left Mouse"
+		MOUSE_BUTTON_RIGHT:      return "Right Mouse"
+		MOUSE_BUTTON_MIDDLE:     return "Middle Mouse"
+		MOUSE_BUTTON_WHEEL_UP:   return "Scroll Up"
+		MOUSE_BUTTON_WHEEL_DOWN: return "Scroll Down"
+	return "Mouse" + str(event.button_index)
+
+static func get_event_text(event: InputEvent) -> String:
+	assert(event != null, "Got null")
+
+	if event is InputEventKey:         return get_key_event_text(event)
+	if event is InputEventMouseButton: return get_mousebutton_event_text(event)
+
+	push_warning("Unknown event type '%s'" % event.get_class())
+	return event.as_text()
+
+static func get_action_key_text(action: StringName) -> String:
+	var items: Array[String] = []
+	for event in InputMap.action_get_events(action):
+		items.push_back(get_event_text(event))
+	if items.size() <= 0: return "Unset"
+	return ", ".join(items)

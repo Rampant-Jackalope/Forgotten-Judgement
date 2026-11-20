@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bs3y8jwx7423p"]
+
+[ext_resource type="Script" uid="uid://ctd7narqt5ogr" path="res://autoload/save-indicator/save_indicator.gd" id="1_8qyc6"]
+[ext_resource type="Shader" uid="uid://dctrgnlbs0pv1" path="res://shaders/transparency_stream.gdshader" id="1_esifr"]
+[ext_resource type="VideoStream" uid="uid://bq3b1jcchjrdu" path="res://assets/animations/save/loading-bottle.ogv" id="2_ibwa6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esifr"]
+shader = ExtResource("1_esifr")
+shader_parameter/key_color = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.5
+shader_parameter/softness = 0.5
+
+[node name="SaveIndicator" type="Control" unique_id=124605742 node_paths=PackedStringArray("video_stream_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8qyc6")
+video_stream_player = NodePath("VideoStreamPlayer")
+animations = Array[VideoStream]([ExtResource("2_ibwa6")])
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2121337475]
+material = SubResource("ShaderMaterial_esifr")
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -480.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(800, 450)
+loop = true

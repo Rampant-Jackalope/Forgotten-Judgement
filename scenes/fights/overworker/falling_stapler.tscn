@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtw6swrpfrg3x"]
 
 [ext_resource type="Texture2D" uid="uid://besnjhmpg0f4t" path="res://assets/combat/overworker/overworker_stapler.png" id="1_ya603"]
-[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_hstfn"]
+[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/combat/projectiles/types/FallingProjectile.gd" id="2_hstfn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
 animations = [{

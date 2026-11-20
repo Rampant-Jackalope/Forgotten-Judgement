@@ -2,13 +2,14 @@ extends Node
 
 ## Emitted right before saving. Connect to quickly save before write is finalized
 signal about_to_save
+signal save_done
 
 const SAVE_PATH := "user://player_state.json"
 
 enum DataKey {
 	PLAYER_POSITION,
 	LOAD_SAVE,
-	ITEMS
+	ITEMS,
 }
 
 ## Only keys listed here are saved and loaded. The values are the defaults.
@@ -44,8 +45,13 @@ func save_to_disk(path: String = SAVE_PATH) -> Error:
 		out["dialogic"][key] = var_to_str(vars[key])
 
 	var f := FileAccess.open(path, FileAccess.WRITE)
-	if f == null: return FileAccess.get_open_error()
+	if f == null:
+		save_done.emit()
+		return FileAccess.get_open_error()
+
 	f.store_string(JSON.stringify(out))
+
+	save_done.emit()
 	return OK
 
 func load_from_disk(path: String = SAVE_PATH) -> bool:

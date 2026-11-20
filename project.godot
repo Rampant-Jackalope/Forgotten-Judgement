@@ -25,6 +25,8 @@ NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 GameState="*uid://ducmw5bv6wfu3"
 PlayerStats="*uid://r3p146iquj8d"
 FlagWatcher="*uid://c1f4rvqk4x4m7"
+SaveIndicator="*uid://bs3y8jwx7423p"
+ActionHints="*uid://dqegbt18xpehy"
 
 [dialogic]
 
@@ -34,8 +36,7 @@ directories/dch_directory={
 "main_player": "res://dialogic/characters/main_player.dch",
 "overworker": "res://dialogic/characters/overworker.dch",
 "rat": "res://dialogic/characters/rat.dch",
-"singer": "res://dialogic/characters/singer.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"singer": "res://dialogic/characters/singer.dch"
 }
 directories/dtl_directory={
 "bartender": "res://dialogic/timelines/bartender/bartender.dtl",

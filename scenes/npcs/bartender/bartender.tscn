@@ -2,18 +2,36 @@
 
 [ext_resource type="Script" uid="uid://mc2kcrxuup2h" path="res://scenes/npcs/bartender/bartender.gd" id="1_qblmu"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="2_8gc22"]
+[ext_resource type="Shader" uid="uid://b5wt3lh0p762y" path="res://shaders/sprite_outline.gdshader" id="3_alpou"]
 [ext_resource type="Texture2D" uid="uid://7dpoaoa0wtfa" path="res://assets/npc-billboards/bartender/Bartender_Idle.png" id="3_qblmu"]
 [ext_resource type="Script" uid="uid://c63qvq2jgegbh" path="res://scripts/ScaledSprite3D.gd" id="4_55rkv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i7141"]
-radius = 2.0
+radius = 1.5
 
-[node name="Bartender" type="Node3D" unique_id=955105355]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alpou"]
+render_priority = 0
+shader = ExtResource("3_alpou")
+shader_parameter/tex = ExtResource("3_qblmu")
+shader_parameter/enabled = false
+shader_parameter/outline_px = 3.0
+shader_parameter/pulse_amount = 0.3
+shader_parameter/glow = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1v5y"]
+radius = 0.45
+
+[node name="Bartender" type="Node3D" unique_id=1508127312]
 script = ExtResource("1_qblmu")
+metadata/_custom_type_script = "uid://ds722qjsiqawc"
 
-[node name="Interactable" type="Area3D" parent="." unique_id=479839825]
+[node name="Target" type="Node3D" parent="." unique_id=846332175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75566727, 0)
+
+[node name="Interactable" type="Area3D" parent="." unique_id=479839825 node_paths=PackedStringArray("look_target")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 script = ExtResource("2_8gc22")
+look_target = NodePath("../Target")
 metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=420839961]
@@ -21,11 +39,17 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 shape = SubResource("SphereShape3D_i7141")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=1969721173]
+material_override = SubResource("ShaderMaterial_alpou")
 pixel_size = 0.0009375
 billboard = 2
 texture_filter = 0
 texture = ExtResource("3_qblmu")
 script = ExtResource("4_55rkv")
 metadata/_custom_type_script = "uid://c63qvq2jgegbh"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1125733465]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=824533081]
+shape = SubResource("CapsuleShape3D_d1v5y")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

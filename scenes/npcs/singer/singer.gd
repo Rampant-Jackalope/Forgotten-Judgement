@@ -1,4 +1,5 @@
-extends Node3D
+@tool
+extends ScaffoldedNpc 
 
 var _origin: Transform3D ## this is the original position of the NPC, used for resetting it back to its original position if needed.
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ssoj8xu5iorp"]
 
 [ext_resource type="Texture2D" uid="uid://vdhu8f6edib6" path="res://assets/combat/long_sigarette.png" id="1_fmcvn"]
-[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/projectiles/types/FallingProjectile.gd" id="2_fgpdo"]
+[ext_resource type="Script" uid="uid://by4hm67spp0hm" path="res://scripts/combat/projectiles/types/FallingProjectile.gd" id="2_fgpdo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kpxu"]
 animations = [{

@@ -1,4 +1,5 @@
-extends Node3D
+@tool
+extends ScaffoldedNpc 
 
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
 	if !Dialogic.VAR.overworker.HasMetOverworker:
