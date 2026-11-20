@@ -20,12 +20,14 @@ func _ready() -> void:
 func dialogue_lock() -> void:
 	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	InputStash.disable_action("interact")
+	Interactable.highlight_suppressed = true
 	dialogue_locked = true
 	locked_dialogue.emit()
 
 func dialogue_unlock() -> void:
 	WorldManager.set_3d_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	InputStash.enable_action("interact")
+	Interactable.highlight_suppressed = false
 	dialogue_locked = false
 	unlocked_dialogue.emit()
 

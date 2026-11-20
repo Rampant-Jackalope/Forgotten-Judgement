@@ -13,6 +13,7 @@ static var interaction_queue: InteractQueue = InteractQueue.new()
 static var _last_interact_frame: int = -1
 
 var is_highlighted: bool = false
+static var highlight_suppressed := false
 
 var hint_pop_ref: Callable
 
@@ -82,20 +83,23 @@ func _exit_tree() -> void:
 # ------------------
 # boilerplate functions to throw into _process() or wherever, when an item needs custom _process() behavior
 
+func _should_be_highlighted() -> bool:
+	return not Interactable.highlight_suppressed and Interactable.interaction_queue.is_priority(self)
+
 func process_interaction() -> void:
 	if not Input.is_action_just_pressed("interact"): return
 	if not Interactable.interaction_queue.is_priority(self): return
+	if !_should_be_highlighted(): return
+
 	var frame := Engine.get_process_frames()
 	if frame == _last_interact_frame: return
 	_last_interact_frame = frame
 	interacted.emit(Util.get_player().interactor, Interactable.interaction_queue.pop)
 
 func process_highlight() -> void:
-	var should_be_highlighted = Interactable.interaction_queue.is_priority(self)
-
-	if should_be_highlighted != self.is_highlighted:
-		self.is_highlighted = should_be_highlighted #otherwise it stays false forever.
-		if should_be_highlighted:
+	if _should_be_highlighted() != self.is_highlighted:
+		self.is_highlighted = _should_be_highlighted()
+		if _should_be_highlighted():
 			self.is_highlighted = true
 			if Settings.show_action_hints: self.hint_pop_ref = ActionHints.push_hint("interact")
 			highlight_on.emit()

@@ -47,13 +47,6 @@ func _connect_highlighting() -> void:
 	if not interactable.highlight_off.is_connected(scaled_sprite.disable_highlight):
 		interactable.highlight_off.connect(scaled_sprite.disable_highlight)
 
-	# To remove the highlight while player is in dialogue
-	var player: Player3D = Util.get_player()
-	if not player.locked_dialogue.is_connected(scaled_sprite.disable_highlight):
-		player.locked_dialogue.connect(scaled_sprite.disable_highlight)
-	if not player.unlocked_dialogue.is_connected(scaled_sprite.enable_highlight):
-		player.unlocked_dialogue.connect(scaled_sprite.enable_highlight)
-
 func _build() -> void:
 	if not is_inside_tree(): return
 	var root := get_tree().edited_scene_root
