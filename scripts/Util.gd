@@ -190,10 +190,17 @@ static func dict_as_readonly(dict: Dictionary) -> Dictionary:
 
 	return clone
 
+static func get_key_event_text(event: InputEventKey) -> String:
+	if event.keycode == 0 and event.physical_keycode == 0:
+		push_warning("InputEventKey has neither keycode nor physical_keycode set")
+		return "Unset"
+	return event.as_text_physical_keycode() if event.keycode == 0 else event.as_text_keycode()
+
+
 static func get_action_key_text(action: StringName) -> String:
 	for event in InputMap.action_get_events(action):
 		if event is InputEventKey:
-			return event.as_text_physical_keycode() if event.keycode == 0 else event.as_text_keycode()
+			return get_key_event_text(event)
 		if event is InputEventMouseButton:
 			return event.as_text()
 	return "Unset"
