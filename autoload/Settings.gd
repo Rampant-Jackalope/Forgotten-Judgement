@@ -104,15 +104,15 @@ func save_settings():
 	var save_dict = {
 		"show_action_hints":   self.show_action_hints,
 		"show_save_indicator": self.show_save_indicator,
-		"window_mode":     self.window_mode,
-		"resolution_x":    self.resolution.x,
-		"resolution_y":    self.resolution.y,
-		"v_sync":          self.v_sync,
-		"framerate_limit": self.framerate_limit,
-		"anti_aliasing":   self.anti_aliasing,
-		"volume":          self._bus_volumes,
-		"sensitivity":     self.sensitivity,
-		"controls":        save_controls,
+		"window_mode":         self.window_mode,
+		"resolution_x":        self.resolution.x,
+		"resolution_y":        self.resolution.y,
+		"v_sync":              self.v_sync,
+		"framerate_limit":     self.framerate_limit,
+		"anti_aliasing":       self.anti_aliasing,
+		"volume":              self._bus_volumes,
+		"sensitivity":         self.sensitivity,
+		"controls":            save_controls,
 	}
 
 	var json_string = JSON.stringify(save_dict)
@@ -140,13 +140,13 @@ func load_settings() -> bool:
 		return false
 
 	if save_dict.has("show_action_hints"):                              self.show_action_hints   = save_dict.show_action_hints
-	if save_dict.has("show_save_indicator"):														self.show_save_indicator = save_dict.show_save_indicator
-	if save_dict.has("window_mode"):                                    self.window_mode     = save_dict.window_mode
-	if save_dict.has("resolution_x") and save_dict.has("resolution_y"): self.resolution      = Vector2i(save_dict.resolution_x, save_dict.resolution_y)
-	if save_dict.has("v_sync"):                                         self.v_sync          = save_dict.v_sync
-	if save_dict.has("framerate_limit"):                                self.framerate_limit = save_dict.framerate_limit
-	if save_dict.has("anti_aliasing"):                                  self.anti_aliasing   = save_dict.anti_aliasing
-	if save_dict.has("sensitivity"):                                    self.sensitivity     = save_dict.sensitivity
+	if save_dict.has("show_save_indicator"):                            self.show_save_indicator = save_dict.show_save_indicator
+	if save_dict.has("window_mode"):                                    self.window_mode         = save_dict.window_mode
+	if save_dict.has("resolution_x") and save_dict.has("resolution_y"): self.resolution          = Vector2i(save_dict.resolution_x, save_dict.resolution_y)
+	if save_dict.has("v_sync"):                                         self.v_sync              = save_dict.v_sync
+	if save_dict.has("framerate_limit"):                                self.framerate_limit     = save_dict.framerate_limit
+	if save_dict.has("anti_aliasing"):                                  self.anti_aliasing       = save_dict.anti_aliasing
+	if save_dict.has("sensitivity"):                                    self.sensitivity         = save_dict.sensitivity
 
 	if save_dict.has("controls"): for action in save_dict.controls.keys():
 		if InputMap.get_action_description(action) == null: continue
