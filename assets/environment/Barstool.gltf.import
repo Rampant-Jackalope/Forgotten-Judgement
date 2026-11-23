@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfjcxdph6we44"
+uid="uid://7vpu5man3hrg"
 path="res://.godot/imported/Barstool.gltf-173c506dc2d70b864e16a43c8613dc5e.scn"
 
 [deps]
@@ -41,9 +41,8 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:BarStool": {
-"generate/physics": true,
-"physics/shape_type": 1
+"PATH:wall-corner-rounded-low": {
+"generate/physics": true
 }
 }
 }

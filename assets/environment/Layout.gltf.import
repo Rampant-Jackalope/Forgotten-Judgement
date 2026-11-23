@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://crj5fjug3u2qe"
+uid="uid://3a5hixcngubi"
 path="res://.godot/imported/Layout.gltf-000cf8820d0b910a8f0a4a5cd3187ddc.scn"
 
 [deps]
@@ -41,22 +41,16 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:BackroomCeiling": {
+"PATH:Bathroomsurface": {
 "generate/physics": true
 },
 "PATH:Counter": {
-"generate/physics": true
-},
-"PATH:FirstFloorCeiling": {
 "generate/physics": true
 },
 "PATH:FirstFloorPanels": {
 "generate/physics": true
 },
 "PATH:FirstFloorSurface": {
-"generate/physics": true
-},
-"PATH:MasterChair": {
 "generate/physics": true
 },
 "PATH:MasterChair_001": {
@@ -71,25 +65,10 @@ _subresources={
 "PATH:MasterChair_004": {
 "generate/physics": true
 },
-"PATH:Planter": {
-"generate/physics": true
-},
-"PATH:Planter_001": {
-"generate/physics": true
-},
-"PATH:Planter_002": {
-"generate/physics": true
-},
 "PATH:PodiumStairs": {
 "generate/physics": true
 },
 "PATH:RegulationStairs": {
-"generate/physics": true
-},
-"PATH:Roof": {
-"generate/physics": true
-},
-"PATH:SecondFloorDoorframes": {
 "generate/physics": true
 },
 "PATH:SecondFloorInbetween": {
@@ -122,7 +101,13 @@ _subresources={
 "PATH:stageFront": {
 "generate/physics": true
 },
+"PATH:stage_001": {
+"generate/physics": true
+},
 "PATH:stage_zone": {
+"generate/physics": true
+},
+"PATH:toilet": {
 "generate/physics": true
 }
 }

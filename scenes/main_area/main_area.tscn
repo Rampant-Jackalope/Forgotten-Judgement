@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2sd0o1svj76a"]
 
-[ext_resource type="PackedScene" uid="uid://crj5fjug3u2qe" path="res://assets/environment/Layout.gltf" id="1_81n4i"]
+[ext_resource type="PackedScene" uid="uid://3a5hixcngubi" path="res://assets/environment/Layout.gltf" id="1_81n4i"]
 [ext_resource type="PackedScene" uid="uid://bwna8f5x58t1x" path="res://scenes/rooms/overworker/overworker_room.tscn" id="2_hmils"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_aks2q"]
 [ext_resource type="Script" uid="uid://dholpp4cvpoeg" path="res://scenes/main_area/exit_doors.gd" id="3_hmils"]
@@ -11,15 +11,11 @@
 [ext_resource type="Script" uid="uid://c6ravfv2mjwmj" path="res://scenes/main_area/overworker_door.gd" id="7_wkrbv"]
 [ext_resource type="Script" uid="uid://bjx6b4nkba1ku" path="res://scenes/main_area/singer_door.gd" id="8_4gj5b"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="9_2wd05"]
-[ext_resource type="PackedScene" uid="uid://bfjcxdph6we44" path="res://assets/environment/Barstool.gltf" id="10_18u1t"]
+[ext_resource type="PackedScene" uid="uid://7vpu5man3hrg" path="res://assets/environment/Barstool.gltf" id="10_18u1t"]
 [ext_resource type="PackedScene" uid="uid://cyrymm3u5uypo" path="res://scenes/interactables/double_callback_door.tscn" id="12_3jgwd"]
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
-[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="13_yglnl"]
-[ext_resource type="Script" uid="uid://b7kiux0kmc1bk" path="res://scenes/main_area/da_botlle.gd" id="14_i7vgk"]
 [ext_resource type="Script" uid="uid://c44geavicvyn7" path="res://scripts/simple_interaction_highlighter.gd" id="16_q0nb6"]
 [ext_resource type="Script" uid="uid://dk5a5fes34s6i" path="res://scripts/Inspectable.gd" id="17_4gj5b"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seols"]
 shading_mode = 0
@@ -148,6 +144,7 @@ ambient_mode = 2
 ambient_color = Color(0.1, 0.1, 0.1, 1)
 
 [node name="Layout" parent="." unique_id=965524540 instance=ExtResource("1_81n4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8146973e-05, 0.0005904436, -0.001231432)
 
 [node name="OverworkerRoom" parent="." unique_id=211864694 instance=ExtResource("2_hmils")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.254303, 0, 0)
@@ -241,27 +238,13 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
 
 [node name="BackStageDoor" parent="LockedDoors/BackStage" unique_id=1301150372 instance=ExtResource("12_yglnl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
-key_item_id = &"backstage_key"
+key_item_id = &""
 locked_label = "backstage_door_locked"
 
 [node name="ExitDoor" type="Node3D" parent="." unique_id=1267921120]
 script = ExtResource("3_hmils")
 
 [node name="DoubleCallbackDoor" parent="ExitDoor" unique_id=356130427 instance=ExtResource("12_3jgwd")]
-
-[node name="DaBotlle" type="Node3D" parent="." unique_id=1304837382 node_paths=PackedStringArray("mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.731671, 1.1363795, 14.613964)
-script = ExtResource("14_i7vgk")
-mesh = NodePath("../Layout/ShortLiquorBottle")
-
-[node name="Interactable" type="Area3D" parent="DaBotlle" unique_id=1193066562 node_paths=PackedStringArray("look_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0929904, 0, 0.051110268)
-script = ExtResource("13_yglnl")
-look_target = NodePath("..")
-metadata/_custom_type_script = "uid://f2gpkkmmd74h"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DaBotlle/Interactable" unique_id=1599321155]
-shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="MysteriousCube" type="Node3D" parent="." unique_id=1653531072]
 transform = Transform3D(0.91426253, 0, 0.40512228, 0, 1, 0, -0.40512228, 0, 0.91426253, 4.847253, 0.0749273, 3.9312284)
@@ -287,9 +270,6 @@ shape = SubResource("CylinderShape3D_seols")
 [connection signal="interacted" from="GuestDoors/Michael/callback_door" to="GuestDoors/Michael" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="GuestDoors/Couple/callback_door" to="GuestDoors/Couple" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="ExitDoor/DoubleCallbackDoor" to="ExitDoor" method="_on_double_callback_door_interacted"]
-[connection signal="highlight_off" from="DaBotlle/Interactable" to="DaBotlle" method="_on_interactable_highlight_off"]
-[connection signal="highlight_on" from="DaBotlle/Interactable" to="DaBotlle" method="_on_interactable_highlight_on"]
-[connection signal="interacted" from="DaBotlle/Interactable" to="DaBotlle" method="_on_interactable_interacted"]
 
 [editable path="OpenCloseDoors/Toilet2"]
 [editable path="OpenCloseDoors/Toilet2/DoorAnimated"]
