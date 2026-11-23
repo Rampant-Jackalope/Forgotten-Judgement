@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
 [ext_resource type="Script" uid="uid://c44geavicvyn7" path="res://scripts/simple_interaction_highlighter.gd" id="16_q0nb6"]
 [ext_resource type="Script" uid="uid://dk5a5fes34s6i" path="res://scripts/Inspectable.gd" id="17_4gj5b"]
+[ext_resource type="PackedScene" uid="uid://etnqpunjlxyd" path="res://assets/environment/lethebottle.gltf" id="17_q0nb6"]
+[ext_resource type="Script" uid="uid://d1o4p6gfv4y15" path="res://assets/environment/lethebottle.gd" id="18_1nckv"]
+[ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="18_4gj5b"]
+[ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="19_2vh6m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seols"]
 shading_mode = 0
@@ -28,6 +32,23 @@ size = Vector3(0.15, 0.15, 0.15)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_seols"]
 height = 0.3
 radius = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bc6i3"]
+render_priority = 0
+shader = ExtResource("19_2vh6m")
+shader_parameter/visible_fill = 0.01
+shader_parameter/hidden_fill = 0.45
+shader_parameter/stripe_size = 2.0
+shader_parameter/stripe_strength = 0.0
+shader_parameter/stripe_scroll = 0.0
+shader_parameter/sweep_speed = 1.0
+shader_parameter/sweep_strength = 0.05
+shader_parameter/pulse_amount = 0.5
+shader_parameter/glow = 1.0
+shader_parameter/bias = 0.1
+shader_parameter/bias_per_meter = 0.02
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kpxu"]
 
 [node name="MainArea" type="Node3D" unique_id=251183288]
 
@@ -269,6 +290,22 @@ metadata/_custom_type_script = "uid://dk5a5fes34s6i"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/MysteriousCube/Inspectable" unique_id=1519042120]
 shape = SubResource("CylinderShape3D_seols")
 
+[node name="lethebottle" parent="Interactables" unique_id=1938550382 node_paths=PackedStringArray("mesh") instance=ExtResource("17_q0nb6")]
+transform = Transform3D(0.4970601, 0, -0.86771613, 0, 1, 0, 0.86771613, 0, 0.4970601, -4.690441, 1, 11.925928)
+script = ExtResource("18_1nckv")
+mesh = NodePath("ShortLiquorBottle")
+
+[node name="ShortLiquorBottle" parent="Interactables/lethebottle" index="0" unique_id=746647639]
+material_overlay = SubResource("ShaderMaterial_bc6i3")
+
+[node name="Interactable" type="Area3D" parent="Interactables/lethebottle" unique_id=491090495 node_paths=PackedStringArray("look_target")]
+script = ExtResource("18_4gj5b")
+look_target = NodePath("..")
+metadata/_custom_type_script = "uid://f2gpkkmmd74h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/lethebottle/Interactable" unique_id=1043650352]
+shape = SubResource("SphereShape3D_1kpxu")
+
 [connection signal="interacted" from="Interactables/GuestDoors/Overworker/callback_door" to="Interactables/GuestDoors/Overworker" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="Interactables/GuestDoors/Singer/callback_door" to="Interactables/GuestDoors/Singer" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="Interactables/GuestDoors/OldMan/callback_door" to="Interactables/GuestDoors/OldMan" method="_on_callback_door_interacted"]
@@ -276,3 +313,8 @@ shape = SubResource("CylinderShape3D_seols")
 [connection signal="interacted" from="Interactables/GuestDoors/Child/callback_door" to="Interactables/GuestDoors/Child" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="Interactables/GuestDoors/Couple/callback_door" to="Interactables/GuestDoors/Couple" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="Interactables/ExitDoor/DoubleCallbackDoor" to="Interactables/ExitDoor" method="_on_double_callback_door_interacted"]
+[connection signal="highlight_off" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_off"]
+[connection signal="highlight_on" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_on"]
+[connection signal="interacted" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_interacted"]
+
+[editable path="Interactables/lethebottle"]
