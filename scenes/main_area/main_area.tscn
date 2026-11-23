@@ -154,62 +154,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 7)
 
 [node name="OpenCloseDoors" type="Node3D" parent="." unique_id=1691008114]
 
-[node name="Toilet2" parent="OpenCloseDoors" unique_id=1742132657 instance=ExtResource("5_aks2q")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6848955, 0, 11.997033)
-
 [node name="DoubleOpenCloseDoor" parent="OpenCloseDoors" unique_id=1279994241 instance=ExtResource("4_jnuwi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.24052)
 invert_open_direction = true
 
-[node name="GuestDoors" type="Node3D" parent="." unique_id=1105856613]
-
-[node name="Overworker" type="Node3D" parent="GuestDoors" unique_id=938674825]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 2.3571048)
-script = ExtResource("7_wkrbv")
-
-[node name="callback_door" parent="GuestDoors/Overworker" unique_id=1315016174 instance=ExtResource("3_aks2q")]
-
-[node name="Singer" type="Node3D" parent="GuestDoors" unique_id=2005611982]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 6.857585)
-script = ExtResource("8_4gj5b")
-
-[node name="callback_door" parent="GuestDoors/Singer" unique_id=2079889226 instance=ExtResource("3_aks2q")]
-
-[node name="OldMan" type="Node3D" parent="GuestDoors" unique_id=1603126174]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 11.114957)
-script = ExtResource("7_ipjo4")
-
-[node name="callback_door" parent="GuestDoors/OldMan" unique_id=496163881 instance=ExtResource("3_aks2q")]
-
-[node name="Enki" type="Node3D" parent="GuestDoors" unique_id=516378111]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 15.506876)
-script = ExtResource("7_ipjo4")
-
-[node name="callback_door" parent="GuestDoors/Enki" unique_id=1904884975 instance=ExtResource("3_aks2q")]
-
-[node name="Michael" type="Node3D" parent="GuestDoors" unique_id=193656862]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 20.017101)
-script = ExtResource("7_ipjo4")
-
-[node name="callback_door" parent="GuestDoors/Michael" unique_id=114768762 instance=ExtResource("3_aks2q")]
-
-[node name="Couple" type="Node3D" parent="GuestDoors" unique_id=633883638]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 3.9, 24.643602)
-script = ExtResource("7_ipjo4")
-
-[node name="callback_door" parent="GuestDoors/Couple" unique_id=1897157781 instance=ExtResource("3_aks2q")]
-
 [node name="PlayerMarkers" type="Node3D" parent="." unique_id=2129746180]
 
 [node name="Overworker_Outside" type="Marker3D" parent="PlayerMarkers" unique_id=715485044]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 3.9, 2.34)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3775306, 3.9, 13.357)
 script = ExtResource("9_2wd05")
 identifier = "Overworker_Outside"
-look_direction = Vector3(1, 0, 0)
+look_direction = Vector3(-1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 
 [node name="Singer_Outside" type="Marker3D" parent="PlayerMarkers" unique_id=1610517025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.9, 6.7952123)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.9, 13.357)
 script = ExtResource("9_2wd05")
 identifier = "Singer_Outside"
 look_direction = Vector3(1, 0, 0)
@@ -232,44 +191,88 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 14)
 [node name="Barstool7" parent="Decorations" unique_id=1425693616 instance=ExtResource("10_18u1t")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
 
-[node name="LockedDoors" type="Node3D" parent="." unique_id=1572863137]
+[node name="Interactables" type="Node3D" parent="." unique_id=1805313374]
 
-[node name="BackStage" type="Node3D" parent="LockedDoors" unique_id=2092740103]
-
-[node name="BackStageDoor" parent="LockedDoors/BackStage" unique_id=1301150372 instance=ExtResource("12_yglnl")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
+[node name="BackstageDoor" parent="Interactables" unique_id=1301150372 instance=ExtResource("12_yglnl")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0, 16.248)
 key_item_id = &""
 locked_label = "backstage_door_locked"
 
-[node name="ExitDoor" type="Node3D" parent="." unique_id=1267921120]
+[node name="ToiletDoor" parent="Interactables" unique_id=1742132657 instance=ExtResource("5_aks2q")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
+
+[node name="PersonneleOnlyDoor" parent="Interactables" unique_id=26181274 instance=ExtResource("5_aks2q")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.532651, 0, 14.247769)
+
+[node name="BarStorageDoor" parent="Interactables" unique_id=1828281647 instance=ExtResource("12_yglnl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 12.247999)
+key_item_id = &"bar_storage_key"
+locked_label = "bar_storage_locked"
+
+[node name="GuestDoors" type="Node3D" parent="Interactables" unique_id=1105856613]
+
+[node name="Overworker" type="Node3D" parent="Interactables/GuestDoors" unique_id=938674825]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 13.357)
+script = ExtResource("7_wkrbv")
+
+[node name="callback_door" parent="Interactables/GuestDoors/Overworker" unique_id=1315016174 instance=ExtResource("3_aks2q")]
+
+[node name="Singer" type="Node3D" parent="Interactables/GuestDoors" unique_id=2005611982]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 13.357)
+script = ExtResource("8_4gj5b")
+
+[node name="callback_door" parent="Interactables/GuestDoors/Singer" unique_id=2079889226 instance=ExtResource("3_aks2q")]
+
+[node name="OldMan" type="Node3D" parent="Interactables/GuestDoors" unique_id=1603126174]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 18.357)
+script = ExtResource("7_ipjo4")
+
+[node name="callback_door" parent="Interactables/GuestDoors/OldMan" unique_id=496163881 instance=ExtResource("3_aks2q")]
+
+[node name="Enki" type="Node3D" parent="Interactables/GuestDoors" unique_id=516378111]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 18.357)
+script = ExtResource("7_ipjo4")
+
+[node name="callback_door" parent="Interactables/GuestDoors/Enki" unique_id=1904884975 instance=ExtResource("3_aks2q")]
+
+[node name="Child" type="Node3D" parent="Interactables/GuestDoors" unique_id=193656862]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 23.357)
+script = ExtResource("7_ipjo4")
+
+[node name="callback_door" parent="Interactables/GuestDoors/Child" unique_id=114768762 instance=ExtResource("3_aks2q")]
+
+[node name="Couple" type="Node3D" parent="Interactables/GuestDoors" unique_id=633883638]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 23.357)
+script = ExtResource("7_ipjo4")
+
+[node name="callback_door" parent="Interactables/GuestDoors/Couple" unique_id=1897157781 instance=ExtResource("3_aks2q")]
+
+[node name="ExitDoor" type="Node3D" parent="Interactables" unique_id=1267921120]
 script = ExtResource("3_hmils")
 
-[node name="DoubleCallbackDoor" parent="ExitDoor" unique_id=356130427 instance=ExtResource("12_3jgwd")]
+[node name="DoubleCallbackDoor" parent="Interactables/ExitDoor" unique_id=356130427 instance=ExtResource("12_3jgwd")]
 
-[node name="MysteriousCube" type="Node3D" parent="." unique_id=1653531072]
+[node name="MysteriousCube" type="Node3D" parent="Interactables" unique_id=1653531072]
 transform = Transform3D(0.91426253, 0, 0.40512228, 0, 1, 0, -0.40512228, 0, 0.91426253, 4.847253, 0.0749273, 3.9312284)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MysteriousCube" unique_id=1669147895 node_paths=PackedStringArray("interactable")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/MysteriousCube" unique_id=1669147895 node_paths=PackedStringArray("interactable")]
 mesh = SubResource("BoxMesh_seols")
 script = ExtResource("16_q0nb6")
 interactable = NodePath("../Inspectable")
 
-[node name="Inspectable" type="Area3D" parent="MysteriousCube" unique_id=1474701420 node_paths=PackedStringArray("look_target")]
+[node name="Inspectable" type="Area3D" parent="Interactables/MysteriousCube" unique_id=1474701420 node_paths=PackedStringArray("look_target")]
 script = ExtResource("17_4gj5b")
 inspect_image = "uid://dtpnkbla77u1o"
 look_target = NodePath("..")
 metadata/_custom_type_script = "uid://dk5a5fes34s6i"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MysteriousCube/Inspectable" unique_id=1519042120]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/MysteriousCube/Inspectable" unique_id=1519042120]
 shape = SubResource("CylinderShape3D_seols")
 
-[connection signal="interacted" from="GuestDoors/Overworker/callback_door" to="GuestDoors/Overworker" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="GuestDoors/Singer/callback_door" to="GuestDoors/Singer" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="GuestDoors/OldMan/callback_door" to="GuestDoors/OldMan" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="GuestDoors/Enki/callback_door" to="GuestDoors/Enki" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="GuestDoors/Michael/callback_door" to="GuestDoors/Michael" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="GuestDoors/Couple/callback_door" to="GuestDoors/Couple" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="ExitDoor/DoubleCallbackDoor" to="ExitDoor" method="_on_double_callback_door_interacted"]
-
-[editable path="OpenCloseDoors/Toilet2"]
-[editable path="OpenCloseDoors/Toilet2/DoorAnimated"]
+[connection signal="interacted" from="Interactables/GuestDoors/Overworker/callback_door" to="Interactables/GuestDoors/Overworker" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/GuestDoors/Singer/callback_door" to="Interactables/GuestDoors/Singer" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/GuestDoors/OldMan/callback_door" to="Interactables/GuestDoors/OldMan" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/GuestDoors/Enki/callback_door" to="Interactables/GuestDoors/Enki" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/GuestDoors/Child/callback_door" to="Interactables/GuestDoors/Child" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/GuestDoors/Couple/callback_door" to="Interactables/GuestDoors/Couple" method="_on_callback_door_interacted"]
+[connection signal="interacted" from="Interactables/ExitDoor/DoubleCallbackDoor" to="Interactables/ExitDoor" method="_on_double_callback_door_interacted"]
