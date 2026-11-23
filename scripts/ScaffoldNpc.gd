@@ -24,7 +24,7 @@ func _init_defaults(child: Node, path: String) -> void:
 			(child as CollisionShape3D).shape = sphere
 		"StaticBody3D/CollisionShape3D":
 			var pill := CapsuleShape3D.new()
-			pill.radius = 0.45
+			pill.radius = 0.2
 			(child as CollisionShape3D).shape = pill 
 
 
