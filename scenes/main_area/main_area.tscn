@@ -177,19 +177,19 @@ metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
 [node name="Decorations" type="Node3D" parent="." unique_id=1254379724]
 
 [node name="Barstool3" parent="Decorations" unique_id=620989367 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 11)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 9)
 
 [node name="Barstool4" parent="Decorations" unique_id=549619914 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 12)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 10)
 
 [node name="Barstool5" parent="Decorations" unique_id=1967792731 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 13)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 11)
 
 [node name="Barstool6" parent="Decorations" unique_id=91048093 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 14)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 12)
 
 [node name="Barstool7" parent="Decorations" unique_id=1425693616 instance=ExtResource("10_18u1t")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.0726767, 0, 15)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 13)
 
 [node name="Interactables" type="Node3D" parent="." unique_id=1805313374]
 
