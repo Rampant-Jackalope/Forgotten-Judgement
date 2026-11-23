@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://i8r1xowofjce"]
+
+[ext_resource type="Script" uid="uid://dhtigneuyyd1k" path="res://scenes/rooms/singer/singer_room.gd" id="1_ogcg6"]
+[ext_resource type="PackedScene" uid="uid://duhpca4l5q1jx" path="res://assets/environment/Singer/SingerRoom.gltf" id="1_y3hs1"]
+[ext_resource type="PackedScene" uid="uid://kc24q860xsbi" path="res://assets/environment/Singer/SingerSecretDrawer.gltf" id="2_rmsdj"]
+[ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_pnhx5"]
+[ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="4_1hv3k"]
+
+[node name="SingerRoom" type="Node3D" unique_id=423231224]
+script = ExtResource("1_ogcg6")
+
+[node name="SingerRoom" parent="." unique_id=1522745193 instance=ExtResource("1_y3hs1")]
+
+[node name="callback_door" parent="." unique_id=1742132657 instance=ExtResource("3_pnhx5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 0)
+
+[node name="SingerSecretDrawer" parent="." unique_id=437249117 instance=ExtResource("2_rmsdj")]
+
+[node name="PlayerMarker" type="Marker3D" parent="." unique_id=115300845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+script = ExtResource("4_1hv3k")
+identifier = "Singer_Inside"
+look_direction = Vector3(-1, 0, 0)
+metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[connection signal="interacted" from="callback_door" to="." method="_on_callback_door_interacted"]
+
+[editable path="SingerSecretDrawer"]
