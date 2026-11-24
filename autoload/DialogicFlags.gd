@@ -77,3 +77,37 @@ func is_current_emotional_state(npc: Npc, emotion: EmotionalState) -> bool:
 	return _extra(_EMOTIONAL_STATE, npc, EmotionalState.NEUTRAL) == emotion
 func set_emotional_state(npc: Npc, emotion: EmotionalState) -> void:
 	_set_var(_EMOTIONAL_STATE, npc, true, emotion)
+
+# SECTION: Dialogic-facing wrappers (take Npc / state names as strings)
+
+func _npc(npc_name: String) -> Npc:
+	assert(Npc.has(npc_name), "unknown npc: " + npc_name)
+	return Npc[npc_name]
+
+func _emotion(emotion_name: String) -> EmotionalState:
+	assert(EmotionalState.has(emotion_name), "unknown emotion: " + emotion_name)
+	return EmotionalState[emotion_name]
+
+func talked_to(npc_name: String) -> bool:
+	return has_talked_to(_npc(npc_name))
+func set_talked(npc_name: String, met: bool = true) -> void:
+	set_talked_to(_npc(npc_name), met)
+
+func fought(npc_name: String) -> bool:
+	return has_fought(_npc(npc_name))
+func won_fight(npc_name: String) -> bool:
+	return has_won_fight(_npc(npc_name))
+func set_fight(npc_name: String, won: bool) -> void:
+	set_fought(_npc(npc_name), won)
+func clear_fight(npc_name: String) -> void:
+	clear_fought(_npc(npc_name))
+
+func door_locked(npc_name: String) -> bool:
+	return is_door_locked(_npc(npc_name))
+func lock_door(npc_name: String, locked: bool = true) -> void:
+	set_door_locked(_npc(npc_name), locked)
+
+func feels(npc_name: String, emotion_name: String) -> bool:
+	return is_current_emotional_state(_npc(npc_name), _emotion(emotion_name))
+func set_feels(npc_name: String, emotion_name: String) -> void:
+	set_emotional_state(_npc(npc_name), _emotion(emotion_name))
