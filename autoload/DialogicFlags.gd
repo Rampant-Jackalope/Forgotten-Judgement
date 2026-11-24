@@ -41,7 +41,7 @@ func _read(var_path: String) -> Dictionary:
 # functions are not inline bc for some reason it fucks with the shitty LSP
 
 # Interaction
-func has_talke_to(npc: NPC) -> bool:
+func has_talked_to(npc: NPC) -> bool:
 	return _has(_TALKED_TO, npc)
 func set_talked_to(npc: NPC, met: bool = true) -> void:
 	_set_var(_TALKED_TO, npc, met)
