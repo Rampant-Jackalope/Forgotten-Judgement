@@ -32,7 +32,7 @@ func _ready() -> void:
 	if !PlayerPositionMarkers.has_marker(player_marker_id):
 		push_warning("Invalid playermarker assigned")
 
-	DialogicFlags.set_door_locked(resident, true)
+	DialogicFlags.set_door_locked(resident, locked)
 	callback_door.interacted.connect(_on_interacted)
 
 func _on_interacted(_door: Node3D, interactor: Interactor, _pop: Callable) -> void:

@@ -265,6 +265,7 @@ locked_label = "bar_storage_locked"
 [node name="Overworker" type="Node3D" parent="Interactables/GuestDoors" unique_id=938674825 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 13.357)
 script = ExtResource("9_4gj5b")
+resident = 1
 callback_door = NodePath("callback_door")
 player_marker_id = "Overworker_Inside"
 
