@@ -45,7 +45,22 @@ layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
-variables={}
+variables={
+"BARTENDER": {},
+"CHILD": {},
+"COUPLE": {
+"GIRL": {},
+"GUY": {}
+},
+"ENKI": {},
+"GLOBAL": {
+"DOOR_ACCESS": {},
+"INTRO": {}
+},
+"HOBO": {},
+"OVERWORKER": {},
+"SINGER": {}
+}
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
