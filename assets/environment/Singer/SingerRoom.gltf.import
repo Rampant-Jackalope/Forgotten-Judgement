@@ -41,7 +41,43 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:wall-corner-rounded-low": {
+"PATH:Chaise": {
+"generate/physics": true
+},
+"PATH:Coatrack": {
+"generate/physics": true
+},
+"PATH:DirectorChair": {
+"generate/physics": true
+},
+"PATH:Drawer_Bottom": {
+"generate/physics": true
+},
+"PATH:Drawer_Top": {
+"generate/physics": true
+},
+"PATH:JukeBox": {
+"generate/physics": true
+},
+"PATH:Mirror": {
+"generate/physics": true
+},
+"PATH:Pilars": {
+"generate/physics": true
+},
+"PATH:Room": {
+"generate/physics": true
+},
+"PATH:VanityTable/CreepyLeg_Back": {
+"generate/physics": true
+},
+"PATH:VanityTable/CreepyLeg_Front": {
+"generate/physics": true
+},
+"PATH:VanityTable/Table": {
+"generate/physics": true
+},
+"PATH:Wardrobe": {
 "generate/physics": true
 }
 }

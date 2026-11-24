@@ -11,49 +11,49 @@ script = ExtResource("1_ogcg6")
 
 [node name="SingerRoom" parent="." unique_id=1522745193 instance=ExtResource("1_y3hs1")]
 
-[node name="Point" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="0" unique_id=131669330]
+[node name="Point" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="0" unique_id=404924020]
 light_energy = 0.1
 
-[node name="Point_001" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="1" unique_id=1596431393]
+[node name="Point_001" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="1" unique_id=1597205638]
 light_energy = 0.1
 
-[node name="Point_002" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="2" unique_id=1599720686]
+[node name="Point_002" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="2" unique_id=1293272508]
 light_energy = 0.1
 
-[node name="Point_003" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="3" unique_id=13838438]
+[node name="Point_003" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="3" unique_id=62610215]
 light_energy = 0.1
 
-[node name="Point_004" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="4" unique_id=1163858371]
+[node name="Point_004" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="4" unique_id=1160311310]
 light_energy = 0.1
 
-[node name="Point_005" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="5" unique_id=1517893159]
+[node name="Point_005" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="5" unique_id=126826570]
 light_energy = 0.1
 
-[node name="Point_006" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="6" unique_id=1399153668]
+[node name="Point_006" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="6" unique_id=1079711530]
 light_energy = 0.1
 
-[node name="Point_007" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="7" unique_id=996196267]
+[node name="Point_007" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="7" unique_id=2098863136]
 light_energy = 0.1
 
-[node name="Point_008" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="8" unique_id=7204219]
+[node name="Point_008" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="8" unique_id=1365940450]
 light_energy = 0.1
 
-[node name="Point_009" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1854363134) index="9" unique_id=827910662]
+[node name="Point_009" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 705130166) index="9" unique_id=21930619]
 light_energy = 0.1
 
-[node name="Light3" parent="SingerRoom/Sporlight3" parent_id_path=PackedInt32Array(1522745193, 465684528) index="0" unique_id=1471163416]
+[node name="Light3" parent="SingerRoom/Sporlight3" parent_id_path=PackedInt32Array(1522745193, 842925944) index="0" unique_id=769436788]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
 spot_angle_attenuation = 1.1993059e-05
 
-[node name="Light1" parent="SingerRoom/Spotlight1" parent_id_path=PackedInt32Array(1522745193, 2075242769) index="0" unique_id=63476372]
+[node name="Light1" parent="SingerRoom/Spotlight1" parent_id_path=PackedInt32Array(1522745193, 653115538) index="0" unique_id=1817030012]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
 spot_angle_attenuation = 1.1993059e-05
 
-[node name="Light2" parent="SingerRoom/Spotlight2" parent_id_path=PackedInt32Array(1522745193, 1778443663) index="0" unique_id=409762518]
+[node name="Light2" parent="SingerRoom/Spotlight2" parent_id_path=PackedInt32Array(1522745193, 980490841) index="0" unique_id=140368193]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
@@ -63,9 +63,6 @@ spot_angle_attenuation = 1.1993059e-05
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 0)
 
 [node name="SingerSecretDrawer" parent="." unique_id=437249117 instance=ExtResource("2_rmsdj")]
-
-[node name="Secret_drawer" parent="SingerSecretDrawer" index="0" unique_id=1605551809]
-transform = Transform3D(0, 0, 0.2980127, 0, 0.2980127, 0, -0.2980127, 0, 0, 0.48743713, 0, 0)
 
 [node name="PlayerMarker" type="Marker3D" parent="." unique_id=115300845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
