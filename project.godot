@@ -20,7 +20,6 @@ Settings="*uid://ctktfj6u77be0"
 Dialogic="*uid://ds2q0uclmolvu"
 EffectScreen="*uid://cvq5l02e684ip"
 PlayerPositionMarkers="*uid://ic45h57m1m20"
-Inventory="*uid://c80npkg531tup"
 NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 GameState="*uid://ducmw5bv6wfu3"
 PlayerStats="*uid://r3p146iquj8d"
@@ -28,6 +27,7 @@ FlagWatcher="*uid://c1f4rvqk4x4m7"
 SaveIndicator="*uid://bs3y8jwx7423p"
 ActionHints="*uid://dqegbt18xpehy"
 DialogicFlags="*uid://dolrwg35li60j"
+Inventory="*uid://ccye0650xd08j"
 
 [dialogic]
 
@@ -45,6 +45,9 @@ directories/dtl_directory={
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
 "overworker/idle": "res://dialogic/timelines/overworker/idle.dtl",
 "overworker/intro": "res://dialogic/timelines/overworker/intro.dtl",
+"overworker/lockout": "res://dialogic/timelines/overworker/lockout.dtl",
+"overworker/post_fight_loss": "res://dialogic/timelines/overworker/post_fight_loss.dtl",
+"overworker/post_fight_win": "res://dialogic/timelines/overworker/post_fight_win.dtl",
 "overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl"
 }
 layout/style_directory={
