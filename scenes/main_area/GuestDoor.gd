@@ -5,13 +5,28 @@ extends Node
 @export var callback_door: Node3D
 @export var player_marker_id: String
 
+# TODO: remove after all rooms are linked
+# this is purely a placeholder so that the assigned doors don't panic
+# placing a node in the scene somewhere is a pain and we'll deff forget where in the 3d space its placed
+static var _markers_spawned := false
+func _enter_tree() -> void:
+	if _markers_spawned:
+		return
+	_markers_spawned = true
+
+	var ids = ["Hobo_Inside", "Enki_Inside", "Child_Inside", "Couple_Inside"]
+	for id in ids:
+		var instance = PlayerMarker.new()
+		instance.identifier = id
+		add_child(instance)
+
 func _ready() -> void:
 	assert(callback_door != null, "No callback door assigned")
 	assert(callback_door.has_signal("interacted"), "Assigned callback door is not really a callback door")
 	assert(resident != null, "No resident assigned to this door")
 	assert(PlayerPositionMarkers.get_marker(player_marker_id) != null, "Invalid playermarker assigned") # can possibly fail due to timing issues if that becomes a problem change this ig
 
-	callback_door.interacted.connect()
+	callback_door.interacted.connect(_on_interacted)
 
 func _on_interacted(_door: Node3D, interactor: Interactor, _pop: Callable) -> void:
 	if DialogicFlags.is_door_locked(resident):
