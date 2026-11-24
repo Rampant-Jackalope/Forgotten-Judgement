@@ -246,7 +246,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 13)
 
 [node name="BackstageDoor" parent="Interactables" unique_id=1301150372 instance=ExtResource("12_yglnl")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0, 16.248)
-key_item_id = &""
+key_item_id = &"backstage_key"
 locked_label = "backstage_door_locked"
 
 [node name="ToiletDoor" parent="Interactables" unique_id=1742132657 instance=ExtResource("5_aks2q")]
