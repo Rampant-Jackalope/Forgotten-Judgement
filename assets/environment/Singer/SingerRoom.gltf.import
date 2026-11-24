@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duhpca4l5q1jx"
+uid="uid://cry8am56hig5c"
 path="res://.godot/imported/SingerRoom.gltf-9635498ac188090f4cbc386b050ce715.scn"
 
 [deps]
@@ -41,40 +41,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:BaseChair": {
-"generate/physics": true
-},
-"PATH:Chaise": {
-"generate/physics": true
-},
-"PATH:CoatRAAAAKK": {
-"generate/physics": true
-},
-"PATH:CreepyLeg_Back": {
-"generate/physics": true
-},
-"PATH:CreepyLeg_Front": {
-"generate/physics": true
-},
-"PATH:Drawer_Bottom": {
-"generate/physics": true
-},
-"PATH:Drawer_Top": {
-"generate/physics": true
-},
-"PATH:JukeBox": {
-"generate/physics": true
-},
-"PATH:Pilars": {
-"generate/physics": true
-},
-"PATH:Room": {
-"generate/physics": true
-},
-"PATH:Table": {
-"generate/physics": true
-},
-"PATH:Wardrobe": {
+"PATH:wall-corner-rounded-low": {
 "generate/physics": true
 }
 }
