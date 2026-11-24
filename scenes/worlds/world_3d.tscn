@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://c7jo2ec6j6inl" path="res://scenes/introduction_warning.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
-[ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/items/test_item.tscn" id="9_i8noq"]
 [ext_resource type="Script" uid="uid://deqdy24n2emcf" path="res://scenes/worlds/skip_dialogue_button.gd" id="10_i8noq"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
@@ -46,9 +45,6 @@ script = ExtResource("8_yn0ly")
 identifier = "Player_Death"
 look_direction = Vector3(-1, 1.5, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
-
-[node name="BackstageKey" parent="." unique_id=67441525 instance=ExtResource("9_i8noq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6794488, 5.2282257, 1.6630292)
 
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
 
