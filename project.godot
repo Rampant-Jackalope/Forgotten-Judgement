@@ -40,6 +40,8 @@ directories/dch_directory={
 "singer": "res://dialogic/characters/singer.dch"
 }
 directories/dtl_directory={
+"bartender/idle": "res://dialogic/timelines/bartender/idle.dtl",
+"bartender/intro": "res://dialogic/timelines/bartender/intro.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl"
 }
 layout/style_directory={

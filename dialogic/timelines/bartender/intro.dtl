@@ -1,0 +1,47 @@
+join main_player center
+main_player: Where am I?
+leave main_player
+join bartender left
+bartender: This is [wave]Lethe's End[/wave], friend.\
+I'm the owner[pause=0.3], and bartender[pause=0.3], of this inn.\
+And you are a resident.[pause=0.8] Here to stay for an [speed=0.4][i]indefinite[/i][speed=1] amount of time.
+leave bartender
+join main_player center
+I don't remember[pause=0.4]... anything.
+leave main_player
+join bartender left
+bartender: Perhaps that's for the best[pause=0.2], friend.[pause=0.6] Sometimes a [i]clean slate[/i] is exactly what a person needs.
+leave bartender
+join main_player center
+main_player: How do I get [speed=0.5]out[speed=1]?
+leave main_player
+join bartender left
+bartender: Oh![pause=0.4] Eager to leave already?[pause=0.6] Let's not get [wave]ahead of ourselves[/wave].[pause=0.4] There's plenty to see around here.
+leave bartender
+A loud squeaking noise comes from nearby.[pause=0.5] [shake]Squeak... squeak...[/shake]
+leave main_player
+join rat center
+rat: Rat\: [shake][b]AAAAAGH![/b][/shake]
+leave rat
+join main_player center
+main_player: [shake]What the [b]hell[/b] was that?![/shake]
+leave main_player
+join bartender left
+bartender: Oh![pause=0.3] A little visitor![pause=0.6] How [i]rude[/i] of him not to introduce himself.
+[end_timeline]
+label rat_attack
+join rat center
+rat: Rat\: [shake][b]AAAAAGH![/b][/shake]
+leave rat
+[end_timeline]
+label post_rat_trauma
+join bartender left
+bartender: [wave]Wonderful![/wave][pause=0.5] Pest control [i]and[/i] entertainment, all in one.[pause=0.6] You're quite [b]useful[/b] already!
+leave bartender
+join main_player center
+main_player: What [speed=0.5]now[speed=1]?
+leave main_player
+join bartender left
+bartender: If you can handle that little rascal[pause=0.4], I'm sure you'll survive a visit to the residents upstairs.[pause=0.8] [shake]Hah![/shake]
+leave bartender
+[end_timeline]

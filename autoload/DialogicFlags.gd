@@ -8,7 +8,8 @@ enum NPC {
 	COUPLE_GUY,
 	COUPLE_GIRL,
 	ENKI,
-	CHILD
+	CHILD,
+	RAT
 }
 
 const _TALKED_TO := "GLOBAL.TALKED_TO"

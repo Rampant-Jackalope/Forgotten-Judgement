@@ -13,10 +13,8 @@ func _ready() -> void:
 		blocker_collision.disabled = true
 
 func _on_body_entered(body: Node3D) -> void:
-	pass
-	# TODO: remove after refactor done
 	if body is Player3D or body.is_in_group("Player"):
-		if DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER):
+		if DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER) and DialogicFlags.has_won_fight(DialogicFlags.NPC.RAT):
 			blocker_collision.disabled = true
 		elif can_trigger:
 			can_trigger = false
