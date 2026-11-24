@@ -8,6 +8,7 @@ func _ready() -> void:
 func _on_world_changed(in_2d: bool) -> void:
 	if in_2d || !DialogicFlags.has_fought(DialogicFlags.Npc.OVERWORKER): return
 
+	await get_tree().process_frame
 	if DialogicFlags.has_won_fight(DialogicFlags.Npc.OVERWORKER):
 		Util.get_player().run_locked_dialogue("overworker/post_fight_win")
 	else: 

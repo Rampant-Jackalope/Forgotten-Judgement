@@ -267,10 +267,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 script = ExtResource("9_xwbor")
 
 [node name="callback_door" parent="Door" unique_id=1742132657 instance=ExtResource("10_iclxq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -0.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="PlayerMarker" type="Marker3D" parent="Door/callback_door" unique_id=2859008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 script = ExtResource("11_1e0sh")
 identifier = "Overworker_Inside"
 look_direction = Vector3(1, 0, 0)

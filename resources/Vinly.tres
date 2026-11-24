@@ -1,12 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ctb54nxxjdnrw"]
 
 [ext_resource type="Script" uid="uid://dnklen65k5hx0" path="res://scripts/items_data.gd" id="1_n0gva"]
-[ext_resource type="Texture2D" uid="uid://b68qpeiytiu07" path="res://assets/items/vinyl.png" id="1_n370m"]
 
 [resource]
 script = ExtResource("1_n0gva")
-id = &"vinly"
-item_name = "Vinly"
-description = "A cool black disc that has captured some funny waves in a physical form"
-icon = ExtResource("1_n370m")
 metadata/_custom_type_script = "uid://dnklen65k5hx0"
