@@ -16,3 +16,6 @@ func transition(identifier: String) -> void:
 func get_marker(identifier: String) -> PlayerMarker:
 	assert(_positions.has(identifier), "No player marker with identifier %s" % identifier)	
 	return _positions[identifier]
+
+func has_marker(identifier: String) -> bool:
+	return _positions.has(identifier)

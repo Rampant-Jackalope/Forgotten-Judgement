@@ -19,12 +19,18 @@ func _enter_tree() -> void:
 		var instance = PlayerMarker.new()
 		instance.identifier = id
 		add_child(instance)
+		instance.global_position = Vector3(-2, 3.9, 6.5)
 
 func _ready() -> void:
 	assert(callback_door != null, "No callback door assigned")
 	assert(callback_door.has_signal("interacted"), "Assigned callback door is not really a callback door")
 	assert(resident != null, "No resident assigned to this door")
-	assert(PlayerPositionMarkers.get_marker(player_marker_id) != null, "Invalid playermarker assigned") # can possibly fail due to timing issues if that becomes a problem change this ig
+	assert(!player_marker_id.is_empty(), "No player marker id assigned")
+
+	# Directly asserting this can possibly fail due to timing issues
+	# so just warn as a heads up ig ¯\_(ツ)_/¯
+	if !PlayerPositionMarkers.has_marker(player_marker_id):
+		push_warning("Invalid playermarker assigned")
 
 	callback_door.interacted.connect(_on_interacted)
 
