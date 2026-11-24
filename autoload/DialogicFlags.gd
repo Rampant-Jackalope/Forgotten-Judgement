@@ -12,9 +12,18 @@ enum NPC {
 	RAT
 }
 
+enum EMOTIONAL_STATE {
+	NEUTRAL,
+	SAD,
+	ANNOYED,
+	ANGRY,
+	HAPPY,
+}
+
 const _TALKED_TO := "GLOBAL.TALKED_TO"
 const _HAS_FOUGHT := "GLOBAL.HAS_FOUGHT"
 const _DOOR_LOCKED := "GLOBAL.DOOR_LOCKED"
+const _EMOTIONAL_STATE := "GLOBAL.EMOTIONAL_STATE"
 
 func _has(var_path: String, key: int) -> bool:
 	return _read(var_path).has(key)
@@ -62,3 +71,9 @@ func is_door_locked(npc: NPC) -> bool:
 	return _has(_DOOR_LOCKED, npc)
 func set_door_locked(npc: NPC, locked: bool = true) -> void:
 	_set_var(_DOOR_LOCKED, npc, locked)
+
+# Emotional State
+func is_current_emotional_state(npc: NPC, emotion: EMOTIONAL_STATE) -> bool:
+	return _extra(_EMOTIONAL_STATE, npc, EMOTIONAL_STATE.NEUTRAL) == emotion
+func set_emotional_state(npc: NPC, emotion: EMOTIONAL_STATE) -> void:
+	_set_var(_EMOTIONAL_STATE, npc, true, emotion)
