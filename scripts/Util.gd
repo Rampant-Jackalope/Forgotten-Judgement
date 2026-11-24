@@ -219,25 +219,25 @@ static func get_action_key_text(action: StringName) -> String:
 	if items.size() <= 0: return "Unset"
 	return ", ".join(items)
 
-static func get_npc_name(npc: DialogicFlags.NPC) -> String:
+static func get_npc_name(npc: DialogicFlags.Npc) -> String:
 	match npc:
-		DialogicFlags.NPC.BARTENDER:
+		DialogicFlags.Npc.BARTENDER:
 			return "Bartender"
-		DialogicFlags.NPC.OVERWORKER:
+		DialogicFlags.Npc.OVERWORKER:
 			return "Richard"
-		DialogicFlags.NPC.SINGER:
+		DialogicFlags.Npc.SINGER:
 			return "Velvet"
-		DialogicFlags.NPC.HOBO:
+		DialogicFlags.Npc.HOBO:
 			return "Hobo"
-		DialogicFlags.NPC.COUPLE_GUY:
+		DialogicFlags.Npc.COUPLE_GUY:
 			return "Edward"
-		DialogicFlags.NPC.COUPLE_GIRL:
+		DialogicFlags.Npc.COUPLE_GIRL:
 			return "Beatrice"
-		DialogicFlags.NPC.ENKI:
+		DialogicFlags.Npc.ENKI:
 			return "Enki"
-		DialogicFlags.NPC.CHILD:
+		DialogicFlags.Npc.CHILD:
 			return "Child"
-		DialogicFlags.NPC.RAT:
+		DialogicFlags.Npc.RAT:
 			return "Rat"
 	assert(false, "invalid npc provided")
 	return ""

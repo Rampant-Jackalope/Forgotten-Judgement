@@ -9,12 +9,12 @@ func _ready() -> void:
 	assert(blocker_collision != null, "Blocker collision shape must be assigned in the Inspector!")
 	body_entered.connect(_on_body_entered)
 	# If the player has already talked to the bartender, disable the collision
-	if DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER):
+	if DialogicFlags.has_talked_to(DialogicFlags.Npc.BARTENDER):
 		blocker_collision.disabled = true
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player3D or body.is_in_group("Player"):
-		if DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER) and DialogicFlags.has_won_fight(DialogicFlags.NPC.RAT):
+		if DialogicFlags.has_talked_to(DialogicFlags.Npc.BARTENDER) and DialogicFlags.has_won_fight(DialogicFlags.Npc.RAT):
 			blocker_collision.disabled = true
 		elif can_trigger:
 			can_trigger = false

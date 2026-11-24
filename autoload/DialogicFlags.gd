@@ -1,6 +1,6 @@
 extends Node
 
-enum NPC {
+enum Npc {
 	BARTENDER,
 	OVERWORKER,
 	SINGER,
@@ -12,7 +12,7 @@ enum NPC {
 	RAT
 }
 
-enum EMOTIONAL_STATE {
+enum EmotionalState {
 	NEUTRAL,
 	SAD,
 	ANNOYED,
@@ -23,7 +23,7 @@ enum EMOTIONAL_STATE {
 const _TALKED_TO := "GLOBAL.TALKED_TO"
 const _HAS_FOUGHT := "GLOBAL.HAS_FOUGHT"
 const _DOOR_LOCKED := "GLOBAL.DOOR_LOCKED"
-const _EMOTIONAL_STATE := "GLOBAL.EMOTIONAL_STATE"
+const _EMOTIONAL_STATE := "GLOBAL.EmotionalState"
 
 func _has(var_path: String, key: int) -> bool:
 	return _read(var_path).has(key)
@@ -51,29 +51,29 @@ func _read(var_path: String) -> Dictionary:
 # functions are not inline bc for some reason it fucks with the shitty LSP
 
 # Interaction
-func has_talked_to(npc: NPC) -> bool:
+func has_talked_to(npc: Npc) -> bool:
 	return _has(_TALKED_TO, npc)
-func set_talked_to(npc: NPC, met: bool = true) -> void:
+func set_talked_to(npc: Npc, met: bool = true) -> void:
 	_set_var(_TALKED_TO, npc, met)
 
 # Fighting
-func has_fought(npc: NPC) -> bool:
+func has_fought(npc: Npc) -> bool:
 	return _has(_HAS_FOUGHT, npc)
-func has_won_fight(npc: NPC) -> bool:
+func has_won_fight(npc: Npc) -> bool:
 	return _extra(_HAS_FOUGHT, npc, false)
-func set_fought(npc: NPC, won: bool) -> void:
+func set_fought(npc: Npc, won: bool) -> void:
 	_set_var(_HAS_FOUGHT, npc, true, won)
-func clear_fought(npc: NPC) -> void:
+func clear_fought(npc: Npc) -> void:
 	_set_var(_HAS_FOUGHT, npc, false)
 
 # Door
-func is_door_locked(npc: NPC) -> bool:
+func is_door_locked(npc: Npc) -> bool:
 	return _has(_DOOR_LOCKED, npc)
-func set_door_locked(npc: NPC, locked: bool = true) -> void:
+func set_door_locked(npc: Npc, locked: bool = true) -> void:
 	_set_var(_DOOR_LOCKED, npc, locked)
 
 # Emotional State
-func is_current_emotional_state(npc: NPC, emotion: EMOTIONAL_STATE) -> bool:
-	return _extra(_EMOTIONAL_STATE, npc, EMOTIONAL_STATE.NEUTRAL) == emotion
-func set_emotional_state(npc: NPC, emotion: EMOTIONAL_STATE) -> void:
+func is_current_emotional_state(npc: Npc, emotion: EmotionalState) -> bool:
+	return _extra(_EMOTIONAL_STATE, npc, EmotionalState.NEUTRAL) == emotion
+func set_emotional_state(npc: Npc, emotion: EmotionalState) -> void:
 	_set_var(_EMOTIONAL_STATE, npc, true, emotion)

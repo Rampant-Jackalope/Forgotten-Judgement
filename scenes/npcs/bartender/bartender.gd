@@ -12,7 +12,7 @@ func _ready() -> void:
 func _on_world_changed(in_2d: bool) -> void:
 	if in_2d or _has_played_post_fight: return
 
-	if DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER) and DialogicFlags.has_won_fight(DialogicFlags.NPC.RAT):
+	if DialogicFlags.has_talked_to(DialogicFlags.Npc.BARTENDER) and DialogicFlags.has_won_fight(DialogicFlags.Npc.RAT):
 		_has_played_post_fight = true
 
 		# Wait one frame for the 3D world and player node to fully re-enable
@@ -22,13 +22,13 @@ func _on_world_changed(in_2d: bool) -> void:
 
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
 	_player = interactor.player
-	if !DialogicFlags.has_talked_to(DialogicFlags.NPC.BARTENDER):
+	if !DialogicFlags.has_talked_to(DialogicFlags.Npc.BARTENDER):
 		await interactor.player.run_locked_dialogue("bartender/intro")
-		DialogicFlags.set_talked_to(DialogicFlags.NPC.BARTENDER, true)
+		DialogicFlags.set_talked_to(DialogicFlags.Npc.BARTENDER, true)
 		WorldManager.set_world_to_2d("rat_fight")
 	
 	else:
-		if !DialogicFlags.has_won_fight(DialogicFlags.NPC.RAT):
+		if !DialogicFlags.has_won_fight(DialogicFlags.Npc.RAT):
 			await interactor.player.run_locked_dialogue("bartender/intro", "rat_attack")
 			WorldManager.set_world_to_2d("rat_fight")
 		else:

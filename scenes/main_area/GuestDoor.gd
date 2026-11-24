@@ -1,6 +1,6 @@
 extends Node
 
-@export var resident: DialogicFlags.NPC
+@export var resident: DialogicFlags.Npc
 @export var locked: bool = false
 @export var callback_door: Node3D
 @export var player_marker_id: String
