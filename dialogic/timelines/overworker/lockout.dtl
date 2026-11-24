@@ -1,0 +1,10 @@
+join overworker left
+overworker: [shake rate=20 level=6]Out.[/shake][pause=0.4] Now.
+leave overworker
+[i]He shoves you toward the door.[/i][pause=0.6] [i]A record sleeve on the shelf beside it catches your eye.[/i][pause=0.8]
+- Walk away
+	[i]The door slams shut.[/i][pause=0.6] [i]A lock clicks.[/i][pause=0.8]
+- Steal his vinyl
+	[i]You snatch it just as the door slams shut.[/i][pause=0.6] [i]A lock clicks.[/i][pause=0.8]
+	do Inventory.grant_item("vinly")
+do DialogicFlags.lock_door("OVERWORKER", true)

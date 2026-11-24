@@ -15,7 +15,7 @@ extends Node3D
 func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
 	Dialogic.VAR.OVERWORKER.TOUCH_COUNT += 1
 	var warnings = Dialogic.VAR.OVERWORKER.TOUCH_COUNT
-	if Dialogic.VAR.overworker.HasFoughtOverworker || warnings >= 3:
+	if DialogicFlags.has_fought(DialogicFlags.Npc.OVERWORKER) || warnings >= 3:
 		await interactor.player.run_locked_dialogue("overworker/warnings", "three")
 		DialogicFlags.clear_fought(DialogicFlags.Npc.OVERWORKER)
 		WorldManager.set_world_to_2d("overworker_fight")

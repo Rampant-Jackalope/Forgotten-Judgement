@@ -6,6 +6,7 @@ if {OVERWORKER.UNLOCKED_TALK} == true:
 	- nevermind
 	- You never told me what's really going on.
 		INSERT ACTUAL DIALOGUE
+		set {OVERWORKER.HAPPY_ENDING} = true
 [end_timeline]
 label annoyed
 join overworker left
@@ -17,7 +18,7 @@ leave overworker
 	leave overworker
 	do DialogicFlags.set_feels("ANGRY")
 	do PlayerStats.add_apathy()
-- I'm sorry for not listening[pause=0.3], I'll leave now.
+- I'm sorry for not listening], I'll leave now.
 	join overworker left
 	overworker: You better[pause=0.5]./Good[pause=0.4], and [speed=0.5]stay away[speed=1]
 	leave overworker

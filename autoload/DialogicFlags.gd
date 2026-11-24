@@ -23,7 +23,7 @@ enum EmotionalState {
 const _TALKED_TO := "GLOBAL.TALKED_TO"
 const _HAS_FOUGHT := "GLOBAL.HAS_FOUGHT"
 const _DOOR_LOCKED := "GLOBAL.DOOR_LOCKED"
-const _EMOTIONAL_STATE := "GLOBAL.EmotionalState"
+const _EMOTIONAL_STATE := "GLOBAL.EMOTIONAL_STATE"
 
 func _has(var_path: String, key: int) -> bool:
 	return _read(var_path).has(key)
