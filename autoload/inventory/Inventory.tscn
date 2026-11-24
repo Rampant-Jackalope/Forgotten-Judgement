@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ccye0650xd08j"]
 
 [ext_resource type="Script" uid="uid://c80npkg531tup" path="res://autoload/inventory/ItemInventory.gd" id="1_ub4dh"]
+[ext_resource type="Script" uid="uid://dnklen65k5hx0" path="res://scripts/items_data.gd" id="2_7fwtn"]
+[ext_resource type="Resource" uid="uid://ctb54nxxjdnrw" path="res://resources/Vinly.tres" id="3_rjm0n"]
 
 [node name="Inventory" type="Node" unique_id=646859756]
 script = ExtResource("1_ub4dh")
+grantable_items = Array[ExtResource("2_7fwtn")]([ExtResource("3_rjm0n")])

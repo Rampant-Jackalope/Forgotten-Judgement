@@ -5,6 +5,7 @@ extends Node
 # TODO: add inventory as child of player instead of autoload.
 
 @export var slot_count := 3
+@export var grantable_items: Array[ItemData]
 
 signal slot_changed(index: int, item: ItemData)   ## emitted whenever a slot's contents change
 signal selected_changed(index: int, item: ItemData)
@@ -28,6 +29,12 @@ func clear() -> void:
 			slots[i] = null
 			slot_changed.emit(i, null)
 	selected_changed.emit(selected_index, null)
+
+func grant_item(id: StringName) -> bool:
+	for item in grantable_items:
+		if item.id == id:
+			return add(item)
+	return false
 
 func add(item: ItemData) -> bool:
 	assert(item != null, "ItemInventory.add() called with null")
