@@ -12,27 +12,18 @@ extends Node3D
 @onready var printer: MeshInstance3D = $Printer2/Printer
 @onready var keyboard: MeshInstance3D = $ShittyKeyboard2/ShittyKeyboard
 
-func _ready() -> void:
-	Dialogic.signal_event.connect(_on_dialogic_signal)
-
-func _on_interactable_interacted(_interactor: Interactor, _pop: Callable) -> void:
-	pass
-	# TODO: remove after refactor done
-	# Dialogic.VAR.overworker.warnings += 1
-	# var warnings = Dialogic.VAR.overworker.warnings
-	# if Dialogic.VAR.overworker.HasFoughtOverworker|| warnings == 3:
-	# 	interactor.player.run_locked_dialogue("overworker-warning", "3")
-	# if warnings == 2:
-	# 	interactor.player.run_locked_dialogue("overworker-warning", "2")
-	# if warnings <= 1:
-	# 	interactor.player.run_locked_dialogue("overworker-warning", "1")
-
-func _on_dialogic_signal(_action: String) -> void:
-	pass
-	# TODO: remove after refactor done
-	# if action == "fight":
-	# 	Dialogic.VAR.overworker.HasFoughtOverworker = true
-	# 	WorldManager.set_world_to_2d("overworker_fight")
+func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void:
+	Dialogic.VAR.OVERWORKER.TOUCH_COUNT += 1
+	var warnings = Dialogic.VAR.OVERWORKER.TOUCH_COUNT
+	if Dialogic.VAR.overworker.HasFoughtOverworker || warnings >= 3:
+		await interactor.player.run_locked_dialogue("overworker/warnings", "three")
+		DialogicFlags.clear_fought(DialogicFlags.Npc.OVERWORKER)
+		WorldManager.set_world_to_2d("overworker_fight")
+	if warnings == 2:
+		interactor.player.run_locked_dialogue("overworker/warnings", "two")
+		DialogicFlags.set_emotional_state(DialogicFlags.Npc.OVERWORKER, DialogicFlags.EmotionalState.ANNOYED)
+	if warnings <= 1:
+		interactor.player.run_locked_dialogue("overworker/warnings", "one")
 
 func water_cooler_highlight_on():
 	water_cooler.set_instance_shader_parameter("enabled", true)

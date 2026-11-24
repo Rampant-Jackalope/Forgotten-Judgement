@@ -44,7 +44,8 @@ directories/dtl_directory={
 "bartender/intro": "res://dialogic/timelines/bartender/intro.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
 "overworker/idle": "res://dialogic/timelines/overworker/idle.dtl",
-"overworker/intro": "res://dialogic/timelines/overworker/intro.dtl"
+"overworker/intro": "res://dialogic/timelines/overworker/intro.dtl",
+"overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",

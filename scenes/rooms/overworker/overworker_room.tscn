@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b44njbrqbast1" path="res://assets/environment/Overworker/Printer.gltf" id="11_m3lho"]
 [ext_resource type="PackedScene" uid="uid://b688tmyteuuuk" path="res://assets/environment/Overworker/ShittyKeyboard.gltf" id="12_fsv2b"]
 [ext_resource type="PackedScene" uid="uid://c0to66drfpc2b" path="res://assets/environment/Overworker/Water_cooler.gltf" id="13_18wda"]
-[ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="20_fcbs4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3lho"]
 render_priority = 0
@@ -185,11 +184,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 [node name="Decorations" type="Node3D" parent="." unique_id=1456555261]
 script = ExtResource("9_g78rx")
 
-[node name="DialogicSubject" type="Node" parent="Decorations" unique_id=1636909941]
-script = ExtResource("20_fcbs4")
-subject = "overworker"
-metadata/_custom_type_script = "uid://d04vnm70e1wfo"
-
 [node name="Coffee_machine2" parent="Decorations" unique_id=1514329234 instance=ExtResource("5_fcbs4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
@@ -298,7 +292,6 @@ distance_fade_begin = 10.0
 distance_fade_length = 0.0
 omni_range = 6.0258837
 
-[connection signal="recieved" from="Decorations/DialogicSubject" to="Decorations" method="_on_dialogic_signal"]
 [connection signal="highlight_off" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_off"]
 [connection signal="highlight_on" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_on"]
 [connection signal="interacted" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="_on_interactable_interacted"]
