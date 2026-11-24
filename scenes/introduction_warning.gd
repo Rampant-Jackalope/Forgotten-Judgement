@@ -17,17 +17,19 @@ func _ready() -> void:
 		blocker_collision.disabled = true
 
 func _on_body_entered(body: Node3D) -> void:
-	# Check if it is the player
-	if body is Player3D or body.is_in_group("Player"):
-		if Dialogic.VAR.bartender.HasMetBartender:
-			blocker_collision.disabled = true
-		elif can_trigger:
-			# Temporarily disable triggering to create a pause/cooldown
-			can_trigger = false
-			
-			# Run the locked dialogue
-			body.run_locked_dialogue("introduction-warning")
-			
-			# Wait for 10 seconds before allowing the warning to trigger again
-			await get_tree().create_timer(10.0).timeout
-			can_trigger = true
+	pass
+	# TODO: remove after refactor done
+	# # Check if it is the player
+	# if body is Player3D or body.is_in_group("Player"):
+	# 	if Dialogic.VAR.bartender.HasMetBartender:
+	# 		blocker_collision.disabled = true
+	# 	elif can_trigger:
+	# 		# Temporarily disable triggering to create a pause/cooldown
+	# 		can_trigger = false
+	#
+	# 		# Run the locked dialogue
+	# 		body.run_locked_dialogue("introduction-warning")
+	#
+	# 		# Wait for 10 seconds before allowing the warning to trigger again
+	# 		await get_tree().create_timer(10.0).timeout
+	# 		can_trigger = true

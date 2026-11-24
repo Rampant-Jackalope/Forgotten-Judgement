@@ -97,5 +97,6 @@ func _on_rat_health_changed(old: int, new: int) -> void:
 	if new < old: hurt_audio_player.play()
 
 func _on_rat_died() -> void:
-	Dialogic.VAR.bartender.RatFightCompleted = true
+	# TODO: remove once refactor done 
+	# Dialogic.VAR.bartender.RatFightCompleted = true
 	WorldManager.set_world_to_3d()
