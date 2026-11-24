@@ -27,6 +27,7 @@ PlayerStats="*uid://r3p146iquj8d"
 FlagWatcher="*uid://c1f4rvqk4x4m7"
 SaveIndicator="*uid://bs3y8jwx7423p"
 ActionHints="*uid://dqegbt18xpehy"
+DialogicFlags="*uid://dolrwg35li60j"
 
 [dialogic]
 
@@ -56,7 +57,9 @@ variables={
 "GLOBAL": {
 "APATHY": 0,
 "DOOR_ACCESS": {},
+"DOOR_LOCKED": "",
 "EMPATHY": 0,
+"HAS_FOUGHT": "",
 "INTRO": {},
 "TALKED_TO": ""
 },
@@ -97,7 +100,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
+layout/style_list=["res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
 layout/default_style="res://resources/Style_test.tres"
 
 [display]
