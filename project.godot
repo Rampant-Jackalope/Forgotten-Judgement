@@ -42,7 +42,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "bartender/idle": "res://dialogic/timelines/bartender/idle.dtl",
 "bartender/intro": "res://dialogic/timelines/bartender/intro.dtl",
-"misc-popups": "res://dialogic/timelines/misc-popups.dtl"
+"misc-popups": "res://dialogic/timelines/misc-popups.dtl",
+"overworker/idle": "res://dialogic/timelines/overworker/idle.dtl",
+"overworker/intro": "res://dialogic/timelines/overworker/intro.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
@@ -60,6 +62,7 @@ variables={
 "APATHY": 0,
 "DOOR_ACCESS": {},
 "DOOR_LOCKED": "",
+"EMOTIONAL_STATE": "",
 "EMPATHY": 0,
 "HAS_FOUGHT": "",
 "INTRO": {},
@@ -67,7 +70,11 @@ variables={
 "TALKED_TO": ""
 },
 "HOBO": {},
-"OVERWORKER": {},
+"OVERWORKER": {
+"HAPPY_ENDING": false,
+"TOUCH_COUNT": 0,
+"UNLOCKED_TALK": false
+},
 "SINGER": {}
 }
 glossary/default_case_sensitive=true

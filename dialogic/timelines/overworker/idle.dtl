@@ -1,0 +1,26 @@
+label neutral
+join overworker left
+overworker: <Go away[pause=0.4], I'm busy[pause=0.6]./You can stay[pause=0.5] if you don't [speed=0.5]touch[speed=1] anything./Go do something else[pause=0.4] besides bothering me[pause=0.6].>
+leave overworker
+if {OVERWORKER.UNLOCKED_TALK} == true:
+	- nevermind
+	- You never told me what's really going on.
+		INSERT ACTUAL DIALOGUE
+[end_timeline]
+label annoyed
+join overworker left
+overworker: <What do you want[pause=0.3], scoundrel!/Do you not have anything else to do with your [speed=0.5]life[speed=1]?>
+leave overworker
+- Just here to look at a soulless bastard
+	join overworker left
+	overworker: <I HATE YOU!!!/Why must I be tormented by your presence[pause=0.5]./BE GONE!/Find a different hobby[pause=0.6]...>
+	leave overworker
+	do DialogicFlags.set_feels("ANGRY")
+	do PlayerStats.add_apathy()
+- I'm sorry for not listening[pause=0.3], I'll leave now.
+	join overworker left
+	overworker: You better[pause=0.5]./Good[pause=0.4], and [speed=0.5]stay away[speed=1]
+	leave overworker
+	do DialogicFlags.set_feels("NEUTRAL")
+	do PlayerStats.add_empathy()
+[end_timeline]
