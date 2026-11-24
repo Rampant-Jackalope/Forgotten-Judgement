@@ -20,7 +20,7 @@ leave overworker
 	do PlayerStats.add_apathy()
 - I'm sorry for not listening], I'll leave now.
 	join overworker left
-	overworker: You better[pause=0.5]./Good[pause=0.4], and [speed=0.5]stay away[speed=1]
+	overworker: <You better[pause=0.5]./Good[pause=0.4], and [speed=0.5]stay away[speed=1]>
 	leave overworker
 	do DialogicFlags.set_feels("NEUTRAL")
 	do PlayerStats.add_empathy()

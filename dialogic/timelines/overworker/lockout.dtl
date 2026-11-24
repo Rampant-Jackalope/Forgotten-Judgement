@@ -8,3 +8,4 @@ leave overworker
 	[i]You snatch it just as the door slams shut.[/i][pause=0.6] [i]A lock clicks.[/i][pause=0.8]
 	do Inventory.grant_item("vinly")
 do DialogicFlags.lock_door("OVERWORKER", true)
+do PlayerPositionMarkers.transition("Overworker_Outside")
