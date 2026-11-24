@@ -218,3 +218,29 @@ static func get_action_key_text(action: StringName) -> String:
 		items.push_back(get_event_text(event))
 	if items.size() <= 0: return "Unset"
 	return ", ".join(items)
+
+enum NPC {
+	BARTENDER,
+	OVERWORKER,
+	SINGER,
+	HOBO,
+	COUPLE_GUY,
+	COUPLE_GIRL,
+	ENKI,
+	CHILD
+}
+
+static func talked_to(npc: NPC) -> bool:
+	return Dialogic.VAR.GLOBAL.TALKED_TO.contains(NPC.keys()[npc])
+
+static func set_talked_to(npc: NPC, p_talked_to: bool):
+	var npc_name: String = NPC.keys()[npc]
+	var current: String = Dialogic.VAR.GLOBAL.TALKED_TO
+	var has_talked: bool = current.contains(npc_name)
+
+	if p_talked_to and not has_talked:
+		current += npc_name + ","
+	elif not p_talked_to and has_talked:
+		current = current.replace(npc_name + ",", "")
+
+	Dialogic.VAR.set_variable("GLOBAL.TALKED_TO", current)

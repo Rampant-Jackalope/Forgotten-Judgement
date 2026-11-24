@@ -55,7 +55,8 @@ variables={
 "ENKI": {},
 "GLOBAL": {
 "DOOR_ACCESS": {},
-"INTRO": {}
+"INTRO": {},
+"TALKED_TO": ""
 },
 "HOBO": {},
 "OVERWORKER": {},
