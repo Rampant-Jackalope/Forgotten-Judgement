@@ -32,11 +32,12 @@ func _ready() -> void:
 	if !PlayerPositionMarkers.has_marker(player_marker_id):
 		push_warning("Invalid playermarker assigned")
 
+	DialogicFlags.set_door_locked(resident, true)
 	callback_door.interacted.connect(_on_interacted)
 
 func _on_interacted(_door: Node3D, interactor: Interactor, _pop: Callable) -> void:
 	if DialogicFlags.is_door_locked(resident):
-		Dialogic.VAR.GOBAL.SCRATCH = Util.get_npc_name(resident)
+		Dialogic.VAR.GLOBAL.SCRATCH = Util.get_npc_name(resident)
 		await interactor.player.run_locked_dialogue("misc-popups", "locked_door")
 		return
 
