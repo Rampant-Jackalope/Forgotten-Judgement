@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://i8r1xowofjce" path="res://scenes/rooms/singer/singer_room.tscn" id="3_q0nb6"]
 [ext_resource type="PackedScene" uid="uid://crs4313a1qcbt" path="res://scenes/interactables/double_open_close_door.tscn" id="4_jnuwi"]
 [ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="5_aks2q"]
-[ext_resource type="Script" uid="uid://d1p6u4el8cfd4" path="res://scenes/main_area/guets_door_placeholder.gd" id="7_ipjo4"]
-[ext_resource type="Script" uid="uid://c6ravfv2mjwmj" path="res://scenes/main_area/overworker_door.gd" id="7_wkrbv"]
-[ext_resource type="Script" uid="uid://bjx6b4nkba1ku" path="res://scenes/main_area/singer_door.gd" id="8_4gj5b"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="9_2wd05"]
+[ext_resource type="Script" uid="uid://cm0kbm6ke6bor" path="res://scenes/main_area/GuestDoor.gd" id="9_4gj5b"]
 [ext_resource type="PackedScene" uid="uid://7vpu5man3hrg" path="res://assets/environment/Barstool.gltf" id="10_18u1t"]
 [ext_resource type="PackedScene" uid="uid://cyrymm3u5uypo" path="res://scenes/interactables/double_callback_door.tscn" id="12_3jgwd"]
 [ext_resource type="PackedScene" uid="uid://bdb6nwgqab60b" path="res://scenes/interactables/locked_door.tscn" id="12_yglnl"]
@@ -262,39 +260,60 @@ locked_label = "bar_storage_locked"
 
 [node name="GuestDoors" type="Node3D" parent="Interactables" unique_id=1105856613]
 
-[node name="Overworker" type="Node3D" parent="Interactables/GuestDoors" unique_id=938674825]
+[node name="Overworker" type="Node3D" parent="Interactables/GuestDoors" unique_id=938674825 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 13.357)
-script = ExtResource("7_wkrbv")
+script = ExtResource("9_4gj5b")
+callback_door = NodePath("callback_door")
+player_marker_id = "Overworker_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/Overworker" unique_id=1315016174 instance=ExtResource("3_aks2q")]
 
-[node name="Singer" type="Node3D" parent="Interactables/GuestDoors" unique_id=2005611982]
+[node name="Singer" type="Node3D" parent="Interactables/GuestDoors" unique_id=2005611982 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 13.357)
-script = ExtResource("8_4gj5b")
+script = ExtResource("9_4gj5b")
+resident = 2
+callback_door = NodePath("callback_door")
+player_marker_id = "Singer_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/Singer" unique_id=2079889226 instance=ExtResource("3_aks2q")]
 
-[node name="OldMan" type="Node3D" parent="Interactables/GuestDoors" unique_id=1603126174]
+[node name="OldMan" type="Node3D" parent="Interactables/GuestDoors" unique_id=1603126174 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 18.357)
-script = ExtResource("7_ipjo4")
+script = ExtResource("9_4gj5b")
+resident = 3
+locked = true
+callback_door = NodePath("callback_door")
+player_marker_id = "Hobo_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/OldMan" unique_id=496163881 instance=ExtResource("3_aks2q")]
 
-[node name="Enki" type="Node3D" parent="Interactables/GuestDoors" unique_id=516378111]
+[node name="Enki" type="Node3D" parent="Interactables/GuestDoors" unique_id=516378111 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 18.357)
-script = ExtResource("7_ipjo4")
+script = ExtResource("9_4gj5b")
+resident = 6
+locked = true
+callback_door = NodePath("callback_door")
+player_marker_id = "Enki_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/Enki" unique_id=1904884975 instance=ExtResource("3_aks2q")]
 
-[node name="Child" type="Node3D" parent="Interactables/GuestDoors" unique_id=193656862]
+[node name="Child" type="Node3D" parent="Interactables/GuestDoors" unique_id=193656862 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 3.9, 23.357)
-script = ExtResource("7_ipjo4")
+script = ExtResource("9_4gj5b")
+resident = 7
+locked = true
+callback_door = NodePath("callback_door")
+player_marker_id = "Child_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/Child" unique_id=114768762 instance=ExtResource("3_aks2q")]
 
-[node name="Couple" type="Node3D" parent="Interactables/GuestDoors" unique_id=633883638]
+[node name="Couple" type="Node3D" parent="Interactables/GuestDoors" unique_id=633883638 node_paths=PackedStringArray("callback_door")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.75, 3.9, 23.357)
-script = ExtResource("7_ipjo4")
+script = ExtResource("9_4gj5b")
+resident = 5
+locked = true
+callback_door = NodePath("callback_door")
+player_marker_id = "Couple_Inside"
 
 [node name="callback_door" parent="Interactables/GuestDoors/Couple" unique_id=1897157781 instance=ExtResource("3_aks2q")]
 
@@ -336,12 +355,6 @@ metadata/_custom_type_script = "uid://f2gpkkmmd74h"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/lethebottle/Interactable" unique_id=1043650352]
 shape = SubResource("SphereShape3D_1kpxu")
 
-[connection signal="interacted" from="Interactables/GuestDoors/Overworker/callback_door" to="Interactables/GuestDoors/Overworker" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="Interactables/GuestDoors/Singer/callback_door" to="Interactables/GuestDoors/Singer" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="Interactables/GuestDoors/OldMan/callback_door" to="Interactables/GuestDoors/OldMan" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="Interactables/GuestDoors/Enki/callback_door" to="Interactables/GuestDoors/Enki" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="Interactables/GuestDoors/Child/callback_door" to="Interactables/GuestDoors/Child" method="_on_callback_door_interacted"]
-[connection signal="interacted" from="Interactables/GuestDoors/Couple/callback_door" to="Interactables/GuestDoors/Couple" method="_on_callback_door_interacted"]
 [connection signal="interacted" from="Interactables/ExitDoor/DoubleCallbackDoor" to="Interactables/ExitDoor" method="_on_double_callback_door_interacted"]
 [connection signal="highlight_off" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_off"]
 [connection signal="highlight_on" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_on"]

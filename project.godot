@@ -63,6 +63,7 @@ variables={
 "EMPATHY": 0,
 "HAS_FOUGHT": "",
 "INTRO": {},
+"SCRATCH": "",
 "TALKED_TO": ""
 },
 "HOBO": {},

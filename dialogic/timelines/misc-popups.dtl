@@ -19,3 +19,6 @@ A partially empty bottle.[pause=1] Smelling its contents gives you a sense of d√
 label introduction_warning
 main_player: I should talk to the bartender before walking upstairs.
 [end_timeline]
+label locked_door
+It seems {GLOBAL.SCRATCH} has locked their door
+[end_timeline]
