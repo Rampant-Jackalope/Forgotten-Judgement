@@ -13,33 +13,63 @@ script = ExtResource("1_ogcg6")
 
 [node name="Point" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="0" unique_id=696178185]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_001" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="1" unique_id=40251343]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_002" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="2" unique_id=40889137]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_003" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="3" unique_id=549986550]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_004" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="4" unique_id=282438788]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_005" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="5" unique_id=2109322766]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_006" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="6" unique_id=574838645]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_007" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="7" unique_id=2071963467]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_008" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="8" unique_id=1437907549]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Point_009" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1542777191) index="9" unique_id=259223832]
 light_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 15.0
+distance_fade_length = 0.0
 
 [node name="Light3" parent="SingerRoom/Sporlight3" parent_id_path=PackedInt32Array(1522745193, 1448483788) index="0" unique_id=65902355]
 light_energy = 0.25
