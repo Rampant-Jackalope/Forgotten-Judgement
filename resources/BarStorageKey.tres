@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dih77f1t7pblu"]
+
+[ext_resource type="Script" uid="uid://dnklen65k5hx0" path="res://scripts/items_data.gd" id="1_36fcb"]
+[ext_resource type="Texture2D" uid="uid://bynx43ruh1gpn" path="res://assets/npc-billboards/backstage-key.png" id="1_cjd2k"]
+
+[resource]
+script = ExtResource("1_36fcb")
+id = &"bar_storage_key"
+item_name = "Bar Storage Door Key"
+description = "A key to the storage area of the bar"
+icon = ExtResource("1_cjd2k")
+metadata/_custom_type_script = "uid://dnklen65k5hx0"

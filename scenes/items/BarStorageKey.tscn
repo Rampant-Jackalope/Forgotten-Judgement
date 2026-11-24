@@ -2,23 +2,15 @@
 
 [ext_resource type="Script" uid="uid://j8kri3puae0d" path="res://scripts/Item.gd" id="1_oa2kr"]
 [ext_resource type="Texture2D" uid="uid://bynx43ruh1gpn" path="res://assets/npc-billboards/backstage-key.png" id="2_hvtgt"]
-[ext_resource type="Script" uid="uid://dnklen65k5hx0" path="res://scripts/items_data.gd" id="2_vqcsu"]
+[ext_resource type="Resource" uid="uid://dih77f1t7pblu" path="res://resources/BarStorageKey.tres" id="2_vqcsu"]
 [ext_resource type="Texture2D" uid="uid://vxuwikgkhn6" path="res://assets/npc-billboards/backstage-key-glow.png" id="3_vqcsu"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="4_wrjlj"]
-
-[sub_resource type="Resource" id="Resource_hvtgt"]
-script = ExtResource("2_vqcsu")
-id = &"bar_storage_key"
-item_name = "Bar Storage Door Key"
-description = "A key to the storage area of the bar"
-icon = ExtResource("2_hvtgt")
-metadata/_custom_type_script = "uid://dnklen65k5hx0"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_exy0o"]
 
 [node name="BarStorageKey" type="Node3D" unique_id=1689224799 node_paths=PackedStringArray("interactable", "highlight_sprite")]
 script = ExtResource("1_oa2kr")
-data = SubResource("Resource_hvtgt")
+data = ExtResource("2_vqcsu")
 interactable = NodePath("Area3D")
 highlight_sprite = NodePath("HighlightSprite")
 metadata/_custom_type_script = "uid://j8kri3puae0d"

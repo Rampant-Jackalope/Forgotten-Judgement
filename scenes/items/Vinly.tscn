@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfc7xpd43twhx"]
 
 [ext_resource type="Script" uid="uid://j8kri3puae0d" path="res://scripts/Item.gd" id="1_3x84w"]
-[ext_resource type="Resource" uid="uid://b2rmi2qphl73g" path="res://resources/backstage_key.tres" id="2_4e1oc"]
+[ext_resource type="Resource" uid="uid://ctb54nxxjdnrw" path="res://resources/Vinly.tres" id="2_3x84w"]
 [ext_resource type="Texture2D" uid="uid://b68qpeiytiu07" path="res://assets/items/vinyl.png" id="3_a1222"]
 [ext_resource type="Texture2D" uid="uid://dnr4ny3nkoj1s" path="res://assets/items/vinyl-highlighted.png" id="4_5bcuw"]
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="5_8aoud"]
@@ -10,7 +10,7 @@
 
 [node name="Vinly" type="Node3D" unique_id=67441525 node_paths=PackedStringArray("interactable", "highlight_sprite")]
 script = ExtResource("1_3x84w")
-data = ExtResource("2_4e1oc")
+data = ExtResource("2_3x84w")
 interactable = NodePath("Area3D")
 highlight_sprite = NodePath("HighlightSprite")
 
