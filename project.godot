@@ -54,7 +54,9 @@ variables={
 },
 "ENKI": {},
 "GLOBAL": {
+"APATHY": 0,
 "DOOR_ACCESS": {},
+"EMPATHY": 0,
 "INTRO": {},
 "TALKED_TO": ""
 },
