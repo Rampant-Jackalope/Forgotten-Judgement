@@ -54,15 +54,10 @@ shader_parameter/bias_per_meter = 0.02
 
 [node name="Lighting" type="Node3D" parent="." unique_id=400940909]
 
-[node name="LobbyReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=12106176]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 1.8155351, 8.12771)
-size = Vector3(15.016562, 5.6893845, 18.24178)
-interior = true
-ambient_mode = 2
-ambient_color = Color(0.1, 0.1, 0.1, 1)
+[node name="Lights" type="Node3D" parent="Lighting" unique_id=1683638169]
 
-[node name="LobbyCeilingLight" type="OmniLight3D" parent="Lighting" unique_id=1207651053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 8.12771)
+[node name="LobbyCeilingLight" type="OmniLight3D" parent="Lighting/Lights" unique_id=1207651053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 10.887394)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 shadow_enabled = true
@@ -71,26 +66,17 @@ distance_fade_begin = 10.0
 distance_fade_length = 5.0
 omni_range = 8.306145
 
-[node name="StageReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=1916299309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03988743, 1.799561, 21.629704)
-size = Vector3(15.016211, 5.6672897, 12.745279)
-interior = true
-ambient_mode = 2
-ambient_color = Color(0.1, 0.1, 0.1, 1)
-
-[node name="StageSpotLight" type="SpotLight3D" parent="Lighting" unique_id=1216161621]
-transform = Transform3D(-0.8231364, -0.45350015, 0.34173685, 0, 0.601815, 0.7986356, -0.56784374, 0.65738595, -0.49537584, 1.1753943, 3.5131593, 22.8009)
-light_energy = 16.0
+[node name="LobbyCeilingLight2" type="OmniLight3D" parent="Lighting/Lights" unique_id=1458939534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 4.2751827)
+light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 10.0
-distance_fade_shadow = 4.0
 distance_fade_length = 5.0
-spot_range = 4.5920362
-spot_angle = 15.933593
+omni_range = 8.306145
 
-[node name="StageCeilingLight" type="OmniLight3D" parent="Lighting" unique_id=1047315979]
+[node name="StageCeilingLight" type="OmniLight3D" parent="Lighting/Lights" unique_id=1047315979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 3.3499935, 19.668219)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_energy = 0.3
@@ -101,15 +87,8 @@ distance_fade_begin = 10.0
 distance_fade_length = 5.0
 omni_range = 6.7897096
 
-[node name="BackstageReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=659610615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.045877, 1.8020865, 13.499155)
-size = Vector3(6.992137, 5.6060715, 29.043623)
-interior = true
-ambient_mode = 2
-ambient_color = Color(0.1, 0.1, 0.1, 1)
-
-[node name="BackstagePainting1AreaLight" type="AreaLight3D" parent="Lighting" unique_id=706354639]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -11.266067, 3.5801165, 5.3980556)
+[node name="BarStorageLight" type="AreaLight3D" parent="Lighting/Lights" unique_id=706354639]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.01288, 3.5801165, 8.187621)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 distance_fade_enabled = true
@@ -119,8 +98,8 @@ distance_fade_length = 5.0
 area_range = 3.469
 area_size = Vector2(0.4298191, 1)
 
-[node name="BackstagePainting2AreaLight" type="AreaLight3D" parent="Lighting" unique_id=2143262327]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -11.266067, 3.5801165, 16.200462)
+[node name="StaffRoomLight" type="AreaLight3D" parent="Lighting/Lights" unique_id=2143262327]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.940793, 3.5801165, 14.366713)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 distance_fade_enabled = true
@@ -130,15 +109,8 @@ distance_fade_length = 5.0
 area_range = 3.469
 area_size = Vector2(0.4298191, 1)
 
-[node name="RoomsReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=510994978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2561092, 5.506189, 13.49725)
-size = Vector3(12.527517, 5.6893845, 29.037907)
-interior = true
-ambient_mode = 2
-ambient_color = Color(0.1, 0.1, 0.1, 1)
-
-[node name="RoomsCeilingFrontLight" type="OmniLight3D" parent="Lighting" unique_id=662538164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1564409, 7.154515, 6.7013836)
+[node name="RoomsCeilingFrontLight" type="OmniLight3D" parent="Lighting/Lights" unique_id=662538164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93417823, 7.154515, 6.7013836)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 shadow_enabled = true
@@ -147,8 +119,8 @@ distance_fade_begin = 20.0
 distance_fade_length = 0.0
 omni_range = 8.306145
 
-[node name="RoomsCeilingBackLight" type="OmniLight3D" parent="Lighting" unique_id=94265764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1564409, 7.154515, 18.416967)
+[node name="RoomsCeilingBackLight" type="OmniLight3D" parent="Lighting/Lights" unique_id=94265764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3960342, 7.154515, 18.416967)
 light_color = Color(1, 0.846, 0.58000004, 1)
 light_bake_mode = 1
 shadow_enabled = true
@@ -157,9 +129,67 @@ distance_fade_begin = 20.0
 distance_fade_length = 0.0
 omni_range = 9.099267
 
-[node name="StoreRoomReflectionProbe" type="ReflectionProbe" parent="Lighting" unique_id=1278864452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.098788, 1.8155351, 11.911127)
-size = Vector3(5.057021, 5.6893845, 10.674947)
+[node name="StageSpotLight" type="SpotLight3D" parent="Lighting/Lights" unique_id=1216161621]
+transform = Transform3D(-0.8231364, -0.45350015, 0.3417369, 0, 0.601815, 0.79863554, -0.56784374, 0.65738595, -0.49537584, 1.1753943, 3.5131593, 22.8009)
+light_energy = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 4.0
+distance_fade_length = 5.0
+spot_range = 4.5920362
+spot_angle = 15.933593
+
+[node name="BackStageLight" type="AreaLight3D" parent="Lighting/Lights" unique_id=1422940103]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.940793, 3.5801165, 22.247534)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_shadow = 3.0
+distance_fade_length = 5.0
+area_range = 3.469
+area_size = Vector2(0.4298191, 1)
+
+[node name="BathroomLight" type="SpotLight3D" parent="Lighting/Lights" unique_id=1627055619]
+transform = Transform3D(0.76272535, 0.08997063, 0.64043367, -0.6396501, -0.041103132, 0.76756656, 0.09538227, -0.9950961, 0.02619932, -8.963074, 3.3499935, 2.089943)
+light_color = Color(1, 0.846, 0.58000004, 1)
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+distance_fade_length = 5.0
+spot_range = 5.798
+spot_angle = 19.171082
+spot_angle_attenuation = 4.411333e-05
+
+[node name="Reflection" type="Node3D" parent="Lighting" unique_id=2088994135]
+
+[node name="BackstageReflectionProbe" type="ReflectionProbe" parent="Lighting/Reflection" unique_id=659610615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.045877, 1.8020865, 13.499155)
+size = Vector3(6.992137, 5.6060715, 29.043623)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="RoomsReflectionProbe" type="ReflectionProbe" parent="Lighting/Reflection" unique_id=510994978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2561092, 5.506189, 13.49725)
+size = Vector3(12.527517, 5.6893845, 29.037907)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="LobbyReflectionProbe" type="ReflectionProbe" parent="Lighting/Reflection" unique_id=12106176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035674572, 1.8155351, 8.12771)
+size = Vector3(15.016562, 5.6893845, 18.24178)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="StageReflectionProbe" type="ReflectionProbe" parent="Lighting/Reflection" unique_id=1916299309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03988743, 1.799561, 21.629704)
+size = Vector3(15.016211, 5.6672897, 12.745279)
 interior = true
 ambient_mode = 2
 ambient_color = Color(0.1, 0.1, 0.1, 1)
