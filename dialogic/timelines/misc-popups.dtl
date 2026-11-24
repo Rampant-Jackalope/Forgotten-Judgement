@@ -16,3 +16,6 @@ label backstage_door_unlocked
 label lethe_interaction
 A partially empty bottle.[pause=1] Smelling its contents gives you a sense of déjà vu.
 [end_timeline]
+label introduction_warning
+main_player: I should talk to the bartender before walking upstairs.
+[end_timeline]
