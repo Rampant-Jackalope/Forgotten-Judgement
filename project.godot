@@ -39,45 +39,13 @@ directories/dch_directory={
 "singer": "res://dialogic/characters/singer.dch"
 }
 directories/dtl_directory={
-"bartender": "res://dialogic/timelines/bartender/bartender.dtl",
-"introduction-warning": "res://dialogic/timelines/overworker/introduction-warning.dtl",
-"misc-popups": "res://dialogic/timelines/misc-popups.dtl",
-"overworker-warning": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
-"overworker/main": "res://dialogic/timelines/overworker/main.dtl",
-"singer/main": "res://dialogic/timelines/singer/main.dtl",
-"warning": "res://dialogic/timelines/bartender/warning.dtl"
+"misc-popups": "res://dialogic/timelines/misc-popups.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
-variables={
-"bartender": {
-"DemoDone": false,
-"HAS_WARNING_RUN": false,
-"HasMetBartender": false,
-"RatFightCompleted": false,
-"TRIED_TO_EXIT": false
-},
-"misc": {
-"GuestName": ""
-},
-"overworker": {
-"HasFoughtOverworker": false,
-"HasMetOverworker": false,
-"warnings": 0
-},
-"singer": {
-"AT_BAR": false,
-"HAS_STAGE_KEY": false,
-"HAS_TALKED_TO": false,
-"NEARBY": false,
-"PLAYER_ON_STAGE": false,
-"REDIRECT_TO_BARTENDER": false,
-"RESPECT": 0,
-"STAGE_DOOR_OPENED": false
-}
-}
+variables={}
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
