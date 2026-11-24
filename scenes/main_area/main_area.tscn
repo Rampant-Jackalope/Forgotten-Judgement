@@ -171,7 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8146973e-05, 0.0005904436, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.254303, 0, 0)
 
 [node name="SingerRoom" parent="." unique_id=423231224 instance=ExtResource("3_q0nb6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 12.390312)
 
 [node name="OpenCloseDoors" type="Node3D" parent="." unique_id=1691008114]
 
