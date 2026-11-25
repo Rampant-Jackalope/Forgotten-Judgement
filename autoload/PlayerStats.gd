@@ -19,11 +19,9 @@ func add_empathy(amount: int = 1) -> void:
 	_debug_popup("+%d Empathy" % amount, Color.GREEN)
 
 func _debug_popup(text: String, color: Color) -> void:
-	if not OS.is_debug_build():
-		return
+	if not OS.is_debug_build(): return
 	var scene := get_tree().current_scene
-	if not scene:
-		return
+	if not scene: return
 
 	var label := Label.new()
 	label.text = text
