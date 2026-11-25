@@ -1,0 +1,2 @@
+join bartender left
+bartender: <Still here[pause=0.3], friend?[pause=0.5] Pull up a stool[pause=0.4], I don't bite./Hah![pause=0.4] Don't mind me[pause=0.3], just polishing glasses[pause=0.5].../Need something[pause=0.4], or just keeping an old bartender company?/Take your time.[pause=0.6] The inn isn't going [speed=0.5]anywhere[speed=1]./Quiet night.[pause=0.7] Well[pause=0.3], it's [speed=0.4]always[speed=1] a quiet night.>

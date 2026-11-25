@@ -1,0 +1,26 @@
+join overworker left
+overworker: Wait[pause=0.5].. just gotta finish this[pause=0.7]..
+leave overworker
+join main_player center
+main_player: What are you working on?
+leave main_player
+join overworker left
+overworker: Ha![pause=0.4] What am I working on, you say![pause=0.5].. Well[pause=0.5].. Uh[pause=0.6].. [speed=0.6]Hard to explain really[speed=1], you probably wouldn't [i]get[/i] it anyway[pause=0.8]…
+leave overworker
+join main_player center
+main_player: C'mon[pause=0.3], give me a chance
+leave main_player
+join overworker left
+overworker: Alright[pause=0.6].. But [shake][b]DON'T[/b][/shake] touch anything[shake]!![/shake]
+leave overworker
+- Not my problem. Get back to work.
+	join overworker left
+	overworker: [shake]Fine![/shake][pause=0.5] See if I [i]care[/i][pause=0.8]...
+	leave overworker
+	do PlayerStats.add_apathy()
+	do DialogicFlags.set_feels("ANNOYED")
+- Are you okay? You seem really stressed.
+	join overworker left
+	overworker: I[pause=0.6]... I guess I am.[pause=0.7] [speed=0.5]Thanks[speed=1][pause=0.8]…
+	leave overworker
+	do PlayerStats.add_empathy()

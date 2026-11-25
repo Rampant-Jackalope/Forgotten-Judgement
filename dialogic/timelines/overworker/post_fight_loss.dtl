@@ -1,0 +1,21 @@
+[i]Richard straightens his tie.[/i][pause=0.8]
+join overworker left
+overworker: Told you not to touch anything.
+leave overworker
+- Apologise
+	join main_player center
+	main_player: ...Sorry.[pause=0.4] I'll leave your stuff alone.
+	leave main_player
+	join overworker left
+	overworker: [pause=0.7]Good.[pause=0.4] See that you do.
+	leave overworker
+	do DialogicFlags.set_feels("NEUTRAL")
+- Be mean
+	join main_player center
+	main_player: Lucky punch.[pause=0.3] You'd lose in a real fight.
+	leave main_player
+	join overworker left
+	overworker: [pause=0.8]Is that so?[pause=0.6] Then you won't mind leaving.
+	leave overworker
+	do DialogicFlags.set_feels("ANGRY")
+	jump overworker/lockout/

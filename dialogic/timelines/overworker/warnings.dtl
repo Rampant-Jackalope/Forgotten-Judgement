@@ -1,0 +1,15 @@
+label one
+join overworker left
+overworker: [shake]Quit[/shake] that[pause=0.5].
+leave overworker
+[end_timeline]
+label two
+join overworker left
+overworker: [shake]Hey![/shake][pause=0.4] I said [b]don't[/b]!
+leave overworker
+[end_timeline]
+label three
+join overworker left
+overworker: [shake][b]NO![/b][/shake][pause=0.5] You'll [speed=0.5][i]ruin[/i][speed=1] everything[shake]![/shake]
+leave overworker
+[end_timeline]

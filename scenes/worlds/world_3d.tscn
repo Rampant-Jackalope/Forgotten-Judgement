@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bq2dvrnlu2j0m" path="res://scenes/ui/hud/hud.tscn" id="7_i7141"]
 [ext_resource type="Script" uid="uid://c7jo2ec6j6inl" path="res://scenes/introduction_warning.gd" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="8_yn0ly"]
-[ext_resource type="PackedScene" uid="uid://bl46ux86jw1kr" path="res://scenes/items/test_item.tscn" id="9_i8noq"]
 [ext_resource type="Script" uid="uid://deqdy24n2emcf" path="res://scenes/worlds/skip_dialogue_button.gd" id="10_i8noq"]
-[ext_resource type="Script" uid="uid://bk3864uiwkuvp" path="res://scripts/DialogicFlagArea.gd" id="11_mm762"]
 
 [sub_resource type="Environment" id="Environment_1kpxu"]
 
@@ -20,9 +18,6 @@ size = Vector3(3.3203125, 5, 2.4802246)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(2.9416504, 2.5649414, 2.258789)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gsnu6"]
-size = Vector3(0.9003906, 0.8108984, 3.1390886)
 
 [node name="World" type="WorldEnvironment" unique_id=924521940]
 environment = SubResource("Environment_1kpxu")
@@ -38,21 +33,18 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0
 [node name="Singer" parent="Npc" unique_id=861609196 instance=ExtResource("5_mm762")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 24.150553)
 
-[node name="OverworkerPlayer" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
+[node name="Overworker" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.872955, 0.875, 0)
 
 [node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.3941727, 0.9, 8.548205)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.3036423, 0.9, 8.548205)
 
 [node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8034594, 0.057750702, 11.355218)
 script = ExtResource("8_yn0ly")
-identifier = "Player_Death"
+identifier = "Generic_Player_Death"
 look_direction = Vector3(-1, 1.5, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
-
-[node name="BackstageKey" parent="." unique_id=67441525 instance=ExtResource("9_i8noq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6794488, 5.2282257, 1.6630292)
 
 [node name="HUD" parent="." unique_id=1099807587 instance=ExtResource("7_i7141")]
 
@@ -70,19 +62,6 @@ blocker_collision = NodePath("../CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroductionChecker/Area3D" unique_id=2047577774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7291746, 0.7824707, 0.12939453)
 shape = SubResource("BoxShape3D_yf5fn")
-
-[node name="CollisionAreas" type="Node3D" parent="." unique_id=920710040]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.532651, 0, 1.7558537)
-
-[node name="StageArea" type="Area3D" parent="CollisionAreas" unique_id=829471350]
-transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 23.460226, 0.913, -5.755865)
-script = ExtResource("11_mm762")
-flag = "singer.PLAYER_ON_STAGE"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionAreas/StageArea" unique_id=976806359]
-transform = Transform3D(0.99909043, 0, -0.042642236, 0, 1, 0, 0.042642236, 0, 0.99909043, -0.27000237, 0.45465818, -0.6328746)
-shape = SubResource("BoxShape3D_gsnu6")
-debug_color = Color(0.23376629, 0.63818175, 1.92523e-07, 0.8745098)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464924879]
 layer = 19

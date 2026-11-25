@@ -17,22 +17,26 @@ enum Mode {
 			_apply_mode()
 
 func _ready() -> void:
+	if !OS.is_debug_build():
+		set_process(false)
+		queue_free()
+		return
+
 	hide()
 	text = "Skip"
 	toggled.connect(_on_toggled)
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
 
-	# TODO: add better handling of these
-	Util.get_player().locked_dialogue.connect(func(): show())
-	Util.get_player().unlocked_dialogue.connect(func(): hide())
+	var player := Util.get_player()
+	if player:
+		player.locked_dialogue.connect(show)
+		player.unlocked_dialogue.connect(hide)
 
 	if Dialogic.Choices.has_signal("question_shown"):
 		Dialogic.Choices.question_shown.connect(_on_question_shown)
 	else:
-		push_warning(
-			"SkipButton: Dialogic.Choices has no 'question_shown' signal, SINGLE mode won't stop at choices."
-		)
+		push_warning("SkipButton: Dialogic.Choices has no 'question_shown' signal, SINGLE mode won't stop at choices.")
 
 	_apply_mode()
 
@@ -66,4 +70,5 @@ func _process(_delta: float) -> void:
 		set_pressed_no_signal(Dialogic.Inputs.auto_skip.enabled)
 
 func _exit_tree() -> void:
-	Dialogic.Inputs.auto_skip.enabled = false
+	if OS.is_debug_build():
+		Dialogic.Inputs.auto_skip.enabled = false

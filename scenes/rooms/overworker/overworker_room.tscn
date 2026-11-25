@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b44njbrqbast1" path="res://assets/environment/Overworker/Printer.gltf" id="11_m3lho"]
 [ext_resource type="PackedScene" uid="uid://b688tmyteuuuk" path="res://assets/environment/Overworker/ShittyKeyboard.gltf" id="12_fsv2b"]
 [ext_resource type="PackedScene" uid="uid://c0to66drfpc2b" path="res://assets/environment/Overworker/Water_cooler.gltf" id="13_18wda"]
-[ext_resource type="Script" uid="uid://d04vnm70e1wfo" path="res://scripts/DialogicSubject.gd" id="20_fcbs4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3lho"]
 render_priority = 0
@@ -185,15 +184,10 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 [node name="Decorations" type="Node3D" parent="." unique_id=1456555261]
 script = ExtResource("9_g78rx")
 
-[node name="DialogicSubject" type="Node" parent="Decorations" unique_id=1636909941]
-script = ExtResource("20_fcbs4")
-subject = "overworker"
-metadata/_custom_type_script = "uid://d04vnm70e1wfo"
-
 [node name="Coffee_machine2" parent="Decorations" unique_id=1514329234 instance=ExtResource("5_fcbs4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Coffee_machine" parent="Decorations/Coffee_machine2" index="0" unique_id=243765595]
+[node name="Coffee_machine" parent="Decorations/Coffee_machine2" index="0" unique_id=1319412765]
 material_overlay = SubResource("ShaderMaterial_m3lho")
 
 [node name="Interactable" type="Area3D" parent="Decorations/Coffee_machine2" unique_id=949414624]
@@ -207,7 +201,7 @@ shape = SubResource("BoxShape3D_1kpxu")
 [node name="Cube2" parent="Decorations" unique_id=729085450 instance=ExtResource("6_5txki")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Cube" parent="Decorations/Cube2" index="0" unique_id=975594692]
+[node name="Cube" parent="Decorations/Cube2" index="0" unique_id=1306843464]
 material_overlay = SubResource("ShaderMaterial_fcbs4")
 
 [node name="Interactable2" type="Area3D" parent="Decorations/Cube2" unique_id=637981855]
@@ -221,43 +215,43 @@ shape = SubResource("BoxShape3D_mbxjm")
 [node name="FloppyDisk2" parent="Decorations" unique_id=1284237272 instance=ExtResource("7_5fq1n")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="FloppyDisk" parent="Decorations/FloppyDisk2" index="0" unique_id=1755402742]
+[node name="FloppyDisk" parent="Decorations/FloppyDisk2" index="0" unique_id=997049709]
 material_overlay = SubResource("ShaderMaterial_832hi")
 
 [node name="Macintosh2" parent="Decorations" unique_id=1228577386 instance=ExtResource("8_axflx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Macintosh" parent="Decorations/Macintosh2" index="0" unique_id=2058251686]
+[node name="Macintosh" parent="Decorations/Macintosh2" index="0" unique_id=317071584]
 material_overlay = SubResource("ShaderMaterial_5txki")
 
 [node name="Mouse2" parent="Decorations" unique_id=1179892946 instance=ExtResource("9_8s3gu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Mouse" parent="Decorations/Mouse2" index="0" unique_id=1294893880]
+[node name="Mouse" parent="Decorations/Mouse2" index="0" unique_id=1379640982]
 material_overlay = SubResource("ShaderMaterial_5fq1n")
 
 [node name="MouseCable2" parent="Decorations" unique_id=1002174022 instance=ExtResource("10_n3ini")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="MouseCable" parent="Decorations/MouseCable2" index="0" unique_id=1613649374]
+[node name="MouseCable" parent="Decorations/MouseCable2" index="0" unique_id=1940703686]
 material_overlay = SubResource("ShaderMaterial_axflx")
 
 [node name="Printer2" parent="Decorations" unique_id=370806855 instance=ExtResource("11_m3lho")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Printer" parent="Decorations/Printer2" index="0" unique_id=1865696398]
+[node name="Printer" parent="Decorations/Printer2" index="0" unique_id=1877528395]
 material_overlay = SubResource("ShaderMaterial_8s3gu")
 
 [node name="ShittyKeyboard2" parent="Decorations" unique_id=1941166790 instance=ExtResource("12_fsv2b")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="ShittyKeyboard" parent="Decorations/ShittyKeyboard2" index="0" unique_id=1559511897]
+[node name="ShittyKeyboard" parent="Decorations/ShittyKeyboard2" index="0" unique_id=391676654]
 material_overlay = SubResource("ShaderMaterial_n3ini")
 
 [node name="Water_cooler2" parent="Decorations" unique_id=822848682 instance=ExtResource("13_18wda")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Water_cooler" parent="Decorations/Water_cooler2" index="0" unique_id=91616884]
+[node name="Water_cooler" parent="Decorations/Water_cooler2" index="0" unique_id=305455014]
 material_overlay = SubResource("ShaderMaterial_fsv2b")
 
 [node name="Interactable" type="Area3D" parent="Decorations/Water_cooler2" unique_id=213062284]
@@ -273,10 +267,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 script = ExtResource("9_xwbor")
 
 [node name="callback_door" parent="Door" unique_id=1742132657 instance=ExtResource("10_iclxq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -0.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="PlayerMarker" type="Marker3D" parent="Door/callback_door" unique_id=2859008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 script = ExtResource("11_1e0sh")
 identifier = "Overworker_Inside"
 look_direction = Vector3(1, 0, 0)
@@ -298,7 +292,6 @@ distance_fade_begin = 10.0
 distance_fade_length = 0.0
 omni_range = 6.0258837
 
-[connection signal="recieved" from="Decorations/DialogicSubject" to="Decorations" method="_on_dialogic_signal"]
 [connection signal="highlight_off" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_off"]
 [connection signal="highlight_on" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="coffee_machine_highlight_on"]
 [connection signal="interacted" from="Decorations/Coffee_machine2/Interactable" to="Decorations" method="_on_interactable_interacted"]

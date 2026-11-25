@@ -20,13 +20,14 @@ Settings="*uid://ctktfj6u77be0"
 Dialogic="*uid://ds2q0uclmolvu"
 EffectScreen="*uid://cvq5l02e684ip"
 PlayerPositionMarkers="*uid://ic45h57m1m20"
-Inventory="*uid://c80npkg531tup"
 NpcPositionMarkers="*uid://cm8ewu6hq86ih"
 GameState="*uid://ducmw5bv6wfu3"
 PlayerStats="*uid://r3p146iquj8d"
 FlagWatcher="*uid://c1f4rvqk4x4m7"
 SaveIndicator="*uid://bs3y8jwx7423p"
 ActionHints="*uid://dqegbt18xpehy"
+DialogicFlags="*uid://dolrwg35li60j"
+Inventory="*uid://ccye0650xd08j"
 
 [dialogic]
 
@@ -39,44 +40,46 @@ directories/dch_directory={
 "singer": "res://dialogic/characters/singer.dch"
 }
 directories/dtl_directory={
-"bartender": "res://dialogic/timelines/bartender/bartender.dtl",
-"introduction-warning": "res://dialogic/timelines/overworker/introduction-warning.dtl",
+"bartender/idle": "res://dialogic/timelines/bartender/idle.dtl",
+"bartender/intro": "res://dialogic/timelines/bartender/intro.dtl",
 "misc-popups": "res://dialogic/timelines/misc-popups.dtl",
-"overworker-warning": "res://dialogic/timelines/overworker/overworker-warnings.dtl",
-"overworker/main": "res://dialogic/timelines/overworker/main.dtl",
-"singer/main": "res://dialogic/timelines/singer/main.dtl",
-"warning": "res://dialogic/timelines/bartender/warning.dtl"
+"overworker/idle": "res://dialogic/timelines/overworker/idle.dtl",
+"overworker/intro": "res://dialogic/timelines/overworker/intro.dtl",
+"overworker/lockout": "res://dialogic/timelines/overworker/lockout.dtl",
+"overworker/post_fight_loss": "res://dialogic/timelines/overworker/post_fight_loss.dtl",
+"overworker/post_fight_win": "res://dialogic/timelines/overworker/post_fight_win.dtl",
+"overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
 "bartender_style": "res://dialogic/styles/bartender_style.tres"
 }
 variables={
-"bartender": {
-"DemoDone": false,
-"HAS_WARNING_RUN": false,
-"HasMetBartender": false,
-"RatFightCompleted": false,
-"TRIED_TO_EXIT": false
+"BARTENDER": {},
+"CHILD": {},
+"COUPLE": {
+"GIRL": {},
+"GUY": {}
 },
-"misc": {
-"GuestName": ""
+"ENKI": {},
+"GLOBAL": {
+"APATHY": 0,
+"DOOR_ACCESS": {},
+"DOOR_LOCKED": "",
+"EMOTIONAL_STATE": "",
+"EMPATHY": 0,
+"HAS_FOUGHT": "",
+"INTRO": {},
+"SCRATCH": "",
+"TALKED_TO": ""
 },
-"overworker": {
-"HasFoughtOverworker": false,
-"HasMetOverworker": false,
-"warnings": 0
+"HOBO": {},
+"OVERWORKER": {
+"HAPPY_ENDING": false,
+"TOUCH_COUNT": 0,
+"UNLOCKED_TALK": false
 },
-"singer": {
-"AT_BAR": false,
-"HAS_STAGE_KEY": false,
-"HAS_TALKED_TO": false,
-"NEARBY": false,
-"PLAYER_ON_STAGE": false,
-"REDIRECT_TO_BARTENDER": false,
-"RESPECT": 0,
-"STAGE_DOOR_OPENED": false
-}
+"SINGER": {}
 }
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
@@ -111,7 +114,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=["res://resources/Style_test.tres", "res://resources/New_File.tres", "res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
+layout/style_list=["res://dialogic/styles/New_File.tres", "res://dialogic/styles/bartender_style.tres"]
 layout/default_style="res://resources/Style_test.tres"
 
 [display]

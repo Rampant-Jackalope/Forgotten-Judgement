@@ -1,0 +1,39 @@
+[i]Richard slumps against the coffee machine, panting.[/i][pause=1.0]
+join overworker left
+overworker: [pause=0.5]...Fine.[pause=0.5] You win.
+leave overworker
+- Apologise
+	join main_player center
+	main_player: Sorry.[pause=0.4] I shouldn't have pushed it.
+	leave main_player
+	do DialogicFlags.feels("SAD")
+	join overworker left
+	overworker: [pause=0.8]...No.[pause=0.5] I overreacted.[pause=0.6] It's just that this is the only thing I have.
+	leave overworker
+	join main_player center
+	main_player: What do you mean?
+	leave main_player
+	join overworker left
+	overworker: I've done this for so long that I don't know what I'd even be without it.[pause=0.8] No point,[pause=0.4] no plan.[pause=0.6] Just this.
+	leave overworker
+	join main_player center
+	main_player: That sounds exhausting.
+	leave main_player
+	[i]Richard lets out a quiet laugh.[/i][pause=0.8]
+	join overworker left
+	overworker: Yeah.[pause=0.5] It is.[pause=1.0] Thanks for listening.[pause=0.6] Don't tell anyone I said that.
+	leave overworker
+	do DialogicFlags.set_feels("HAPPY")
+	set {OVERWORKER.HAPPY_ENDING} = true
+- Be mean
+	join main_player center
+	main_player: Maybe if you got your life together you wouldn't need to hit people with coffee cups.
+	leave main_player
+	join overworker left
+	overworker: [pause=1.2]...Get out.
+	leave overworker
+	do DialogicFlags.set_feels("ANGRY")
+	join overworker left
+	overworker: [shake rate=20 level=8]GET OUT.[/shake][pause=0.4] And don't come back!
+	leave overworker
+	jump overworker/lockout/

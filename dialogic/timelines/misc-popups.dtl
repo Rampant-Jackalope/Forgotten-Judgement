@@ -1,18 +1,5 @@
-label obtain_drip_jacket
-[rainbow] You have obtained a drip jacket
-+3 Cool points
-set {singer.RESPECT} += 3.0
-[end_timeline]
-label obtain_drip_chain
-[rainbow] You have obtained a drip necklace
-+2 Cool points
-set {singer.RESPECT} += 2.0
-[end_timeline]
 label exit_door_locked
 [color=red]The door seems to be locked
-[end_timeline]
-label guest_door_interaction_placeholder
-{misc.GuestName} seems to have locked their door
 [end_timeline]
 label player_death
 main_player: <Ugh... my head hurts/Why am I here?/Well shit I think I lost>
@@ -28,4 +15,10 @@ label backstage_door_unlocked
 [end_timeline]
 label lethe_interaction
 A partially empty bottle.[pause=1] Smelling its contents gives you a sense of déjà vu.
+[end_timeline]
+label introduction_warning
+main_player: I should talk to the bartender before walking upstairs.
+[end_timeline]
+label locked_door
+It seems {GLOBAL.SCRATCH} has locked their door
 [end_timeline]

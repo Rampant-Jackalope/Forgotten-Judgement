@@ -62,13 +62,14 @@ func _spawn_projectile() -> void:
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
+	DialogicFlags.set_fought(DialogicFlags.Npc.OVERWORKER, false)
 	WorldManager.set_world_to_3d()
-	ScreenFader.player_death_transition()
 
 # Connected to signal
 func _on_overworker_health_changed(old: int, new: int) -> void:
 	if new < old: hurt_audio_player.play()
 
 # Connected to signal
-func _on_overworker_died() -> void:
+func _on_overworker_died() -> void:	
+	DialogicFlags.set_fought(DialogicFlags.Npc.OVERWORKER, true)
 	WorldManager.set_world_to_3d()
