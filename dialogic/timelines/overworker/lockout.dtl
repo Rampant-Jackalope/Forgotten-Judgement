@@ -6,6 +6,6 @@ leave overworker
 	[i]The door slams shut.[/i][pause=0.6] [i]A lock clicks.[/i][pause=0.8]
 - Steal his vinyl
 	[i]You snatch it just as the door slams shut.[/i][pause=0.6] [i]A lock clicks.[/i][pause=0.8]
-	do Inventory.grant_item("vinly")
+	do Inventory.grant_item("vinyl")
 do DialogicFlags.lock_door("OVERWORKER", true)
 do PlayerPositionMarkers.transition("Overworker_Outside")
