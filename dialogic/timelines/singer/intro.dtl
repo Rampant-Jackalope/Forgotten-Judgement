@@ -50,4 +50,5 @@ singer: The audiance is fake anyway. My talent is truly wasted on these literal 
 leave singer
 do NpcPositionMarkers.npc_transition("Singer_Room", "SINGER")
 set {SINGER.INTRO_DONE} = true
+do DialogicFlags.set_talked("SINGER", true)
 [end_timeline]

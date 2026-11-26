@@ -31,7 +31,7 @@ func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void
 		return
 
 	if !DialogicFlags.has_fought(DialogicFlags.Npc.SINGER) and !Dialogic.VAR.SINGER.ROOM_INTRO_DONE:
-		interactor.player.run_locked_dialogue("singer/room_intro")
+		await interactor.player.run_locked_dialogue("singer/room_intro")
 		fight_if_angry()
 		Dialogic.VAR.SINGER.ROOM_INTRO_DONE = true
 		return
