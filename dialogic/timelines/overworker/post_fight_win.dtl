@@ -23,6 +23,7 @@ leave overworker
 	join overworker left
 	overworker: Yeah.[pause=0.5] It is.[pause=1.0] Thanks for listening.[pause=0.6] Don't tell anyone I said that.
 	leave overworker
+	do PlayerStats.add_empathy()
 	do DialogicFlags.set_feels("OVERWORKER", "HAPPY")
 	do DialogicFlags.set_is_happy_ending("OVERWORKER", true)
 - Be mean
