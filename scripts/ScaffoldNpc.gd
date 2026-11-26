@@ -2,7 +2,7 @@
 extends Node3D
 class_name ScaffoldedNpc
 
-@export var npc_name: DialogicFlags.Npc
+@export var npc_name: DialogicFlags.Npc = DialogicFlags.Npc.BARTENDER
 
 ## Each entry is [path_relative_to_this_node, type].
 ## Type can be a native class name string or a script class (e.g. ScaledSprite3D).

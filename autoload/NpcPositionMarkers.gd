@@ -4,6 +4,8 @@ var _positions: Dictionary[String, NpcMarker] = {}
 var _npc_list: Dictionary[DialogicFlags.Npc, Node3D]
 
 func register_npc(npc: DialogicFlags.Npc, root_node: Node3D) -> void:
+	assert(!_npc_list.has(npc), "Npc is already registered in npc list")
+
 	_npc_list[npc] = root_node
 
 func add(marker: NpcMarker) -> void:
