@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_aks2q"]
 [ext_resource type="Script" uid="uid://dholpp4cvpoeg" path="res://scenes/main_area/exit_doors.gd" id="3_hmils"]
 [ext_resource type="PackedScene" uid="uid://i8r1xowofjce" path="res://scenes/rooms/singer/singer_room.tscn" id="3_q0nb6"]
-[ext_resource type="PackedScene" uid="uid://crs4313a1qcbt" path="res://scenes/interactables/double_open_close_door.tscn" id="4_jnuwi"]
 [ext_resource type="PackedScene" uid="uid://02q2ligg823" path="res://scenes/interactables/open_close_door.tscn" id="5_aks2q"]
 [ext_resource type="PackedScene" uid="uid://c57wi3vh6c2m1" path="res://scenes/interactables/side_dependant_callback_door.tscn" id="7_1nckv"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="9_2wd05"]
@@ -20,6 +19,8 @@
 [ext_resource type="Script" uid="uid://f2gpkkmmd74h" path="res://scripts/Interactable.gd" id="18_4gj5b"]
 [ext_resource type="Shader" uid="uid://5ewx8mb5hngu" path="res://shaders/interactable_highlight.gdshader" id="19_2vh6m"]
 [ext_resource type="Script" uid="uid://deghednn86ll0" path="res://scenes/main_area/backstage_door.gd" id="19_bc6i3"]
+[ext_resource type="Script" uid="uid://1xntpv3jgnfb" path="res://scenes/main_area/auditorium_doors.gd" id="20_2vh6m"]
+[ext_resource type="VideoStream" uid="uid://816tp72fqkbw" path="res://assets/animations/dance-moves.ogv" id="21_bc6i3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seols"]
 shading_mode = 0
@@ -254,10 +255,6 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.1742554, 0, 13)
 
 [node name="Interactables" type="Node3D" parent="." unique_id=1805313374]
 
-[node name="DoubleOpenCloseDoor" parent="Interactables" unique_id=1279994241 instance=ExtResource("4_jnuwi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.24052)
-invert_open_direction = true
-
 [node name="ToiletDoor" parent="Interactables" unique_id=607662324 instance=ExtResource("5_aks2q")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.532651, 0, 2.2477696)
 
@@ -373,11 +370,31 @@ script = ExtResource("19_bc6i3")
 [node name="SideDependantCallbackDoor" parent="Interactables/BackstageDoor" unique_id=1742132657 instance=ExtResource("7_1nckv")]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -9, 0, 16.248)
 
+[node name="AuditoriumDoor" type="Node3D" parent="Interactables" unique_id=985442479 node_paths=PackedStringArray("double_callback_door", "video_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.24052)
+script = ExtResource("20_2vh6m")
+double_callback_door = NodePath("DoubleCallbackDoor")
+video_stream_player = NodePath("CanvasLayer/VideoStreamPlayer")
+
+[node name="DoubleCallbackDoor" parent="Interactables/AuditoriumDoor" unique_id=1279275661 instance=ExtResource("12_3jgwd")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Interactables/AuditoriumDoor" unique_id=40271019]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Interactables/AuditoriumDoor/CanvasLayer" unique_id=489699923]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("21_bc6i3")
+expand = true
+
 [connection signal="interacted" from="Interactables/ExitDoor/DoubleCallbackDoor" to="Interactables/ExitDoor" method="_on_double_callback_door_interacted"]
 [connection signal="highlight_off" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_off"]
 [connection signal="highlight_on" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_highlight_on"]
 [connection signal="interacted" from="Interactables/lethebottle/Interactable" to="Interactables/lethebottle" method="_on_interactable_interacted"]
 [connection signal="a_interacted" from="Interactables/BackstageDoor/SideDependantCallbackDoor" to="Interactables/BackstageDoor" method="_on_side_dependant_callback_door_a_interacted"]
 [connection signal="b_interacted" from="Interactables/BackstageDoor/SideDependantCallbackDoor" to="Interactables/BackstageDoor" method="_on_side_dependant_callback_door_b_interacted"]
+[connection signal="interacted" from="Interactables/AuditoriumDoor/DoubleCallbackDoor" to="Interactables/AuditoriumDoor" method="_on_double_callback_door_interacted"]
 
 [editable path="Interactables/lethebottle"]

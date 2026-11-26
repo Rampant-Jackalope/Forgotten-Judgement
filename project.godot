@@ -79,7 +79,9 @@ variables={
 "TOUCH_COUNT": 0,
 "UNLOCKED_TALK": false
 },
-"SINGER": {}
+"SINGER": {
+"ENTERED_AUDITORIUM": false
+}
 }
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
