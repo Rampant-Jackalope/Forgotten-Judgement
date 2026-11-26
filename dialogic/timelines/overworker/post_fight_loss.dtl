@@ -17,5 +17,5 @@ leave overworker
 	join overworker left
 	overworker: [pause=0.8]Is that so?[pause=0.6] Then you won't mind leaving.
 	leave overworker
-	do DialogicFlags.set_feels("ANGRY")
+	do DialogicFlags.set_feels("OVERWORKER", "ANGRY")
 	jump overworker/lockout/

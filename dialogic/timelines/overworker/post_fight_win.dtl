@@ -6,7 +6,7 @@ leave overworker
 	join main_player center
 	main_player: Sorry.[pause=0.4] I shouldn't have pushed it.
 	leave main_player
-	do DialogicFlags.feels("SAD")
+	do DialogicFlags.feels("OVERWORKER", "SAD")
 	join overworker left
 	overworker: [pause=0.8]...No.[pause=0.5] I overreacted.[pause=0.6] It's just that this is the only thing I have.
 	leave overworker
@@ -32,7 +32,7 @@ leave overworker
 	join overworker left
 	overworker: [pause=1.2]...Get out.
 	leave overworker
-	do DialogicFlags.set_feels("ANGRY")
+	do DialogicFlags.set_feels("OVERWORKER", "ANGRY")
 	join overworker left
 	overworker: [shake rate=20 level=8]GET OUT.[/shake][pause=0.4] And don't come back!
 	leave overworker

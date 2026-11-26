@@ -16,12 +16,12 @@ leave overworker
 	join overworker left
 	overworker: <I HATE YOU!!!/Why must I be tormented by your presence[pause=0.5]./BE GONE!/Find a different hobby[pause=0.6]...>
 	leave overworker
-	do DialogicFlags.set_feels("ANGRY")
+	do DialogicFlags.set_feels("OVERWORKER", "ANGRY")
 	do PlayerStats.add_apathy()
 - I'm sorry for not listening], I'll leave now.
 	join overworker left
 	overworker: <You better[pause=0.5]./Good[pause=0.4], and [speed=0.5]stay away[speed=1]>
 	leave overworker
-	do DialogicFlags.set_feels("NEUTRAL")
+	do DialogicFlags.set_feels("OVERWORKER", "NEUTRAL")
 	do PlayerStats.add_empathy()
 [end_timeline]
