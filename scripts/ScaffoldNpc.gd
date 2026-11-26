@@ -2,6 +2,8 @@
 extends Node3D
 class_name ScaffoldedNpc
 
+@export var npc_name: DialogicFlags.Npc
+
 ## Each entry is [path_relative_to_this_node, type].
 ## Type can be a native class name string or a script class (e.g. ScaledSprite3D).
 ## Parents must come before their children.
@@ -35,6 +37,9 @@ func _notification(what: int) -> void:
 			_build.call_deferred()
 		else:
 			_connect_highlighting()
+
+		assert(npc_name != null, "No valid DialogicFlags.Npc enum value assigned")
+		NpcPositionMarkers.register_npc(npc_name, self)
 
 func _connect_highlighting() -> void:
 	var interactable := get_node_or_null("Interactable") as Interactable
