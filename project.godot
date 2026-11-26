@@ -49,8 +49,11 @@ directories/dtl_directory={
 "overworker/post_fight_loss": "res://dialogic/timelines/overworker/post_fight_loss.dtl",
 "overworker/post_fight_win": "res://dialogic/timelines/overworker/post_fight_win.dtl",
 "overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl",
+"singer/idle": "res://dialogic/timelines/singer/idle.dtl",
 "singer/intro": "res://dialogic/timelines/singer/intro.dtl",
-"singer/post_fight": "res://dialogic/timelines/singer/post_fight.dtl"
+"singer/post_fight_room": "res://dialogic/timelines/singer/post_fight_room.dtl",
+"singer/post_fight_stage": "res://dialogic/timelines/singer/post_fight_stage.dtl",
+"singer/room_intro": "res://dialogic/timelines/singer/room_intro.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
@@ -81,7 +84,8 @@ variables={
 },
 "SINGER": {
 "ENTERED_AUDITORIUM": false,
-"INTRO_DONE": false
+"INTRO_DONE": false,
+"ROOM_INTRO_DONE": false
 }
 }
 glossary/default_case_sensitive=true

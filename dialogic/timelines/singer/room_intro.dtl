@@ -1,0 +1,20 @@
+join singer leftmost
+singer: A [i]fan[/i] are you?
+leave singer
+- Never heard of you
+	do PlayerStats.add_empathy()
+	[INSERT CRYBABY STORY]
+- Yes (lie)
+	join singer leftmost
+	singer: Aight bet name 5 of my songs
+	leave singer
+	- Act like a jerk
+		do PlayerStats.add_apathy()
+		do DialogicFlags.set_feels("SINGER", "ANGRY")
+		join singer leftmost
+		singer: YOU STARTING BEEF BOI!!!
+		leave singer
+	- Apologise for lying
+		join singer leftmost
+		singer: at least you are honest
+		leave singer
