@@ -373,6 +373,7 @@ transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -9, 
 [node name="AuditoriumDoor" type="Node3D" parent="Interactables" unique_id=985442479 node_paths=PackedStringArray("double_callback_door", "video_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.24052)
 script = ExtResource("20_2vh6m")
+invert_open_direction = true
 double_callback_door = NodePath("DoubleCallbackDoor")
 video_stream_player = NodePath("CanvasLayer/VideoStreamPlayer")
 

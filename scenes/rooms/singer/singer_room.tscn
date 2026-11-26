@@ -5,85 +5,86 @@
 [ext_resource type="PackedScene" uid="uid://kc24q860xsbi" path="res://assets/environment/Singer/SingerSecretDrawer.gltf" id="2_rmsdj"]
 [ext_resource type="PackedScene" uid="uid://xauhy31ki4gg" path="res://scenes/interactables/callback_door.tscn" id="3_pnhx5"]
 [ext_resource type="Script" uid="uid://cpfvjpn4c0gfh" path="res://scripts/PlayerMarker.gd" id="4_1hv3k"]
+[ext_resource type="Script" uid="uid://c0rju7t5tj8d4" path="res://scripts/NpcMarker.gd" id="6_58y7r"]
 
 [node name="SingerRoom" type="Node3D" unique_id=423231224]
 script = ExtResource("1_ogcg6")
 
 [node name="SingerRoom" parent="." unique_id=1522745193 instance=ExtResource("1_y3hs1")]
 
-[node name="Point" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="0" unique_id=1017667205]
+[node name="Point" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="0" unique_id=496868651]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_001" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="1" unique_id=170836087]
+[node name="Point_001" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="1" unique_id=1869113634]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_002" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="2" unique_id=2038687593]
+[node name="Point_002" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="2" unique_id=589054086]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_003" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="3" unique_id=1813776738]
+[node name="Point_003" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="3" unique_id=1771256902]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_004" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="4" unique_id=536431457]
+[node name="Point_004" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="4" unique_id=1108526002]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_005" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="5" unique_id=1684466198]
+[node name="Point_005" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="5" unique_id=1659922948]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_006" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="6" unique_id=2109454327]
+[node name="Point_006" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="6" unique_id=1321585284]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_007" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="7" unique_id=1274812783]
+[node name="Point_007" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="7" unique_id=593561037]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_008" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="8" unique_id=1029896618]
+[node name="Point_008" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="8" unique_id=1961925899]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Point_009" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 1018554914) index="9" unique_id=1733718015]
+[node name="Point_009" parent="SingerRoom/Mirror/MirrorLights" parent_id_path=PackedInt32Array(1522745193, 66067813) index="9" unique_id=486488545]
 light_energy = 0.1
 distance_fade_enabled = true
 distance_fade_begin = 15.0
 distance_fade_length = 0.0
 
-[node name="Light3" parent="SingerRoom/Sporlight3" parent_id_path=PackedInt32Array(1522745193, 2118603839) index="0" unique_id=1553220946]
+[node name="Light3" parent="SingerRoom/Sporlight3" parent_id_path=PackedInt32Array(1522745193, 1197455625) index="0" unique_id=1963473173]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
 spot_angle_attenuation = 1.1993059e-05
 
-[node name="Light1" parent="SingerRoom/Spotlight1" parent_id_path=PackedInt32Array(1522745193, 1077996484) index="0" unique_id=1881010222]
+[node name="Light1" parent="SingerRoom/Spotlight1" parent_id_path=PackedInt32Array(1522745193, 1933916793) index="0" unique_id=515356273]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
 spot_angle_attenuation = 1.1993059e-05
 
-[node name="Light2" parent="SingerRoom/Spotlight2" parent_id_path=PackedInt32Array(1522745193, 985428891) index="0" unique_id=1469347917]
+[node name="Light2" parent="SingerRoom/Spotlight2" parent_id_path=PackedInt32Array(1522745193, 750836692) index="0" unique_id=771227555]
 light_energy = 0.25
 spot_attenuation = 0.0
 spot_angle = 39.09
@@ -100,6 +101,12 @@ script = ExtResource("4_1hv3k")
 identifier = "Singer_Inside"
 look_direction = Vector3(-1, 0, 0)
 metadata/_custom_type_script = "uid://cpfvjpn4c0gfh"
+
+[node name="NpcMarker" type="Marker3D" parent="." unique_id=1332755140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+script = ExtResource("6_58y7r")
+identifier = "Singer_Room"
+metadata/_custom_type_script = "uid://c0rju7t5tj8d4"
 
 [connection signal="interacted" from="callback_door" to="." method="_on_callback_door_interacted"]
 

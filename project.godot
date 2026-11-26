@@ -48,7 +48,9 @@ directories/dtl_directory={
 "overworker/lockout": "res://dialogic/timelines/overworker/lockout.dtl",
 "overworker/post_fight_loss": "res://dialogic/timelines/overworker/post_fight_loss.dtl",
 "overworker/post_fight_win": "res://dialogic/timelines/overworker/post_fight_win.dtl",
-"overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl"
+"overworker/warnings": "res://dialogic/timelines/overworker/warnings.dtl",
+"singer/intro": "res://dialogic/timelines/singer/intro.dtl",
+"singer/post_fight": "res://dialogic/timelines/singer/post_fight.dtl"
 }
 layout/style_directory={
 "New_File 2": "res://dialogic/styles/New_File.tres",
@@ -64,13 +66,11 @@ variables={
 "ENKI": {},
 "GLOBAL": {
 "APATHY": 0,
-"DOOR_ACCESS": {},
 "DOOR_LOCKED": "",
 "EMOTIONAL_STATE": "",
 "EMPATHY": 0,
 "HAPPY_ENDING": "",
 "HAS_FOUGHT": "",
-"INTRO": {},
 "SCRATCH": "",
 "TALKED_TO": ""
 },
@@ -80,7 +80,8 @@ variables={
 "UNLOCKED_TALK": false
 },
 "SINGER": {
-"ENTERED_AUDITORIUM": false
+"ENTERED_AUDITORIUM": false,
+"INTRO_DONE": false
 }
 }
 glossary/default_case_sensitive=true

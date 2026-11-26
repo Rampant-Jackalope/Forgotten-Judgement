@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://y47g2h3brrt5" path="res://assets/npc-billboards/singer/Singer_Idle.png" id="2_umune"]
 [ext_resource type="Texture2D" uid="uid://bp74hwyv5dx8h" path="res://assets/npc-billboards/singer/Singer_Fighting_Stance.png" id="3_umune"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="4_lhd28"]
-[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
+[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/singer/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="5_qpjmv"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_3f3ek"]
-[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_lhd28"]
+[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/singer/yow.mp3" id="8_lhd28"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
 animations = [{
@@ -78,11 +78,13 @@ stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="Singer" type="AnimatedSprite2D" parent="." unique_id=213536300]
-position = Vector2(911, 566)
+position = Vector2(911, 442)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_seols")
 animation = &"punch"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Singer" unique_id=174806862]
 script = ExtResource("6_8258g")

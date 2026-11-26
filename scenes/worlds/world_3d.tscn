@@ -31,13 +31,14 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0
 [node name="Npc" type="Node3D" parent="." unique_id=1667203005]
 
 [node name="Singer" parent="Npc" unique_id=861609196 instance=ExtResource("5_mm762")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 24.150553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 24.151)
 
 [node name="Overworker" parent="Npc" unique_id=955105355 instance=ExtResource("6_gsnu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.872955, 0.875, 0)
 
 [node name="Bartender" parent="Npc" unique_id=158156477 instance=ExtResource("6_qfnet")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.3036423, 0.9, 8.548205)
+npc_name = 0
 
 [node name="PlayerDeathMarker" type="Marker3D" parent="." unique_id=228367663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8034594, 0.057750702, 11.355218)

@@ -28,3 +28,7 @@ func transition(identifier: String, npc: DialogicFlags.Npc) -> void:
 	var new_global_pos = _positions[identifier].global_position
 	ScreenFader.transition_npc(_npc_list[npc], new_global_pos)
 	GameState.data[npc] = new_global_pos 
+
+## dialogic facing variant of `transition`
+func npc_transition(identifier: String, npc: String) -> void:
+	self.transition(identifier, DialogicFlags._npc(npc))
