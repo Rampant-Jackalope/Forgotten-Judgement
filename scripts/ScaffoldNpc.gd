@@ -37,10 +37,12 @@ func _notification(what: int) -> void:
 			_build.call_deferred()
 		else:
 			_connect_highlighting()
+			NpcPositionMarkers.register_npc(npc_name, self)
+			_correct_global_npc_position()
 
-		assert(npc_name != null, "No valid DialogicFlags.Npc enum value assigned")
-		NpcPositionMarkers.register_npc(npc_name, self)
-		_correct_global_npc_position()
+	elif what == NOTIFICATION_EXIT_TREE:
+		if not Engine.is_editor_hint():
+			NpcPositionMarkers.remove_npc(npc_name)
 
 func _correct_global_npc_position() -> void:
 	var npc_positions: Dictionary[DialogicFlags.Npc, Vector3] = GameState.data[GameState.DataKey.NPC_POSITIONS]

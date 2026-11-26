@@ -4,9 +4,16 @@ var _positions: Dictionary[String, NpcMarker] = {}
 var _npc_list: Dictionary[DialogicFlags.Npc, Node3D]
 
 func register_npc(npc: DialogicFlags.Npc, root_node: Node3D) -> void:
-	assert(!_npc_list.has(npc), "Npc is already registered in npc list")
-
+	if _npc_list.has(npc):
+		push_error("Duplicate npc %s: already held by %s, new one is %s" % [
+			DialogicFlags.Npc.find_key(npc),
+			_npc_list[npc].get_path(),
+			root_node.get_path()])
+		assert(false)
 	_npc_list[npc] = root_node
+
+func remove_npc(npc: DialogicFlags.Npc) -> bool:
+	return _npc_list.erase(npc)
 
 func add(marker: NpcMarker) -> void:
 	assert(!_positions.has(marker.identifier), "Cannot add NpcMarker with id: %s as it is already taken" % marker.identifier)
