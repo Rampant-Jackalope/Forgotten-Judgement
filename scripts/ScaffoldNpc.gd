@@ -36,6 +36,7 @@ func _notification(what: int) -> void:
 			# Build scaffolding in the editor only, at runtime the children come from the saved scene.
 			_build.call_deferred()
 		else:
+			GameState.about_to_save.connect(_on_save)
 			_connect_highlighting()
 			NpcPositionMarkers.register_npc(npc_name, self)
 			_correct_global_npc_position()
@@ -43,13 +44,18 @@ func _notification(what: int) -> void:
 	elif what == NOTIFICATION_EXIT_TREE:
 		if not Engine.is_editor_hint():
 			NpcPositionMarkers.remove_npc(npc_name)
+			_on_save()
+			GameState.about_to_save.disconnect(_on_save)
 
 func _correct_global_npc_position() -> void:
 	var npc_positions: Dictionary[DialogicFlags.Npc, Vector3] = GameState.data[GameState.DataKey.NPC_POSITIONS]
-	if !npc_positions.has(npc_name):
-		npc_positions[npc_name] = global_position
-	else:
+	if npc_positions.has(npc_name):
 		global_position = npc_positions[npc_name]
+	else:
+		npc_positions[npc_name] = global_position
+
+func _on_save() -> void:
+	GameState.data[GameState.DataKey.NPC_POSITIONS][npc_name] = global_position
 
 func _connect_highlighting() -> void:
 	var interactable := get_node_or_null("Interactable") as Interactable
