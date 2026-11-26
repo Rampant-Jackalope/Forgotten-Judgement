@@ -10,6 +10,7 @@ enum DataKey {
 	PLAYER_POSITION,
 	LOAD_SAVE,
 	ITEMS,
+	NPC_POSITIONS
 }
 
 ## Only keys listed here are saved and loaded. The values are the defaults.
@@ -20,6 +21,7 @@ var data: Dictionary = {
 	DataKey.PLAYER_POSITION: Vector3(0, 0, 8),
 	DataKey.LOAD_SAVE: false,
 	DataKey.ITEMS: [] as Array[ItemData],
+	DataKey.NPC_POSITIONS: {} as Dictionary[DialogicFlags.Npc, Vector3]
 }
 
 var _defaults := data.duplicate(true)

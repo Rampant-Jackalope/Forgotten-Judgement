@@ -40,6 +40,14 @@ func _notification(what: int) -> void:
 
 		assert(npc_name != null, "No valid DialogicFlags.Npc enum value assigned")
 		NpcPositionMarkers.register_npc(npc_name, self)
+		_correct_global_npc_position()
+
+func _correct_global_npc_position() -> void:
+	var npc_positions: Dictionary[DialogicFlags.Npc, Vector3] = GameState.data[GameState.DataKey.NPC_POSITIONS]
+	if !npc_positions.has(npc_name):
+		npc_positions[npc_name] = global_position
+	else:
+		global_position = npc_positions[npc_name]
 
 func _connect_highlighting() -> void:
 	var interactable := get_node_or_null("Interactable") as Interactable

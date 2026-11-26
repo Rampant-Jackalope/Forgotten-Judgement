@@ -16,4 +16,6 @@ func remove(identifier: String) -> bool:
 func transition(identifier: String, npc: DialogicFlags.Npc) -> void:
 	assert(_positions.has(identifier), "No Npc marker with identifier %s" % identifier)	
 	assert(_npc_list.has(npc), "The " + DialogicFlags.Npc.keys()[npc] + " key is not registered")
-	ScreenFader.transition_npc(_npc_list[npc], _positions[identifier].global_position)
+	var new_global_pos = _positions[identifier].global_position
+	ScreenFader.transition_npc(_npc_list[npc], new_global_pos)
+	GameState.data[npc] = new_global_pos 
