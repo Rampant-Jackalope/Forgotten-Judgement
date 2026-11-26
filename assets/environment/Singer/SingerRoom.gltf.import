@@ -45,7 +45,8 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Coatrack": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 0
 },
 "PATH:DirectorChair": {
 "generate/physics": true
@@ -57,7 +58,8 @@ _subresources={
 "generate/physics": true
 },
 "PATH:JukeBox": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 0
 },
 "PATH:Mirror": {
 "generate/physics": true
