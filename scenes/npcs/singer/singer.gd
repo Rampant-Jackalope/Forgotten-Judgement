@@ -22,4 +22,4 @@ func _on_interactable_interacted(interactor: Interactor, _pop: Callable) -> void
 		# timeline sets `SINGER.INTRO_DONE` so that `_on_world_change()` gets toggled at the right time
 		return
 
-	# TODO: add other dialogue
+	# TODO: add other dialogue	
