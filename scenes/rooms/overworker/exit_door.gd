@@ -13,6 +13,6 @@ func _earned_no_touch_reward() -> bool:
 	if Dialogic.VAR.OVERWORKER.TOUCH_COUNT != 0:
 		return false
 	# reward is one-time, and pointless if he's already resolved
-	if Dialogic.VAR.OVERWORKER.UNLOCKED_TALK or Dialogic.VAR.OVERWORKER.HAPPY_ENDING:
+	if Dialogic.VAR.OVERWORKER.UNLOCKED_TALK or DialogicFlags.has_reached_happy_ending(DialogicFlags.Npc.OVERWORKER):
 		return false
 	return true

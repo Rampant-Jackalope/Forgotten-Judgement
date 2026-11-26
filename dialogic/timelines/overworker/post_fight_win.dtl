@@ -24,7 +24,7 @@ leave overworker
 	overworker: Yeah.[pause=0.5] It is.[pause=1.0] Thanks for listening.[pause=0.6] Don't tell anyone I said that.
 	leave overworker
 	do DialogicFlags.set_feels("HAPPY")
-	set {OVERWORKER.HAPPY_ENDING} = true
+	do DialogicFlags.set_is_happy_ending("OVERWORKER", true)
 - Be mean
 	join main_player center
 	main_player: Maybe if you got your life together you wouldn't need to hit people with coffee cups.

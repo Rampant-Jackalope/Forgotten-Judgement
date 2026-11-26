@@ -6,7 +6,7 @@ if {OVERWORKER.UNLOCKED_TALK} == true:
 	- nevermind
 	- You never told me what's really going on.
 		INSERT ACTUAL DIALOGUE
-		set {OVERWORKER.HAPPY_ENDING} = true
+		do DialogicFlags.set_is_happy_ending("OVERWORKER", true)
 [end_timeline]
 label annoyed
 join overworker left

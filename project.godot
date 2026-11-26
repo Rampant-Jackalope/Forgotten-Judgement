@@ -68,6 +68,7 @@ variables={
 "DOOR_LOCKED": "",
 "EMOTIONAL_STATE": "",
 "EMPATHY": 0,
+"HAPPY_ENDING": "",
 "HAS_FOUGHT": "",
 "INTRO": {},
 "SCRATCH": "",
@@ -75,7 +76,6 @@ variables={
 },
 "HOBO": {},
 "OVERWORKER": {
-"HAPPY_ENDING": false,
 "TOUCH_COUNT": 0,
 "UNLOCKED_TALK": false
 },
