@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var room_texture: Texture2D
+@export var stage_texture: Texture2D
+
 @export var min_attack_interval: float = 0:
 	set(value):
 		min_attack_interval = value
@@ -22,6 +25,8 @@ var player_health: Health
 var _attacks: Array[AttackBase] = []
 
 func _ready() -> void:
+	$CanvasLayer/BG.texture = room_texture if Dialogic.VAR.SINGER.INTRO_DONE else stage_texture
+
 	attack_cooldown_timer.timeout.connect(_spawn_projectile)
 	attack_cooldown_timer.one_shot = true
 	add_child(attack_cooldown_timer)
@@ -57,6 +62,7 @@ func _spawn_projectile() -> void:
 	attack_cooldown_timer.start()
 
 func _on_player_death() -> void:
+	DialogicFlags.set_fought(DialogicFlags.Npc.SINGER, false)
 	PlayerPositionMarkers.transition("Generic_Player_Death")
 	WorldManager.set_world_to_3d()
 
@@ -66,4 +72,5 @@ func _on_michael_health_changed(old: int, new: int) -> void:
 
 # Connected to signal
 func _on_michael_died() -> void:
+	DialogicFlags.set_fought(DialogicFlags.Npc.SINGER, true)
 	WorldManager.set_world_to_3d()

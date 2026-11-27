@@ -24,6 +24,7 @@ radius = 0.2
 
 [node name="Michael" type="Node3D" unique_id=1274376584]
 script = ExtResource("1_wphqx")
+npc_name = 2
 metadata/_custom_type_script = "uid://ds722qjsiqawc"
 
 [node name="Target" type="Node3D" parent="." unique_id=667794285]
@@ -39,11 +40,11 @@ shape = SubResource("SphereShape3D_1kpxu")
 
 [node name="ScaledSprite3D" type="Sprite3D" parent="." unique_id=446790918]
 material_override = SubResource("ShaderMaterial_5u0pl")
-pixel_size = 0.0006619594
+pixel_size = 0.00088261254
 billboard = 2
 texture = ExtResource("3_wphqx")
 script = ExtResource("4_vbtkr")
-height_m = 1.5
+height_m = 2.0
 metadata/_custom_type_script = "uid://c63qvq2jgegbh"
 
 [node name="DialogicSignalable" type="Node" parent="." unique_id=986865015]
@@ -57,4 +58,3 @@ metadata/_custom_type_script = "uid://d04vnm70e1wfo"
 shape = SubResource("CapsuleShape3D_j16c8")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
-[connection signal="recieved" from="DialogicSignalable" to="." method="_on_dialogic_event"]

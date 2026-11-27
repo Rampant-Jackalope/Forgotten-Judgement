@@ -24,6 +24,7 @@ const _TALKED_TO := "GLOBAL.TALKED_TO"
 const _HAS_FOUGHT := "GLOBAL.HAS_FOUGHT"
 const _DOOR_LOCKED := "GLOBAL.DOOR_LOCKED"
 const _EMOTIONAL_STATE := "GLOBAL.EMOTIONAL_STATE"
+const _HAPPY_ENDING := "GLOBAL.HAPPY_ENDING"
 
 func _has(var_path: String, key: int) -> bool:
 	return _read(var_path).has(key)
@@ -78,6 +79,13 @@ func is_current_emotional_state(npc: Npc, emotion: EmotionalState) -> bool:
 func set_emotional_state(npc: Npc, emotion: EmotionalState) -> void:
 	_set_var(_EMOTIONAL_STATE, npc, true, emotion)
 
+
+# Happy Ending
+func has_reached_happy_ending(npc: Npc) -> bool:
+	return _has(_HAPPY_ENDING, npc)
+func set_happy_ending(npc: Npc, happy: bool = true) -> void:
+	_set_var(_HAPPY_ENDING, npc, happy)
+
 # SECTION: Dialogic-facing wrappers (take Npc / state names as strings)
 
 func _npc(npc_name: String) -> Npc:
@@ -88,11 +96,13 @@ func _emotion(emotion_name: String) -> EmotionalState:
 	assert(EmotionalState.has(emotion_name), "unknown emotion: " + emotion_name)
 	return EmotionalState[emotion_name]
 
+# Interaction
 func talked_to(npc_name: String) -> bool:
 	return has_talked_to(_npc(npc_name))
 func set_talked(npc_name: String, met: bool = true) -> void:
 	set_talked_to(_npc(npc_name), met)
 
+# Fighting
 func fought(npc_name: String) -> bool:
 	return has_fought(_npc(npc_name))
 func won_fight(npc_name: String) -> bool:
@@ -102,12 +112,20 @@ func set_fight(npc_name: String, won: bool) -> void:
 func clear_fight(npc_name: String) -> void:
 	clear_fought(_npc(npc_name))
 
+# Door
 func door_locked(npc_name: String) -> bool:
 	return is_door_locked(_npc(npc_name))
 func lock_door(npc_name: String, locked: bool = true) -> void:
 	set_door_locked(_npc(npc_name), locked)
 
+# Emotional State
 func feels(npc_name: String, emotion_name: String) -> bool:
 	return is_current_emotional_state(_npc(npc_name), _emotion(emotion_name))
 func set_feels(npc_name: String, emotion_name: String) -> void:
 	set_emotional_state(_npc(npc_name), _emotion(emotion_name))
+
+# Happy Ending
+func reached_happy_ending(npc_name: String) -> bool:
+	return has_reached_happy_ending(_npc(npc_name))
+func set_is_happy_ending(npc_name: String, happy: bool = true) -> void:
+	set_happy_ending(_npc(npc_name), happy)

@@ -4,16 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://cg84nkjveypkf" path="res://scenes/player/2d/player2d.tscn" id="1_mal7u"]
 [ext_resource type="Texture2D" uid="uid://iqcfddiwbp5i" path="res://assets/combat/singer/singer_fight_bg.png" id="2_0m6x6"]
 [ext_resource type="Script" uid="uid://dja725fdmnl25" path="res://scripts/combat/attack/PunchAttack.gd" id="2_46jaq"]
+[ext_resource type="Texture2D" uid="uid://tlixkg1pejos" path="res://assets/combat/singer/singer_fight_bg_room.png" id="2_cw3ph"]
 [ext_resource type="PackedScene" uid="uid://j4y8ftfndul1" path="res://scenes/fights/singer/kicked_shoe.tscn" id="2_lkias"]
 [ext_resource type="PackedScene" uid="uid://ssoj8xu5iorp" path="res://scenes/fights/singer/falling_hat.tscn" id="2_s2w16"]
 [ext_resource type="Texture2D" uid="uid://y47g2h3brrt5" path="res://assets/npc-billboards/singer/Singer_Idle.png" id="2_umune"]
 [ext_resource type="Texture2D" uid="uid://bp74hwyv5dx8h" path="res://assets/npc-billboards/singer/Singer_Fighting_Stance.png" id="3_umune"]
 [ext_resource type="Script" uid="uid://pehdx3t13aap" path="res://scripts/combat/attack/DropItemAttack.gd" id="4_lhd28"]
-[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/michael/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
+[ext_resource type="AudioStream" uid="uid://cyv48rwnxp3c5" path="res://assets/combat/singer/floraphonic-cartoon-slap-2-189831.mp3" id="5_f1qsm"]
 [ext_resource type="Script" uid="uid://in1tag4vt7uf" path="res://scripts/Sprite2DAnchor.gd" id="5_qpjmv"]
 [ext_resource type="Script" uid="uid://c4wgug1cjgt2b" path="res://scripts/combat/Health.gd" id="6_8258g"]
 [ext_resource type="PackedScene" uid="uid://caucfym3vffpc" path="res://scenes/ui/stats/healthbar.tscn" id="7_3f3ek"]
-[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/michael/yow.mp3" id="8_lhd28"]
+[ext_resource type="AudioStream" uid="uid://bxkt6twlodqgo" path="res://assets/combat/singer/yow.mp3" id="8_lhd28"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_seols"]
 animations = [{
@@ -59,6 +60,8 @@ size = Vector2(29.488148, 37.91285)
 
 [node name="World" type="Node2D" unique_id=2023541201 node_paths=PackedStringArray("hurt_audio_player")]
 script = ExtResource("1_6y3e3")
+room_texture = ExtResource("2_cw3ph")
+stage_texture = ExtResource("2_0m6x6")
 min_attack_interval = 1.0
 max_attack_interval = 1.5
 hurt_audio_player = NodePath("Singer/HurtAudioPlayer")
@@ -78,11 +81,13 @@ stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="Singer" type="AnimatedSprite2D" parent="." unique_id=213536300]
-position = Vector2(911, 566)
+position = Vector2(911, 442)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_seols")
 animation = &"punch"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [node name="Health" type="Node" parent="Singer" unique_id=174806862]
 script = ExtResource("6_8258g")

@@ -1,0 +1,54 @@
+join singer left
+singer: Well how did you find my performance?
+leave singer
+- Absolute Trash
+	jump trash_talk
+- Compliment
+	jump compliment
+- Criticise
+	jump criticise
+label trash_talk
+join main_player center
+main_player: That's [pause=0.5]he worst singing I've [b]ever[/b] heard
+leave main_player
+join singer left
+singer: [INSERT ANGRY RESONSE]
+leave singer
+do PlayerStats.add_apathy()
+do DialogicFlags.set_feels("SINGER", "ANGRY")
+[end_timeline]
+label compliment
+join main_player center
+main_player: Oh it[pause=0.5] was[pause=0.5] [b]great[/b]!
+leave main_player
+join singer left
+singer: [INSERT SATISFIED NOISES]
+singer: I have had my fill of [rainbow=0.1]praise[/rainbow] im retiring to my chambers.
+leave singer
+do NpcPositionMarkers.npc_transition("Singer_Room", "SINGER")
+do PlayerStats.add_empathy()
+set {SINGER.INTRO_DONE} = true
+[end_timeline]
+label criticise
+join main_player center
+main_player: It's not my [i]type[/i] of music.
+leave main_player
+join singer left
+singer: Well the [i]audiance liked it[/i].
+leave singer
+do PlayerStats.add_apathy()
+- Question her sanity
+	join main_player center
+	main_player: Oh don't fool yourself
+	leave main_player
+- Agree, to shut her up
+	join main_player center
+	main_player: Sure [b]bud[/b]
+	leave main_player
+join singer left
+singer: The audiance is fake anyway. My talent is truly wasted on these literal [shake=1]nobodies[/shake]. I'm done[pause=0.5]...bye.
+leave singer
+do NpcPositionMarkers.npc_transition("Singer_Room", "SINGER")
+set {SINGER.INTRO_DONE} = true
+do DialogicFlags.set_talked("SINGER", true)
+[end_timeline]
